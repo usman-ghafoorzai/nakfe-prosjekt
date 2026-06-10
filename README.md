@@ -1,36 +1,120 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# NAKFE Website
 
-## Getting Started
+Dette repoet inneholder utviklingen av en ny nettside for NAKFE. Målet er å bygge en moderne, responsiv og brukervennlig organisasjonsnettside, med mulighet for å koble på en RAG-basert chatbot senere.
 
-First, run the development server:
+Prosjektet utvikles også som et porteføljeprosjekt med fokus på moderne webutvikling, strukturert systemdesign og praktisk bruk av AI/RAG.
+
+## Formål
+
+Nettsiden skal gi besøkende enkel tilgang til informasjon om NAKFE, organisasjonens arbeid, aktiviteter, prosjekter og kontaktinformasjon.
+
+På sikt skal nettsiden også inneholde en chatbot som kan svare på spørsmål basert på organisasjonens eget innhold.
+
+## Tech-stack
+
+Første versjon av prosjektet bygges med:
+
+* Next.js
+* TypeScript
+* Tailwind CSS
+* ESLint
+* GitHub Actions for CI
+* Vercel for deployment senere
+
+Planlagt videre stack for RAG-funksjonalitet:
+
+* Supabase Postgres
+* pgvector
+* OpenAI API
+* Vercel AI SDK
+
+## Lokal utvikling
+
+Installer dependencies:
+
+```bash
+npm install
+```
+
+Start utviklingsserver:
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Åpne deretter:
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```txt
+http://localhost:3000
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Scripts
 
-## Learn More
+```bash
+npm run dev
+```
 
-To learn more about Next.js, take a look at the following resources:
+Starter lokal utviklingsserver.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+```bash
+npm run build
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+Bygger prosjektet for produksjon.
 
-## Deploy on Vercel
+```bash
+npm run lint
+```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Kjører linting.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+```bash
+npm run typecheck
+```
+
+Kjører TypeScript type checking uten å bygge prosjektet.
+
+## Branch-struktur
+
+Prosjektet bruker en enkel branch-struktur:
+
+```txt
+main  = stabil produksjonsbranch
+dev   = utviklingsbranch
+feature/* = konkrete arbeidsoppgaver
+```
+
+Vanlig arbeidsflyt:
+
+```txt
+feature branch -> dev -> main
+```
+
+## RAG-plan
+
+Chatboten skal ikke bygges i første fase. Først bygges en vanlig nettside med strukturert innhold. Senere skal innholdet kunne brukes som kunnskapsgrunnlag for en RAG-basert chatbot.
+
+Planlagt RAG-flyt:
+
+```txt
+NAKFE-innhold
+-> tekst deles i chunks
+-> embeddings genereres
+-> embeddings lagres i vector database
+-> bruker stiller spørsmål
+-> relevante chunks hentes
+-> språkmodell svarer basert på kontekst
+```
+
+## Status
+
+Prosjektet er i tidlig oppstartsfase.
+
+Første mål er å få opp en enkel, responsiv nettside med:
+
+* Forside
+* Navbar
+* Footer
+* Om oss-side
+* Kontakt-side
+* Enkel innholdsstruktur
