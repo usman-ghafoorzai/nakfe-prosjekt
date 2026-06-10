@@ -28,8 +28,7 @@ export default function Navbar() {
             >
                 <Link
                     href="/"
-                    className="inline-flex min-h-11 items-center gap-3 rounded-full px-2 pr-4 text-lg font-bold tracking-tight text-gray-950 outline-none transition duration-200 ease-out hover:-translate-y-0.5 hover:bg-gray-50 active:translate-y-0 active:scale-[0.98] focus-visible:ring-2 focus-visible:ring-gray-950 focus-visible:ring-offset-2 motion-reduce:transition-none motion-reduce:hover:translate-y-0 motion-reduce:active:scale-100"
-                    aria-current={pathname === "/" ? "page" : undefined}
+                    className="inline-flex min-h-11 items-center gap-3 rounded-full px-2 pr-4 text-lg font-bold tracking-tight text-gray-950 outline-none transition duration-200 ease-out hover:bg-gray-50 active:translate-y-0 active:scale-[0.98] focus-visible:ring-2 focus-visible:ring-gray-950 focus-visible:ring-offset-2 motion-reduce:transition-none motion-reduce:active:scale-100"                    aria-current={pathname === "/" ? "page" : undefined}
                     aria-label="NAKFE - gå til forsiden"
                     onClick={() => setIsOpen(false)}
                 >
