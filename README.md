@@ -1,32 +1,73 @@
 # NAKFE Website
 
-Dette repoet inneholder utviklingen av en ny nettside for NAKFE. Målet er å bygge en moderne, responsiv og brukervennlig organisasjonsnettside, med mulighet for å koble på en RAG-basert chatbot senere.
+Dette repoet inneholder utviklingen av en ny nettside for NAKFE, en ideell organisasjon. Målet er å lage en moderne, responsiv og tilgjengelig nettside som gjør det enklere å finne informasjon om organisasjonen, aktiviteter, prosjekter og kontaktmuligheter.
 
-Prosjektet utvikles også som et porteføljeprosjekt med fokus på moderne webutvikling, strukturert systemdesign og praktisk bruk av AI/RAG.
+Prosjektet bygges også som et porteføljeprosjekt, med fokus på moderne webutvikling, god struktur, tilgjengelighet og etter hvert en RAG-basert chatbot.
 
-## Formål
+## Mål
 
-Nettsiden skal gi besøkende enkel tilgang til informasjon om NAKFE, organisasjonens arbeid, aktiviteter, prosjekter og kontaktinformasjon.
+Første versjon av nettsiden skal være enkel, ryddig og brukervennlig.
 
-På sikt skal nettsiden også inneholde en chatbot som kan svare på spørsmål basert på organisasjonens eget innhold.
+Hovedfokus:
+
+* tydelig informasjon om NAKFE
+* responsivt design for mobil og desktop
+* tilgjengelige komponenter med god tastaturnavigasjon
+* moderne, men kontrollert interaktivitet
+* strukturert innhold som senere kan brukes av en RAG-chatbot
 
 ## Tech-stack
 
-Første versjon av prosjektet bygges med:
+Prosjektet bygges med:
 
 * Next.js
 * TypeScript
 * Tailwind CSS
 * ESLint
 * GitHub Actions for CI
-* Vercel for deployment senere
 
-Planlagt videre stack for RAG-funksjonalitet:
+Planlagt videre:
 
+* Vercel for deployment
 * Supabase Postgres
 * pgvector
 * OpenAI API
 * Vercel AI SDK
+
+## Tilgjengelighet og interaktivitet
+
+Nettsiden skal utvikles med tilgjengelighet som en del av design- og utviklingsprosessen, ikke som noe som legges på til slutt.
+
+Retningslinjer:
+
+* semantisk HTML der det er mulig
+* synlige focus states
+* tastaturtilgjengelige interaksjoner
+* mobilvennlige trykkflater
+* tydelig aktiv side i navigasjon
+* nok kontrast mellom tekst og bakgrunn
+* subtil bevegelse som ikke forstyrrer innholdet
+* støtte for brukere som foretrekker redusert bevegelse
+
+Målet er å følge relevante WCAG 2.1-prinsipper gjennom hele prosjektet.
+
+## RAG-plan
+
+Chatboten bygges ikke i første fase. Først bygges en vanlig nettside med godt strukturert innhold.
+
+Senere skal innholdet kunne brukes som kunnskapsgrunnlag for en RAG-basert chatbot som svarer på spørsmål om NAKFE basert på organisasjonens egne tekster.
+
+Overordnet plan:
+
+```txt
+NAKFE-innhold
+-> tekst deles i mindre chunks
+-> embeddings genereres
+-> embeddings lagres i vector database
+-> bruker stiller spørsmål
+-> relevante tekstbiter hentes
+-> språkmodell svarer basert på kontekst
+```
 
 ## Lokal utvikling
 
@@ -42,7 +83,7 @@ Start utviklingsserver:
 npm run dev
 ```
 
-Åpne deretter:
+Åpne:
 
 ```txt
 http://localhost:3000
@@ -57,12 +98,6 @@ npm run dev
 Starter lokal utviklingsserver.
 
 ```bash
-npm run build
-```
-
-Bygger prosjektet for produksjon.
-
-```bash
 npm run lint
 ```
 
@@ -72,7 +107,13 @@ Kjører linting.
 npm run typecheck
 ```
 
-Kjører TypeScript type checking uten å bygge prosjektet.
+Kjører TypeScript type checking.
+
+```bash
+npm run build
+```
+
+Bygger prosjektet for produksjon.
 
 ## Branch-struktur
 
@@ -87,34 +128,16 @@ feature/* = konkrete arbeidsoppgaver
 Vanlig arbeidsflyt:
 
 ```txt
-feature branch -> dev -> main
-```
-
-## RAG-plan
-
-Chatboten skal ikke bygges i første fase. Først bygges en vanlig nettside med strukturert innhold. Senere skal innholdet kunne brukes som kunnskapsgrunnlag for en RAG-basert chatbot.
-
-Planlagt RAG-flyt:
-
-```txt
-NAKFE-innhold
--> tekst deles i chunks
--> embeddings genereres
--> embeddings lagres i vector database
--> bruker stiller spørsmål
--> relevante chunks hentes
--> språkmodell svarer basert på kontekst
+feature branch -> pull request -> dev -> main
 ```
 
 ## Status
 
-Prosjektet er i tidlig oppstartsfase.
+Prosjektet er i tidlig utviklingsfase.
 
-Første mål er å få opp en enkel, responsiv nettside med:
+Nåværende fokus:
 
-* Forside
-* Navbar
-* Footer
-* Om oss-side
-* Kontakt-side
-* Enkel innholdsstruktur
+* sette opp grunnstruktur
+* bygge tilgjengelig og mobilvennlig navbar
+* etablere designretning
+* bygge videre side for side
