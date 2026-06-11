@@ -115,3 +115,31 @@ export type ProjectsPageContent = {
   hero: PageHeroContent;
   projects: CardGridSectionContent;
 };
+
+export type ActivityStatus = "upcoming" | "past" | "cancelled";
+
+export type ActivityItemContent = {
+  title: string;
+  description: string;
+  startDate?: string;
+  endDate?: string;
+  location?: string;
+  category?: string;
+  status: ActivityStatus;
+  registrationLink?: ContentLink;
+  accessibilityNote?: string;
+  image?: ContentImage;
+  isFeatured?: boolean;
+};
+
+export type ActivitySectionContent = {
+  header: SectionHeaderContent;
+  items: ActivityItemContent[];
+  emptyState: EmptyStateContent;
+};
+
+export type ActivitiesPageContent = {
+  seo: SeoContent;
+  hero: PageHeroContent;
+  activities: ActivitySectionContent;
+};
