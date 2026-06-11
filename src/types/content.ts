@@ -15,8 +15,5 @@ export type HomeHeroContent = {
   description: string;
   primaryAction: ContentLink;
   secondaryAction: ContentLink;
-  highlightsLabel: string;
-  highlights: string[];
-  note: string;
   backgroundImage: HeroBackgroundImage;
 };
