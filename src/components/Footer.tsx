@@ -7,7 +7,7 @@ export default function Footer() {
 
   return (
       <footer className="border-t border-gray-200 bg-gray-50">
-        <div className="mx-auto grid max-w-6xl gap-8 px-4 py-8 sm:px-6 md:grid-cols-[1.3fr_0.8fr_1fr] md:py-10">
+        <div className="mx-auto grid max-w-6xl gap-14 px-4 py-6 sm:px-6 md:grid-cols-[1.3fr_0.8fr_1fr] md:py-8">
           <section aria-labelledby="footer-about-heading">
             <Link
                 href="/"
@@ -27,7 +27,7 @@ export default function Footer() {
             </span>
             </Link>
 
-            <p className="mt-4 max-w-md text-sm leading-6 text-gray-600">
+            <p className="mt-3 max-w-md text-sm leading-6 text-gray-600">
               NAKFE er en ideell organisasjon. Nettsiden utvikles for å gjøre
               informasjon om organisasjonen, aktiviteter og kontaktmuligheter mer
               tilgjengelig.
@@ -42,7 +42,7 @@ export default function Footer() {
               Navigasjon
             </h2>
 
-            <ul className="mt-3 flex flex-col gap-0">
+            <ul className="mt-3 grid grid-cols-2 gap-x-4 gap-y-0">
               {navLinks.map((link) => (
                   <li key={link.href}>
                     <Link
@@ -81,8 +81,8 @@ export default function Footer() {
         </div>
 
         <div className="border-t border-gray-200">
-          <div className="mx-auto flex max-w-6xl flex-col gap-3 px-4 py-4 sm:px-6 md:flex-row md:items-center md:justify-between">
-            <div className="flex flex-col gap-1 text-sm text-gray-500">
+          <div className="mx-auto flex max-w-6xl flex-col gap-1 px-4 py-1 sm:px-6 md:flex-row md:items-center md:justify-between">
+            <div className="flex flex-col gap-1 text-xs text-gray-500">
               <p>© {currentYear} NAKFE. Alle rettigheter reservert.</p>
 
               <p>
