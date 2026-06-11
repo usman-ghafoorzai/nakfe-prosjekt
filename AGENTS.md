@@ -158,4 +158,36 @@ Before an interactive component is considered done, check:
 * Does `npm run build` pass?
 
 A component is not finished just because it looks good visually. It must also behave well.
+
+## Content architecture / CMS-readiness
+
+Do not hard-code page content directly inside presentational components.
+
+The project should be built so content can later be edited through an admin channel, CMS, Supabase, database, or similar content source. For now, static TypeScript content files are acceptable, but they must be structured as a temporary content layer, not mixed into UI components.
+
+Use this separation:
+
+- `src/content/*` = page/content data
+- `src/types/*` = shared content/data types
+- `src/components/*` = reusable presentational components
+- `src/app/*` = route-level composition that connects content and components
+
+Components should receive content through props when practical.
+
+Good pattern:
+
+```tsx
+<Hero content={homeContent.hero} />
+```
+
+Avoid this pattern inside components:
+
+```tsx
+<h1>Hard-coded page title</h1>
+<p>Hard-coded organization text...</p>
+```
+
+When creating new sections such as hero, FAQ, activities, projects, contact information, footer text, cards, or page copy, first place the editable content in a typed content object. Then make the component render from that object.
+
+The goal is to make it possible to later replace src/content/* with Supabase/CMS/admin-managed content without rewriting the visual components.
 </modern-accessible-ui-rules>
