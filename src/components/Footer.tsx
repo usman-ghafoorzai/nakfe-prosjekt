@@ -89,7 +89,7 @@ export default function Footer() {
                 Nettside utviklet av{" "}
                 <a
                     href="https://www.linkedin.com/in/usman-ghafoorzai/"
-                    className="font-medium text-gray-600 underline underline-offset-4 outline-none transition hover:text-gray-950 focus-visible:ring-2 focus-visible:ring-gray-950 focus-visible:ring-offset-2"
+                    className="font-medium text-gray-600  outline-none transition hover:text-gray-950 focus-visible:ring-2 focus-visible:ring-gray-950 focus-visible:ring-offset-2"
                 >
                   Usman Ghafoorzai
                 </a>
