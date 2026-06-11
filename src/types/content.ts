@@ -3,6 +3,12 @@ export type ContentLink = {
   href: string;
 };
 
+export type HeroBackgroundImage = {
+  src: string;
+  alt: string;
+  position: string;
+};
+
 export type HomeHeroContent = {
   eyebrow: string;
   title: string;
@@ -12,4 +18,5 @@ export type HomeHeroContent = {
   highlightsLabel: string;
   highlights: string[];
   note: string;
+  backgroundImage: HeroBackgroundImage;
 };
