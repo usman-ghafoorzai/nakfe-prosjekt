@@ -1,3 +1,4 @@
+import CtaSection from "@/components/CtaSection";
 import FaqSection from "@/components/FaqSection";
 import PageHero from "@/components/PageHero";
 import { faqContent } from "@/content/faq";
@@ -10,6 +11,9 @@ export default function FaqPage() {
     <>
       <PageHero content={faqContent.hero} />
       <FaqSection categories={faqContent.categories} />
+      {faqContent.contactCta ? (
+        <CtaSection content={faqContent.contactCta} />
+      ) : null}
     </>
   );
 }
