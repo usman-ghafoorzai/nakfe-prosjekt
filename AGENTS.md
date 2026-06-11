@@ -1,13 +1,14 @@
-@AGENTS.md
 <modern-accessible-ui-rules>
 The site should feel modern, interactive and polished while still being accessible and easy to use.
 
-Accessibility and interaction design must be treated as the same design problem, not as competing goals.
+Accessibility, interaction design, and content architecture must be treated as part of the same design problem, not as competing goals.
 
 ## Core Principle
 
 Do not add interaction only because it looks nice.
+
 Start with a simple, usable version first. Add interaction only when the base behavior works without it.
+
 Every interactive detail should improve at least one of these:
 
 * clarity
@@ -78,7 +79,7 @@ Required:
 * mobile menu button uses `aria-controls`
 * menu can be closed with Escape
 * all links are reachable with Tab
-* focus ring is visible
+* focus state is visible
 * tap targets are mobile-friendly
 * menu does not depend on hover
 
@@ -89,7 +90,7 @@ Allowed enhancements:
 * subtle shadow on scroll
 * animated mobile menu open/close
 * hover/focus transitions
-* active link pill or underline
+* active link underline or subtle active marker
 * small logo hover effect
 
 Not allowed unless carefully implemented:
@@ -158,4 +159,167 @@ Before an interactive component is considered done, check:
 * Does `npm run build` pass?
 
 A component is not finished just because it looks good visually. It must also behave well.
+
+## Content architecture / CMS-readiness
+
+Do not hard-code editable page content directly inside presentational components.
+
+The project should be built so content can later be edited through an admin channel, CMS, Supabase, database, or similar content source.
+
+For now, static TypeScript content files are acceptable, but they must be treated as a temporary content layer, not mixed into UI components.
+
+Use this separation:
+
+* `src/content/*` = page/content data
+* `src/types/*` = shared content/data types
+* `src/components/*` = reusable presentational components
+* `src/app/*` = route-level composition that connects content and components
+
+Components should receive content through props when practical.
+
+Good pattern:
+
+```tsx
+<Hero content={homeContent.hero} />
+```
+
+Avoid this pattern inside components:
+
+```tsx
+<h1>Hard-coded page title</h1>
+<p>Hard-coded organization text...</p>
+```
+
+When creating new sections such as hero, FAQ, activities, projects, contact information, footer text, cards, page copy, images, buttons, or calls to action, first place the editable content in a typed content object. Then make the component render from that object.
+
+The goal is to make it possible to later replace `src/content/*` with Supabase/CMS/admin-managed content without rewriting the visual components.
+
+## CMS-first page scaffolding standard
+
+When creating new pages, build the content structure first, then the UI.
+
+A new page should normally include:
+
+1. A typed content model in `src/types/*`
+2. A temporary static content object in `src/content/*`
+3. One or more presentational components in `src/components/*`
+4. A route in `src/app/*/page.tsx` that connects the content object to the components
+
+It is acceptable for early content objects to contain placeholder values, empty strings, or temporary text, but placeholders must live in `src/content/*`, not inside the component markup.
+
+Good pattern:
+
+```tsx
+import PageHero from "@/components/PageHero";
+import { aboutContent } from "@/content/about";
+
+export default function AboutPage() {
+  return <PageHero content={aboutContent.hero} />;
+}
+```
+
+Avoid:
+
+```tsx
+export default function AboutPage() {
+  return (
+    <section>
+      <h1>Om NAKFE</h1>
+      <p>Temporary hard-coded page copy...</p>
+    </section>
+  );
+}
+```
+
+The route file may compose the page, but it should not contain large amounts of editable page copy.
+
+## Editable content fields
+
+Treat the following as editable content, not component logic:
+
+* page titles
+* subtitles
+* descriptions
+* body text
+* button labels
+* button hrefs
+* images
+* image alt text
+* image object position
+* card titles
+* card descriptions
+* FAQ questions
+* FAQ answers
+* activity names
+* activity dates
+* activity locations
+* contact information
+* social links
+* footer text
+* CTA text
+* section labels
+* empty states
+
+If a future admin user would reasonably want to change it, it belongs in the content layer.
+
+## Layout vs content
+
+It is acceptable to hard-code layout decisions in components, such as:
+
+* section spacing
+* grid structure
+* card layout
+* visual hierarchy
+* typography classes
+* responsive behavior
+* animation behavior
+* semantic HTML structure
+
+It is not acceptable to hard-code organization-specific copy directly inside reusable visual components.
+
+The component should answer:
+
+```txt
+How should this content look and behave?
+```
+
+The content object should answer:
+
+```txt
+What should this page say and show?
+```
+
+## Future admin/Supabase direction
+
+Do not build the admin panel too early.
+
+For now, prepare for it by keeping content structured, typed, and separate from presentation.
+
+Later, the static content layer can be replaced by:
+
+* Supabase database tables
+* Supabase Storage for images and documents
+* an admin page for editing content
+* a CMS
+* Markdown/MDX
+* API-driven content
+
+The current component API should make that migration possible without rewriting the UI.
+
+Example current pattern:
+
+```tsx
+<Hero content={homeContent.hero} />
+```
+
+Example future pattern:
+
+```tsx
+const homeContent = await getHomeContent();
+
+<Hero content={homeContent.hero} />
+```
+
+The component should not care whether the content comes from a TypeScript file, Supabase, a CMS, or an admin panel.
+
 </modern-accessible-ui-rules>
