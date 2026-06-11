@@ -84,3 +84,16 @@ export type FooterContent = {
   developerCredit?: ContentLink;
   qualityNote?: string;
 };
+
+export type TextSectionContent = {
+  header: SectionHeaderContent;
+  body: string[];
+  image?: ContentImage;
+  action?: ContentLink;
+};
+
+export type AboutPageContent = {
+  seo: SeoContent;
+  hero: PageHeroContent;
+  intro: TextSectionContent;
+};
