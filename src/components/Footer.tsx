@@ -11,7 +11,7 @@ export default function Footer() {
           <section aria-labelledby="footer-about-heading">
             <Link
                 href="/"
-                className="inline-flex min-h-11 items-center gap-3 rounded-full pr-4 text-gray-950 outline-none transition duration-200 ease-out hover:-translate-y-0.5 focus-visible:ring-2 focus-visible:ring-gray-950 focus-visible:ring-offset-2 motion-reduce:transition-none motion-reduce:hover:translate-y-0"
+                className="inline-flex min-h-11 items-center gap-3 rounded-full pr-4 text-gray-950 transition duration-200 ease-out hover:bg-gray-50 focus-ring motion-reduce:transition-none"
                 aria-label="NAKFE - gå til forsiden"
             >
               <Image
@@ -47,7 +47,7 @@ export default function Footer() {
                   <li key={link.href}>
                     <Link
                         href={link.href}
-                        className="inline-flex min-h-11 items-center rounded-md text-sm text-gray-600 underline-offset-4 outline-none transition duration-200 ease-out hover:text-gray-950 hover:underline focus-visible:text-gray-950 focus-visible:underline focus-visible:ring-2 focus-visible:ring-gray-950 focus-visible:ring-offset-2 motion-reduce:transition-none md:min-h-8"
+                        className="inline-flex min-h-11 items-center rounded-md text-sm text-gray-600 underline-offset-4 transition duration-200 ease-out hover:text-gray-950 hover:underline focus-visible:text-gray-950 focus-visible:underline focus-ring motion-reduce:transition-none md:min-h-8"
                     >
                       {link.label}
                     </Link>
@@ -67,7 +67,7 @@ export default function Footer() {
             <div className="mt-3 flex flex-col gap-2">
               <Link
                   href="/kontakt"
-                  className="inline-flex min-h-11 items-center rounded-md text-sm text-gray-600 underline-offset-4 outline-none transition duration-200 ease-out hover:text-gray-950 hover:underline focus-visible:text-gray-950 focus-visible:underline focus-visible:ring-2 focus-visible:ring-gray-950 focus-visible:ring-offset-2 motion-reduce:transition-none md:min-h-8"
+                  className="inline-flex min-h-11 items-center rounded-md text-sm text-gray-600 underline-offset-4 transition duration-200 ease-out hover:text-gray-950 hover:underline focus-visible:text-gray-950 focus-visible:underline focus-ring motion-reduce:transition-none md:min-h-8"
               >
                 Kontakt NAKFE
               </Link>
@@ -89,7 +89,7 @@ export default function Footer() {
                 Nettside utviklet av{" "}
                 <a
                     href="https://www.linkedin.com/in/usman-ghafoorzai/"
-                    className="font-medium text-gray-600  outline-none transition hover:text-gray-950 focus-visible:ring-2 focus-visible:ring-gray-950 focus-visible:ring-offset-2"
+                    className="font-medium text-gray-600 underline underline-offset-4 transition hover:text-gray-950 focus-ring"
                 >
                   Usman Ghafoorzai
                 </a>

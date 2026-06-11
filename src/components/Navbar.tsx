@@ -28,7 +28,7 @@ export default function Navbar() {
             >
                 <Link
                     href="/"
-                    className="inline-flex min-h-11 items-center gap-3 rounded-full px-2 pr-4 text-lg font-bold tracking-tight text-gray-950 outline-none transition duration-200 ease-out hover:bg-gray-50 active:translate-y-0 active:scale-[0.98] focus-visible:ring-2 focus-visible:ring-gray-950 focus-visible:ring-offset-2 motion-reduce:transition-none motion-reduce:active:scale-100"                    aria-current={pathname === "/" ? "page" : undefined}
+                    className="inline-flex min-h-11 items-center gap-3 rounded-full px-2 pr-4 text-lg font-bold tracking-tight text-gray-950 transition duration-200 ease-out hover:bg-gray-50 active:translate-y-0 active:scale-[0.98] focus-ring motion-reduce:transition-none motion-reduce:active:scale-100"                    aria-current={pathname === "/" ? "page" : undefined}
                     aria-label="NAKFE - gå til forsiden"
                     onClick={() => setIsOpen(false)}
                 >
@@ -54,8 +54,8 @@ export default function Navbar() {
                                     aria-current={isCurrent ? "page" : undefined}
                                     onClick={() => setIsOpen(false)}
                                     className={[
-                                        "inline-flex min-h-11 items-center rounded-full px-4 text-sm font-medium outline-none transition duration-200 ease-out",
-                                        "active:scale-[0.98] focus-visible:ring-2 focus-visible:ring-gray-950 focus-visible:ring-offset-2",
+                                        "inline-flex min-h-11 items-center rounded-full px-4 text-sm font-medium transition duration-200 ease-out",
+                                        "active:scale-[0.98] focus-ring",
                                         "motion-reduce:transition-none motion-reduce:active:scale-100",
                                         isCurrent
                                             ? "bg-gray-100 text-gray-950 shadow-sm"
@@ -71,7 +71,7 @@ export default function Navbar() {
 
                 <button
                     type="button"
-                    className="inline-flex min-h-11 min-w-11 items-center justify-center rounded-full border border-gray-300 bg-white text-2xl leading-none text-gray-950 shadow-sm outline-none transition duration-200 ease-out hover:bg-gray-50 active:scale-95 focus-visible:ring-2 focus-visible:ring-gray-950 focus-visible:ring-offset-2 motion-reduce:transition-none motion-reduce:active:scale-100 md:hidden"
+                    className="inline-flex min-h-11 min-w-11 items-center justify-center rounded-full border border-gray-300 bg-white text-2xl leading-none text-gray-950 shadow-sm transition duration-200 ease-out hover:bg-gray-50 active:scale-95 focus-ring motion-reduce:transition-none motion-reduce:active:scale-100 md:hidden"
                     aria-label={isOpen ? "Lukk hovedmeny" : "Åpne hovedmeny"}
                     aria-controls={menuId}
                     aria-expanded={isOpen}
@@ -106,8 +106,8 @@ export default function Navbar() {
                                         aria-current={isCurrent ? "page" : undefined}
                                         tabIndex={isOpen ? undefined : -1}
                                         className={[
-                                            "flex min-h-11 items-center rounded-md px-3 text-base font-medium outline-none transition",
-                                            "focus-visible:ring-2 focus-visible:ring-gray-950 focus-visible:ring-offset-2",
+                                            "flex min-h-11 items-center rounded-md px-3 text-base font-medium transition",
+                                            "focus-ring",
                                             isCurrent
                                                 ? "bg-gray-100 text-gray-950"
                                                 : "text-gray-600 hover:bg-gray-50 hover:text-gray-950",
