@@ -92,8 +92,20 @@ export type TextSectionContent = {
   action?: ContentLink;
 };
 
+export type CardItemContent = {
+  title: string;
+  description: string;
+  action?: ContentLink;
+};
+
+export type CardGridSectionContent = {
+  header: SectionHeaderContent;
+  items: CardItemContent[];
+};
+
 export type AboutPageContent = {
   seo: SeoContent;
   hero: PageHeroContent;
   intro: TextSectionContent;
+  values: CardGridSectionContent;
 };

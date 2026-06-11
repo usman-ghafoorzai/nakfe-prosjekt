@@ -34,4 +34,30 @@ export const aboutContent = {
       href: "/kontakt",
     },
   },
+
+  values: {
+    header: {
+      eyebrow: "Verdier",
+      title: "Hva organisasjonen kan løfte frem",
+      description:
+          "Disse kortene er midlertidige felter som senere kan fylles inn og redigeres fra et admin-panel.",
+    },
+    items: [
+      {
+        title: "Fellesskap",
+        description:
+            "Her kan organisasjonen beskrive hvordan den skaper møteplasser og tilhørighet.",
+      },
+      {
+        title: "Kultur",
+        description:
+            "Her kan organisasjonen beskrive arbeid med kulturformidling, arrangementer og identitet.",
+      },
+      {
+        title: "Engasjement",
+        description:
+            "Her kan organisasjonen beskrive frivillighet, deltakelse og samfunnsrettet arbeid.",
+      },
+    ],
+  },
 } satisfies AboutPageContent;
