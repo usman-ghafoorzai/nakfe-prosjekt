@@ -109,3 +109,9 @@ export type AboutPageContent = {
   intro: TextSectionContent;
   values: CardGridSectionContent;
 };
+
+export type ProjectsPageContent = {
+  seo: SeoContent;
+  hero: PageHeroContent;
+  projects: CardGridSectionContent;
+};
