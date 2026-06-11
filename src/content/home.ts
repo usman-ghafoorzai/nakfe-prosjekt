@@ -1,6 +1,12 @@
-import type { HomeHeroContent } from "@/types/content";
+import type { HomeHeroContent, SeoContent } from "@/types/content";
 
 export const homeContent = {
+  seo: {
+    title: "NAKFE",
+    description:
+        "NAKFE er en ideell organisasjon med fokus på kultur, fellesskap og engasjement.",
+  } satisfies SeoContent,
+
   hero: {
     eyebrow: "NAKFE",
     title: "En møteplass for kultur, fellesskap og engasjement.",
@@ -18,6 +24,7 @@ export const homeContent = {
       src: "/images/hero/hero-background.jpg",
       alt: "",
       position: "center",
+      isDecorative: true,
     },
   } satisfies HomeHeroContent,
 };
