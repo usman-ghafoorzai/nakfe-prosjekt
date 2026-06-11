@@ -36,18 +36,7 @@ export const contactContent = {
             "Her kan organisasjonen legge inn telefonnummer dersom det skal være offentlig.",
       },
     ],
-    socialLinks: [
-      {
-        label: "Instagram",
-        href: "#",
-        ariaLabel: "Instagram-lenke kommer",
-      },
-      {
-        label: "Facebook",
-        href: "#",
-        ariaLabel: "Facebook-lenke kommer",
-      },
-    ],
+    socialLinks: [],
     finalNote:
         "Kontaktskjema kan legges til senere når vi bestemmer hvordan henvendelser skal håndteres teknisk.",
   },

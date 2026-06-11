@@ -11,6 +11,8 @@ type ContactSectionProps = {
 };
 
 export default function ContactSection({ content }: ContactSectionProps) {
+    const publishedSocialLinks = content.socialLinks.filter((link) => link.href);
+
     return (
         <section className="border-b border-gray-200 bg-gray-50">
             <div className="mx-auto grid max-w-6xl gap-10 px-4 py-16 sm:px-6 sm:py-20 lg:grid-cols-[1fr_0.85fr]">
@@ -35,15 +37,15 @@ export default function ContactSection({ content }: ContactSectionProps) {
                         </ul>
                     ) : null}
 
-                    {content.socialLinks.length > 0 ? (
+                    {publishedSocialLinks.length > 0 ? (
                         <div className="rounded-3xl border border-gray-200 bg-white p-6 shadow-sm">
                             <h3 className="text-lg font-semibold text-gray-950">
                                 Sosiale medier
                             </h3>
 
                             <ul className="mt-4 flex flex-wrap gap-3">
-                                {content.socialLinks.map((link) => (
-                                    <li key={link.href}>
+                                {publishedSocialLinks.map((link) => (
+                                    <li key={`${link.label}-${link.href}`}>
                                         <SocialLink link={link} />
                                     </li>
                                 ))}
@@ -98,6 +100,10 @@ type SocialLinkProps = {
 };
 
 function SocialLink({ link }: SocialLinkProps) {
+    if (!link.href) {
+        return null;
+    }
+
     const isExternal = link.href.startsWith("http");
 
     return (

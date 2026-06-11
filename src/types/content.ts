@@ -173,7 +173,7 @@ export type ContactMethodContent = {
 
 export type SocialLinkContent = {
   label: string;
-  href: string;
+  href?: string;
   ariaLabel?: string;
 };
 
