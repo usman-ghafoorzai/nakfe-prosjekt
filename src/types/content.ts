@@ -163,3 +163,29 @@ export type FaqPageContent = {
   categories: FaqCategoryContent[];
   contactCta?: CtaSectionContent;
 };
+
+export type ContactMethodContent = {
+  label: string;
+  value: string;
+  href?: string;
+  description?: string;
+};
+
+export type SocialLinkContent = {
+  label: string;
+  href: string;
+  ariaLabel?: string;
+};
+
+export type ContactSectionContent = {
+  header: SectionHeaderContent;
+  methods: ContactMethodContent[];
+  socialLinks: SocialLinkContent[];
+  finalNote?: string;
+};
+
+export type ContactPageContent = {
+  seo: SeoContent;
+  hero: PageHeroContent;
+  contact: ContactSectionContent;
+};
