@@ -5,7 +5,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import type { KeyboardEvent } from "react";
 import { useId, useState } from "react";
-import { navLinks } from "@/data/navLinks";
+import { headerNavigationItems } from "@/content/navigation";
 
 const desktopNavLinkBaseClasses =
     "relative inline-flex min-h-11 items-center rounded-md px-3 text-sm font-medium outline-none transition duration-200 ease-out after:absolute after:inset-x-3 after:bottom-1.5 after:h-0.5 after:rounded-full after:bg-gray-950 after:transition-opacity after:duration-200 after:ease-out after:content-[''] hover:text-gray-950 focus-visible:text-gray-950 focus-visible:after:opacity-100 active:scale-[0.98] motion-reduce:transition-none motion-reduce:after:transition-none motion-reduce:active:scale-100";
@@ -57,7 +57,7 @@ export default function Navbar() {
                 </Link>
 
                 <ul className="hidden items-center gap-1 md:flex">
-                    {navLinks.map((link) => {
+                    {headerNavigationItems.map((link) => {
                         const isCurrent = pathname === link.href;
 
                         return (
@@ -102,7 +102,7 @@ export default function Navbar() {
             >
                 <nav aria-label="Mobil hovednavigasjon" className="mx-auto max-w-6xl px-4 py-3">
                     <ul className="flex flex-col gap-1">
-                        {navLinks.map((link) => {
+                        {headerNavigationItems.map((link) => {
                             const isCurrent = pathname === link.href;
 
                             return (

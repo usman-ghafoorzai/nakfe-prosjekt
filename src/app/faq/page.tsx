@@ -1,0 +1,19 @@
+import CtaSection from "@/components/CtaSection";
+import FaqSection from "@/components/FaqSection";
+import PageHero from "@/components/PageHero";
+import { faqContent } from "@/content/faq";
+import { createPageMetadata } from "@/lib/metadata";
+
+export const metadata = createPageMetadata(faqContent.seo);
+
+export default function FaqPage() {
+  return (
+    <>
+      <PageHero content={faqContent.hero} />
+      <FaqSection categories={faqContent.categories} />
+      {faqContent.contactCta ? (
+        <CtaSection content={faqContent.contactCta} />
+      ) : null}
+    </>
+  );
+}

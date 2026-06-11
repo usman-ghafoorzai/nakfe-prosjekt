@@ -19,8 +19,7 @@ export default function Hero({ content }: HeroProps) {
             priority
             sizes="100vw"
             className="object-cover"
-            style={{ objectPosition: content.backgroundImage.position }}
-        />
+            style={{ objectPosition: content.backgroundImage.position ?? "center" }}        />
 
         <div className="absolute inset-0 bg-gray-950/65" aria-hidden="true" />
 
