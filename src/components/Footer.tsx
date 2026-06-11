@@ -3,7 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { navLinks } from "@/data/navLinks";
+import { footerNavigationItems } from "@/content/navigation";
 
 const footerLinkBaseClasses =
     "relative inline-flex min-h-11 items-center rounded-md text-sm outline-none transition duration-200 ease-out after:absolute after:bottom-1 after:left-0 after:h-px after:w-full after:bg-gray-950 after:transition-opacity after:duration-200 after:ease-out after:content-[''] hover:text-gray-950 focus-visible:text-gray-950 focus-visible:after:opacity-100 motion-reduce:transition-none motion-reduce:after:transition-none md:min-h-8";
@@ -59,7 +59,7 @@ export default function Footer() {
             </h2>
 
             <ul className="mt-3 grid grid-cols-2 gap-x-4 gap-y-0">
-              {navLinks.map((link) => {
+              {footerNavigationItems.map((link) => {
                 const isCurrent = pathname === link.href;
 
                 return (

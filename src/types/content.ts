@@ -57,3 +57,12 @@ export type HomeHeroContent = {
   primaryAction: ContentLink;
   secondaryAction: ContentLink;
 };
+
+export type NavItem = {
+  label: string;
+  href: string;
+  description?: string;
+  showInHeader: boolean;
+  showInFooter: boolean;
+  order: number;
+};
