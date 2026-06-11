@@ -143,3 +143,23 @@ export type ActivitiesPageContent = {
   hero: PageHeroContent;
   activities: ActivitySectionContent;
 };
+
+export type FaqItemContent = {
+  question: string;
+  answer: string;
+  tags?: string[];
+  lastReviewedAt?: string;
+};
+
+export type FaqCategoryContent = {
+  title: string;
+  description?: string;
+  items: FaqItemContent[];
+};
+
+export type FaqPageContent = {
+  seo: SeoContent;
+  hero: PageHeroContent;
+  categories: FaqCategoryContent[];
+  contactCta?: CtaSectionContent;
+};
