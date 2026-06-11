@@ -1,8 +1,24 @@
+"use client";
+
 import Image from "next/image";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { navLinks } from "@/data/navLinks";
 
+const footerLinkBaseClasses =
+    "relative inline-flex min-h-11 items-center rounded-md text-sm outline-none transition duration-200 ease-out after:absolute after:bottom-1 after:left-0 after:h-px after:w-full after:bg-gray-950 after:transition-opacity after:duration-200 after:ease-out after:content-[''] hover:text-gray-950 focus-visible:text-gray-950 focus-visible:after:opacity-100 motion-reduce:transition-none motion-reduce:after:transition-none md:min-h-8";
+
+function getFooterLinkClasses(isCurrent: boolean) {
+  return [
+    footerLinkBaseClasses,
+    isCurrent
+        ? "text-gray-950 after:opacity-100"
+        : "text-gray-600 after:opacity-0",
+  ].join(" ");
+}
+
 export default function Footer() {
+  const pathname = usePathname();
   const currentYear = new Date().getFullYear();
 
   return (
@@ -11,7 +27,7 @@ export default function Footer() {
           <section aria-labelledby="footer-about-heading">
             <Link
                 href="/"
-                className="inline-flex min-h-11 items-center gap-3 rounded-full pr-4 text-gray-950 transition duration-200 ease-out hover:bg-gray-50 focus-ring motion-reduce:transition-none"
+                className="inline-flex min-h-11 items-center gap-3 rounded-md pr-4 text-gray-950 outline-none transition duration-200 ease-out hover:text-gray-700 focus-visible:underline focus-visible:underline-offset-4 motion-reduce:transition-none"
                 aria-label="NAKFE - gå til forsiden"
             >
               <Image
@@ -43,16 +59,21 @@ export default function Footer() {
             </h2>
 
             <ul className="mt-3 grid grid-cols-2 gap-x-4 gap-y-0">
-              {navLinks.map((link) => (
-                  <li key={link.href}>
-                    <Link
-                        href={link.href}
-                        className="inline-flex min-h-11 items-center rounded-md text-sm text-gray-600 underline-offset-4 transition duration-200 ease-out hover:text-gray-950 hover:underline focus-visible:text-gray-950 focus-visible:underline focus-ring motion-reduce:transition-none md:min-h-8"
-                    >
-                      {link.label}
-                    </Link>
-                  </li>
-              ))}
+              {navLinks.map((link) => {
+                const isCurrent = pathname === link.href;
+
+                return (
+                    <li key={link.href}>
+                      <Link
+                          href={link.href}
+                          aria-current={isCurrent ? "page" : undefined}
+                          className={getFooterLinkClasses(isCurrent)}
+                      >
+                        {link.label}
+                      </Link>
+                    </li>
+                );
+              })}
             </ul>
           </nav>
 
@@ -67,7 +88,8 @@ export default function Footer() {
             <div className="mt-3 flex flex-col gap-2">
               <Link
                   href="/kontakt"
-                  className="inline-flex min-h-11 items-center rounded-md text-sm text-gray-600 underline-offset-4 transition duration-200 ease-out hover:text-gray-950 hover:underline focus-visible:text-gray-950 focus-visible:underline focus-ring motion-reduce:transition-none md:min-h-8"
+                  aria-current={pathname === "/kontakt" ? "page" : undefined}
+                  className={getFooterLinkClasses(pathname === "/kontakt")}
               >
                 Kontakt NAKFE
               </Link>
@@ -89,7 +111,7 @@ export default function Footer() {
                 Nettside utviklet av{" "}
                 <a
                     href="https://www.linkedin.com/in/usman-ghafoorzai/"
-                    className="font-medium text-gray-600 underline underline-offset-4 transition hover:text-gray-950 focus-ring"
+                    className="font-medium text-gray-600 outline-none transition duration-200 ease-out hover:text-gray-950 focus-visible:text-gray-950 focus-visible:decoration-2 motion-reduce:transition-none"
                 >
                   Usman Ghafoorzai
                 </a>

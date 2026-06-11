@@ -7,11 +7,23 @@ import type { KeyboardEvent } from "react";
 import { useId, useState } from "react";
 import { navLinks } from "@/data/navLinks";
 
+const desktopNavLinkBaseClasses =
+    "relative inline-flex min-h-11 items-center rounded-md px-3 text-sm font-medium outline-none transition duration-200 ease-out after:absolute after:inset-x-3 after:bottom-1.5 after:h-0.5 after:rounded-full after:bg-gray-950 after:transition-opacity after:duration-200 after:ease-out after:content-[''] hover:text-gray-950 focus-visible:text-gray-950 focus-visible:after:opacity-100 active:scale-[0.98] motion-reduce:transition-none motion-reduce:after:transition-none motion-reduce:active:scale-100";
+
+const mobileNavLinkBaseClasses =
+    "relative flex min-h-11 items-center rounded-md px-3 pb-2 text-base font-medium outline-none transition duration-200 ease-out after:absolute after:bottom-1 after:left-3 after:h-0.5 after:w-10 after:rounded-full after:bg-gray-950 after:transition-opacity after:duration-200 after:ease-out after:content-[''] hover:text-gray-950 focus-visible:text-gray-950 focus-visible:after:opacity-100 motion-reduce:transition-none motion-reduce:after:transition-none";
+
+function getNavLinkClasses(isCurrent: boolean, baseClasses: string) {
+    return [
+        baseClasses,
+        isCurrent ? "text-gray-950 after:opacity-100" : "text-gray-600 after:opacity-0",
+    ].join(" ");
+}
+
 export default function Navbar() {
     const pathname = usePathname();
     const [isOpen, setIsOpen] = useState(false);
     const menuId = useId();
-
 
     function handleKeyDown(event: KeyboardEvent<HTMLElement>) {
         if (event.key === "Escape") {
@@ -28,7 +40,7 @@ export default function Navbar() {
             >
                 <Link
                     href="/"
-                    className="inline-flex min-h-11 items-center gap-3 rounded-full px-2 pr-4 text-lg font-bold tracking-tight text-gray-950 transition duration-200 ease-out hover:bg-gray-50 active:translate-y-0 active:scale-[0.98] focus-ring motion-reduce:transition-none motion-reduce:active:scale-100"                    aria-current={pathname === "/" ? "page" : undefined}
+                    className="inline-flex min-h-11 items-center gap-3 rounded-md px-2 pr-4 text-lg font-bold tracking-tight text-gray-950 outline-none transition duration-200 ease-out hover:text-gray-700 active:scale-[0.98] focus-visible:underline focus-visible:underline-offset-4 motion-reduce:transition-none motion-reduce:active:scale-100"
                     aria-label="NAKFE - gå til forsiden"
                     onClick={() => setIsOpen(false)}
                 >
@@ -43,6 +55,7 @@ export default function Navbar() {
 
                     <span>NAKFE</span>
                 </Link>
+
                 <ul className="hidden items-center gap-1 md:flex">
                     {navLinks.map((link) => {
                         const isCurrent = pathname === link.href;
@@ -53,14 +66,7 @@ export default function Navbar() {
                                     href={link.href}
                                     aria-current={isCurrent ? "page" : undefined}
                                     onClick={() => setIsOpen(false)}
-                                    className={[
-                                        "inline-flex min-h-11 items-center rounded-full px-4 text-sm font-medium transition duration-200 ease-out",
-                                        "active:scale-[0.98] focus-ring",
-                                        "motion-reduce:transition-none motion-reduce:active:scale-100",
-                                        isCurrent
-                                            ? "bg-gray-100 text-gray-950 shadow-sm"
-                                            : "text-gray-600 hover:bg-gray-50 hover:text-gray-950",
-                                    ].join(" ")}
+                                    className={getNavLinkClasses(isCurrent, desktopNavLinkBaseClasses)}
                                 >
                                     {link.label}
                                 </Link>
@@ -71,7 +77,7 @@ export default function Navbar() {
 
                 <button
                     type="button"
-                    className="inline-flex min-h-11 min-w-11 items-center justify-center rounded-full border border-gray-300 bg-white text-2xl leading-none text-gray-950 shadow-sm transition duration-200 ease-out hover:bg-gray-50 active:scale-95 focus-ring motion-reduce:transition-none motion-reduce:active:scale-100 md:hidden"
+                    className="inline-flex min-h-11 min-w-11 items-center justify-center rounded-full border border-gray-300 bg-white text-2xl leading-none text-gray-950 shadow-sm outline-none transition duration-200 ease-out hover:bg-gray-50 active:scale-95 focus-visible:ring-2 focus-visible:ring-gray-950 focus-visible:ring-offset-2 motion-reduce:transition-none motion-reduce:active:scale-100 md:hidden"
                     aria-label={isOpen ? "Lukk hovedmeny" : "Åpne hovedmeny"}
                     aria-controls={menuId}
                     aria-expanded={isOpen}
@@ -105,13 +111,8 @@ export default function Navbar() {
                                         href={link.href}
                                         aria-current={isCurrent ? "page" : undefined}
                                         tabIndex={isOpen ? undefined : -1}
-                                        className={[
-                                            "flex min-h-11 items-center rounded-md px-3 text-base font-medium transition",
-                                            "focus-ring",
-                                            isCurrent
-                                                ? "bg-gray-100 text-gray-950"
-                                                : "text-gray-600 hover:bg-gray-50 hover:text-gray-950",
-                                        ].join(" ")}
+                                        onClick={() => setIsOpen(false)}
+                                        className={getNavLinkClasses(isCurrent, mobileNavLinkBaseClasses)}
                                     >
                                         {link.label}
                                     </Link>
