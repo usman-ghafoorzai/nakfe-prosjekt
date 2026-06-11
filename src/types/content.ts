@@ -1,19 +1,59 @@
+export type ContentImage = {
+  src: string;
+  alt: string;
+  position?: string;
+  caption?: string;
+  credit?: string;
+  isDecorative?: boolean;
+};
+
 export type ContentLink = {
   label: string;
   href: string;
+  ariaLabel?: string;
+  isExternal?: boolean;
 };
 
-export type HeroBackgroundImage = {
-  src: string;
-  alt: string;
-  position: string;
+export type SeoContent = {
+  title: string;
+  description: string;
+  image?: ContentImage;
+};
+
+export type SectionHeaderContent = {
+  eyebrow?: string;
+  title: string;
+  description?: string;
+};
+
+export type PageHeroContent = {
+  eyebrow?: string;
+  title: string;
+  description?: string;
+  image?: ContentImage;
+  primaryAction?: ContentLink;
+  secondaryAction?: ContentLink;
+};
+
+export type CtaSectionContent = {
+  title: string;
+  description?: string;
+  primaryAction?: ContentLink;
+  secondaryAction?: ContentLink;
+  image?: ContentImage;
+};
+
+export type EmptyStateContent = {
+  title: string;
+  description?: string;
+  action?: ContentLink;
 };
 
 export type HomeHeroContent = {
   eyebrow: string;
   title: string;
   description: string;
+  backgroundImage: ContentImage;
   primaryAction: ContentLink;
   secondaryAction: ContentLink;
-  backgroundImage: HeroBackgroundImage;
 };
