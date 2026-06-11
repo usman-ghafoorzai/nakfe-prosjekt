@@ -18,5 +18,10 @@ export const homeContent = {
     highlights: ["Kultur", "Fellesskap", "Aktiviteter", "Engasjement"],
     note:
       "Nettsiden bygges stegvis med fokus på tydelig informasjon, brukervennlighet og tilgjengelighet.",
+    backgroundImage: {
+      src: "/images/hero/hero-background.jpg",
+      alt: "",
+      position: "center",
+    },
   } satisfies HomeHeroContent,
 };
