@@ -189,3 +189,11 @@ export type ContactPageContent = {
   hero: PageHeroContent;
   contact: ContactSectionContent;
 };
+
+export type HomePageContent = {
+  seo: SeoContent;
+  hero: HomeHeroContent;
+  intro: TextSectionContent;
+  featuredAreas: CardGridSectionContent;
+  finalCta: CtaSectionContent;
+};
