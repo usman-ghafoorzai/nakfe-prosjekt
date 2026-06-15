@@ -7,9 +7,19 @@ export const pageHeroBackgroundImages = [
     position: "center",
   },
   {
+    src: "/images/page-hero/generasjoner.png",
+    alt: "Illustrasjon av kvinner og jenter på tvers av generasjoner",
+    position: "center",
+  },
+  {
+    src: "/images/page-hero/kvinner-dans.png",
+    alt: "Illustrasjon av kvinner som danser i fellesskap",
+    position: "center 62%",
+  },
+  {
     src: "/images/page-hero/kvinner-fellesskap.png",
     alt: "Illustrasjon av kvinner samlet i et varmt fellesskap",
-    position: "center",
+    position: "center 60%",
   },
   {
     src: "/images/page-hero/kvinner-for-endring.png",
@@ -24,16 +34,6 @@ export const pageHeroBackgroundImages = [
   {
     src: "/images/page-hero/arrangementer.png",
     alt: "Illustrasjon av kvinner samlet til et arrangement med foredrag og kulturformidling",
-    position: "center",
-  },
-  {
-    src: "/images/page-hero/generasjoner.png",
-    alt: "Illustrasjon av kvinner og jenter på tvers av generasjoner",
-    position: "center",
-  },
-  {
-    src: "/images/page-hero/kvinner-dans.png",
-    alt: "Illustrasjon av kvinner som danser i fellesskap",
     position: "center",
   },
 ] satisfies ContentImage[];
