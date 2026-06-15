@@ -16,7 +16,7 @@ export default function PageHeroBackgroundCarousel({
   const [activeIndex, setActiveIndex] = useState(0);
 
   useEffect(() => {
-    setActiveIndex(0);
+    setActiveIndex((currentIndex) => (currentIndex >= images.length ? 0 : currentIndex));
   }, [images.length]);
 
   useEffect(() => {
