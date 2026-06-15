@@ -12,10 +12,6 @@ export const faqContent = {
     title: "Spørsmål og svar",
     description:
         "Her kommer svar på vanlige spørsmål om organisasjonen, aktiviteter, kontakt og praktisk informasjon.",
-    primaryAction: {
-      label: "Kontakt oss",
-      href: "/kontakt",
-    },
   },
 
   categories: [

@@ -12,10 +12,6 @@ export const projectsContent = {
     title: "Prosjekter og initiativer",
     description:
       "Her kommer informasjon om prosjekter, initiativer og arbeid organisasjonen ønsker å synliggjøre.",
-    primaryAction: {
-      label: "Kontakt oss",
-      href: "/kontakt",
-    },
   },
 
   projects: {

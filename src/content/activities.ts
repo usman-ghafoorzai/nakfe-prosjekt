@@ -12,10 +12,6 @@ export const activitiesContent = {
     title: "Aktiviteter og møteplasser",
     description:
         "Her kommer informasjon om kommende og tidligere aktiviteter, arrangementer og samlinger.",
-    primaryAction: {
-      label: "Kontakt oss",
-      href: "/kontakt",
-    },
   },
 
   activities: {

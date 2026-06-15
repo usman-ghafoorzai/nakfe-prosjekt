@@ -17,8 +17,8 @@ export const homeContent = {
       href: "/om-oss",
     },
     secondaryAction: {
-      label: "Kontakt oss",
-      href: "/kontakt",
+      label: "Se aktiviteter",
+      href: "/aktiviteter",
     },
     backgroundImage: {
       src: "/images/hero/hero-background.jpg",

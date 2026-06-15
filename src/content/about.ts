@@ -12,10 +12,6 @@ export const aboutContent = {
     title: "Om NAKFE",
     description:
         "Her kommer en kort introduksjon til organisasjonen, hvem NAKFE er, og hva organisasjonen jobber for.",
-    primaryAction: {
-      label: "Kontakt oss",
-      href: "/kontakt",
-    },
   },
 
   intro: {
@@ -29,10 +25,6 @@ export const aboutContent = {
       "Her kommer første avsnitt om NAKFE. Dette er midlertidig innhold som ligger i content-layeret, ikke direkte i komponenten.",
       "Her kommer andre avsnitt. Senere kan dette hentes fra Supabase, CMS eller et admin-panel uten at TextSection-komponenten må skrives om.",
     ],
-    action: {
-      label: "Ta kontakt",
-      href: "/kontakt",
-    },
   },
 
   values: {
