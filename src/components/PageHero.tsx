@@ -1,3 +1,5 @@
+"use client";
+
 import PageHeroBackgroundCarousel from "@/components/PageHeroBackgroundCarousel";
 import type { PageHeroContent } from "@/types/content";
 

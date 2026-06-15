@@ -11,13 +11,10 @@ type PageHeroBackgroundCarouselProps = {
 
 export default function PageHeroBackgroundCarousel({
                                                      images = [],
-                                                     intervalMs = 6500,
+                                                     intervalMs = 4500,
                                                    }: PageHeroBackgroundCarouselProps) {
   const [activeIndex, setActiveIndex] = useState(0);
-
-  useEffect(() => {
-    setActiveIndex((currentIndex) => (currentIndex >= images.length ? 0 : currentIndex));
-  }, [images.length]);
+  const safeActiveIndex = images.length > 0 ? activeIndex % images.length : 0;
 
   useEffect(() => {
     if (images.length <= 1) return;
@@ -49,7 +46,7 @@ export default function PageHeroBackgroundCarousel({
         <div
             className="flex h-full w-full will-change-transform transition-transform duration-[1200ms] ease-[cubic-bezier(0.76,0,0.24,1)] motion-reduce:transition-none"
             style={{
-              transform: `translate3d(-${activeIndex * 100}%, 0, 0)`,
+              transform: `translate3d(-${safeActiveIndex * 100}%, 0, 0)`,
             }}
         >
           {images.map((image, index) => (
