@@ -30,6 +30,7 @@ export type PageHeroContent = {
   eyebrow?: string;
   title: string;
   description?: string;
+  backgroundImages?: ContentImage[];
   image?: ContentImage;
   primaryAction?: ContentLink;
   secondaryAction?: ContentLink;

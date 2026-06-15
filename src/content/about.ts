@@ -1,3 +1,4 @@
+import { pageHeroBackgroundImages } from "@/content/pageHeroImages";
 import type { AboutPageContent } from "@/types/content";
 
 const sharedValueImage = {
@@ -18,6 +19,7 @@ export const aboutContent = {
     title: "Om NAKFE",
     description:
       "Her kommer en kort introduksjon til organisasjonen, hvem NAKFE er, og hva organisasjonen jobber for.",
+    backgroundImages: pageHeroBackgroundImages,
   },
 
   intro: {
