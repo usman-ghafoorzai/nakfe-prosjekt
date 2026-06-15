@@ -1,6 +1,6 @@
-import CardGridSection from "@/components/CardGridSection";
 import PageHero from "@/components/PageHero";
 import TextSection from "@/components/TextSection";
+import ValueShowcaseSection from "@/components/ValueShowcaseSection";
 import { aboutContent } from "@/content/about";
 import { createPageMetadata } from "@/lib/metadata";
 
@@ -11,7 +11,7 @@ export default function AboutPage() {
     <>
       <PageHero content={aboutContent.hero} />
       <TextSection content={aboutContent.intro} />
-      <CardGridSection content={aboutContent.values} />
+      <ValueShowcaseSection content={aboutContent.values} />
     </>
   );
 }

@@ -1,5 +1,11 @@
 import type { AboutPageContent } from "@/types/content";
 
+const sharedValueImage = {
+  src: "/images/about/community.jpg",
+  alt: "Mennesker samlet i et fellesskap knyttet til NAKFE",
+  position: "center",
+} as const;
+
 export const aboutContent = {
   seo: {
     title: "Om oss | NAKFE",
@@ -44,16 +50,19 @@ export const aboutContent = {
         title: "Fellesskap",
         description:
           "Her kan organisasjonen beskrive hvordan den skaper møteplasser og tilhørighet.",
+        image: sharedValueImage,
       },
       {
         title: "Kultur",
         description:
           "Her kan organisasjonen beskrive arbeid med kulturformidling, arrangementer og identitet.",
+        image: sharedValueImage,
       },
       {
         title: "Engasjement",
         description:
           "Her kan organisasjonen beskrive frivillighet, deltakelse og samfunnsrettet arbeid.",
+        image: sharedValueImage,
       },
     ],
   },

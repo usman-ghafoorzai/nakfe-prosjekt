@@ -1,5 +1,3 @@
-import Image from "next/image";
-import Link from "next/link";
 import type { PageHeroContent } from "@/types/content";
 
 type PageHeroProps = {
@@ -7,72 +5,54 @@ type PageHeroProps = {
 };
 
 export default function PageHero({ content }: PageHeroProps) {
-  const hasImage = Boolean(content.image?.src);
-
   return (
-    <section
-      aria-labelledby="page-hero-heading"
-      className="border-b border-gray-200 bg-white"
-    >
-      <div className="mx-auto grid max-w-6xl items-center gap-10 px-4 py-16 sm:px-6 sm:py-20 lg:grid-cols-[1.1fr_0.9fr] lg:py-24">
-        <div className="max-w-3xl">
-          {content.eyebrow ? (
-            <p className="text-sm font-semibold uppercase tracking-[0.2em] text-gray-500">
+      <section
+          aria-labelledby="page-hero-heading"
+          className="group relative isolate overflow-hidden border-b border-white/10 bg-gray-950"
+      >
+        <div
+            className="absolute inset-0 bg-[radial-gradient(circle_at_20%_20%,rgba(239,68,68,0.26),transparent_32%),radial-gradient(circle_at_80%_0%,rgba(255,255,255,0.12),transparent_28%),linear-gradient(135deg,#030712,#111827_48%,#030712)] opacity-90 transition duration-700 ease-out group-hover:scale-[1.03] group-hover:opacity-100 motion-reduce:transition-none motion-reduce:group-hover:scale-100"
+            aria-hidden="true"
+        />
+
+        <div
+            className="absolute inset-0 bg-[linear-gradient(to_right,rgba(255,255,255,0.06)_1px,transparent_1px),linear-gradient(to_bottom,rgba(255,255,255,0.06)_1px,transparent_1px)] bg-[size:4rem_4rem] opacity-[0.16] [mask-image:linear-gradient(to_bottom,black,transparent_78%)]"
+            aria-hidden="true"
+        />
+
+        <div
+            className="absolute left-1/2 top-0 h-40 w-80 -translate-x-1/2 rounded-full bg-red-500/15 blur-3xl motion-safe:animate-pulse [animation-duration:7s]"
+            aria-hidden="true"
+        />
+
+        <div
+            className="absolute -right-20 top-16 hidden h-56 w-56 rounded-full border border-white/10 bg-white/[0.03] backdrop-blur-sm transition duration-700 ease-out group-hover:-translate-x-3 group-hover:translate-y-2 group-hover:border-red-200/20 lg:block motion-reduce:transition-none motion-reduce:group-hover:translate-x-0 motion-reduce:group-hover:translate-y-0"
+            aria-hidden="true"
+        />
+
+        <div className="relative mx-auto max-w-6xl px-4 py-20 sm:px-6 sm:py-24 lg:py-28">
+          <div className="max-w-3xl transition duration-500 ease-out group-hover:-translate-y-0.5 motion-reduce:transition-none motion-reduce:group-hover:translate-y-0">
+            <p className="inline-flex rounded-full border border-white/15 bg-white/10 px-4 py-2 text-xs font-semibold uppercase tracking-[0.18em] text-red-100 shadow-sm backdrop-blur transition duration-300 ease-out group-hover:border-red-200/30 group-hover:bg-white/15 motion-reduce:transition-none">
               {content.eyebrow}
             </p>
-          ) : null}
 
-          <h1
-            id="page-hero-heading"
-            className="mt-4 text-4xl font-bold tracking-tight text-gray-950 sm:text-5xl"
-          >
-            {content.title}
-          </h1>
+            <h1
+                id="page-hero-heading"
+                className="mt-6 max-w-4xl text-4xl font-bold tracking-tight text-white sm:text-5xl lg:text-6xl"
+            >
+              {content.title}
+            </h1>
 
-          {content.description ? (
-            <p className="mt-6 text-lg leading-8 text-gray-600">
+            <p className="mt-6 max-w-2xl text-lg leading-8 text-gray-200 sm:text-xl">
               {content.description}
             </p>
-          ) : null}
-
-          {content.primaryAction || content.secondaryAction ? (
-            <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-              {content.primaryAction ? (
-                <Link
-                  href={content.primaryAction.href}
-                  aria-label={content.primaryAction.ariaLabel}
-                  className="inline-flex min-h-11 items-center justify-center rounded-full bg-gray-950 px-6 text-sm font-semibold text-white transition duration-200 ease-out hover:bg-gray-800 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gray-950 focus-visible:ring-offset-2 active:scale-[0.98] motion-reduce:transition-none motion-reduce:active:scale-100"
-                >
-                  {content.primaryAction.label}
-                </Link>
-              ) : null}
-
-              {content.secondaryAction ? (
-                <Link
-                  href={content.secondaryAction.href}
-                  aria-label={content.secondaryAction.ariaLabel}
-                  className="inline-flex min-h-11 items-center justify-center rounded-full border border-gray-300 bg-white px-6 text-sm font-semibold text-gray-950 transition duration-200 ease-out hover:border-gray-950 hover:bg-gray-50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gray-950 focus-visible:ring-offset-2 active:scale-[0.98] motion-reduce:transition-none motion-reduce:active:scale-100"
-                >
-                  {content.secondaryAction.label}
-                </Link>
-              ) : null}
-            </div>
-          ) : null}
-        </div>
-
-        {hasImage ? (
-          <div className="relative min-h-[18rem] overflow-hidden rounded-3xl border border-gray-200 bg-gray-100 shadow-sm sm:min-h-[24rem]">
-            <Image
-              src={content.image!.src}
-              alt={content.image!.isDecorative ? "" : content.image!.alt}
-              fill
-              sizes="(min-width: 1024px) 34rem, 100vw"
-              className="object-cover"
-              style={{ objectPosition: content.image!.position ?? "center" }}
-            />
           </div>
-        ) : null}
-      </div>
-    </section>
+
+          <div
+              className="pointer-events-none absolute bottom-0 left-4 right-4 h-px bg-gradient-to-r from-transparent via-white/25 to-transparent sm:left-6 sm:right-6"
+              aria-hidden="true"
+          />
+        </div>
+      </section>
   );
 }
