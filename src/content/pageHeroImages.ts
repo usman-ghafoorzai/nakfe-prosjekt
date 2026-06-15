@@ -31,4 +31,9 @@ export const pageHeroBackgroundImages = [
     alt: "Illustrasjon av kvinner og jenter på tvers av generasjoner",
     position: "center",
   },
+  {
+    src: "/images/page-hero/kvinner-dans.png",
+    alt: "Illustrasjon av kvinner som danser i fellesskap",
+    position: "center",
+  },
 ] satisfies ContentImage[];
