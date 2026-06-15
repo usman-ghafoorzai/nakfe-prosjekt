@@ -4,60 +4,102 @@ import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import type { KeyboardEvent } from "react";
-import { useId, useState } from "react";
+import { useEffect, useId, useState } from "react";
 import { headerNavigationItems } from "@/content/navigation";
+import NavIcon from "@/components/NavIcon";
 
-const desktopNavLinkBaseClasses =
-    "relative inline-flex min-h-11 items-center rounded-md px-3 text-sm font-medium outline-none transition duration-200 ease-out after:absolute after:inset-x-3 after:bottom-1.5 after:h-0.5 after:rounded-full after:bg-gray-950 after:transition-opacity after:duration-200 after:ease-out after:content-[''] hover:text-gray-950 focus-visible:text-gray-950 focus-visible:after:opacity-100 active:scale-[0.98] motion-reduce:transition-none motion-reduce:after:transition-none motion-reduce:active:scale-100";
+const visibleNavigationItems = headerNavigationItems.filter(
+    (link) => link.href !== "/",
+);
 
-const mobileNavLinkBaseClasses =
-    "relative flex min-h-11 items-center rounded-md px-3 pb-2 text-base font-medium outline-none transition duration-200 ease-out after:absolute after:bottom-1 after:left-3 after:h-0.5 after:w-10 after:rounded-full after:bg-gray-950 after:transition-opacity after:duration-200 after:ease-out after:content-[''] hover:text-gray-950 focus-visible:text-gray-950 focus-visible:after:opacity-100 motion-reduce:transition-none motion-reduce:after:transition-none";
+const desktopLinkClasses =
+    "inline-flex min-h-10 items-center gap-2 rounded-full px-3 text-sm font-semibold outline-none transition duration-200 ease-out hover:text-gray-950 focus-visible:ring-2 focus-visible:ring-gray-950/15 active:scale-[0.98] motion-reduce:transition-none motion-reduce:active:scale-100";
 
-function getNavLinkClasses(isCurrent: boolean, baseClasses: string) {
+const mobileLinkClasses =
+    "flex min-h-11 items-center gap-3 rounded-xl px-3 text-base font-semibold outline-none transition duration-200 ease-out hover:bg-gray-50 hover:text-gray-950 focus-visible:ring-2 focus-visible:ring-gray-950/15 motion-reduce:transition-none";
+
+function getLinkClasses(isCurrent: boolean, baseClasses: string) {
     return [
         baseClasses,
-        isCurrent ? "text-gray-950 after:opacity-100" : "text-gray-600 after:opacity-0",
+        isCurrent ? "text-gray-950" : "text-gray-500 hover:text-gray-800",
     ].join(" ");
 }
 
 export default function Navbar() {
     const pathname = usePathname();
     const [isOpen, setIsOpen] = useState(false);
+    const [isScrolled, setIsScrolled] = useState(false);
     const menuId = useId();
 
-    function handleKeyDown(event: KeyboardEvent<HTMLElement>) {
-        if (event.key === "Escape") {
-            setIsOpen(false);
+    useEffect(() => {
+        function handleScroll() {
+            setIsScrolled(window.scrollY > 40);
         }
+
+        handleScroll();
+        window.addEventListener("scroll", handleScroll, { passive: true });
+
+        return () => window.removeEventListener("scroll", handleScroll);
+    }, []);
+
+    function handleKeyDown(event: KeyboardEvent<HTMLElement>) {
+        if (event.key === "Escape") setIsOpen(false);
     }
 
     return (
-        <header className="sticky top-0 z-50 border-b border-gray-200 bg-white/95 backdrop-blur">
+        <header className="fixed inset-x-0 top-0 z-50 px-4 pt-4">
             <nav
                 aria-label="Hovednavigasjon"
-                className="mx-auto flex min-h-16 max-w-6xl items-center justify-between px-4 sm:px-6"
                 onKeyDown={handleKeyDown}
+                className={[
+                    "mx-auto flex items-center justify-between rounded-full border border-gray-200/80 bg-white/90 backdrop-blur-xl transition-all duration-300 ease-out motion-reduce:transition-none",
+                    isScrolled
+                        ? "min-h-14 max-w-5xl px-3 shadow-[0_14px_40px_rgba(15,23,42,0.14)]"
+                        : "min-h-16 max-w-6xl px-4 shadow-[0_12px_35px_rgba(15,23,42,0.10)]",
+                ].join(" ")}
             >
                 <Link
                     href="/"
-                    className="inline-flex min-h-11 items-center gap-3 rounded-md px-2 pr-4 text-lg font-bold tracking-tight text-gray-950 outline-none transition duration-200 ease-out hover:text-gray-700 active:scale-[0.98] focus-visible:underline focus-visible:underline-offset-4 motion-reduce:transition-none motion-reduce:active:scale-100"
-                    aria-label="NAKFE - gå til forsiden"
+                    aria-label="Kvinner for Endring - gå til forsiden"
                     onClick={() => setIsOpen(false)}
+                    className={[
+                        "inline-flex min-h-11 items-center rounded-full text-gray-950 outline-none transition-all duration-300 ease-out hover:text-gray-700 focus-visible:ring-2 focus-visible:ring-gray-950/15 active:scale-[0.98] motion-reduce:transition-none motion-reduce:active:scale-100",
+                        isScrolled ? "gap-0 pr-0" : "gap-3 pr-4",
+                    ].join(" ")}
                 >
-                    <Image
-                        src="/images/nakfe-logo.jpg"
-                        alt=""
-                        width={40}
-                        height={40}
-                        priority
-                        className="h-10 w-10 rounded-full object-contain"
-                    />
+          <span
+              className={[
+                  "inline-flex items-center justify-center rounded-full bg-white transition-all duration-300 ease-out motion-reduce:transition-none",
+                  isScrolled ? "h-10 w-10" : "h-11 w-11",
+              ].join(" ")}
+          >
+            <Image
+                src="/images/nakfe-logo.jpg"
+                alt=""
+                width={40}
+                height={40}
+                priority
+                className={[
+                    "rounded-full object-contain transition-all duration-300 ease-out motion-reduce:transition-none",
+                    isScrolled ? "h-8 w-8" : "h-9 w-9",
+                ].join(" ")}
+            />
+          </span>
 
-                    <span>NAKFE</span>
+                    <span
+                        className={[
+                            "overflow-hidden whitespace-nowrap font-bold tracking-tight transition-[max-width,opacity,transform] duration-300 ease-out motion-reduce:transition-none",
+                            isScrolled
+                                ? "max-w-0 -translate-x-2 opacity-0"
+                                : "max-w-[14rem] translate-x-0 opacity-100",
+                        ].join(" ")}
+                    >
+            Kvinner for Endring
+          </span>
                 </Link>
 
-                <ul className="hidden items-center gap-1 md:flex">
-                    {headerNavigationItems.map((link) => {
+                <ul className="hidden items-center gap-3 md:flex">
+                    {visibleNavigationItems.map((link) => {
                         const isCurrent = pathname === link.href;
 
                         return (
@@ -66,9 +108,10 @@ export default function Navbar() {
                                     href={link.href}
                                     aria-current={isCurrent ? "page" : undefined}
                                     onClick={() => setIsOpen(false)}
-                                    className={getNavLinkClasses(isCurrent, desktopNavLinkBaseClasses)}
+                                    className={getLinkClasses(isCurrent, desktopLinkClasses)}
                                 >
-                                    {link.label}
+                                    <NavIcon href={link.href} />
+                                    <span>{link.label}</span>
                                 </Link>
                             </li>
                         );
@@ -77,15 +120,13 @@ export default function Navbar() {
 
                 <button
                     type="button"
-                    className="inline-flex min-h-11 min-w-11 items-center justify-center rounded-full border border-gray-300 bg-white text-2xl leading-none text-gray-950 shadow-sm outline-none transition duration-200 ease-out hover:bg-gray-50 active:scale-95 focus-visible:ring-2 focus-visible:ring-gray-950 focus-visible:ring-offset-2 motion-reduce:transition-none motion-reduce:active:scale-100 md:hidden"
                     aria-label={isOpen ? "Lukk hovedmeny" : "Åpne hovedmeny"}
                     aria-controls={menuId}
                     aria-expanded={isOpen}
                     onClick={() => setIsOpen((current) => !current)}
+                    className="inline-flex min-h-11 min-w-11 items-center justify-center rounded-full border border-gray-200 bg-white text-xl leading-none text-gray-950 shadow-sm outline-none transition duration-200 ease-out hover:bg-gray-50 focus-visible:ring-2 focus-visible:ring-gray-950/15 active:scale-95 motion-reduce:transition-none motion-reduce:active:scale-100 md:hidden"
                 >
-          <span aria-hidden="true" className="text-2xl leading-none">
-            {isOpen ? "×" : "☰"}
-          </span>
+                    <span aria-hidden="true">{isOpen ? "×" : "☰"}</span>
                 </button>
             </nav>
 
@@ -93,16 +134,16 @@ export default function Navbar() {
                 id={menuId}
                 aria-hidden={!isOpen}
                 className={[
-                    "overflow-hidden bg-white md:hidden",
-                    "transition-[max-height,opacity] duration-200 ease-out motion-reduce:transition-none",
+                    "mx-auto mt-3 max-w-6xl overflow-hidden rounded-3xl border border-gray-200 bg-white/95 shadow-[0_18px_50px_rgba(15,23,42,0.14)] backdrop-blur-xl md:hidden",
+                    "transition-[max-height,opacity,transform] duration-200 ease-out motion-reduce:transition-none",
                     isOpen
-                        ? "max-h-96 border-t border-gray-200 opacity-100"
-                        : "max-h-0 border-t-0 opacity-0",
+                        ? "max-h-96 translate-y-0 opacity-100"
+                        : "max-h-0 -translate-y-2 border-transparent opacity-0",
                 ].join(" ")}
             >
-                <nav aria-label="Mobil hovednavigasjon" className="mx-auto max-w-6xl px-4 py-3">
+                <nav aria-label="Mobil hovednavigasjon" className="p-3">
                     <ul className="flex flex-col gap-1">
-                        {headerNavigationItems.map((link) => {
+                        {visibleNavigationItems.map((link) => {
                             const isCurrent = pathname === link.href;
 
                             return (
@@ -112,9 +153,10 @@ export default function Navbar() {
                                         aria-current={isCurrent ? "page" : undefined}
                                         tabIndex={isOpen ? undefined : -1}
                                         onClick={() => setIsOpen(false)}
-                                        className={getNavLinkClasses(isCurrent, mobileNavLinkBaseClasses)}
+                                        className={getLinkClasses(isCurrent, mobileLinkClasses)}
                                     >
-                                        {link.label}
+                                        <NavIcon href={link.href} />
+                                        <span>{link.label}</span>
                                     </Link>
                                 </li>
                             );
