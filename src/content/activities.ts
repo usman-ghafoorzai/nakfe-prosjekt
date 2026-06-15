@@ -51,9 +51,9 @@ export const activitiesContent = {
     emptyState: {
       title: "Ingen aktiviteter publisert ennå",
       description:
-          "Når aktiviteter legges inn, vil de vises her. Ta gjerne kontakt for mer informasjon.",
+          "NÃ¥r aktiviteter legges inn, vil de vises her. Ta gjerne kontakt for mer informasjon.",
       action: {
-        label: "Kontakt oss",
+        label: "Foreslå en aktivitet",
         href: "/kontakt",
       },
     },

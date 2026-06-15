@@ -42,7 +42,7 @@ export const faqContent = {
         {
           question: "Hvordan finner jeg kommende aktiviteter?",
           answer:
-              "Her kan NAKFE forklare hvordan aktiviteter publiseres og hvordan interesserte kan følge med.",
+              "Her kan NAKFE forklare hvordan aktiviteter publiseres og hvordan interesserte kan fÃ¸lge med.",
           tags: ["aktiviteter"],
         },
       ],
@@ -52,9 +52,9 @@ export const faqContent = {
   contactCta: {
     title: "Fant du ikke svar?",
     description:
-        "Ta kontakt med NAKFE dersom du har spørsmål som ikke er dekket her.",
+        "Send oss spørsmålet ditt, så hjelper vi deg videre.",
     primaryAction: {
-      label: "Kontakt oss",
+      label: "Send et spørsmål",
       href: "/kontakt",
     },
   },

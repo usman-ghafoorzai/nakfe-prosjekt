@@ -88,7 +88,7 @@ export const homeContent = {
     description:
         "Kontakt NAKFE dersom du har spørsmål, ønsker samarbeid eller vil vite mer om organisasjonen.",
     primaryAction: {
-      label: "Kontakt oss",
+      label: "Kontakt NAKFE",
       href: "/kontakt",
     },
     secondaryAction: {
