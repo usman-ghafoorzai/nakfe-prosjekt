@@ -1,3 +1,4 @@
+import { pageHeroBackgroundImages } from "@/content/pageHeroImages";
 import type { ProjectsPageContent } from "@/types/content";
 
 export const projectsContent = {
@@ -12,6 +13,7 @@ export const projectsContent = {
     title: "Prosjekter og initiativer",
     description:
       "Her kommer informasjon om prosjekter, initiativer og arbeid organisasjonen ønsker å synliggjøre.",
+    backgroundImages: pageHeroBackgroundImages,
   },
 
   projects: {
