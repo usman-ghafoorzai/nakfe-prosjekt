@@ -46,7 +46,7 @@ export const navigationItems = [
         href: "/kontakt",
         description: "Kontakt NAKFE",
         showInHeader: true,
-        showInFooter: true,
+        showInFooter: false,
         order: 6,
     },
 ] satisfies NavItem[];

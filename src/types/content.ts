@@ -30,6 +30,7 @@ export type PageHeroContent = {
   eyebrow?: string;
   title: string;
   description?: string;
+  backgroundImages?: ContentImage[];
   image?: ContentImage;
   primaryAction?: ContentLink;
   secondaryAction?: ContentLink;
@@ -103,11 +104,22 @@ export type CardGridSectionContent = {
   items: CardItemContent[];
 };
 
+export type ValueShowcaseItemContent = {
+  title: string;
+  description: string;
+  image: ContentImage;
+};
+
+export type ValueShowcaseSectionContent = {
+  header: SectionHeaderContent;
+  items: ValueShowcaseItemContent[];
+};
+
 export type AboutPageContent = {
   seo: SeoContent;
   hero: PageHeroContent;
   intro: TextSectionContent;
-  values: CardGridSectionContent;
+  values: ValueShowcaseSectionContent;
 };
 
 export type ProjectsPageContent = {

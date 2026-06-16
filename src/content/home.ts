@@ -17,8 +17,8 @@ export const homeContent = {
       href: "/om-oss",
     },
     secondaryAction: {
-      label: "Kontakt oss",
-      href: "/kontakt",
+      label: "Se aktiviteter",
+      href: "/aktiviteter",
     },
     backgroundImage: {
       src: "/images/hero/hero-background.jpg",
@@ -88,7 +88,7 @@ export const homeContent = {
     description:
         "Kontakt NAKFE dersom du har spørsmål, ønsker samarbeid eller vil vite mer om organisasjonen.",
     primaryAction: {
-      label: "Kontakt oss",
+      label: "Kontakt NAKFE",
       href: "/kontakt",
     },
     secondaryAction: {
