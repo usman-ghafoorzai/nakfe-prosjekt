@@ -43,6 +43,10 @@ export const homeContent = {
       label: "Les mer om oss",
       href: "/om-oss",
     },
+    visual: {
+      tone: "sage",
+      pattern: "weave",
+    },
   },
 
   featuredAreas: {

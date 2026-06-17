@@ -86,11 +86,18 @@ export type FooterContent = {
   qualityNote?: string;
 };
 
+export type TextSectionVisualContent = {
+  tone?: "warm" | "sage" | "neutral";
+  pattern?: "weave" | "none";
+  imagePlacement?: "start" | "end";
+};
+
 export type TextSectionContent = {
   header: SectionHeaderContent;
   body: string[];
   image?: ContentImage;
   action?: ContentLink;
+  visual?: TextSectionVisualContent;
 };
 
 export type CardItemContent = {

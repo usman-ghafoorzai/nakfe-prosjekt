@@ -37,6 +37,13 @@ export const aboutContent = {
       src: "/images/about/community.jpg",
       alt: "Mennesker samlet i et fellesskap knyttet til NAKFE",
       position: "center",
+      caption:
+        "Bildeområdet er klargjort for organisasjonens egne foto og kan senere styres fra admin eller CMS.",
+    },
+    visual: {
+      tone: "warm",
+      pattern: "weave",
+      imagePlacement: "end",
     },
   },
 
