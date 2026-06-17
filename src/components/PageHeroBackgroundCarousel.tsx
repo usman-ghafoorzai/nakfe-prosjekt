@@ -11,7 +11,7 @@ type PageHeroBackgroundCarouselProps = {
 
 export default function PageHeroBackgroundCarousel({
                                                      images = [],
-                                                     intervalMs = 5500,
+                                                     intervalMs = 4700,
                                                    }: PageHeroBackgroundCarouselProps) {
   const [activeIndex, setActiveIndex] = useState(0);
   const safeActiveIndex = images.length > 0 ? activeIndex % images.length : 0;
