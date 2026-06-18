@@ -70,18 +70,28 @@ export default function Navbar() {
   }
 
   return (
-    <header className="fixed inset-x-0 top-0 z-50">
-      <div className="h-2 bg-red-700" aria-hidden="true" />
-
+    <header
+      className={[
+        "fixed inset-x-0 z-50 px-4 transition-all duration-300 ease-out motion-reduce:transition-none",
+        isScrolled ? "top-0 px-0" : "top-4 sm:top-5",
+      ].join(" ")}
+    >
       <nav
         aria-label="Hovednavigasjon"
         onKeyDown={handleKeyDown}
         className={[
-          "border-b border-stone-950/10 bg-[#f7f1e8]/92 shadow-sm shadow-stone-950/5 backdrop-blur-xl transition duration-300 ease-out motion-reduce:transition-none",
-          isScrolled ? "" : "bg-white/10 text-white supports-[backdrop-filter]:bg-stone-950/8",
+          "mx-auto border-b border-stone-950/10 shadow-sm shadow-stone-950/5 backdrop-blur-xl transition-all duration-300 ease-out motion-reduce:transition-none",
+          isScrolled
+            ? "max-w-none bg-[#f7f1e8]/94"
+            : "max-w-6xl bg-stone-950/28 text-white shadow-2xl shadow-stone-950/20 supports-[backdrop-filter]:bg-stone-950/18",
         ].join(" ")}
       >
-        <div className="mx-auto flex max-w-6xl items-center justify-between gap-6 px-4 py-3 sm:px-6">
+        <div
+          className={[
+            "mx-auto flex max-w-6xl items-center justify-between gap-6 px-4 transition-all duration-300 ease-out sm:px-6 motion-reduce:transition-none",
+            isScrolled ? "py-3" : "py-3.5",
+          ].join(" ")}
+        >
           <Link
             href="/"
             aria-label="Kvinner for Endring - gå til forsiden"
