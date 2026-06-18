@@ -37,7 +37,6 @@ function formatDate(date?: string) {
 export default function ActivityCardSection({ content }: ActivityCardSectionProps) {
   return (
     <section className="nakfe-section bg-[#f7f1e8]">
-      <div className="absolute left-0 top-0 h-20 w-20 bg-red-700" aria-hidden="true" />
       <div className="nakfe-container py-16 sm:py-20 lg:py-24">
         <SectionHeader content={content.header} />
 

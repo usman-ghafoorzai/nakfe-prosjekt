@@ -15,7 +15,6 @@ export default function ValueShowcaseSection({
 
   return (
     <section className="relative isolate overflow-hidden border-y border-stone-300 bg-stone-950 text-white">
-      <div className="absolute left-0 top-0 h-28 w-28 bg-red-700" aria-hidden="true" />
       <div className="absolute bottom-[-5rem] right-[12%] h-44 w-44 rotate-45 border-[2rem] border-white/10" aria-hidden="true" />
 
       <div className="mx-auto max-w-6xl px-4 py-18 sm:px-6 sm:py-24">

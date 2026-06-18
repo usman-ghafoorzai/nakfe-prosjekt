@@ -48,7 +48,6 @@ export default function TextSection({ content }: TextSectionProps) {
 
   return (
     <section className={`relative isolate overflow-hidden border-b border-stone-300/70 ${styles.section}`}>
-      <div className="pointer-events-none absolute left-0 top-0 hidden h-24 w-24 bg-red-700 md:block" aria-hidden="true" />
       <div className="pointer-events-none absolute right-[-7rem] top-16 h-72 w-72 rotate-45 border-[2.4rem] border-white/50" aria-hidden="true" />
       <div className="pointer-events-none absolute bottom-[-6rem] left-[12%] h-44 w-44 rounded-full bg-white/45 blur-3xl" aria-hidden="true" />
 
@@ -88,7 +87,6 @@ export default function TextSection({ content }: TextSectionProps) {
         {hasImage ? (
           <figure className={`relative ${imageFirst ? "lg:order-1" : undefined}`}>
             <div className={`absolute -left-4 -top-4 h-full w-full ${styles.imageFrame}`} aria-hidden="true" />
-            <div className="absolute -right-5 bottom-8 z-20 h-24 w-24 bg-red-700 mix-blend-multiply" aria-hidden="true" />
             <div className="relative z-10 min-h-[19rem] overflow-hidden rounded-tl-[4rem] bg-stone-200 shadow-2xl shadow-stone-950/15 sm:min-h-[25rem] lg:min-h-[31rem]">
               <Image
                 src={content.image!.src}
@@ -114,7 +112,6 @@ export default function TextSection({ content }: TextSectionProps) {
         ) : (
           <div className={`hidden min-h-80 items-end p-8 lg:flex ${styles.block}`} aria-hidden="true">
             <div>
-              <div className="h-16 w-16 bg-red-700" />
               <p className="mt-6 max-w-xs text-3xl font-black leading-none tracking-[-0.05em]">
                 Kunnskap. Fellesskap. Endring.
               </p>

@@ -11,7 +11,6 @@ export default function CtaSection({ content }: CtaSectionProps) {
 
   return (
     <section className="nakfe-section bg-stone-950 text-white">
-      <div className="absolute left-0 top-0 h-24 w-24 bg-red-700" aria-hidden="true" />
       <div className="absolute bottom-[-5rem] right-[12%] h-44 w-44 rotate-45 border-[2rem] border-white/10" aria-hidden="true" />
 
       <div className="nakfe-container py-16 sm:py-20 lg:py-24">

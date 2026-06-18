@@ -10,7 +10,6 @@ type FaqSectionProps = {
 export default function FaqSection({ categories }: FaqSectionProps) {
   return (
     <section className="nakfe-section bg-[#f7f1e8]">
-      <div className="absolute left-0 top-0 h-20 w-20 bg-red-700" aria-hidden="true" />
       <div className="nakfe-container py-16 sm:py-20 lg:py-24">
         <div className="space-y-14">
           {categories.map((category, index) => (
