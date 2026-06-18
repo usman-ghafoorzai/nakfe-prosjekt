@@ -33,7 +33,7 @@ export default function ImpactBriefSection({ content }: ImpactBriefSectionProps)
           aria-labelledby="impact-brief-heading"
           className="relative z-30 -mt-16 bg-transparent px-4 sm:-mt-20 sm:px-6 lg:-mt-24"
       >
-        <div className="mx-auto max-w-5xl lg:translate-x-12 xl:translate-x-20">
+        <div className="mx-auto max-w-5xl lg:-translate-x-12 xl:-translate-x-24">
           <div className="relative bg-[#e7e1d8] shadow-2xl shadow-stone-950/20">
           <div className="grid gap-8 px-5 py-8 sm:px-8 md:grid-cols-[minmax(0,1fr)_auto] md:items-end lg:px-10 lg:py-10">
             <div className="max-w-3xl pl-0 sm:pl-8">
