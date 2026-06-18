@@ -72,29 +72,19 @@ body {
 }
 
 @keyframes nakfe-hero-word {
-  0% {
+  0%,
+  12% {
     opacity: 0;
-    transform: translateY(55%);
   }
 
-  7% {
+  18%,
+  34% {
     opacity: 1;
-    transform: translateY(-50%);
   }
 
-  24% {
-    opacity: 1;
-    transform: translateY(-50%);
-  }
-
-  31% {
-    opacity: 0;
-    transform: translateY(-150%);
-  }
-
+  42%,
   100% {
     opacity: 0;
-    transform: translateY(-150%);
   }
 }
 
