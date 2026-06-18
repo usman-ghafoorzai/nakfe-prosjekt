@@ -87,7 +87,7 @@ export default function TextSection({ content }: TextSectionProps) {
         {hasImage ? (
           <figure className={`relative ${imageFirst ? "lg:order-1" : undefined}`}>
             <div className={`absolute -left-4 -top-4 h-full w-full ${styles.imageFrame}`} aria-hidden="true" />
-            <div className="relative z-10 min-h-[19rem] overflow-hidden rounded-tl-[4rem] bg-stone-200 shadow-2xl shadow-stone-950/15 sm:min-h-[25rem] lg:min-h-[31rem]">
+            <div className="relative z-10 min-h-[19rem] overflow-hidden bg-stone-200 shadow-2xl shadow-stone-950/15 sm:min-h-[25rem] lg:min-h-[31rem]">
               <Image
                 src={content.image!.src}
                 alt={content.image!.isDecorative ? "" : content.image!.alt}
