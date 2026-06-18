@@ -16,7 +16,13 @@ export default function CardGridSection({ content }: CardGridSectionProps) {
       <div className="nakfe-container py-16 sm:py-20 lg:py-24">
         <SectionHeader content={content.header} />
 
-        <ul className={isCompact ? "mt-10 grid gap-px bg-stone-950/15 sm:grid-cols-2" : "mt-12 grid gap-px bg-stone-950/15 lg:grid-cols-3"}>
+        <ul
+          className={
+            isCompact
+              ? "mt-10 grid gap-6 sm:grid-cols-2 lg:gap-8"
+              : "mt-12 grid gap-6 lg:grid-cols-3 lg:gap-8"
+          }
+        >
           {content.items.map((item, index) => (
             <li key={item.title}>
               <EditorialCard item={item} index={index} />
