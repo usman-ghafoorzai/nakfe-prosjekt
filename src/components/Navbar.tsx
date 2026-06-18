@@ -16,7 +16,12 @@ const desktopLinkClasses =
 const mobileLinkClasses =
   "flex min-h-12 items-center gap-3 border-l-[10px] px-4 py-3 text-base font-black uppercase tracking-[0.08em] outline-none transition duration-200 ease-out focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-red-700 motion-reduce:transition-none";
 
-function getLinkClasses(isCurrent: boolean, baseClasses: string, isMobile = false) {
+function getLinkClasses(
+  isCurrent: boolean,
+  baseClasses: string,
+  isScrolled: boolean,
+  isMobile = false,
+) {
   if (isMobile) {
     return [
       baseClasses,
@@ -26,11 +31,20 @@ function getLinkClasses(isCurrent: boolean, baseClasses: string, isMobile = fals
     ].join(" ");
   }
 
+  if (!isScrolled) {
+    return [
+      baseClasses,
+      isCurrent
+        ? "text-white after:bg-white after:opacity-100"
+        : "text-white/88 after:bg-white after:opacity-0 hover:text-white hover:after:opacity-100",
+    ].join(" ");
+  }
+
   return [
     baseClasses,
     isCurrent
-      ? "text-red-700 after:opacity-100"
-      : "text-stone-800 after:opacity-0 hover:text-red-700 hover:after:opacity-100",
+      ? "text-red-700 after:bg-red-700 after:opacity-100"
+      : "text-stone-800 after:bg-red-700 after:opacity-0 hover:text-red-700 hover:after:opacity-100",
   ].join(" ");
 }
 
@@ -103,7 +117,7 @@ export default function Navbar() {
                     href={link.href}
                     aria-current={isCurrent ? "page" : undefined}
                     onClick={() => setIsOpen(false)}
-                    className={getLinkClasses(isCurrent, desktopLinkClasses)}
+                    className={getLinkClasses(isCurrent, desktopLinkClasses, isScrolled)}
                   >
                     <NavIcon href={link.href} />
                     <span>{link.label}</span>
@@ -152,7 +166,7 @@ export default function Navbar() {
                     aria-current={isCurrent ? "page" : undefined}
                     tabIndex={isOpen ? undefined : -1}
                     onClick={() => setIsOpen(false)}
-                    className={getLinkClasses(isCurrent, mobileLinkClasses, true)}
+                    className={getLinkClasses(isCurrent, mobileLinkClasses, isScrolled, true)}
                   >
                     <NavIcon href={link.href} />
                     <span>{link.label}</span>
