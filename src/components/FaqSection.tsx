@@ -23,7 +23,7 @@ export default function FaqSection({ categories }: FaqSectionProps) {
                 </h2>
 
                 {category.description ? (
-                  <p className="mt-5 text-base font-semibold leading-7 text-stone-700">
+                  <p className="mt-6 max-w-2xl text-base font-semibold leading-7 text-stone-700">
                     {category.description}
                   </p>
                 ) : null}

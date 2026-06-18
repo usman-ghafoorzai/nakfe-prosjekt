@@ -15,12 +15,12 @@ export default function CtaSection({ content }: CtaSectionProps) {
 
       <div className="nakfe-container py-16 sm:py-20 lg:py-24">
         <div className="grid gap-10 lg:grid-cols-[minmax(0,1fr)_minmax(18rem,0.52fr)] lg:items-end">
-          <div className="max-w-4xl pl-8 sm:pl-10">
+          <div className="max-w-4xl">
             <p className="nakfe-eyebrow text-white/70">
               Neste steg
             </p>
 
-            <h2 className="mt-5 text-balance text-5xl font-black leading-[0.92] tracking-[-0.07em] text-white sm:text-6xl lg:text-7xl">
+            <h2 className="mt-4 text-balance text-5xl font-black leading-[0.92] tracking-[-0.07em] text-white sm:text-6xl lg:text-7xl">
               {content.title}
             </h2>
 

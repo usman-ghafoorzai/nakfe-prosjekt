@@ -19,8 +19,8 @@ export default function CardGridSection({ content }: CardGridSectionProps) {
         <ul
           className={
             isCompact
-              ? "mt-10 grid gap-6 sm:grid-cols-2 lg:gap-8"
-              : "mt-12 grid gap-6 lg:grid-cols-3 lg:gap-8"
+              ? "mt-14 grid gap-6 sm:grid-cols-2 lg:mt-16 lg:gap-8"
+              : "mt-16 grid gap-6 lg:mt-20 lg:grid-cols-3 lg:gap-8"
           }
         >
           {content.items.map((item, index) => (
