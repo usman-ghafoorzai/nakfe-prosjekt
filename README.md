@@ -51,6 +51,24 @@ Retningslinjer:
 
 Målet er å følge relevante WCAG 2.1-prinsipper gjennom hele prosjektet.
 
+
+## Content- og CMS-arkitektur
+
+Prosjektet skal ikke blande redigerbart innhold inn i presentasjonskomponentene. For nå ligger innholdet i `src/content/*`, med typer i `src/types/content.ts`. Dette er en midlertidig content-kilde som senere kan erstattes av Supabase, et CMS eller et admin-panel.
+
+Eksempel:
+
+```tsx
+<Hero content={homeContent.hero} />
+<CardGridSection content={projectsContent.projects} />
+```
+
+Dette gjør at organisasjonen senere kan publisere nyheter, prosjekter, aktiviteter, FAQ og kontaktinformasjon uten at React-komponentene må skrives om.
+
+## Designretning
+
+Visuelt skal siden være minimalistisk, redaksjonell og organisasjonell: tydelig typografi, få sterke farger, røde grafiske markører, store menneskelige bilder og tydelige call-to-actions. Interaksjon skal være rolig, tilgjengelig og nyttig, ikke bare pynt.
+
 ## RAG-plan
 
 Chatboten bygges ikke i første fase. Først bygges en vanlig nettside med godt strukturert innhold.

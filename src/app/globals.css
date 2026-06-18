@@ -1,20 +1,53 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #f7f1e8;
+  --foreground: #1c1917;
+  --nakfe-red: #b91c1c;
+  --nakfe-red-dark: #7f1d1d;
+  --nakfe-ink: #1c1917;
+  --nakfe-paper: #f7f1e8;
+  --nakfe-muted: #e7e1d8;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --font-sans: Arial, Helvetica, sans-serif;
+  --font-mono: "SFMono-Regular", Consolas, "Liberation Mono", monospace;
 }
 
 @layer components {
   .focus-ring {
-    @apply outline-none focus-visible:ring-1 focus-visible:ring-gray-400 focus-visible:ring-offset-2;
+    @apply outline-none focus-visible:ring-2 focus-visible:ring-red-700 focus-visible:ring-offset-4;
+  }
+
+  .nakfe-container {
+    @apply mx-auto max-w-6xl px-4 sm:px-6;
+  }
+
+  .nakfe-section {
+    @apply relative isolate overflow-hidden border-b border-stone-300/70;
+  }
+
+  .nakfe-eyebrow {
+    @apply inline-flex items-center gap-3 text-[0.76rem] font-black uppercase tracking-[0.22em];
+  }
+
+  .nakfe-red-square {
+    @apply h-3 w-3 shrink-0 bg-red-700;
+  }
+
+  .nakfe-button-primary {
+    @apply inline-flex min-h-12 items-center justify-center gap-3 bg-red-700 px-6 text-sm font-black uppercase tracking-[0.14em] text-white transition duration-200 ease-out hover:bg-red-800 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-red-700 focus-visible:ring-offset-4 active:translate-y-0.5 motion-reduce:transition-none motion-reduce:active:translate-y-0;
+  }
+
+  .nakfe-button-secondary {
+    @apply inline-flex min-h-12 items-center justify-center gap-3 border-2 border-stone-950 bg-white px-6 text-sm font-black uppercase tracking-[0.14em] text-stone-950 transition duration-200 ease-out hover:bg-stone-950 hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-stone-950 focus-visible:ring-offset-4 active:translate-y-0.5 motion-reduce:transition-none motion-reduce:active:translate-y-0;
+  }
+
+  .nakfe-card-link {
+    @apply outline-none transition duration-200 ease-out hover:-translate-y-1 focus-visible:ring-2 focus-visible:ring-red-700 focus-visible:ring-offset-4 active:translate-y-0.5 motion-reduce:transition-none motion-reduce:hover:translate-y-0 motion-reduce:active:translate-y-0;
   }
 }
 
@@ -28,4 +61,58 @@ html {
 
 body {
   margin: 0;
+  background:
+    radial-gradient(circle at top left, rgba(185, 28, 28, 0.06), transparent 28rem),
+    var(--background);
+  color: var(--foreground);
+}
+
+::selection {
+  background: rgba(185, 28, 28, 0.22);
+}
+
+@keyframes nakfe-hero-word {
+  0% {
+    opacity: 0;
+    transform: translateY(55%);
+  }
+
+  7% {
+    opacity: 1;
+    transform: translateY(-50%);
+  }
+
+  24% {
+    opacity: 1;
+    transform: translateY(-50%);
+  }
+
+  31% {
+    opacity: 0;
+    transform: translateY(-150%);
+  }
+
+  100% {
+    opacity: 0;
+    transform: translateY(-150%);
+  }
+}
+
+.nakfe-hero-word {
+  animation: nakfe-hero-word 8.8s infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .nakfe-hero-word {
+    animation: none;
+  }
+
+  .nakfe-hero-word:first-child {
+    opacity: 1;
+    transform: translateY(-50%);
+  }
 }

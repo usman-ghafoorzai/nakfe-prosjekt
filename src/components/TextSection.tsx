@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import SectionHeader from "@/components/SectionHeader";
-import type { TextSectionContent } from "@/types/content";
+import type { TextSectionContent, TextSectionVisualContent } from "@/types/content";
 
 type TextSectionProps = {
   content: TextSectionContent;
@@ -9,125 +9,62 @@ type TextSectionProps = {
 
 type ToneStyles = {
   section: string;
-  glowPrimary: string;
-  glowSecondary: string;
-  pattern: string;
-  eyebrow: string;
+  block: string;
+  accent: string;
+  soft: string;
   imageFrame: string;
 };
 
-const toneStyles: Record<NonNullable<TextSectionContent["visual"]>["tone"] & string, ToneStyles> = {
+const toneStyles: Record<NonNullable<TextSectionVisualContent["tone"]>, ToneStyles> = {
   warm: {
-    section: "bg-[#fbf7f1]",
-    glowPrimary: "bg-amber-200/35",
-    glowSecondary: "bg-rose-200/20",
-    pattern: "border-amber-900/10 bg-white/35",
-    eyebrow: "bg-amber-900/10 text-amber-950",
-    imageFrame: "bg-amber-100/50 ring-amber-950/10",
+    section: "bg-[#f7f1e8]",
+    block: "bg-[#2b211b] text-white",
+    accent: "bg-red-700",
+    soft: "bg-red-700/10",
+    imageFrame: "bg-[#e8d8c2]",
   },
   sage: {
-    section: "bg-[#f5f8f4]",
-    glowPrimary: "bg-emerald-200/25",
-    glowSecondary: "bg-lime-200/20",
-    pattern: "border-emerald-900/10 bg-white/40",
-    eyebrow: "bg-emerald-900/10 text-emerald-950",
-    imageFrame: "bg-emerald-100/45 ring-emerald-950/10",
+    section: "bg-[#eef1e7]",
+    block: "bg-[#17241d] text-white",
+    accent: "bg-emerald-800",
+    soft: "bg-emerald-800/10",
+    imageFrame: "bg-[#d7dfce]",
   },
   neutral: {
-    section: "bg-[#f8f7f4]",
-    glowPrimary: "bg-stone-300/30",
-    glowSecondary: "bg-stone-200/25",
-    pattern: "border-stone-900/10 bg-white/40",
-    eyebrow: "bg-stone-900/10 text-stone-950",
-    imageFrame: "bg-stone-100 ring-stone-950/10",
+    section: "bg-stone-100",
+    block: "bg-stone-950 text-white",
+    accent: "bg-stone-800",
+    soft: "bg-stone-800/10",
+    imageFrame: "bg-stone-200",
   },
 };
 
-function getToneStyles(content: TextSectionContent): ToneStyles {
-  return toneStyles[content.visual?.tone ?? "warm"];
-}
-
-function getLayoutClasses(content: TextSectionContent, hasImage: boolean) {
-  if (!hasImage) {
-    return {
-      grid: "lg:grid-cols-1",
-      copy: "max-w-3xl",
-      image: "",
-    };
-  }
-
-  const imageFirst = content.visual?.imagePlacement === "start";
-
-  return {
-    grid: "lg:grid-cols-[minmax(0,0.95fr)_minmax(0,1.05fr)] lg:items-center",
-    copy: imageFirst ? "lg:order-2" : "",
-    image: imageFirst ? "lg:order-1" : "",
-  };
-}
-
-function TextSectionPattern({ styles }: { styles: ToneStyles }) {
-  return (
-    <div aria-hidden="true" className="pointer-events-none absolute inset-0 overflow-hidden">
-      <div
-        className={`absolute -right-24 top-20 h-72 w-72 rounded-full blur-3xl ${styles.glowPrimary}`}
-      />
-      <div
-        className={`absolute -left-20 bottom-14 h-64 w-64 rounded-full blur-3xl ${styles.glowSecondary}`}
-      />
-      <div
-        className={`absolute left-6 top-10 hidden h-28 w-28 rotate-6 rounded-[2rem] border md:block ${styles.pattern}`}
-      />
-      <svg
-        className="absolute right-4 top-8 hidden h-40 w-40 text-stone-900/10 lg:block"
-        viewBox="0 0 160 160"
-        fill="none"
-      >
-        <path
-          d="M12 98C38 58 61 43 93 54c30 10 35 42 13 62-27 25-82 18-78-19 4-35 49-55 87-38"
-          stroke="currentColor"
-          strokeWidth="2"
-          strokeLinecap="round"
-        />
-        <path
-          d="M24 122c36-18 73-18 112 0M31 45c32 14 64 14 96 0"
-          stroke="currentColor"
-          strokeWidth="2"
-          strokeLinecap="round"
-          strokeDasharray="4 8"
-        />
-      </svg>
-    </div>
-  );
-}
-
 export default function TextSection({ content }: TextSectionProps) {
+  const tone = content.visual?.tone ?? "warm";
+  const styles = toneStyles[tone];
   const hasImage = Boolean(content.image?.src);
-  const styles = getToneStyles(content);
-  const layout = getLayoutClasses(content, hasImage);
-  const showPattern = content.visual?.pattern !== "none";
+  const imagePlacement = content.visual?.imagePlacement ?? "end";
+  const imageFirst = hasImage && imagePlacement === "start";
 
   return (
-    <section className={`relative isolate overflow-hidden border-b border-stone-200 ${styles.section}`}>
-      {showPattern ? <TextSectionPattern styles={styles} /> : null}
+    <section className={`relative isolate overflow-hidden border-b border-stone-300/70 ${styles.section}`}>
+      <div className="pointer-events-none absolute left-0 top-0 hidden h-24 w-24 bg-red-700 md:block" aria-hidden="true" />
+      <div className="pointer-events-none absolute right-[-7rem] top-16 h-72 w-72 rotate-45 border-[2.4rem] border-white/50" aria-hidden="true" />
+      <div className="pointer-events-none absolute bottom-[-6rem] left-[12%] h-44 w-44 rounded-full bg-white/45 blur-3xl" aria-hidden="true" />
 
-      <div
-        className={`relative mx-auto grid max-w-6xl gap-12 px-4 py-18 sm:px-6 sm:py-24 lg:gap-16 ${layout.grid}`}
-      >
-        <div className={layout.copy}>
-          {content.header.eyebrow ? (
-            <p
-              className={`inline-flex rounded-full px-3 py-1 text-xs font-semibold uppercase tracking-[0.22em] ${styles.eyebrow}`}
-            >
-              {content.header.eyebrow}
-            </p>
-          ) : null}
-
-          <SectionHeader content={{ ...content.header, eyebrow: undefined }} />
+      <div className="mx-auto grid max-w-6xl gap-12 px-4 py-18 sm:px-6 sm:py-24 lg:grid-cols-[minmax(0,1fr)_minmax(20rem,0.82fr)] lg:items-center lg:gap-16">
+        <div className={imageFirst ? "lg:order-2" : undefined}>
+          <SectionHeader content={content.header} />
 
           {content.body.length > 0 ? (
-            <div className="mt-7 max-w-2xl space-y-5 text-[1.03rem] leading-8 text-stone-700 sm:text-lg sm:leading-9">
-              {content.body.map((paragraph) => (
-                <p key={paragraph}>{paragraph}</p>
+            <div className="mt-8 max-w-2xl space-y-5 text-lg font-medium leading-8 text-stone-800">
+              {content.body.map((paragraph, index) => (
+                <p
+                  key={paragraph}
+                  className={index === 0 ? "border-l-[10px] border-red-700 bg-white/60 py-4 pl-5 pr-4 text-xl font-bold leading-8 text-stone-950 shadow-sm shadow-stone-900/5" : undefined}
+                >
+                  {paragraph}
+                </p>
               ))}
             </div>
           ) : null}
@@ -137,40 +74,53 @@ export default function TextSection({ content }: TextSectionProps) {
               <Link
                 href={content.action.href}
                 aria-label={content.action.ariaLabel}
-                className="inline-flex min-h-11 items-center justify-center rounded-full border border-stone-300 bg-white/80 px-6 text-sm font-semibold text-stone-950 shadow-sm backdrop-blur transition duration-200 ease-out hover:-translate-y-0.5 hover:border-stone-950 hover:bg-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-stone-950 focus-visible:ring-offset-2 active:scale-[0.98] motion-reduce:transition-none motion-reduce:hover:translate-y-0 motion-reduce:active:scale-100"
+                className="group inline-flex min-h-12 items-center justify-center gap-3 bg-red-700 px-6 text-sm font-black uppercase tracking-[0.14em] text-white transition duration-200 ease-out hover:bg-red-800 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-red-700 focus-visible:ring-offset-4 active:translate-y-0.5 motion-reduce:transition-none motion-reduce:active:translate-y-0"
               >
                 {content.action.label}
+                <span className="text-lg leading-none transition duration-200 group-hover:translate-x-1 motion-reduce:transition-none" aria-hidden="true">
+                  →
+                </span>
               </Link>
             </div>
           ) : null}
         </div>
 
         {hasImage ? (
-          <figure className={`relative ${layout.image}`}>
-            <div
-              className={`relative min-h-[20rem] overflow-hidden rounded-[2rem] shadow-sm ring-1 sm:min-h-[28rem] lg:min-h-[32rem] ${styles.imageFrame}`}
-            >
+          <figure className={`relative ${imageFirst ? "lg:order-1" : undefined}`}>
+            <div className={`absolute -left-4 -top-4 h-full w-full ${styles.imageFrame}`} aria-hidden="true" />
+            <div className="absolute -right-5 bottom-8 z-20 h-24 w-24 bg-red-700 mix-blend-multiply" aria-hidden="true" />
+            <div className="relative z-10 min-h-[19rem] overflow-hidden rounded-tl-[4rem] bg-stone-200 shadow-2xl shadow-stone-950/15 sm:min-h-[25rem] lg:min-h-[31rem]">
               <Image
                 src={content.image!.src}
                 alt={content.image!.isDecorative ? "" : content.image!.alt}
                 fill
-                sizes="(min-width: 1024px) 34rem, 100vw"
-                className="object-cover transition duration-500 ease-out hover:scale-[1.025] motion-reduce:transition-none motion-reduce:hover:scale-100"
+                sizes="(min-width: 1024px) 32rem, 100vw"
+                className="object-cover grayscale-[18%] transition duration-300 ease-out hover:scale-[1.015] hover:grayscale-0 motion-reduce:transition-none motion-reduce:hover:scale-100"
                 style={{ objectPosition: content.image!.position ?? "center" }}
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-stone-950/20 via-transparent to-white/5" />
             </div>
 
-            {content.image?.caption ? (
-              <figcaption className="mt-4 max-w-md text-sm leading-6 text-stone-600">
-                {content.image.caption}
+            {content.image?.caption || content.image?.credit ? (
+              <figcaption className="relative z-20 mt-4 max-w-md border-l-[10px] border-red-700 bg-white px-5 py-4 text-sm font-semibold leading-6 text-stone-700 shadow-sm shadow-stone-950/5">
+                {content.image.caption ? <span>{content.image.caption}</span> : null}
                 {content.image.credit ? (
-                  <span className="text-stone-500"> Foto: {content.image.credit}</span>
+                  <span className="mt-1 block text-xs uppercase tracking-[0.14em] text-stone-500">
+                    {content.image.credit}
+                  </span>
                 ) : null}
               </figcaption>
             ) : null}
           </figure>
-        ) : null}
+        ) : (
+          <div className={`hidden min-h-80 items-end p-8 lg:flex ${styles.block}`} aria-hidden="true">
+            <div>
+              <div className="h-16 w-16 bg-red-700" />
+              <p className="mt-6 max-w-xs text-3xl font-black leading-none tracking-[-0.05em]">
+                Kunnskap. Fellesskap. Endring.
+              </p>
+            </div>
+          </div>
+        )}
       </div>
     </section>
   );

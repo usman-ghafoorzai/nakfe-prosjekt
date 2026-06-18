@@ -51,12 +51,45 @@ export type EmptyStateContent = {
 };
 
 export type HomeHeroContent = {
+  eyebrow?: string;
+  title: string;
+  description?: string;
+  rotatingWords?: string[];
+  backgroundImage: ContentImage;
+  primaryAction?: ContentLink;
+  secondaryAction?: ContentLink;
+};
+
+export type CitationContent = {
+  label: string;
+  text: string;
+  href: string;
+};
+
+export type ImpactStatisticContent = {
+  value: string;
+  label: string;
+  description: string;
+  barLabel?: string;
+  barValue?: number;
+};
+
+export type ImpactBriefSectionContent = {
   eyebrow: string;
   title: string;
   description: string;
-  backgroundImage: ContentImage;
   primaryAction: ContentLink;
-  secondaryAction: ContentLink;
+  secondaryAction: {
+    label: string;
+    ariaLabel?: string;
+  };
+  highlights: ImpactStatisticContent[];
+  statisticsDialog: {
+    title: string;
+    description: string;
+    statistics: ImpactStatisticContent[];
+    citations: CitationContent[];
+  };
 };
 
 export type NavItem = {
@@ -88,7 +121,6 @@ export type FooterContent = {
 
 export type TextSectionVisualContent = {
   tone?: "warm" | "sage" | "neutral";
-  pattern?: "weave" | "none";
   imagePlacement?: "start" | "end";
 };
 
@@ -101,14 +133,18 @@ export type TextSectionContent = {
 };
 
 export type CardItemContent = {
+  eyebrow?: string;
   title: string;
   description: string;
+  meta?: string;
+  image?: ContentImage;
   action?: ContentLink;
 };
 
 export type CardGridSectionContent = {
   header: SectionHeaderContent;
   items: CardItemContent[];
+  variant?: "editorial" | "compact";
 };
 
 export type ValueShowcaseItemContent = {
@@ -212,6 +248,7 @@ export type ContactPageContent = {
 export type HomePageContent = {
   seo: SeoContent;
   hero: HomeHeroContent;
+  impactBrief: ImpactBriefSectionContent;
   intro: TextSectionContent;
   featuredAreas: CardGridSectionContent;
   finalCta: CtaSectionContent;

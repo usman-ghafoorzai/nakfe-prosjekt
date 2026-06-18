@@ -10,54 +10,59 @@ export default function CtaSection({ content }: CtaSectionProps) {
   const hasImage = Boolean(content.image?.src);
 
   return (
-    <section className="border-b border-gray-200 bg-white">
-      <div className="mx-auto max-w-6xl px-4 py-16 sm:px-6 sm:py-20">
-        <div className="relative overflow-hidden rounded-3xl bg-gray-950 px-6 py-10 shadow-sm sm:px-10 lg:px-12">
-          <div className="absolute inset-0 bg-gradient-to-br from-white/10 via-transparent to-red-500/20" />
+    <section className="nakfe-section bg-stone-950 text-white">
+      <div className="absolute left-0 top-0 h-24 w-24 bg-red-700" aria-hidden="true" />
+      <div className="absolute bottom-[-5rem] right-[12%] h-44 w-44 rotate-45 border-[2rem] border-white/10" aria-hidden="true" />
 
-          <div className="relative grid gap-10 lg:grid-cols-[1fr_0.6fr] lg:items-center">
-            <div className="max-w-3xl">
-              <h2 className="text-3xl font-bold tracking-tight text-white sm:text-4xl">
-                {content.title}
-              </h2>
+      <div className="nakfe-container py-16 sm:py-20 lg:py-24">
+        <div className="grid gap-10 lg:grid-cols-[minmax(0,1fr)_minmax(18rem,0.52fr)] lg:items-end">
+          <div className="max-w-4xl pl-8 sm:pl-10">
+            <p className="nakfe-eyebrow text-white/70">
+              <span className="nakfe-red-square" aria-hidden="true" />
+              Neste steg
+            </p>
 
-              {content.description ? (
-                <p className="mt-4 text-base leading-7 text-gray-200 sm:text-lg">
-                  {content.description}
-                </p>
-              ) : null}
+            <h2 className="mt-5 text-balance text-5xl font-black leading-[0.92] tracking-[-0.07em] text-white sm:text-6xl lg:text-7xl">
+              {content.title}
+            </h2>
 
-              {content.primaryAction || content.secondaryAction ? (
-                <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-                  {content.primaryAction ? (
-                    <ActionLink link={content.primaryAction} variant="primary" />
-                  ) : null}
+            {content.description ? (
+              <p className="mt-6 max-w-2xl text-lg font-semibold leading-8 text-white/78 sm:text-xl">
+                {content.description}
+              </p>
+            ) : null}
 
-                  {content.secondaryAction ? (
-                    <ActionLink
-                      link={content.secondaryAction}
-                      variant="secondary"
-                    />
-                  ) : null}
-                </div>
-              ) : null}
-            </div>
+            {content.primaryAction || content.secondaryAction ? (
+              <div className="mt-9 flex flex-col gap-3 sm:flex-row">
+                {content.primaryAction ? (
+                  <ActionLink link={content.primaryAction} variant="primary" />
+                ) : null}
 
-            {hasImage ? (
-              <div className="relative min-h-[14rem] overflow-hidden rounded-2xl border border-white/20 bg-white/10">
-                <Image
-                  src={content.image!.src}
-                  alt={content.image!.isDecorative ? "" : content.image!.alt}
-                  fill
-                  sizes="(min-width: 1024px) 24rem, 100vw"
-                  className="object-cover"
-                  style={{
-                    objectPosition: content.image!.position ?? "center",
-                  }}
-                />
+                {content.secondaryAction ? (
+                  <ActionLink link={content.secondaryAction} variant="secondary" />
+                ) : null}
               </div>
             ) : null}
           </div>
+
+          {hasImage ? (
+            <figure className="relative min-h-[16rem] overflow-hidden bg-white/10 lg:min-h-[24rem]">
+              <Image
+                src={content.image!.src}
+                alt={content.image!.isDecorative ? "" : content.image!.alt}
+                fill
+                sizes="(min-width: 1024px) 26rem, 100vw"
+                className="object-cover grayscale-[20%]"
+                style={{ objectPosition: content.image!.position ?? "center" }}
+              />
+            </figure>
+          ) : (
+            <div className="hidden border-l-[12px] border-red-700 bg-white p-7 text-stone-950 lg:block">
+              <p className="text-4xl font-black leading-none tracking-[-0.06em]">
+                Kunnskap. Fellesskap. Handling.
+              </p>
+            </div>
+          )}
         </div>
       </div>
     </section>
@@ -71,11 +76,13 @@ type ActionLinkProps = {
 
 function ActionLink({ link, variant }: ActionLinkProps) {
   const isExternal = link.isExternal ?? link.href.startsWith("http");
-
-  const className =
-    variant === "primary"
-      ? "inline-flex min-h-11 items-center justify-center rounded-full bg-white px-6 text-sm font-semibold text-gray-950 transition duration-200 ease-out hover:bg-gray-100 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-gray-950 active:scale-[0.98] motion-reduce:transition-none motion-reduce:active:scale-100"
-      : "inline-flex min-h-11 items-center justify-center rounded-full border border-white/40 bg-white/10 px-6 text-sm font-semibold text-white backdrop-blur transition duration-200 ease-out hover:bg-white/20 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-gray-950 active:scale-[0.98] motion-reduce:transition-none motion-reduce:active:scale-100";
+  const className = variant === "primary" ? "nakfe-button-primary" : "nakfe-button-secondary";
+  const label = (
+    <>
+      {link.label}
+      <span aria-hidden="true">{isExternal ? "↗" : "→"}</span>
+    </>
+  );
 
   if (isExternal) {
     return (
@@ -86,14 +93,14 @@ function ActionLink({ link, variant }: ActionLinkProps) {
         rel="noreferrer"
         className={className}
       >
-        {link.label}
+        {label}
       </a>
     );
   }
 
   return (
     <Link href={link.href} aria-label={link.ariaLabel} className={className}>
-      {link.label}
+      {label}
     </Link>
   );
 }

@@ -2,27 +2,50 @@ import type { SectionHeaderContent } from "@/types/content";
 
 type SectionHeaderProps = {
   content: SectionHeaderContent;
+  align?: "left" | "center";
+  tone?: "light" | "dark";
 };
 
-export default function SectionHeader({ content }: SectionHeaderProps) {
+export default function SectionHeader({
+  content,
+  align = "left",
+  tone = "light",
+}: SectionHeaderProps) {
+  const isCentered = align === "center";
+  const isDark = tone === "dark";
+
   return (
-    <div className="max-w-3xl">
+    <div className={isCentered ? "mx-auto max-w-3xl text-center" : "max-w-3xl"}>
       {content.eyebrow ? (
-        <p className="text-sm font-semibold uppercase tracking-[0.22em] text-stone-500">
+        <p
+          className={[
+            "nakfe-eyebrow",
+            isCentered ? "justify-center" : "justify-start",
+            isDark ? "text-white/72" : "text-red-700",
+          ].join(" ")}
+        >
+          <span className="nakfe-red-square" aria-hidden="true" />
           {content.eyebrow}
         </p>
       ) : null}
 
       <h2
-        className={`${
-          content.eyebrow ? "mt-3" : ""
-        } text-3xl font-semibold tracking-tight text-stone-950 text-balance sm:text-4xl lg:text-5xl`}
+        className={[
+          "mt-4 text-balance text-4xl font-black leading-[0.96] tracking-[-0.06em] sm:text-5xl lg:text-6xl",
+          isDark ? "text-white" : "text-stone-950",
+        ].join(" ")}
       >
         {content.title}
       </h2>
 
       {content.description ? (
-        <p className="mt-5 max-w-2xl text-lg leading-8 text-stone-600 sm:text-xl sm:leading-9">
+        <p
+          className={[
+            "mt-6 max-w-2xl text-lg font-semibold leading-8 sm:text-xl",
+            isCentered ? "mx-auto" : "",
+            isDark ? "text-white/78" : "text-stone-700",
+          ].join(" ")}
+        >
           {content.description}
         </p>
       ) : null}
