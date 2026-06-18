@@ -3,7 +3,7 @@ import type { AboutPageContent } from "@/types/content";
 
 const sharedValueImage = {
   src: "/images/about/community.jpg",
-  alt: "Mennesker samlet i et fellesskap knyttet til NAKFE",
+  alt: "Kvinner samlet i et fellesskap knyttet til NAKFE",
   position: "center",
 } as const;
 
@@ -16,54 +16,66 @@ export const aboutContent = {
 
   hero: {
     eyebrow: "Om oss",
-    title: "Om NAKFE",
+    title: "Et fellesskap for kvinner, kulturarv og endring.",
     description:
-      "Her kommer en kort introduksjon til organisasjonen, hvem NAKFE er, og hva organisasjonen jobber for.",
+      "NAKFE arbeider for at flere kvinner skal oppleve tilhørighet, mestring og mulighet til å delta i samfunnet rundt seg.",
     backgroundImages: pageHeroBackgroundImages,
   },
 
   intro: {
     header: {
       eyebrow: "Formål",
-      title: "En organisasjon bygget rundt fellesskap",
+      title: "Vi bygger rom hvor kvinner kan bli sett, hørt og styrket.",
       description:
-        "Denne seksjonen kan senere fylles inn via admin med organisasjonens formål, bakgrunn og arbeid.",
+        "NAKFE skal være en trygg møteplass for fellesskap, kulturformidling, kunnskap og praktisk engasjement.",
     },
     body: [
-      "Her kommer første avsnitt om NAKFE. Dette er midlertidig innhold som ligger i content-layeret, ikke direkte i komponenten.",
-      "Her kommer andre avsnitt. Senere kan dette hentes fra Supabase, CMS eller et admin-panel uten at TextSection-komponenten må skrives om.",
+      "Mange kvinner bærer både ressurser, erfaringer og ansvar — men mangler arenaer der dette blir synlig. NAKFE vil gjøre terskelen lavere for å møte andre, delta i aktiviteter og finne informasjon som faktisk er tilgjengelig.",
+      "Arbeidet vårt handler om integrering, inkludering, likestilling og endring. Det handler også om å ta vare på kulturarv, språk og fellesskap på en måte som gir styrke i hverdagen her i Norge.",
     ],
     image: {
       src: "/images/about/community.jpg",
-      alt: "Mennesker samlet i et fellesskap knyttet til NAKFE",
+      alt: "Kvinner samlet i et fellesskap knyttet til NAKFE",
       position: "center",
+      caption:
+        "NAKFE skal være et varmt og tydelig samlingspunkt — ikke bare en nettside.",
+    },
+    visual: {
+      tone: "warm",
+      imagePlacement: "end",
     },
   },
 
   values: {
     header: {
       eyebrow: "Verdier",
-      title: "Hva organisasjonen kan løfte frem",
+      title: "Fire ord som skal merkes i praksis.",
       description:
-        "Disse kortene er midlertidige felter som senere kan fylles inn og redigeres fra et admin-panel.",
+        "Verdiene skal ikke bare stå på en side. De skal prege aktiviteter, kommunikasjon og måten organisasjonen møter mennesker på.",
     },
     items: [
       {
-        title: "Fellesskap",
+        title: "Integrering",
         description:
-          "Her kan organisasjonen beskrive hvordan den skaper møteplasser og tilhørighet.",
+          "Vi vil gjøre det lettere å forstå samfunnet, finne informasjon og delta i fellesskap på egne premisser.",
         image: sharedValueImage,
       },
       {
-        title: "Kultur",
+        title: "Inkludering",
         description:
-          "Her kan organisasjonen beskrive arbeid med kulturformidling, arrangementer og identitet.",
+          "Vi vil senke terskelen for å møte opp, bidra og høre til — uansett språk, bakgrunn eller livssituasjon.",
         image: sharedValueImage,
       },
       {
-        title: "Engasjement",
+        title: "Likestilling",
         description:
-          "Her kan organisasjonen beskrive frivillighet, deltakelse og samfunnsrettet arbeid.",
+          "Vi vil løfte fram kvinners rettigheter, stemmer og muligheter gjennom kunnskap, støtte og synlighet.",
+        image: sharedValueImage,
+      },
+      {
+        title: "Endring",
+        description:
+          "Vi tror små handlinger kan bli til varig endring når mennesker får møteplasser, informasjon og støtte.",
         image: sharedValueImage,
       },
     ],

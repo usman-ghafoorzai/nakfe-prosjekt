@@ -8,30 +8,29 @@ import { useEffect, useId, useState } from "react";
 import NavIcon from "@/components/NavIcon";
 import { headerNavigationItems } from "@/content/navigation";
 
-const visibleNavigationItems = headerNavigationItems.filter(
-  (link) => link.href !== "/",
-);
+const visibleNavigationItems = headerNavigationItems.filter((link) => link.href !== "/");
 
 const desktopLinkClasses =
-  "inline-flex min-h-10 items-center gap-2 rounded-full px-3 text-sm font-semibold outline-none transition duration-200 ease-out focus-visible:ring-2 active:scale-[0.98] motion-reduce:transition-none motion-reduce:active:scale-100";
+  "relative inline-flex min-h-11 items-center gap-2 px-2 text-sm font-black uppercase tracking-[0.08em] outline-none transition duration-200 ease-out after:absolute after:bottom-1 after:left-2 after:h-[3px] after:w-[calc(100%-1rem)] after:bg-red-700 after:transition-opacity after:duration-200 after:content-[''] focus-visible:ring-2 focus-visible:ring-red-700 focus-visible:ring-offset-4 motion-reduce:transition-none motion-reduce:after:transition-none";
 
 const mobileLinkClasses =
-  "flex min-h-11 items-center gap-3 rounded-xl px-3 text-base font-semibold outline-none transition duration-200 ease-out focus-visible:ring-2 motion-reduce:transition-none";
+  "flex min-h-12 items-center gap-3 border-l-[10px] px-4 py-3 text-base font-black uppercase tracking-[0.08em] outline-none transition duration-200 ease-out focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-red-700 motion-reduce:transition-none";
 
-function getLinkClasses(
-  isCurrent: boolean,
-  baseClasses: string,
-  tone: "light" | "dark",
-) {
+function getLinkClasses(isCurrent: boolean, baseClasses: string, isMobile = false) {
+  if (isMobile) {
+    return [
+      baseClasses,
+      isCurrent
+        ? "border-red-700 bg-[#f7f1e8] text-red-700"
+        : "border-transparent text-stone-800 hover:border-red-700 hover:bg-[#f7f1e8] hover:text-red-700",
+    ].join(" ");
+  }
+
   return [
     baseClasses,
-    tone === "light"
-      ? isCurrent
-        ? "bg-white/14 text-white focus-visible:ring-white/35"
-        : "text-white/78 hover:bg-white/10 hover:text-white focus-visible:ring-white/35"
-      : isCurrent
-        ? "bg-gray-950/6 text-gray-950 focus-visible:ring-gray-950/15"
-        : "text-gray-600 hover:bg-black/5 hover:text-gray-950 focus-visible:ring-gray-950/15",
+    isCurrent
+      ? "text-red-700 after:opacity-100"
+      : "text-stone-800 after:opacity-0 hover:text-red-700 hover:after:opacity-100",
   ].join(" ");
 }
 
@@ -40,7 +39,6 @@ export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const menuId = useId();
-  const tone = isScrolled ? "dark" : "light";
 
   useEffect(() => {
     function handleScroll() {
@@ -58,116 +56,88 @@ export default function Navbar() {
   }
 
   return (
-    <header className="fixed inset-x-0 top-0 z-50 px-4 pt-4">
+    <header className="fixed inset-x-0 top-0 z-50">
+      <div className="h-2 bg-red-700" aria-hidden="true" />
+
       <nav
         aria-label="Hovednavigasjon"
         onKeyDown={handleKeyDown}
         className={[
-          "relative mx-auto flex items-center justify-between overflow-hidden rounded-full border backdrop-blur-2xl transition-all duration-300 ease-out motion-reduce:transition-none",
-          isScrolled
-            ? "min-h-14 max-w-5xl border-white/35 bg-white/64 px-3 shadow-[0_14px_40px_rgba(15,23,42,0.14)] ring-1 ring-black/5 supports-[backdrop-filter]:bg-white/54"
-            : "min-h-16 max-w-6xl border-white/16 bg-white/8 px-4 shadow-[0_12px_35px_rgba(15,23,42,0.24)] ring-1 ring-white/10 supports-[backdrop-filter]:bg-white/6",
+          "border-b border-stone-950/10 bg-[#f7f1e8]/92 shadow-sm shadow-stone-950/5 backdrop-blur-xl transition duration-300 ease-out motion-reduce:transition-none",
+          isScrolled ? "" : "bg-white/10 text-white supports-[backdrop-filter]:bg-stone-950/8",
         ].join(" ")}
       >
-        <div
-          aria-hidden="true"
-          className={[
-            "pointer-events-none absolute inset-x-6 top-0 h-px bg-gradient-to-r from-transparent via-white to-transparent transition-opacity duration-300 ease-out motion-reduce:transition-none",
-            isScrolled ? "opacity-70" : "opacity-100",
-          ].join(" ")}
-        />
-
-        <Link
-          href="/"
-          aria-label="Kvinner for Endring - gå til forsiden"
-          onClick={() => setIsOpen(false)}
-          className={[
-            "inline-flex min-h-11 items-center rounded-full outline-none transition-all duration-300 ease-out active:scale-[0.98] motion-reduce:transition-none motion-reduce:active:scale-100",
-            isScrolled
-              ? "gap-0 pr-0 text-gray-950 hover:text-gray-700 focus-visible:ring-2 focus-visible:ring-gray-950/15"
-              : "gap-3 pr-4 text-white hover:text-white/90 focus-visible:ring-2 focus-visible:ring-white/35",
-          ].join(" ")}
-        >
-          <span
+        <div className="mx-auto flex max-w-6xl items-center justify-between gap-6 px-4 py-3 sm:px-6">
+          <Link
+            href="/"
+            aria-label="Kvinner for Endring - gå til forsiden"
+            onClick={() => setIsOpen(false)}
             className={[
-              "inline-flex items-center justify-center rounded-full shadow-sm transition-all duration-300 ease-out motion-reduce:transition-none",
-              isScrolled ? "h-10 w-10 bg-white/85" : "h-11 w-11 bg-white/18 ring-1 ring-white/12",
+              "inline-flex min-h-12 items-center gap-3 outline-none transition duration-200 ease-out focus-visible:ring-2 focus-visible:ring-red-700 focus-visible:ring-offset-4 motion-reduce:transition-none",
+              isScrolled ? "text-stone-950 hover:text-red-700" : "text-white hover:text-white/82",
             ].join(" ")}
           >
-            <Image
-              src="/images/nakfe-logo.jpg"
-              alt=""
-              width={40}
-              height={40}
-              priority
-              className={[
-                "rounded-full object-contain transition-all duration-300 ease-out motion-reduce:transition-none",
-                isScrolled ? "h-8 w-8" : "h-9 w-9",
-              ].join(" ")}
-            />
-          </span>
+            <span className="grid h-12 w-12 place-items-center bg-white shadow-sm shadow-stone-950/10">
+              <Image
+                src="/images/nakfe-logo.jpg"
+                alt=""
+                width={40}
+                height={40}
+                priority
+                className="h-10 w-10 rounded-full object-contain"
+              />
+            </span>
 
-          <span
+            <span className="hidden text-lg font-black tracking-[-0.045em] sm:block">
+              Kvinner for Endring
+            </span>
+          </Link>
+
+          <ul className="hidden items-center gap-3 md:flex">
+            {visibleNavigationItems.map((link) => {
+              const isCurrent = pathname === link.href;
+
+              return (
+                <li key={link.href}>
+                  <Link
+                    href={link.href}
+                    aria-current={isCurrent ? "page" : undefined}
+                    onClick={() => setIsOpen(false)}
+                    className={getLinkClasses(isCurrent, desktopLinkClasses)}
+                  >
+                    <NavIcon href={link.href} />
+                    <span>{link.label}</span>
+                  </Link>
+                </li>
+              );
+            })}
+          </ul>
+
+          <button
+            type="button"
+            aria-label={isOpen ? "Lukk hovedmeny" : "Åpne hovedmeny"}
+            aria-controls={menuId}
+            aria-expanded={isOpen}
+            onClick={() => setIsOpen((current) => !current)}
             className={[
-              "overflow-hidden whitespace-nowrap font-bold tracking-tight transition-[max-width,opacity,transform] duration-300 ease-out motion-reduce:transition-none",
+              "inline-flex min-h-12 min-w-12 items-center justify-center border-2 text-2xl font-black leading-none outline-none transition duration-200 ease-out active:translate-y-0.5 motion-reduce:transition-none motion-reduce:active:translate-y-0 md:hidden",
               isScrolled
-                ? "max-w-0 -translate-x-2 opacity-0"
-                : "max-w-[14rem] translate-x-0 opacity-100",
+                ? "border-stone-950 bg-white text-stone-950 hover:bg-stone-950 hover:text-white focus-visible:ring-2 focus-visible:ring-stone-950 focus-visible:ring-offset-4"
+                : "border-white bg-white/10 text-white hover:bg-white hover:text-stone-950 focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-4 focus-visible:ring-offset-stone-950",
             ].join(" ")}
           >
-            Kvinner for Endring
-          </span>
-        </Link>
-
-        <ul className="hidden items-center gap-3 md:flex">
-          {visibleNavigationItems.map((link) => {
-            const isCurrent = pathname === link.href;
-
-            return (
-              <li key={link.href}>
-                <Link
-                  href={link.href}
-                  aria-current={isCurrent ? "page" : undefined}
-                  onClick={() => setIsOpen(false)}
-                  className={getLinkClasses(isCurrent, desktopLinkClasses, tone)}
-                >
-                  <NavIcon href={link.href} />
-                  <span>{link.label}</span>
-                </Link>
-              </li>
-            );
-          })}
-        </ul>
-
-        <button
-          type="button"
-          aria-label={isOpen ? "Lukk hovedmeny" : "Åpne hovedmeny"}
-          aria-controls={menuId}
-          aria-expanded={isOpen}
-          onClick={() => setIsOpen((current) => !current)}
-          className={[
-            "inline-flex min-h-11 min-w-11 items-center justify-center rounded-full border text-xl leading-none shadow-sm backdrop-blur-xl outline-none transition duration-200 ease-out active:scale-95 motion-reduce:transition-none motion-reduce:active:scale-100 md:hidden",
-            isScrolled
-              ? "border-white/40 bg-white/76 text-gray-950 hover:bg-white/85 focus-visible:ring-2 focus-visible:ring-gray-950/15"
-              : "border-white/18 bg-white/12 text-white hover:bg-white/18 focus-visible:ring-2 focus-visible:ring-white/35",
-          ].join(" ")}
-        >
-          <span aria-hidden="true">{isOpen ? "×" : "☰"}</span>
-        </button>
+            <span aria-hidden="true">{isOpen ? "×" : "☰"}</span>
+          </button>
+        </div>
       </nav>
 
       <div
         id={menuId}
         aria-hidden={!isOpen}
         className={[
-          "mx-auto mt-3 max-w-6xl overflow-hidden rounded-3xl border shadow-[0_18px_50px_rgba(15,23,42,0.18)] backdrop-blur-2xl md:hidden",
-          isScrolled
-            ? "border-white/35 bg-white/68 ring-1 ring-black/5 supports-[backdrop-filter]:bg-white/60"
-            : "border-white/16 bg-white/8 ring-1 ring-white/10 supports-[backdrop-filter]:bg-white/10",
+          "mx-4 mt-3 overflow-hidden bg-white shadow-2xl shadow-stone-950/20 md:hidden",
           "transition-[max-height,opacity,transform] duration-200 ease-out motion-reduce:transition-none",
-          isOpen
-            ? "max-h-96 translate-y-0 opacity-100"
-            : "max-h-0 -translate-y-2 border-transparent opacity-0",
+          isOpen ? "max-h-96 translate-y-0 opacity-100" : "max-h-0 -translate-y-2 opacity-0",
         ].join(" ")}
       >
         <nav aria-label="Mobil hovednavigasjon" className="p-3">
@@ -182,7 +152,7 @@ export default function Navbar() {
                     aria-current={isCurrent ? "page" : undefined}
                     tabIndex={isOpen ? undefined : -1}
                     onClick={() => setIsOpen(false)}
-                    className={getLinkClasses(isCurrent, mobileLinkClasses, tone)}
+                    className={getLinkClasses(isCurrent, mobileLinkClasses, true)}
                   >
                     <NavIcon href={link.href} />
                     <span>{link.label}</span>

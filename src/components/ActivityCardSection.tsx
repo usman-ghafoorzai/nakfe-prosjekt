@@ -1,146 +1,158 @@
 import Link from "next/link";
 import SectionHeader from "@/components/SectionHeader";
 import type {
-    ActivityItemContent,
-    ActivitySectionContent,
-    ActivityStatus,
+  ActivityItemContent,
+  ActivitySectionContent,
+  ActivityStatus,
 } from "@/types/content";
 
 type ActivityCardSectionProps = {
-    content: ActivitySectionContent;
+  content: ActivitySectionContent;
 };
 
 const statusLabels: Record<ActivityStatus, string> = {
-    upcoming: "Kommende",
-    past: "Tidligere",
-    cancelled: "Avlyst",
+  upcoming: "Kommende",
+  past: "Tidligere",
+  cancelled: "Avlyst",
 };
 
 function formatDate(date?: string) {
-    if (!date) {
-        return "Dato kommer";
-    }
+  if (!date) {
+    return { day: "–", month: "Dato kommer", full: "Dato kommer" };
+  }
 
-    return new Intl.DateTimeFormat("nb-NO", {
-        day: "numeric",
-        month: "long",
-        year: "numeric",
-    }).format(new Date(date));
+  const parsedDate = new Date(date);
+
+  return {
+    day: new Intl.DateTimeFormat("nb-NO", { day: "2-digit" }).format(parsedDate),
+    month: new Intl.DateTimeFormat("nb-NO", { month: "short" }).format(parsedDate),
+    full: new Intl.DateTimeFormat("nb-NO", {
+      day: "numeric",
+      month: "long",
+      year: "numeric",
+    }).format(parsedDate),
+  };
 }
 
-export default function ActivityCardSection({
-                                                content,
-                                            }: ActivityCardSectionProps) {
-    return (
-        <section className="border-b border-gray-200 bg-gray-50">
-            <div className="mx-auto max-w-6xl px-4 py-16 sm:px-6 sm:py-20">
-                <SectionHeader content={content.header} />
+export default function ActivityCardSection({ content }: ActivityCardSectionProps) {
+  return (
+    <section className="nakfe-section bg-[#f7f1e8]">
+      <div className="absolute left-0 top-0 h-20 w-20 bg-red-700" aria-hidden="true" />
+      <div className="nakfe-container py-16 sm:py-20 lg:py-24">
+        <SectionHeader content={content.header} />
 
-                {content.items.length > 0 ? (
-                    <ul className="mt-10 grid gap-5 lg:grid-cols-2">
-                        {content.items.map((activity) => (
-                            <li key={`${activity.title}-${activity.startDate ?? "no-date"}`}>
-                                <ActivityCard activity={activity} />
-                            </li>
-                        ))}
-                    </ul>
-                ) : (
-                    <div className="mt-10 rounded-3xl border border-dashed border-gray-300 bg-white p-8">
-                        <h3 className="text-lg font-semibold text-gray-950">
-                            {content.emptyState.title}
-                        </h3>
+        {content.items.length > 0 ? (
+          <ul className="mt-12 grid gap-5">
+            {content.items.map((activity) => (
+              <li key={`${activity.title}-${activity.startDate ?? "no-date"}`}>
+                <ActivityCard activity={activity} />
+              </li>
+            ))}
+          </ul>
+        ) : (
+          <div className="mt-12 border-l-[12px] border-red-700 bg-white p-7 shadow-sm shadow-stone-950/5">
+            <h3 className="text-3xl font-black leading-none tracking-[-0.055em] text-stone-950">
+              {content.emptyState.title}
+            </h3>
 
-                        {content.emptyState.description ? (
-                            <p className="mt-3 max-w-2xl text-sm leading-6 text-gray-600">
-                                {content.emptyState.description}
-                            </p>
-                        ) : null}
+            {content.emptyState.description ? (
+              <p className="mt-4 max-w-2xl text-base font-semibold leading-7 text-stone-700">
+                {content.emptyState.description}
+              </p>
+            ) : null}
 
-                        {content.emptyState.action ? (
-                            <Link
-                                href={content.emptyState.action.href}
-                                className="mt-6 inline-flex min-h-11 items-center justify-center rounded-full border border-gray-300 bg-white px-6 text-sm font-semibold text-gray-950 transition duration-200 ease-out hover:border-gray-950 hover:bg-gray-50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gray-950 focus-visible:ring-offset-2 active:scale-[0.98] motion-reduce:transition-none motion-reduce:active:scale-100"
-                            >
-                                {content.emptyState.action.label}
-                            </Link>
-                        ) : null}
-                    </div>
-                )}
-            </div>
-        </section>
-    );
+            {content.emptyState.action ? (
+              <Link href={content.emptyState.action.href} className="nakfe-button-secondary mt-7">
+                {content.emptyState.action.label}
+                <span aria-hidden="true">→</span>
+              </Link>
+            ) : null}
+          </div>
+        )}
+      </div>
+    </section>
+  );
 }
 
 type ActivityCardProps = {
-    activity: ActivityItemContent;
+  activity: ActivityItemContent;
 };
 
 function ActivityCard({ activity }: ActivityCardProps) {
-    return (
-        <article className="h-full rounded-3xl border border-gray-200 bg-white p-6 shadow-sm transition duration-200 ease-out hover:-translate-y-1 hover:shadow-md motion-reduce:transition-none motion-reduce:hover:translate-y-0">
-            <div className="flex flex-wrap items-center gap-2">
-        <span className="rounded-full bg-gray-100 px-3 py-1 text-xs font-semibold text-gray-700">
-          {statusLabels[activity.status]}
-        </span>
+  const date = formatDate(activity.startDate);
 
-                {activity.category ? (
-                    <span className="rounded-full bg-red-50 px-3 py-1 text-xs font-semibold text-red-700">
-            {activity.category}
-          </span>
-                ) : null}
+  return (
+    <article className="group grid overflow-hidden bg-white shadow-sm shadow-stone-950/5 transition duration-200 ease-out hover:-translate-y-1 hover:shadow-xl hover:shadow-stone-950/10 motion-reduce:transition-none motion-reduce:hover:translate-y-0 md:grid-cols-[10rem_minmax(0,1fr)]">
+      <div className="flex min-h-36 flex-col justify-between bg-stone-950 p-5 text-white">
+        <div>
+          <p className="text-xs font-black uppercase tracking-[0.16em] text-white/58">
+            {statusLabels[activity.status]}
+          </p>
+          <p className="mt-5 text-5xl font-black leading-none tracking-[-0.08em] text-red-500">
+            {date.day}
+          </p>
+          <p className="mt-1 text-sm font-black uppercase tracking-[0.16em] text-white">
+            {date.month}
+          </p>
+        </div>
 
-                {activity.isFeatured ? (
-                    <span className="rounded-full bg-gray-950 px-3 py-1 text-xs font-semibold text-white">
+        {activity.isFeatured ? (
+          <p className="mt-5 inline-flex w-fit bg-red-700 px-3 py-2 text-xs font-black uppercase tracking-[0.14em] text-white">
             Fremhevet
-          </span>
-                ) : null}
-            </div>
+          </p>
+        ) : null}
+      </div>
 
-            <h3 className="mt-5 text-xl font-semibold text-gray-950">
-                {activity.title}
-            </h3>
+      <div className="border-l-[12px] border-red-700 p-6 sm:p-8">
+        <div className="flex flex-wrap items-center gap-3">
+          {activity.category ? (
+            <span className="text-xs font-black uppercase tracking-[0.18em] text-red-700">
+              {activity.category}
+            </span>
+          ) : null}
+          <time className="text-sm font-semibold text-stone-500" dateTime={activity.startDate}>
+            {date.full}
+          </time>
+        </div>
 
-            <p className="mt-3 text-sm leading-6 text-gray-600">
-                {activity.description}
-            </p>
+        <h3 className="mt-4 max-w-3xl text-3xl font-black leading-none tracking-[-0.055em] text-stone-950 sm:text-4xl">
+          {activity.title}
+        </h3>
 
-            <dl className="mt-6 grid gap-3 text-sm text-gray-600 sm:grid-cols-2">
-                <div>
-                    <dt className="font-semibold text-gray-950">Dato</dt>
-                    <dd className="mt-1">
-                        {activity.startDate ? (
-                            <time dateTime={activity.startDate}>
-                                {formatDate(activity.startDate)}
-                            </time>
-                        ) : (
-                            "Dato kommer"
-                        )}
-                    </dd>
-                </div>
+        <p className="mt-5 max-w-3xl text-base font-semibold leading-7 text-stone-700">
+          {activity.description}
+        </p>
 
-                <div>
-                    <dt className="font-semibold text-gray-950">Sted</dt>
-                    <dd className="mt-1">{activity.location ?? "Sted kommer"}</dd>
-                </div>
-            </dl>
+        <dl className="mt-6 grid gap-4 text-sm font-semibold text-stone-700 sm:grid-cols-2">
+          <div>
+            <dt className="text-xs font-black uppercase tracking-[0.16em] text-stone-500">Sted</dt>
+            <dd className="mt-1 text-stone-950">{activity.location ?? "Sted kommer"}</dd>
+          </div>
+          <div>
+            <dt className="text-xs font-black uppercase tracking-[0.16em] text-stone-500">Status</dt>
+            <dd className="mt-1 text-stone-950">{statusLabels[activity.status]}</dd>
+          </div>
+        </dl>
 
-            {activity.accessibilityNote ? (
-                <p className="mt-5 rounded-2xl bg-gray-50 px-4 py-3 text-sm leading-6 text-gray-600">
-                    {activity.accessibilityNote}
-                </p>
-            ) : null}
+        {activity.accessibilityNote ? (
+          <p className="mt-6 max-w-3xl bg-[#f7f1e8] px-5 py-4 text-sm font-semibold leading-6 text-stone-700">
+            {activity.accessibilityNote}
+          </p>
+        ) : null}
 
-            {activity.registrationLink ? (
-                <div className="mt-6">
-                    <Link
-                        href={activity.registrationLink.href}
-                        aria-label={activity.registrationLink.ariaLabel}
-                        className="inline-flex min-h-11 items-center justify-center rounded-full bg-gray-950 px-6 text-sm font-semibold text-white transition duration-200 ease-out hover:bg-gray-800 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gray-950 focus-visible:ring-offset-2 active:scale-[0.98] motion-reduce:transition-none motion-reduce:active:scale-100"
-                    >
-                        {activity.registrationLink.label}
-                    </Link>
-                </div>
-            ) : null}
-        </article>
-    );
+        {activity.registrationLink ? (
+          <div className="mt-7">
+            <Link
+              href={activity.registrationLink.href}
+              aria-label={activity.registrationLink.ariaLabel}
+              className="nakfe-button-primary"
+            >
+              {activity.registrationLink.label}
+              <span aria-hidden="true">→</span>
+            </Link>
+          </div>
+        ) : null}
+      </div>
+    </article>
+  );
 }

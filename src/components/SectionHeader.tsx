@@ -1,27 +1,54 @@
 import type { SectionHeaderContent } from "@/types/content";
 
 type SectionHeaderProps = {
-    content: SectionHeaderContent;
+  content: SectionHeaderContent;
+  align?: "left" | "center";
+  tone?: "light" | "dark";
 };
 
-export default function SectionHeader({ content }: SectionHeaderProps) {
-    return (
-        <div className="max-w-3xl">
-            {content.eyebrow ? (
-                <p className="text-sm font-semibold uppercase tracking-[0.2em] text-gray-500">
-                    {content.eyebrow}
-                </p>
-            ) : null}
+export default function SectionHeader({
+  content,
+  align = "left",
+  tone = "light",
+}: SectionHeaderProps) {
+  const isCentered = align === "center";
+  const isDark = tone === "dark";
 
-            <h2 className="mt-3 text-3xl font-bold tracking-tight text-gray-950 sm:text-4xl">
-                {content.title}
-            </h2>
+  return (
+    <div className={isCentered ? "mx-auto max-w-3xl text-center" : "max-w-3xl"}>
+      {content.eyebrow ? (
+        <p
+          className={[
+            "nakfe-eyebrow",
+            isCentered ? "justify-center" : "justify-start",
+            isDark ? "text-white/72" : "text-red-700",
+          ].join(" ")}
+        >
+          <span className="nakfe-red-square" aria-hidden="true" />
+          {content.eyebrow}
+        </p>
+      ) : null}
 
-            {content.description ? (
-                <p className="mt-4 text-lg leading-8 text-gray-600">
-                    {content.description}
-                </p>
-            ) : null}
-        </div>
-    );
+      <h2
+        className={[
+          "mt-4 text-balance text-4xl font-black leading-[0.96] tracking-[-0.06em] sm:text-5xl lg:text-6xl",
+          isDark ? "text-white" : "text-stone-950",
+        ].join(" ")}
+      >
+        {content.title}
+      </h2>
+
+      {content.description ? (
+        <p
+          className={[
+            "mt-6 max-w-2xl text-lg font-semibold leading-8 sm:text-xl",
+            isCentered ? "mx-auto" : "",
+            isDark ? "text-white/78" : "text-stone-700",
+          ].join(" ")}
+        >
+          {content.description}
+        </p>
+      ) : null}
+    </div>
+  );
 }
