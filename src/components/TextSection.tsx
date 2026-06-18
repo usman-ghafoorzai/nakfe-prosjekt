@@ -52,7 +52,7 @@ export default function TextSection({ content }: TextSectionProps) {
       <div className="pointer-events-none absolute right-[-7rem] top-16 h-72 w-72 rotate-45 border-[2.4rem] border-white/50" aria-hidden="true" />
       <div className="pointer-events-none absolute bottom-[-6rem] left-[12%] h-44 w-44 rounded-full bg-white/45 blur-3xl" aria-hidden="true" />
 
-      <div className="mx-auto grid max-w-6xl gap-12 px-4 py-18 sm:px-6 sm:py-24 lg:grid-cols-[minmax(0,1fr)_minmax(20rem,0.82fr)] lg:items-center lg:gap-16">
+      <div className="mx-auto grid max-w-7xl gap-14 px-4 py-20 sm:px-6 lg:grid-cols-[minmax(0,1fr)_minmax(0,1fr)] lg:items-start lg:gap-24 xl:gap-28">
         <div className={imageFirst ? "lg:order-2" : undefined}>
           <SectionHeader content={content.header} />
 
