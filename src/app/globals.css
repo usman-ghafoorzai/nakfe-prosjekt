@@ -71,28 +71,28 @@ body {
   background: rgba(185, 28, 28, 0.22);
 }
 
+.nakfe-hero-word {
+  animation: nakfe-hero-word 8.8s infinite;
+}
+
 @keyframes nakfe-hero-word {
   0%,
-  12% {
+  10% {
     opacity: 0;
-    transform: translateX(10px);
+    clip-path: inset(0 100% 0 0);
   }
 
-  18%,
+  16%,
   34% {
     opacity: 1;
-    transform: translateX(0);
+    clip-path: inset(0 0 0 0);
   }
 
   42%,
   100% {
     opacity: 0;
-    transform: translateX(-10px);
+    clip-path: inset(0 0 0 100%);
   }
-}
-
-.nakfe-hero-word {
-  animation: nakfe-hero-word 8.8s infinite;
 }
 
 @media (prefers-reduced-motion: reduce) {

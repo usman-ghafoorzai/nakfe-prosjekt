@@ -44,27 +44,29 @@ export default function Hero({ content }: HeroProps) {
           ) : null}
 
           {rotatingWords.length > 0 ? (
-              <div className="mt-10 flex flex-col gap-4 sm:flex-row sm:items-center">
-                <p className="text-sm font-black uppercase tracking-[0.24em] text-white/72">
-                  Arbeidet vårt handler om
-                </p>
+            <div className="mt-10 max-w-4xl">
+              <p className="text-sm font-black uppercase tracking-[0.28em] text-white/72">
+                Arbeidet vårt handler om
+              </p>
 
-                <div
-                    className="relative flex h-20 w-full max-w-sm items-center overflow-hidden bg-red-700 px-6 text-white shadow-2xl shadow-stone-950/25 sm:h-20 sm:w-[28rem] sm:px-8"
-                    aria-label={rotatingWords.join(", ")}
-                >
-                  {rotatingWords.map((word, index) => (
-                      <span
-                          key={word}
-                          className="nakfe-hero-word absolute inset-0 flex items-center px-6 text-4xl font-black leading-none tracking-[-0.055em] opacity-0 sm:px-8 sm:text-5xl"
-                          style={{ animationDelay: `${index * 3.3}s` }}
-                          aria-hidden={index !== 0}
-                      >
-          {word}
-        </span>
-                  ))}
-                </div>
+              <div
+                className="relative mt-4 h-20 overflow-hidden sm:h-24"
+                aria-label={rotatingWords.join(", ")}
+              >
+                <div className="absolute left-0 top-1/2 h-14 w-2 -translate-y-1/2 bg-red-700 sm:h-16" />
+
+                {rotatingWords.map((word, index) => (
+                  <span
+                    key={word}
+                    className="nakfe-hero-word absolute inset-0 flex items-center pl-7 text-5xl font-black leading-none tracking-[-0.06em] text-white drop-shadow-[0_8px_24px_rgba(0,0,0,0.45)] sm:pl-9 sm:text-7xl"
+                    style={{ animationDelay: `${index * 2.2}s` }}
+                    aria-hidden={index !== 0}
+                  >
+                    {word}
+                  </span>
+                ))}
               </div>
+            </div>
           ) : null}
         </div>
       </div>
