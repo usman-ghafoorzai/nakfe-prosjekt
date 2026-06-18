@@ -21,7 +21,6 @@ export default function PageHero({ content }: PageHeroProps) {
         <div className="max-w-4xl pl-0 sm:pl-8">
           {content.eyebrow ? (
             <p className="nakfe-eyebrow bg-white px-4 py-3 text-stone-950 shadow-lg shadow-stone-950/20">
-              <span className="nakfe-red-square" aria-hidden="true" />
               {content.eyebrow}
             </p>
           ) : null}

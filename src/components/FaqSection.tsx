@@ -17,7 +17,6 @@ export default function FaqSection({ categories }: FaqSectionProps) {
             <div key={category.title} className="grid gap-8 lg:grid-cols-[minmax(16rem,0.38fr)_1fr]">
               <div className="lg:pt-3">
                 <p className="nakfe-eyebrow text-red-700">
-                  <span className="nakfe-red-square" aria-hidden="true" />
                   {String(index + 1).padStart(2, "0")}
                 </p>
                 <h2 className="mt-4 text-4xl font-black leading-[0.96] tracking-[-0.06em] text-stone-950 sm:text-5xl">

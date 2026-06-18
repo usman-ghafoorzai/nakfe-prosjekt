@@ -18,7 +18,6 @@ export default function CtaSection({ content }: CtaSectionProps) {
         <div className="grid gap-10 lg:grid-cols-[minmax(0,1fr)_minmax(18rem,0.52fr)] lg:items-end">
           <div className="max-w-4xl pl-8 sm:pl-10">
             <p className="nakfe-eyebrow text-white/70">
-              <span className="nakfe-red-square" aria-hidden="true" />
               Neste steg
             </p>
 

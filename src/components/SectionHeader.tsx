@@ -24,7 +24,6 @@ export default function SectionHeader({
             isDark ? "text-white/72" : "text-red-700",
           ].join(" ")}
         >
-          <span className="nakfe-red-square" aria-hidden="true" />
           {content.eyebrow}
         </p>
       ) : null}
