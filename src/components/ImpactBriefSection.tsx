@@ -29,15 +29,15 @@ export default function ImpactBriefSection({ content }: ImpactBriefSectionProps)
   }, [isOpen]);
 
   return (
-    <section aria-labelledby="impact-brief-heading" className="relative z-30 bg-[#f7f1e8]">
-      <div className="mx-auto max-w-6xl px-4 sm:px-6">
-        <div className="relative -mt-20 bg-[#e7e1d8] shadow-2xl shadow-stone-950/20 md:-mt-24">
-          <div className="absolute left-0 top-0 h-16 w-16 bg-red-700" aria-hidden="true" />
-
+      <section
+          aria-labelledby="impact-brief-heading"
+          className="relative z-30 -mt-16 bg-transparent px-4 sm:-mt-20 sm:px-6 lg:-mt-24"
+      >
+        <div className="mx-auto max-w-5xl lg:translate-x-12 xl:translate-x-20">
+          <div className="relative bg-[#e7e1d8] shadow-2xl shadow-stone-950/20">
           <div className="grid gap-8 px-5 py-8 sm:px-8 md:grid-cols-[minmax(0,1fr)_auto] md:items-end lg:px-10 lg:py-10">
             <div className="max-w-3xl pl-0 sm:pl-8">
               <p className="inline-flex items-center gap-3 text-[0.76rem] font-black uppercase tracking-[0.22em] text-red-800">
-                <span className="h-3 w-3 bg-red-700" aria-hidden="true" />
                 {content.eyebrow}
               </p>
 
@@ -102,7 +102,6 @@ export default function ImpactBriefSection({ content }: ImpactBriefSectionProps)
         onClose={() => setIsOpen(false)}
       >
         <div className="relative overflow-hidden bg-[#f7f1e8] shadow-2xl shadow-stone-950/30">
-          <div className="absolute left-0 top-0 h-20 w-20 bg-red-700" aria-hidden="true" />
           <div className="absolute right-[-4rem] top-8 h-40 w-40 rotate-45 border-[1.6rem] border-red-700/15" aria-hidden="true" />
 
           <div className="relative px-6 py-7 sm:px-9 sm:py-9">
