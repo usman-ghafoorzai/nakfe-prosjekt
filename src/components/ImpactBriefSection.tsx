@@ -79,22 +79,22 @@ export default function ImpactBriefSection({ content }: ImpactBriefSectionProps)
           aria-labelledby="impact-brief-heading"
           className="relative z-30 -mt-16 bg-transparent px-4 sm:-mt-20 sm:px-6 lg:-mt-24"
       >
-        <div className="mx-auto max-w-5xl lg:-translate-x-12 xl:-translate-x-24">
+        <div className="mx-auto max-w-6xl lg:-translate-x-12 xl:-translate-x-24">
           <div className="relative bg-[#e7e1d8] shadow-2xl shadow-stone-950/20">
-            <div className="grid gap-8 px-5 py-8 sm:px-8 md:grid-cols-[minmax(0,1fr)_auto] md:items-end lg:px-10 lg:py-10">
-              <div className="max-w-3xl">
+            <div className="grid gap-10 px-5 py-8 sm:px-8 md:grid-cols-[minmax(0,1fr)_auto] md:items-end lg:gap-12 lg:px-10 lg:py-10">
+              <div className="max-w-4xl">
                 <p className="inline-flex items-center gap-3 text-[0.76rem] font-black uppercase tracking-[0.22em] text-red-800">
                   {content.eyebrow}
                 </p>
 
                 <h2
                     id="impact-brief-heading"
-                    className="mt-4 max-w-3xl text-balance text-3xl font-black leading-[0.98] tracking-[-0.055em] text-stone-950 sm:text-4xl lg:text-5xl"
+                    className="mt-4 max-w-4xl text-balance text-3xl font-black leading-[0.98] tracking-[-0.055em] text-stone-950 sm:text-4xl lg:text-5xl"
                 >
                   {content.title}
                 </h2>
 
-                <p className="mt-6 max-w-2xl text-lg font-semibold leading-8 text-stone-800">
+                <p className="mt-6 max-w-3xl text-lg font-semibold leading-8 text-stone-800">
                   {content.description}
                 </p>
               </div>

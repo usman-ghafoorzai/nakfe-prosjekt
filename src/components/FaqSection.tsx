@@ -11,9 +11,9 @@ export default function FaqSection({ categories }: FaqSectionProps) {
   return (
     <section className="nakfe-section bg-[#f7f1e8]">
       <div className="nakfe-container py-16 sm:py-20 lg:py-24">
-        <div className="space-y-14">
+        <div className="space-y-16 lg:space-y-20">
           {categories.map((category, index) => (
-            <div key={category.title} className="grid gap-8 lg:grid-cols-[minmax(16rem,0.38fr)_1fr]">
+            <div key={category.title} className="grid gap-10 lg:grid-cols-[minmax(18rem,0.42fr)_1fr] lg:gap-14">
               <div className="lg:pt-3">
                 <p className="nakfe-eyebrow text-red-700">
                   {String(index + 1).padStart(2, "0")}
@@ -23,7 +23,7 @@ export default function FaqSection({ categories }: FaqSectionProps) {
                 </h2>
 
                 {category.description ? (
-                  <p className="mt-6 max-w-2xl text-base font-semibold leading-7 text-stone-700">
+                  <p className="mt-6 max-w-3xl text-base font-semibold leading-7 text-stone-700">
                     {category.description}
                   </p>
                 ) : null}

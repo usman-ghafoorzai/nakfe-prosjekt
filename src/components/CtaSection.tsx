@@ -14,8 +14,8 @@ export default function CtaSection({ content }: CtaSectionProps) {
       <div className="absolute bottom-[-5rem] right-[12%] h-44 w-44 rotate-45 border-[2rem] border-white/10" aria-hidden="true" />
 
       <div className="nakfe-container py-16 sm:py-20 lg:py-24">
-        <div className="grid gap-10 lg:grid-cols-[minmax(0,1fr)_minmax(18rem,0.52fr)] lg:items-end">
-          <div className="max-w-4xl">
+        <div className="grid gap-12 lg:grid-cols-[minmax(0,1fr)_minmax(18rem,0.52fr)] lg:items-end lg:gap-14">
+          <div className="max-w-5xl">
             <p className="nakfe-eyebrow text-white/70">
               Neste steg
             </p>
@@ -25,7 +25,7 @@ export default function CtaSection({ content }: CtaSectionProps) {
             </h2>
 
             {content.description ? (
-              <p className="mt-6 max-w-2xl text-lg font-semibold leading-8 text-white/78 sm:text-xl">
+              <p className="mt-6 max-w-3xl text-lg font-semibold leading-8 text-white/78 sm:text-xl">
                 {content.description}
               </p>
             ) : null}

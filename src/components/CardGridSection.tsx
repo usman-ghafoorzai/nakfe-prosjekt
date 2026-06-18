@@ -13,14 +13,14 @@ export default function CardGridSection({ content }: CardGridSectionProps) {
   return (
     <section className="nakfe-section bg-[#f7f1e8]">
       <div className="pointer-events-none absolute right-[-5rem] top-10 h-48 w-48 rotate-45 border-[1.8rem] border-red-700/10" aria-hidden="true" />
-      <div className="nakfe-container py-16 sm:py-20 lg:py-24">
+      <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 sm:py-20 lg:py-24">
         <SectionHeader content={content.header} />
 
         <ul
           className={
             isCompact
-              ? "mt-14 grid gap-6 sm:grid-cols-2 lg:mt-16 lg:gap-8"
-              : "mt-16 grid gap-6 lg:mt-20 lg:grid-cols-3 lg:gap-8"
+              ? "mt-16 grid gap-8 sm:grid-cols-2 lg:mt-20 lg:gap-10"
+              : "mt-20 grid gap-8 lg:mt-24 lg:grid-cols-3 lg:gap-10"
           }
         >
           {content.items.map((item, index) => (

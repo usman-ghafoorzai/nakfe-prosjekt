@@ -15,7 +15,7 @@ export default function SectionHeader({
   const isDark = tone === "dark";
 
   return (
-    <div className={isCentered ? "mx-auto max-w-3xl text-center" : "max-w-3xl"}>
+    <div className={isCentered ? "mx-auto max-w-4xl text-center" : "max-w-4xl"}>
       {content.eyebrow ? (
         <p
           className={[
@@ -40,7 +40,7 @@ export default function SectionHeader({
       {content.description ? (
         <p
           className={[
-            "mt-6 max-w-2xl text-lg font-semibold leading-8 sm:text-xl",
+            "mt-6 max-w-3xl text-lg font-semibold leading-8 sm:text-xl",
             isCentered ? "mx-auto" : "",
             isDark ? "text-white/78" : "text-stone-700",
           ].join(" ")}
