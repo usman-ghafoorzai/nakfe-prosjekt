@@ -239,7 +239,7 @@ export default function ValueCarousel({ items }: ValueCarouselProps) {
           );
         })}
 
-        <div className="absolute inset-x-4 bottom-4 z-30 flex items-center justify-between sm:inset-x-6 sm:bottom-6">
+        <div className="absolute inset-x-4 bottom-4 z-30 hidden items-center justify-between sm:inset-x-6 sm:bottom-6 sm:flex">
           <button
             aria-label={`Vis forrige verdi, ${items[(activeIndex - 1 + items.length) % items.length].title}`}
             className="inline-flex min-h-11 min-w-11 items-center justify-center border border-white/36 bg-stone-950/92 text-white transition duration-200 ease-out hover:border-white hover:bg-stone-950 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-red-500 focus-visible:ring-offset-2 focus-visible:ring-offset-stone-950 active:translate-y-0.5 motion-reduce:transition-none motion-reduce:active:translate-y-0"
@@ -260,46 +260,31 @@ export default function ValueCarousel({ items }: ValueCarouselProps) {
         </div>
       </div>
 
-      <div className="mt-10 border-t border-white/16 pt-8 lg:grid lg:grid-cols-[minmax(0,0.72fr)_minmax(0,1.28fr)] lg:gap-x-24 lg:pt-10">
-        <nav aria-label="Velg verdi" className="border-y border-white/16">
-          {items.map((item, index) => {
-            const isActive = index === activeIndex;
+      <div className="mt-4 flex items-center justify-between sm:hidden">
+        <button
+          aria-label={`Vis forrige verdi, ${items[(activeIndex - 1 + items.length) % items.length].title}`}
+          className="inline-flex min-h-11 min-w-11 items-center justify-center border border-white/36 bg-stone-950/92 text-white transition duration-200 ease-out hover:border-white hover:bg-stone-950 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-red-500 focus-visible:ring-offset-2 focus-visible:ring-offset-stone-950 active:translate-y-0.5 motion-reduce:transition-none motion-reduce:active:translate-y-0"
+          onClick={selectPrevious}
+          type="button"
+        >
+          <ChevronLeft aria-hidden="true" size={20} strokeWidth={2.25} />
+        </button>
 
-            return (
-              <button
-                aria-pressed={isActive}
-                className={[
-                  "group relative flex min-h-14 w-full items-center gap-4 border-b border-white/16 px-1 py-3 text-left outline-none transition duration-200 ease-out last:border-b-0 focus-visible:ring-2 focus-visible:ring-red-500 focus-visible:ring-inset motion-reduce:transition-none sm:min-h-15",
-                  isActive
-                    ? "text-white"
-                    : "text-white/50 hover:text-white/88",
-                ].join(" ")}
-                key={item.title}
-                onClick={() => {
-                  selectItem(index);
-                }}
-                type="button"
-              >
-                <span
-                  aria-hidden="true"
-                  className={[
-                    "h-2 w-2 shrink-0 transition duration-200 ease-out motion-reduce:transition-none",
-                    isActive
-                      ? "scale-100 bg-red-600"
-                      : "scale-75 bg-white/28 group-hover:scale-100",
-                  ].join(" ")}
-                />
-                <span className="text-xl font-black leading-none tracking-[-0.04em] sm:text-2xl">
-                  {item.title}
-                </span>
-              </button>
-            );
-          })}
-        </nav>
+        <button
+          aria-label={`Vis neste verdi, ${items[(activeIndex + 1) % items.length].title}`}
+          className="inline-flex min-h-11 min-w-11 items-center justify-center border border-white/36 bg-stone-950/92 text-white transition duration-200 ease-out hover:border-white hover:bg-stone-950 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-red-500 focus-visible:ring-offset-2 focus-visible:ring-offset-stone-950 active:translate-y-0.5 motion-reduce:transition-none motion-reduce:active:translate-y-0"
+          onClick={selectNext}
+          type="button"
+        >
+          <ChevronRight aria-hidden="true" size={20} strokeWidth={2.25} />
+        </button>
+      </div>
 
-        <div aria-live="polite" className="pt-10 lg:pt-2">
+      <div className="mt-6 border-t border-white/16 pt-8 sm:mt-10 sm:pt-10 lg:pt-12">
+        <div aria-live="polite" className="max-w-4xl">
           <div aria-hidden="true" className="mb-6 h-1 w-12 bg-red-700" />
-          <p className="max-w-3xl text-2xl font-semibold leading-[1.35] tracking-[-0.035em] text-white sm:text-3xl lg:text-[2.15rem]">
+
+          <p className="text-2xl font-semibold leading-[1.35] tracking-[-0.035em] text-white sm:text-3xl lg:text-[2.35rem]">
             {activeItem.description}
           </p>
         </div>

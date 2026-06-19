@@ -9,8 +9,9 @@ const sharedPurposeImage = {
 
 const valueMedia = {
   integration: {
-    type: "image",
-    src: "/images/page-hero/kvinner-fellesskap.png",
+    type: "video",
+    src: "/videos/values/integrering.mp4",
+    poster: "/images/page-hero/kvinner-fellesskap.png",
     alt: "Kvinner samlet i et fellesskap",
     position: "center",
   },
@@ -22,8 +23,9 @@ const valueMedia = {
     position: "center",
   },
   equality: {
-    type: "image",
-    src: "/images/page-hero/afghansk-kulturarv.png",
+    type: "video",
+    src: "/videos/values/likestilling.mp4",
+    poster: "/images/page-hero/afghansk-kulturarv.png",
     alt: "Kvinner som markerer gjennomført opplæring",
     position: "center",
   },
