@@ -43,7 +43,7 @@ function EditorialCard({ item, index }: EditorialCardProps) {
   const body = <CardContent item={item} index={index} />;
 
   if (!item.action) {
-    return <article className="h-full border-[10px] border-[#eadfcf] bg-white shadow-md shadow-stone-950/10">{body}</article>;
+    return <article className="nakfe-card-surface h-full bg-white">{body}</article>;
   }
 
   const isExternal = item.action.isExternal ?? item.action.href.startsWith("http");
@@ -55,7 +55,7 @@ function EditorialCard({ item, index }: EditorialCardProps) {
         aria-label={item.action.ariaLabel}
         target="_blank"
         rel="noreferrer"
-        className="nakfe-card-link group block h-full border-[10px] border-[#eadfcf] bg-white shadow-md shadow-stone-950/10"
+        className="nakfe-card-link nakfe-card-surface group block h-full bg-white"
       >
         {body}
       </a>
@@ -66,7 +66,7 @@ function EditorialCard({ item, index }: EditorialCardProps) {
     <Link
       href={item.action.href}
       aria-label={item.action.ariaLabel}
-      className="nakfe-card-link group block h-full border-[10px] border-[#eadfcf] bg-white shadow-md shadow-stone-950/10"
+      className="nakfe-card-link nakfe-card-surface group block h-full bg-white"
     >
       {body}
     </Link>

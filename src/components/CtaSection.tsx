@@ -44,7 +44,7 @@ export default function CtaSection({ content }: CtaSectionProps) {
           </div>
 
           {hasImage ? (
-            <figure className="relative min-h-[16rem] overflow-hidden border-[10px] border-white/10 bg-white/10 shadow-xl shadow-black/20 lg:min-h-[24rem]">
+            <figure className="nakfe-card-surface-dark relative min-h-[16rem] overflow-hidden bg-white/10 lg:min-h-[24rem]">
               <Image
                 src={content.image!.src}
                 alt={content.image!.isDecorative ? "" : content.image!.alt}
@@ -55,7 +55,7 @@ export default function CtaSection({ content }: CtaSectionProps) {
               />
             </figure>
           ) : (
-            <div className="hidden border-[10px] border-white/10 border-l-[12px] border-l-red-700 bg-white p-7 text-stone-950 shadow-xl shadow-black/20 lg:block">
+            <div className="nakfe-card-surface-dark hidden border-l-[12px] border-l-red-700 bg-white p-7 text-stone-950 lg:block">
               <p className="text-4xl font-black leading-none tracking-[-0.06em]">
                 Kunnskap. Fellesskap. Handling.
               </p>

@@ -22,7 +22,7 @@ export default function ValueShowcaseSection({
 
         <div className="mt-16 grid gap-6 bg-transparent lg:mt-20 lg:grid-cols-3 lg:gap-8">
           {content.items.map((item, index) => (
-            <article key={item.title} className="group overflow-hidden border-[10px] border-white/10 bg-stone-950 shadow-xl shadow-black/20">
+            <article key={item.title} className="nakfe-card-surface-dark group overflow-hidden bg-stone-950">
               <div className="relative min-h-[15rem] overflow-hidden bg-stone-800 sm:min-h-[18rem]">
                 <Image
                   src={item.image.src}
