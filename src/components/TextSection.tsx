@@ -48,16 +48,15 @@ export default function TextSection({ content }: TextSectionProps) {
 
   return (
     <section className={`relative isolate overflow-hidden border-b border-stone-300/70 ${styles.section}`}>
-      <div className="pointer-events-none absolute left-0 top-0 hidden h-24 w-24 bg-red-700 md:block" aria-hidden="true" />
       <div className="pointer-events-none absolute right-[-7rem] top-16 h-72 w-72 rotate-45 border-[2.4rem] border-white/50" aria-hidden="true" />
       <div className="pointer-events-none absolute bottom-[-6rem] left-[12%] h-44 w-44 rounded-full bg-white/45 blur-3xl" aria-hidden="true" />
 
-      <div className="mx-auto grid max-w-6xl gap-12 px-4 py-18 sm:px-6 sm:py-24 lg:grid-cols-[minmax(0,1fr)_minmax(20rem,0.82fr)] lg:items-center lg:gap-16">
+      <div className="mx-auto grid max-w-7xl gap-16 px-4 py-24 sm:px-6 sm:py-28 lg:grid-cols-[minmax(0,1fr)_minmax(0,1fr)] lg:items-start lg:gap-28 xl:gap-32">
         <div className={imageFirst ? "lg:order-2" : undefined}>
           <SectionHeader content={content.header} />
 
           {content.body.length > 0 ? (
-            <div className="mt-8 max-w-2xl space-y-5 text-lg font-medium leading-8 text-stone-800">
+            <div className="mt-10 max-w-3xl space-y-6 text-lg font-medium leading-8 text-stone-800">
               {content.body.map((paragraph, index) => (
                 <p
                   key={paragraph}
@@ -88,8 +87,7 @@ export default function TextSection({ content }: TextSectionProps) {
         {hasImage ? (
           <figure className={`relative ${imageFirst ? "lg:order-1" : undefined}`}>
             <div className={`absolute -left-4 -top-4 h-full w-full ${styles.imageFrame}`} aria-hidden="true" />
-            <div className="absolute -right-5 bottom-8 z-20 h-24 w-24 bg-red-700 mix-blend-multiply" aria-hidden="true" />
-            <div className="relative z-10 min-h-[19rem] overflow-hidden rounded-tl-[4rem] bg-stone-200 shadow-2xl shadow-stone-950/15 sm:min-h-[25rem] lg:min-h-[31rem]">
+            <div className="relative z-10 min-h-[19rem] overflow-hidden bg-stone-200 shadow-2xl shadow-stone-950/15 sm:min-h-[25rem] lg:min-h-[31rem]">
               <Image
                 src={content.image!.src}
                 alt={content.image!.isDecorative ? "" : content.image!.alt}
@@ -114,7 +112,6 @@ export default function TextSection({ content }: TextSectionProps) {
         ) : (
           <div className={`hidden min-h-80 items-end p-8 lg:flex ${styles.block}`} aria-hidden="true">
             <div>
-              <div className="h-16 w-16 bg-red-700" />
               <p className="mt-6 max-w-xs text-3xl font-black leading-none tracking-[-0.05em]">
                 Kunnskap. Fellesskap. Endring.
               </p>

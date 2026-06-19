@@ -1,10 +1,41 @@
 import { pageHeroBackgroundImages } from "@/content/pageHeroImages";
 import type { AboutPageContent } from "@/types/content";
 
-const sharedValueImage = {
+const sharedPurposeImage = {
   src: "/images/about/community.jpg",
   alt: "Kvinner samlet i et fellesskap knyttet til NAKFE",
   position: "center",
+} as const;
+
+const valueMedia = {
+  integration: {
+    type: "video",
+    src: "/videos/values/integrering.mp4",
+    poster: "/images/page-hero/kvinner-fellesskap.png",
+    alt: "Kvinner samlet i et fellesskap",
+    position: "center",
+  },
+  inclusion: {
+    type: "video",
+    src: "/videos/values/inkludering.mp4",
+    poster: "/images/page-hero/arrangementer.png",
+    alt: "Deltakere i en aktivitet og samtale",
+    position: "center",
+  },
+  equality: {
+    type: "video",
+    src: "/videos/values/likestilling.mp4",
+    poster: "/images/page-hero/afghansk-kulturarv.png",
+    alt: "Kvinner som markerer gjennomført opplæring",
+    position: "center",
+  },
+  change: {
+    type: "video",
+    src: "/videos/values/endring.mp4",
+    poster: "/images/page-hero/kvinner-for-endring.png",
+    alt: "Kvinner samlet på et arrangement med NAKFE",
+    position: "center",
+  },
 } as const;
 
 export const aboutContent = {
@@ -22,28 +53,34 @@ export const aboutContent = {
     backgroundImages: pageHeroBackgroundImages,
   },
 
-  intro: {
+  purpose: {
     header: {
       eyebrow: "Formål",
-      title: "Vi bygger rom hvor kvinner kan bli sett, hørt og styrket.",
+      title: "Muligheter vokser når kvinner får rom til å delta.",
       description:
-        "NAKFE skal være en trygg møteplass for fellesskap, kulturformidling, kunnskap og praktisk engasjement.",
+        "NAKFE styrker kvinner gjennom utdanning, praktiske ferdigheter og fellesskap – i Norge og Afghanistan.",
     },
-    body: [
-      "Mange kvinner bærer både ressurser, erfaringer og ansvar — men mangler arenaer der dette blir synlig. NAKFE vil gjøre terskelen lavere for å møte andre, delta i aktiviteter og finne informasjon som faktisk er tilgjengelig.",
-      "Arbeidet vårt handler om integrering, inkludering, likestilling og endring. Det handler også om å ta vare på kulturarv, språk og fellesskap på en måte som gir styrke i hverdagen her i Norge.",
+    contexts: [
+      {
+        id: "norway",
+        label: "I Norge",
+        description:
+          "Vi arbeider for integrering og inkludering av kvinner med minoritetsbakgrunn i det norske samfunnet og arbeidslivet.",
+        highlights: [
+          "Arbeid og jobbførhet",
+          "Utdanning og kompetanse",
+          "Entreprenørskap",
+        ],
+      },
+      {
+        id: "afghanistan",
+        label: "I Afghanistan",
+        description:
+          "Vi tilbyr utdannings- og ferdighetsprogrammer for kvinner, med mål om inntekt, trygghet og større økonomisk selvstendighet.",
+        highlights: ["Engelskkurs", "Søm og ferdigheter", "Entreprenørskap"],
+      },
     ],
-    image: {
-      src: "/images/about/community.jpg",
-      alt: "Kvinner samlet i et fellesskap knyttet til NAKFE",
-      position: "center",
-      caption:
-        "NAKFE skal være et varmt og tydelig samlingspunkt — ikke bare en nettside.",
-    },
-    visual: {
-      tone: "warm",
-      imagePlacement: "end",
-    },
+    image: sharedPurposeImage,
   },
 
   values: {
@@ -58,25 +95,25 @@ export const aboutContent = {
         title: "Integrering",
         description:
           "Vi vil gjøre det lettere å forstå samfunnet, finne informasjon og delta i fellesskap på egne premisser.",
-        image: sharedValueImage,
+        media: valueMedia.integration,
       },
       {
         title: "Inkludering",
         description:
           "Vi vil senke terskelen for å møte opp, bidra og høre til — uansett språk, bakgrunn eller livssituasjon.",
-        image: sharedValueImage,
+        media: valueMedia.inclusion,
       },
       {
         title: "Likestilling",
         description:
           "Vi vil løfte fram kvinners rettigheter, stemmer og muligheter gjennom kunnskap, støtte og synlighet.",
-        image: sharedValueImage,
+        media: valueMedia.equality,
       },
       {
         title: "Endring",
         description:
           "Vi tror små handlinger kan bli til varig endring når mennesker får møteplasser, informasjon og støtte.",
-        image: sharedValueImage,
+        media: valueMedia.change,
       },
     ],
   },

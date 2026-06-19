@@ -30,13 +30,6 @@ export default function Hero({ content }: HeroProps) {
 
       <div className="relative z-10 mx-auto flex min-h-[calc(100vh-4rem)] max-w-6xl items-start px-4 pb-36 pt-28 sm:px-6 sm:pt-32 lg:pt-36">
         <div className="max-w-4xl">
-          {content.eyebrow ? (
-            <p className="inline-flex items-center gap-3 bg-white px-4 py-3 text-[0.75rem] font-black uppercase tracking-[0.2em] text-stone-950 shadow-lg shadow-stone-950/20">
-              <span className="h-3 w-3 bg-red-700" aria-hidden="true" />
-              {content.eyebrow}
-            </p>
-          ) : null}
-
           <h1
             id="hero-heading"
             className="mt-8 max-w-5xl text-balance text-5xl font-black leading-[0.93] tracking-[-0.07em] text-white sm:text-6xl lg:text-8xl"
@@ -51,18 +44,21 @@ export default function Hero({ content }: HeroProps) {
           ) : null}
 
           {rotatingWords.length > 0 ? (
-            <div className="mt-10 flex flex-col gap-3 sm:flex-row sm:items-center">
-              <p className="text-sm font-black uppercase tracking-[0.24em] text-white/72">
+            <div className="mt-10 max-w-4xl">
+              <p className="text-sm font-black uppercase tracking-[0.28em] text-white/72">
                 Arbeidet vårt handler om
               </p>
+
               <div
-                className="relative h-16 w-full max-w-sm overflow-hidden bg-red-700 px-5 text-white shadow-2xl shadow-stone-950/25 sm:w-80"
+                className="relative mt-4 h-20 overflow-hidden sm:h-24"
                 aria-label={rotatingWords.join(", ")}
               >
+                <div className="absolute left-0 top-1/2 h-14 w-2 -translate-y-1/2 bg-red-700 sm:h-16" />
+
                 {rotatingWords.map((word, index) => (
                   <span
                     key={word}
-                    className="nakfe-hero-word absolute inset-x-5 top-1/2 -translate-y-1/2 text-3xl font-black leading-none tracking-[-0.05em] opacity-0"
+                    className="nakfe-hero-word absolute inset-0 flex items-center pl-7 text-5xl font-black leading-none tracking-[-0.06em] text-white drop-shadow-[0_8px_24px_rgba(0,0,0,0.45)] sm:pl-9 sm:text-7xl"
                     style={{ animationDelay: `${index * 2.2}s` }}
                     aria-hidden={index !== 0}
                   >

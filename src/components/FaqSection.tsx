@@ -10,14 +10,12 @@ type FaqSectionProps = {
 export default function FaqSection({ categories }: FaqSectionProps) {
   return (
     <section className="nakfe-section bg-[#f7f1e8]">
-      <div className="absolute left-0 top-0 h-20 w-20 bg-red-700" aria-hidden="true" />
-      <div className="nakfe-container py-16 sm:py-20 lg:py-24">
-        <div className="space-y-14">
+      <div className="mx-auto max-w-7xl px-4 py-20 sm:px-6 sm:py-24 lg:py-28">
+        <div className="space-y-20 lg:space-y-24">
           {categories.map((category, index) => (
-            <div key={category.title} className="grid gap-8 lg:grid-cols-[minmax(16rem,0.38fr)_1fr]">
+            <div key={category.title} className="grid gap-12 lg:grid-cols-[minmax(18rem,0.42fr)_1fr] lg:gap-16">
               <div className="lg:pt-3">
                 <p className="nakfe-eyebrow text-red-700">
-                  <span className="nakfe-red-square" aria-hidden="true" />
                   {String(index + 1).padStart(2, "0")}
                 </p>
                 <h2 className="mt-4 text-4xl font-black leading-[0.96] tracking-[-0.06em] text-stone-950 sm:text-5xl">
@@ -25,13 +23,13 @@ export default function FaqSection({ categories }: FaqSectionProps) {
                 </h2>
 
                 {category.description ? (
-                  <p className="mt-5 text-base font-semibold leading-7 text-stone-700">
+                  <p className="mt-6 max-w-3xl text-base font-semibold leading-7 text-stone-700">
                     {category.description}
                   </p>
                 ) : null}
               </div>
 
-              <div className="divide-y divide-stone-950/12 bg-white shadow-sm shadow-stone-950/5">
+              <div className="divide-y divide-stone-950/12 border-[10px] border-[#eadfcf] bg-white shadow-md shadow-stone-950/10">
                 {category.items.map((item) => (
                   <FaqItem key={item.question} item={item} />
                 ))}

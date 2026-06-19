@@ -16,7 +16,12 @@ const desktopLinkClasses =
 const mobileLinkClasses =
   "flex min-h-12 items-center gap-3 border-l-[10px] px-4 py-3 text-base font-black uppercase tracking-[0.08em] outline-none transition duration-200 ease-out focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-red-700 motion-reduce:transition-none";
 
-function getLinkClasses(isCurrent: boolean, baseClasses: string, isMobile = false) {
+function getLinkClasses(
+  isCurrent: boolean,
+  baseClasses: string,
+  isScrolled: boolean,
+  isMobile = false,
+) {
   if (isMobile) {
     return [
       baseClasses,
@@ -26,11 +31,20 @@ function getLinkClasses(isCurrent: boolean, baseClasses: string, isMobile = fals
     ].join(" ");
   }
 
+  if (!isScrolled) {
+    return [
+      baseClasses,
+      isCurrent
+        ? "text-white after:bg-white after:opacity-100"
+        : "text-white/88 after:bg-white after:opacity-0 hover:text-white hover:after:opacity-100",
+    ].join(" ");
+  }
+
   return [
     baseClasses,
     isCurrent
-      ? "text-red-700 after:opacity-100"
-      : "text-stone-800 after:opacity-0 hover:text-red-700 hover:after:opacity-100",
+      ? "text-red-700 after:bg-red-700 after:opacity-100"
+      : "text-stone-800 after:bg-red-700 after:opacity-0 hover:text-red-700 hover:after:opacity-100",
   ].join(" ");
 }
 
@@ -56,18 +70,28 @@ export default function Navbar() {
   }
 
   return (
-    <header className="fixed inset-x-0 top-0 z-50">
-      <div className="h-2 bg-red-700" aria-hidden="true" />
-
+    <header
+      className={[
+        "fixed inset-x-0 z-50 px-4 transition-all duration-300 ease-out motion-reduce:transition-none",
+        isScrolled ? "top-0 px-0" : "top-4 sm:top-5",
+      ].join(" ")}
+    >
       <nav
         aria-label="Hovednavigasjon"
         onKeyDown={handleKeyDown}
         className={[
-          "border-b border-stone-950/10 bg-[#f7f1e8]/92 shadow-sm shadow-stone-950/5 backdrop-blur-xl transition duration-300 ease-out motion-reduce:transition-none",
-          isScrolled ? "" : "bg-white/10 text-white supports-[backdrop-filter]:bg-stone-950/8",
+          "mx-auto border-b border-stone-950/10 shadow-sm shadow-stone-950/5 backdrop-blur-xl transition-all duration-300 ease-out motion-reduce:transition-none",
+          isScrolled
+            ? "max-w-none bg-[#f7f1e8]/94"
+            : "max-w-6xl bg-stone-950/28 text-white shadow-2xl shadow-stone-950/20 supports-[backdrop-filter]:bg-stone-950/18",
         ].join(" ")}
       >
-        <div className="mx-auto flex max-w-6xl items-center justify-between gap-6 px-4 py-3 sm:px-6">
+        <div
+          className={[
+            "mx-auto flex max-w-6xl items-center justify-between gap-6 px-4 transition-all duration-300 ease-out sm:px-6 motion-reduce:transition-none",
+            isScrolled ? "py-3" : "py-3.5",
+          ].join(" ")}
+        >
           <Link
             href="/"
             aria-label="Kvinner for Endring - gå til forsiden"
@@ -103,7 +127,7 @@ export default function Navbar() {
                     href={link.href}
                     aria-current={isCurrent ? "page" : undefined}
                     onClick={() => setIsOpen(false)}
-                    className={getLinkClasses(isCurrent, desktopLinkClasses)}
+                    className={getLinkClasses(isCurrent, desktopLinkClasses, isScrolled)}
                   >
                     <NavIcon href={link.href} />
                     <span>{link.label}</span>
@@ -152,7 +176,7 @@ export default function Navbar() {
                     aria-current={isCurrent ? "page" : undefined}
                     tabIndex={isOpen ? undefined : -1}
                     onClick={() => setIsOpen(false)}
-                    className={getLinkClasses(isCurrent, mobileLinkClasses, true)}
+                    className={getLinkClasses(isCurrent, mobileLinkClasses, isScrolled, true)}
                   >
                     <NavIcon href={link.href} />
                     <span>{link.label}</span>

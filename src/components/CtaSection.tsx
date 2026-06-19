@@ -11,23 +11,21 @@ export default function CtaSection({ content }: CtaSectionProps) {
 
   return (
     <section className="nakfe-section bg-stone-950 text-white">
-      <div className="absolute left-0 top-0 h-24 w-24 bg-red-700" aria-hidden="true" />
       <div className="absolute bottom-[-5rem] right-[12%] h-44 w-44 rotate-45 border-[2rem] border-white/10" aria-hidden="true" />
 
-      <div className="nakfe-container py-16 sm:py-20 lg:py-24">
-        <div className="grid gap-10 lg:grid-cols-[minmax(0,1fr)_minmax(18rem,0.52fr)] lg:items-end">
-          <div className="max-w-4xl pl-8 sm:pl-10">
+      <div className="mx-auto max-w-7xl px-4 py-20 sm:px-6 sm:py-24 lg:py-28">
+        <div className="grid gap-14 lg:grid-cols-[minmax(0,1fr)_minmax(18rem,0.52fr)] lg:items-end lg:gap-16">
+          <div className="max-w-5xl">
             <p className="nakfe-eyebrow text-white/70">
-              <span className="nakfe-red-square" aria-hidden="true" />
               Neste steg
             </p>
 
-            <h2 className="mt-5 text-balance text-5xl font-black leading-[0.92] tracking-[-0.07em] text-white sm:text-6xl lg:text-7xl">
+            <h2 className="mt-4 text-balance text-5xl font-black leading-[0.92] tracking-[-0.07em] text-white sm:text-6xl lg:text-7xl">
               {content.title}
             </h2>
 
             {content.description ? (
-              <p className="mt-6 max-w-2xl text-lg font-semibold leading-8 text-white/78 sm:text-xl">
+              <p className="mt-6 max-w-3xl text-lg font-semibold leading-8 text-white/78 sm:text-xl">
                 {content.description}
               </p>
             ) : null}
@@ -46,7 +44,7 @@ export default function CtaSection({ content }: CtaSectionProps) {
           </div>
 
           {hasImage ? (
-            <figure className="relative min-h-[16rem] overflow-hidden bg-white/10 lg:min-h-[24rem]">
+            <figure className="nakfe-card-surface-dark relative min-h-[16rem] overflow-hidden bg-white/10 lg:min-h-[24rem]">
               <Image
                 src={content.image!.src}
                 alt={content.image!.isDecorative ? "" : content.image!.alt}
@@ -57,7 +55,7 @@ export default function CtaSection({ content }: CtaSectionProps) {
               />
             </figure>
           ) : (
-            <div className="hidden border-l-[12px] border-red-700 bg-white p-7 text-stone-950 lg:block">
+            <div className="nakfe-card-surface-dark hidden border-l-[12px] border-l-red-700 bg-white p-7 text-stone-950 lg:block">
               <p className="text-4xl font-black leading-none tracking-[-0.06em]">
                 Kunnskap. Fellesskap. Handling.
               </p>

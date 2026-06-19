@@ -51,31 +51,45 @@ export const homeContent = {
       },
     ],
     statisticsDialog: {
-      title: "Tallene bak engasjementet",
+      title: "Når tilgang til skole og arbeid forsvinner, forsvinner også valgmuligheter.",
       description:
-        "Tallene under er ikke dekor. De forklarer hvorfor NAKFE løfter fram integrering, inkludering, likestilling og endring som praktisk arbeid.",
+          "Dette er ikke bare store tall. Det handler om jenter og unge kvinner som mister skolegang, arbeidserfaring, inntekt, nettverk og muligheten til å påvirke sin egen framtid.",
       statistics: [
         {
           value: "78 %",
-          label: "unge afghanske kvinner",
+          label: "unge kvinner",
           description:
-            "Andel unge kvinner som står utenfor utdanning, arbeid og opplæring.",
-          barLabel: "Utenfor utdanning/arbeid/opplæring",
+              "Andel unge afghanske kvinner som står utenfor utdanning, arbeid og opplæring.",
+          barLabel: "Utenfor utdanning, arbeid og opplæring",
           barValue: 78,
         },
         {
           value: "≈20 %",
-          label: "unge afghanske menn",
+          label: "unge menn",
           description:
-            "Omtrent nivået for menn når kvinners andel beskrives som nesten fire ganger høyere.",
-          barLabel: "Sammenlignbart nivå for menn",
+              "Nivået for unge menn er langt lavere. UN Women beskriver kvinners andel som nesten fire ganger høyere.",
+          barLabel: "Sammenlignbart nivå for unge menn",
           barValue: 20,
+        },
+        {
+          value: "1,4 mill.",
+          label: "jenter nektet videregående skole",
+          description:
+              "Minst 1,4 millioner jenter er nektet tilgang til videregående opplæring siden Talibans maktovertakelse.",
+        },
+        {
+          value: "2,5 mill.",
+          label: "jenter fratatt utdanning",
+          description:
+              "Nesten 2,5 millioner jenter er fratatt retten til utdanning. FN-sambandet beskriver dette som 80 prosent av afghanske jenter i skolealder.",
+          barLabel: "Jenter i skolealder uten rett til utdanning",
+          barValue: 80,
         },
         {
           value: "24 %",
           label: "kvinner i arbeidsstyrken",
           description:
-            "UN Women peker på et av verdens største kjønnsgap i arbeidsdeltakelse.",
+              "UN Women peker på et av verdens største kjønnsgap i arbeidsdeltakelse.",
           barLabel: "Kvinner i arbeidsstyrken",
           barValue: 24,
         },
@@ -83,7 +97,7 @@ export const homeContent = {
           value: "89 %",
           label: "menn i arbeidsstyrken",
           description:
-            "Tilsvarende andel for menn i arbeidsstyrken i UN Womens gjennomgang.",
+              "Tilsvarende andel for menn i arbeidsstyrken i UN Womens gjennomgang.",
           barLabel: "Menn i arbeidsstyrken",
           barValue: 89,
         },
@@ -91,18 +105,18 @@ export const homeContent = {
       citations: [
         {
           label: "FN-sambandet",
-          text: "FN-sambandet. (2024, 15. august). Afghanistan: 1,4 millioner jenter nektet skolegang.",
+          text: "FN-sambandet: Afghanistan: 1,4 millioner jenter nektet skolegang",
           href: "https://fn.no/nyheter/afghanistan-1-4-millioner-jenter-nektet-skolegang",
         },
         {
-          label: "UN Women Asia and the Pacific",
-          text: "UN Women Asia and the Pacific. (2025, 18. juni). Nearly eight out of 10 young Afghan women are excluded from education, jobs and training.",
-          href: "https://asiapacific.unwomen.org/en/stories/press-release/2025/06/nearly-eight-out-of-10-young-afghan-women-are-excluded-from-education-jobs-and-training",
+          label: "UN Women",
+          text: "UN Women: Afghanistan Gender Index 2024",
+          href: "https://www.unwomen.org/en/digital-library/publications/2025/06/afghanistan-gender-index-2024",
         },
         {
-          label: "UN Women",
-          text: "UN Women. (2025, 20. juni). Press briefing by UN Women on the 2024 Afghanistan Gender Index launch.",
-          href: "https://asiapacific.unwomen.org/en/stories/press-briefing/2025/06/press-briefing-by-un-women-on-the-2024-afghanistan-gender-index-launch",
+          label: "UN Women Australia",
+          text: "UN Women: Nearly eight out of 10 young Afghan women are excluded from education, jobs and training",
+          href: "https://unwomen.org.au/nearly-eight-out-of-10-young-afghan-women-are-excluded-from-education-jobs-and-training/",
         },
       ],
     },
