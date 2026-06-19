@@ -20,7 +20,7 @@ export default function ValueShowcaseSection({
     >
       <div
         aria-hidden="true"
-        className="absolute bottom-[-5rem] right-[12%] h-44 w-44 rotate-45 border-[2rem] border-white/10"
+        className="absolute right-[8%] top-0 h-full w-px bg-white/8"
       />
 
       <div className="mx-auto max-w-6xl px-4 py-18 sm:px-6 sm:py-24">

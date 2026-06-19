@@ -7,24 +7,30 @@ const sharedPurposeImage = {
   position: "center",
 } as const;
 
-const valueImages = {
+const valueMedia = {
   integration: {
+    type: "image",
     src: "/images/page-hero/kvinner-fellesskap.png",
     alt: "Kvinner samlet i et fellesskap",
     position: "center",
   },
   inclusion: {
-    src: "/images/page-hero/arrangementer.png",
+    type: "video",
+    src: "/videos/values/inkludering.mp4",
+    poster: "/images/page-hero/arrangementer.png",
     alt: "Deltakere i en aktivitet og samtale",
     position: "center",
   },
   equality: {
+    type: "image",
     src: "/images/page-hero/afghansk-kulturarv.png",
     alt: "Kvinner som markerer gjennomført opplæring",
     position: "center",
   },
   change: {
-    src: "/images/page-hero/kvinner-for-endring.png",
+    type: "video",
+    src: "/videos/values/endring.mp4",
+    poster: "/images/page-hero/kvinner-for-endring.png",
     alt: "Kvinner samlet på et arrangement med NAKFE",
     position: "center",
   },
@@ -87,25 +93,25 @@ export const aboutContent = {
         title: "Integrering",
         description:
           "Vi vil gjøre det lettere å forstå samfunnet, finne informasjon og delta i fellesskap på egne premisser.",
-        image: valueImages.integration,
+        media: valueMedia.integration,
       },
       {
         title: "Inkludering",
         description:
           "Vi vil senke terskelen for å møte opp, bidra og høre til — uansett språk, bakgrunn eller livssituasjon.",
-        image: valueImages.inclusion,
+        media: valueMedia.inclusion,
       },
       {
         title: "Likestilling",
         description:
           "Vi vil løfte fram kvinners rettigheter, stemmer og muligheter gjennom kunnskap, støtte og synlighet.",
-        image: valueImages.equality,
+        media: valueMedia.equality,
       },
       {
         title: "Endring",
         description:
           "Vi tror små handlinger kan bli til varig endring når mennesker får møteplasser, informasjon og støtte.",
-        image: valueImages.change,
+        media: valueMedia.change,
       },
     ],
   },

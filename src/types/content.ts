@@ -160,10 +160,25 @@ export type CardGridSectionContent = {
   variant?: "editorial" | "compact";
 };
 
+export type ValueMedia =
+  | {
+      type: "image";
+      src: string;
+      alt: string;
+      position?: string;
+    }
+  | {
+      type: "video";
+      src: string;
+      poster: string;
+      alt: string;
+      position?: string;
+    };
+
 export type ValueShowcaseItemContent = {
   title: string;
   description: string;
-  image: ContentImage;
+  media: ValueMedia;
 };
 
 export type ValueShowcaseSectionContent = {
