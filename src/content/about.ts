@@ -1,10 +1,33 @@
 import { pageHeroBackgroundImages } from "@/content/pageHeroImages";
 import type { AboutPageContent } from "@/types/content";
 
-const sharedValueImage = {
+const sharedPurposeImage = {
   src: "/images/about/community.jpg",
   alt: "Kvinner samlet i et fellesskap knyttet til NAKFE",
   position: "center",
+} as const;
+
+const valueImages = {
+  integration: {
+    src: "/images/page-hero/kvinner-fellesskap.png",
+    alt: "Kvinner samlet i et fellesskap",
+    position: "center",
+  },
+  inclusion: {
+    src: "/images/page-hero/arrangementer.png",
+    alt: "Deltakere i en aktivitet og samtale",
+    position: "center",
+  },
+  equality: {
+    src: "/images/page-hero/afghansk-kulturarv.png",
+    alt: "Kvinner som markerer gjennomført opplæring",
+    position: "center",
+  },
+  change: {
+    src: "/images/page-hero/kvinner-for-endring.png",
+    alt: "Kvinner samlet på et arrangement med NAKFE",
+    position: "center",
+  },
 } as const;
 
 export const aboutContent = {
@@ -49,7 +72,7 @@ export const aboutContent = {
         highlights: ["Engelskkurs", "Søm og ferdigheter", "Entreprenørskap"],
       },
     ],
-    image: sharedValueImage,
+    image: sharedPurposeImage,
   },
 
   values: {
@@ -64,25 +87,25 @@ export const aboutContent = {
         title: "Integrering",
         description:
           "Vi vil gjøre det lettere å forstå samfunnet, finne informasjon og delta i fellesskap på egne premisser.",
-        image: sharedValueImage,
+        image: valueImages.integration,
       },
       {
         title: "Inkludering",
         description:
           "Vi vil senke terskelen for å møte opp, bidra og høre til — uansett språk, bakgrunn eller livssituasjon.",
-        image: sharedValueImage,
+        image: valueImages.inclusion,
       },
       {
         title: "Likestilling",
         description:
           "Vi vil løfte fram kvinners rettigheter, stemmer og muligheter gjennom kunnskap, støtte og synlighet.",
-        image: sharedValueImage,
+        image: valueImages.equality,
       },
       {
         title: "Endring",
         description:
           "Vi tror små handlinger kan bli til varig endring når mennesker får møteplasser, informasjon og støtte.",
-        image: sharedValueImage,
+        image: valueImages.change,
       },
     ],
   },
