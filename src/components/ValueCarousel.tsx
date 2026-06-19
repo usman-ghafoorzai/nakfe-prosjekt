@@ -188,13 +188,14 @@ export default function ValueCarousel({ items }: ValueCarouselProps) {
           const isActive = position === 0;
           const isNeighbor = Math.abs(position) === 1;
           const isVisible = isActive || isNeighbor;
+          const mediaAlt = item.media?.alt ?? item.title;
 
           return (
             <button
               aria-current={isActive ? "true" : undefined}
               aria-label={
                 isActive
-                  ? `${item.title}. ${item.media.alt}`
+                  ? `${item.title}. ${mediaAlt}`
                   : `Vis ${item.title}`
               }
               className={[
@@ -218,11 +219,13 @@ export default function ValueCarousel({ items }: ValueCarouselProps) {
               tabIndex={isVisible ? 0 : -1}
               type="button"
             >
-              <ValueSlideMedia
-                isActive={isActive}
-                media={item.media}
-                shouldAutoplayVideo={shouldAutoplayVideo}
-              />
+              {item.media ? (
+                <ValueSlideMedia
+                  isActive={isActive}
+                  media={item.media}
+                  shouldAutoplayVideo={shouldAutoplayVideo}
+                />
+              ) : null}
               <div
                 aria-hidden="true"
                 className="absolute inset-0 bg-gradient-to-t from-stone-950/92 via-stone-950/20 to-stone-950/8"
