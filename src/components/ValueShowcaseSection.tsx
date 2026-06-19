@@ -17,12 +17,12 @@ export default function ValueShowcaseSection({
     <section className="relative isolate overflow-hidden border-y border-stone-300 bg-stone-950 text-white">
       <div className="absolute bottom-[-5rem] right-[12%] h-44 w-44 rotate-45 border-[2rem] border-white/10" aria-hidden="true" />
 
-      <div className="mx-auto max-w-6xl px-4 py-18 sm:px-6 sm:py-24">
+      <div className="mx-auto max-w-7xl px-4 py-20 sm:px-6 sm:py-24 lg:py-28">
         <SectionHeader content={content.header} tone="dark" />
 
-        <div className="mt-12 grid gap-px bg-white/16 lg:grid-cols-3">
+        <div className="mt-16 grid gap-6 bg-transparent lg:mt-20 lg:grid-cols-3 lg:gap-8">
           {content.items.map((item, index) => (
-            <article key={item.title} className="group bg-stone-950">
+            <article key={item.title} className="group overflow-hidden border-[10px] border-white/10 bg-stone-950 shadow-xl shadow-black/20">
               <div className="relative min-h-[15rem] overflow-hidden bg-stone-800 sm:min-h-[18rem]">
                 <Image
                   src={item.image.src}
@@ -38,7 +38,7 @@ export default function ValueShowcaseSection({
                 </p>
               </div>
 
-              <div className="border-l-[12px] border-red-700 bg-white px-6 py-7 text-stone-950 lg:min-h-[15rem]">
+              <div className="border-l-[12px] border-red-700 bg-white px-7 py-8 text-stone-950 lg:min-h-[15rem]">
                 <h3 className="text-3xl font-black leading-none tracking-[-0.055em]">
                   {item.title}
                 </h3>

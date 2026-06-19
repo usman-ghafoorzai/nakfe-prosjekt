@@ -37,11 +37,11 @@ function formatDate(date?: string) {
 export default function ActivityCardSection({ content }: ActivityCardSectionProps) {
   return (
     <section className="nakfe-section bg-[#f7f1e8]">
-      <div className="nakfe-container py-16 sm:py-20 lg:py-24">
+      <div className="mx-auto max-w-7xl px-4 py-20 sm:px-6 sm:py-24 lg:py-28">
         <SectionHeader content={content.header} />
 
         {content.items.length > 0 ? (
-          <ul className="mt-12 grid gap-5">
+          <ul className="mt-16 grid gap-6 lg:mt-20 lg:gap-8">
             {content.items.map((activity) => (
               <li key={`${activity.title}-${activity.startDate ?? "no-date"}`}>
                 <ActivityCard activity={activity} />
@@ -49,7 +49,7 @@ export default function ActivityCardSection({ content }: ActivityCardSectionProp
             ))}
           </ul>
         ) : (
-          <div className="mt-12 border-l-[12px] border-red-700 bg-white p-7 shadow-sm shadow-stone-950/5">
+          <div className="mt-16 max-w-4xl border-[10px] border-[#eadfcf] border-l-[12px] border-l-red-700 bg-white p-7 shadow-md shadow-stone-950/10 lg:mt-20">
             <h3 className="text-3xl font-black leading-none tracking-[-0.055em] text-stone-950">
               {content.emptyState.title}
             </h3>
@@ -81,7 +81,7 @@ function ActivityCard({ activity }: ActivityCardProps) {
   const date = formatDate(activity.startDate);
 
   return (
-    <article className="group grid overflow-hidden bg-white shadow-sm shadow-stone-950/5 transition duration-200 ease-out hover:-translate-y-1 hover:shadow-xl hover:shadow-stone-950/10 motion-reduce:transition-none motion-reduce:hover:translate-y-0 md:grid-cols-[10rem_minmax(0,1fr)]">
+    <article className="group grid overflow-hidden border-[10px] border-[#eadfcf] bg-white shadow-md shadow-stone-950/10 transition duration-200 ease-out hover:-translate-y-1 hover:shadow-xl hover:shadow-stone-950/12 motion-reduce:transition-none motion-reduce:hover:translate-y-0 md:grid-cols-[10rem_minmax(0,1fr)]">
       <div className="flex min-h-36 flex-col justify-between bg-stone-950 p-5 text-white">
         <div>
           <p className="text-xs font-black uppercase tracking-[0.16em] text-white/58">

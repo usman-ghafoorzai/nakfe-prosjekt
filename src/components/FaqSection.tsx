@@ -10,10 +10,10 @@ type FaqSectionProps = {
 export default function FaqSection({ categories }: FaqSectionProps) {
   return (
     <section className="nakfe-section bg-[#f7f1e8]">
-      <div className="nakfe-container py-16 sm:py-20 lg:py-24">
-        <div className="space-y-16 lg:space-y-20">
+      <div className="mx-auto max-w-7xl px-4 py-20 sm:px-6 sm:py-24 lg:py-28">
+        <div className="space-y-20 lg:space-y-24">
           {categories.map((category, index) => (
-            <div key={category.title} className="grid gap-10 lg:grid-cols-[minmax(18rem,0.42fr)_1fr] lg:gap-14">
+            <div key={category.title} className="grid gap-12 lg:grid-cols-[minmax(18rem,0.42fr)_1fr] lg:gap-16">
               <div className="lg:pt-3">
                 <p className="nakfe-eyebrow text-red-700">
                   {String(index + 1).padStart(2, "0")}
@@ -29,7 +29,7 @@ export default function FaqSection({ categories }: FaqSectionProps) {
                 ) : null}
               </div>
 
-              <div className="divide-y divide-stone-950/12 bg-white shadow-sm shadow-stone-950/5">
+              <div className="divide-y divide-stone-950/12 border-[10px] border-[#eadfcf] bg-white shadow-md shadow-stone-950/10">
                 {category.items.map((item) => (
                   <FaqItem key={item.question} item={item} />
                 ))}

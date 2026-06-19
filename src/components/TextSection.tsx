@@ -51,12 +51,12 @@ export default function TextSection({ content }: TextSectionProps) {
       <div className="pointer-events-none absolute right-[-7rem] top-16 h-72 w-72 rotate-45 border-[2.4rem] border-white/50" aria-hidden="true" />
       <div className="pointer-events-none absolute bottom-[-6rem] left-[12%] h-44 w-44 rounded-full bg-white/45 blur-3xl" aria-hidden="true" />
 
-      <div className="mx-auto grid max-w-7xl gap-14 px-4 py-20 sm:px-6 lg:grid-cols-[minmax(0,1fr)_minmax(0,1fr)] lg:items-start lg:gap-24 xl:gap-28">
+      <div className="mx-auto grid max-w-7xl gap-16 px-4 py-24 sm:px-6 sm:py-28 lg:grid-cols-[minmax(0,1fr)_minmax(0,1fr)] lg:items-start lg:gap-28 xl:gap-32">
         <div className={imageFirst ? "lg:order-2" : undefined}>
           <SectionHeader content={content.header} />
 
           {content.body.length > 0 ? (
-            <div className="mt-8 max-w-2xl space-y-5 text-lg font-medium leading-8 text-stone-800">
+            <div className="mt-10 max-w-3xl space-y-6 text-lg font-medium leading-8 text-stone-800">
               {content.body.map((paragraph, index) => (
                 <p
                   key={paragraph}

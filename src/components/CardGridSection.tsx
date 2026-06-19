@@ -13,14 +13,14 @@ export default function CardGridSection({ content }: CardGridSectionProps) {
   return (
     <section className="nakfe-section bg-[#f7f1e8]">
       <div className="pointer-events-none absolute right-[-5rem] top-10 h-48 w-48 rotate-45 border-[1.8rem] border-red-700/10" aria-hidden="true" />
-      <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 sm:py-20 lg:py-24">
+      <div className="mx-auto max-w-7xl px-4 py-20 sm:px-6 sm:py-24 lg:py-28">
         <SectionHeader content={content.header} />
 
         <ul
           className={
             isCompact
-              ? "mt-16 grid gap-8 sm:grid-cols-2 lg:mt-20 lg:gap-10"
-              : "mt-20 grid gap-8 lg:mt-24 lg:grid-cols-3 lg:gap-10"
+              ? "mt-20 grid gap-10 sm:grid-cols-2 lg:mt-24 lg:gap-12"
+              : "mt-24 grid gap-10 lg:mt-28 lg:grid-cols-3 lg:gap-12"
           }
         >
           {content.items.map((item, index) => (
@@ -43,7 +43,7 @@ function EditorialCard({ item, index }: EditorialCardProps) {
   const body = <CardContent item={item} index={index} />;
 
   if (!item.action) {
-    return <article className="h-full bg-white">{body}</article>;
+    return <article className="h-full border-[10px] border-[#eadfcf] bg-white shadow-md shadow-stone-950/10">{body}</article>;
   }
 
   const isExternal = item.action.isExternal ?? item.action.href.startsWith("http");
@@ -55,7 +55,7 @@ function EditorialCard({ item, index }: EditorialCardProps) {
         aria-label={item.action.ariaLabel}
         target="_blank"
         rel="noreferrer"
-        className="nakfe-card-link group block h-full bg-white"
+        className="nakfe-card-link group block h-full border-[10px] border-[#eadfcf] bg-white shadow-md shadow-stone-950/10"
       >
         {body}
       </a>
@@ -66,7 +66,7 @@ function EditorialCard({ item, index }: EditorialCardProps) {
     <Link
       href={item.action.href}
       aria-label={item.action.ariaLabel}
-      className="nakfe-card-link group block h-full bg-white"
+      className="nakfe-card-link group block h-full border-[10px] border-[#eadfcf] bg-white shadow-md shadow-stone-950/10"
     >
       {body}
     </Link>
@@ -80,7 +80,7 @@ type CardContentProps = {
 
 function CardContent({ item, index }: CardContentProps) {
   return (
-    <div className="flex h-full flex-col">
+    <div className="flex h-full flex-col overflow-hidden bg-white">
       {item.image ? (
         <div className="relative min-h-[13rem] overflow-hidden bg-stone-200">
           <Image

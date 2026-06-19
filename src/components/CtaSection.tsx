@@ -13,8 +13,8 @@ export default function CtaSection({ content }: CtaSectionProps) {
     <section className="nakfe-section bg-stone-950 text-white">
       <div className="absolute bottom-[-5rem] right-[12%] h-44 w-44 rotate-45 border-[2rem] border-white/10" aria-hidden="true" />
 
-      <div className="nakfe-container py-16 sm:py-20 lg:py-24">
-        <div className="grid gap-12 lg:grid-cols-[minmax(0,1fr)_minmax(18rem,0.52fr)] lg:items-end lg:gap-14">
+      <div className="mx-auto max-w-7xl px-4 py-20 sm:px-6 sm:py-24 lg:py-28">
+        <div className="grid gap-14 lg:grid-cols-[minmax(0,1fr)_minmax(18rem,0.52fr)] lg:items-end lg:gap-16">
           <div className="max-w-5xl">
             <p className="nakfe-eyebrow text-white/70">
               Neste steg
@@ -44,7 +44,7 @@ export default function CtaSection({ content }: CtaSectionProps) {
           </div>
 
           {hasImage ? (
-            <figure className="relative min-h-[16rem] overflow-hidden bg-white/10 lg:min-h-[24rem]">
+            <figure className="relative min-h-[16rem] overflow-hidden border-[10px] border-white/10 bg-white/10 shadow-xl shadow-black/20 lg:min-h-[24rem]">
               <Image
                 src={content.image!.src}
                 alt={content.image!.isDecorative ? "" : content.image!.alt}
@@ -55,7 +55,7 @@ export default function CtaSection({ content }: CtaSectionProps) {
               />
             </figure>
           ) : (
-            <div className="hidden border-l-[12px] border-red-700 bg-white p-7 text-stone-950 lg:block">
+            <div className="hidden border-[10px] border-white/10 border-l-[12px] border-l-red-700 bg-white p-7 text-stone-950 shadow-xl shadow-black/20 lg:block">
               <p className="text-4xl font-black leading-none tracking-[-0.06em]">
                 Kunnskap. Fellesskap. Handling.
               </p>
