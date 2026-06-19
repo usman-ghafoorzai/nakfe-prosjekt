@@ -51,18 +51,6 @@
   }
 }
 
-.nakfe-card-surface {
-  box-shadow:
-    -12px 12px 0 0 #eadfcf,
-    0 12px 24px rgba(28, 25, 23, 0.1);
-}
-
-.nakfe-card-surface-dark {
-  box-shadow:
-    -12px 12px 0 0 rgba(255, 255, 255, 0.1),
-    0 14px 28px rgba(0, 0, 0, 0.2);
-}
-
 * {
   box-sizing: border-box;
 }
@@ -154,6 +142,27 @@ body {
 @media (prefers-reduced-motion: reduce) {
   .nakfe-stat-dialog::backdrop,
   .nakfe-stat-dialog[open] .nakfe-stat-panel {
+    animation: none;
+  }
+}
+.nakfe-purpose-panel {
+  animation: nakfe-purpose-panel-in 180ms ease-out both;
+}
+
+@keyframes nakfe-purpose-panel-in {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .nakfe-purpose-panel {
     animation: none;
   }
 }

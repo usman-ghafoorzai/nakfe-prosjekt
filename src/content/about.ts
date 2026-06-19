@@ -22,28 +22,34 @@ export const aboutContent = {
     backgroundImages: pageHeroBackgroundImages,
   },
 
-  intro: {
+  purpose: {
     header: {
       eyebrow: "Formål",
-      title: "Vi bygger rom hvor kvinner kan bli sett, hørt og styrket.",
+      title: "Muligheter vokser når kvinner får rom til å delta.",
       description:
-        "NAKFE skal være en trygg møteplass for fellesskap, kulturformidling, kunnskap og praktisk engasjement.",
+        "NAKFE styrker kvinner gjennom utdanning, praktiske ferdigheter og fellesskap – i Norge og Afghanistan.",
     },
-    body: [
-      "Mange kvinner bærer både ressurser, erfaringer og ansvar — men mangler arenaer der dette blir synlig. NAKFE vil gjøre terskelen lavere for å møte andre, delta i aktiviteter og finne informasjon som faktisk er tilgjengelig.",
-      "Arbeidet vårt handler om integrering, inkludering, likestilling og endring. Det handler også om å ta vare på kulturarv, språk og fellesskap på en måte som gir styrke i hverdagen her i Norge.",
+    contexts: [
+      {
+        id: "norway",
+        label: "I Norge",
+        description:
+          "Vi arbeider for integrering og inkludering av kvinner med minoritetsbakgrunn i det norske samfunnet og arbeidslivet.",
+        highlights: [
+          "Arbeid og jobbførhet",
+          "Utdanning og kompetanse",
+          "Entreprenørskap",
+        ],
+      },
+      {
+        id: "afghanistan",
+        label: "I Afghanistan",
+        description:
+          "Vi tilbyr utdannings- og ferdighetsprogrammer for kvinner, med mål om inntekt, trygghet og større økonomisk selvstendighet.",
+        highlights: ["Engelskkurs", "Søm og ferdigheter", "Entreprenørskap"],
+      },
     ],
-    image: {
-      src: "/images/about/community.jpg",
-      alt: "Kvinner samlet i et fellesskap knyttet til NAKFE",
-      position: "center",
-      caption:
-        "NAKFE skal være et varmt og tydelig samlingspunkt — ikke bare en nettside.",
-    },
-    visual: {
-      tone: "warm",
-      imagePlacement: "end",
-    },
+    image: sharedValueImage,
   },
 
   values: {

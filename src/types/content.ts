@@ -132,6 +132,19 @@ export type TextSectionContent = {
   visual?: TextSectionVisualContent;
 };
 
+export type PurposeContextContent = {
+  id: string;
+  label: string;
+  description: string;
+  highlights: string[];
+};
+
+export type PurposeSectionContent = {
+  header: SectionHeaderContent;
+  contexts: PurposeContextContent[];
+  image: ContentImage;
+};
+
 export type CardItemContent = {
   eyebrow?: string;
   title: string;
@@ -161,7 +174,7 @@ export type ValueShowcaseSectionContent = {
 export type AboutPageContent = {
   seo: SeoContent;
   hero: PageHeroContent;
-  intro: TextSectionContent;
+  purpose: PurposeSectionContent;
   values: ValueShowcaseSectionContent;
 };
 
