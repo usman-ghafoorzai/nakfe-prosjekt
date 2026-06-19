@@ -1,4 +1,4 @@
-import type { NavItem } from "@/types/content";
+﻿import type { NavItem } from "@/types/content";
 
 export const navigationItems = [
     {
@@ -18,9 +18,9 @@ export const navigationItems = [
         order: 2,
     },
     {
-        label: "Prosjekter",
-        href: "/prosjekter",
-        description: "Se prosjekter og initiativer",
+        label: "Vårt arbeid",
+        href: "/vart-arbeid",
+        description: "Se NAKFEs prosjekter og programmer",
         showInHeader: true,
         showInFooter: true,
         order: 3,

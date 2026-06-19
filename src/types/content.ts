@@ -1,4 +1,4 @@
-export type ContentImage = {
+﻿export type ContentImage = {
   src: string;
   alt: string;
   position?: string;
@@ -199,6 +199,41 @@ export type ProjectsPageContent = {
   projects: CardGridSectionContent;
 };
 
+export type WorkCountry = "afghanistan" | "norway";
+
+export type WorkProjectVideoContent = {
+  src: string;
+  poster?: ContentImage;
+};
+
+export type WorkProjectContent = {
+  slug: string;
+  country: WorkCountry;
+  title: string;
+  summary: string;
+  coverImage: ContentImage;
+  video?: WorkProjectVideoContent;
+  body: string[];
+};
+
+export type WorkCountryFilterContent = {
+  id: WorkCountry;
+  label: string;
+  emptyState: EmptyStateContent;
+};
+
+export type WorkProjectListContent = {
+  header: SectionHeaderContent;
+  defaultCountry: WorkCountry;
+  filters: WorkCountryFilterContent[];
+  items: WorkProjectContent[];
+};
+
+export type WorkPageContent = {
+  seo: SeoContent;
+  hero: PageHeroContent;
+  overview: WorkProjectListContent;
+};
 export type ActivityStatus = "upcoming" | "past" | "cancelled";
 
 export type ActivityItemContent = {

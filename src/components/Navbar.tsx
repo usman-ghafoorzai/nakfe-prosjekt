@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import Image from "next/image";
 import Link from "next/link";
@@ -119,7 +119,7 @@ export default function Navbar() {
 
           <ul className="hidden items-center gap-3 md:flex">
             {visibleNavigationItems.map((link) => {
-              const isCurrent = pathname === link.href;
+              const isCurrent = pathname === link.href || pathname.startsWith(`${link.href}/`);
 
               return (
                 <li key={link.href}>
@@ -167,7 +167,7 @@ export default function Navbar() {
         <nav aria-label="Mobil hovednavigasjon" className="p-3">
           <ul className="flex flex-col gap-1">
             {visibleNavigationItems.map((link) => {
-              const isCurrent = pathname === link.href;
+              const isCurrent = pathname === link.href || pathname.startsWith(`${link.href}/`);
 
               return (
                 <li key={link.href}>
