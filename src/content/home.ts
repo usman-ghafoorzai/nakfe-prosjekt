@@ -192,18 +192,18 @@ export const homeContent = {
       },
       {
         eyebrow: "Historier",
-        title: "Prosjekter og nyheter",
+        title: "Vårt arbeid",
         description:
-          "Et fremtidig publiseringsområde for saker, initiativer og historier fra organisasjonen.",
-        meta: "CMS-klar",
+          "Prosjekter og programmer fra NAKFEs arbeid i Afghanistan og Norge.",
+        meta: "Prosjekter",
         image: {
           src: "/images/page-hero/kvinner-for-endring.png",
           alt: "Illustrasjon knyttet til kvinner for endring",
           position: "center",
         },
         action: {
-          label: "Se prosjekter",
-          href: "/prosjekter",
+          label: "Se vårt arbeid",
+          href: "/vart-arbeid",
         },
       },
     ],

@@ -4,12 +4,14 @@ type SectionHeaderProps = {
   content: SectionHeaderContent;
   align?: "left" | "center";
   tone?: "light" | "dark";
+  titleId?: string;
 };
 
 export default function SectionHeader({
   content,
   align = "left",
   tone = "light",
+  titleId,
 }: SectionHeaderProps) {
   const isCentered = align === "center";
   const isDark = tone === "dark";
@@ -29,6 +31,7 @@ export default function SectionHeader({
       ) : null}
 
       <h2
+        id={titleId}
         className={[
           "mt-4 text-balance text-4xl font-black leading-[0.96] tracking-[-0.06em] sm:text-5xl lg:text-6xl",
           isDark ? "text-white" : "text-stone-950",
