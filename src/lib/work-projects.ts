@@ -204,6 +204,10 @@ export function validateWorkPageContent(content: WorkPageContent): void {
     errors.push("detail.backLinkAriaLabel kan ikke være tom.");
   }
 
+  if (!isNonEmptyString(content.detail.videoAriaLabelPrefix)) {
+    errors.push("detail.videoAriaLabelPrefix kan ikke være tom.");
+  }
+
   if (errors.length > 0) {
     throw new Error(`Ugyldig innhold for Vårt arbeid:\n- ${errors.join("\n- ")}`);
   }

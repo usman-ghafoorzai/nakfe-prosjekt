@@ -40,7 +40,7 @@ const valueMedia = {
 
 export const aboutContent = {
   seo: {
-    title: "Om oss | NAKFE",
+    title: "Om oss",
     description:
       "Les mer om NAKFE, organisasjonens formål, arbeid og fellesskap.",
   },

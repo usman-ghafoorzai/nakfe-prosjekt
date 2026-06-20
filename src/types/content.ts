@@ -193,6 +193,15 @@ export type AboutPageContent = {
   values: ValueShowcaseSectionContent;
 };
 
+export type ContentVideo = {
+  src: string;
+  poster: ContentImage;
+  captionsSrc?: string;
+  captionsLabel?: string;
+  captionsLanguage?: string;
+  captionsDefault?: boolean;
+};
+
 export const workCountries = ["afghanistan", "norway"] as const;
 
 export type WorkCountry = (typeof workCountries)[number];
@@ -202,14 +211,7 @@ export type WorkProjectBodyBlock = {
   text: string;
 };
 
-export type WorkProjectVideoContent = {
-  src: string;
-  poster: ContentImage;
-  captionsSrc?: string;
-  captionsLabel?: string;
-  captionsLanguage?: string;
-  captionsDefault?: boolean;
-};
+export type WorkProjectVideoContent = ContentVideo;
 
 export type WorkProjectContent = {
   slug: string;
@@ -238,6 +240,7 @@ export type WorkProjectListContent = {
 export type WorkProjectDetailContent = {
   backLinkLabel: string;
   backLinkAriaLabel: string;
+  videoAriaLabelPrefix: string;
 };
 
 export type WorkPageContent = {
@@ -247,32 +250,82 @@ export type WorkPageContent = {
   detail: WorkProjectDetailContent;
 };
 
-export type ActivityStatus = "upcoming" | "past" | "cancelled";
+export const activityFormats = ["in-person", "digital", "hybrid"] as const;
 
-export type ActivityItemContent = {
-  title: string;
-  description: string;
-  startDate?: string;
-  endDate?: string;
-  location?: string;
-  category?: string;
-  status: ActivityStatus;
-  registrationLink?: ContentLink;
-  accessibilityNote?: string;
-  image?: ContentImage;
-  isFeatured?: boolean;
+export type ActivityFormat = (typeof activityFormats)[number];
+
+export const activityPublicationStates = ["scheduled", "cancelled"] as const;
+
+export type ActivityPublicationState =
+  (typeof activityPublicationStates)[number];
+
+export const activityTimeZones = ["Europe/Oslo"] as const;
+
+export type ActivityTimeZone = (typeof activityTimeZones)[number];
+
+export type ActivityBodyBlock = {
+  id: string;
+  text: string;
 };
 
-export type ActivitySectionContent = {
+export type ActivityLocationContent = {
+  name: string;
+  address?: string;
+  directionsLink?: ContentLink;
+};
+
+export type ActivityContent = {
+  slug: string;
+  title: string;
+  summary: string;
+  startsAt: string;
+  endsAt: string;
+  timeZone: ActivityTimeZone;
+  format: ActivityFormat;
+  publicationState: ActivityPublicationState;
+  location?: ActivityLocationContent;
+  coverImage?: ContentImage;
+  body: ActivityBodyBlock[];
+  registration?: ContentLink;
+  accessibilityNote?: string;
+  audience?: string;
+  cancellationMessage?: string;
+  relatedWorkProjectSlug?: string;
+  video?: ContentVideo;
+};
+
+export type ActivityListContent = {
   header: SectionHeaderContent;
-  items: ActivityItemContent[];
+  featuredHeading: string;
+  upcomingHeading: string;
+  detailsActionLabel: string;
+  detailsActionAriaLabelPrefix: string;
   emptyState: EmptyStateContent;
+};
+
+export type ActivityDetailContent = {
+  backLinkLabel: string;
+  backLinkAriaLabel: string;
+  practicalInformationHeading: string;
+  dateAndTimeLabel: string;
+  locationLabel: string;
+  formatLabel: string;
+  audienceLabel: string;
+  accessibilityLabel: string;
+  registrationHeading: string;
+  relatedWorkLabel: string;
+  relatedWorkAriaLabelPrefix: string;
+  cancellationHeading: string;
+  videoAriaLabelPrefix: string;
+  formatLabels: Record<ActivityFormat, string>;
 };
 
 export type ActivitiesPageContent = {
   seo: SeoContent;
   hero: PageHeroContent;
-  activities: ActivitySectionContent;
+  overview: ActivityListContent;
+  detail: ActivityDetailContent;
+  items: ActivityContent[];
 };
 
 export type FaqItemContent = {

@@ -3,7 +3,7 @@ import type { FaqPageContent } from "@/types/content";
 
 export const faqContent = {
   seo: {
-    title: "FAQ | NAKFE",
+    title: "FAQ",
     description:
       "Finn svar på vanlige spørsmål om NAKFE, aktiviteter og kontaktmuligheter.",
   },
