@@ -1,25 +1,33 @@
 import Link from "next/link";
 import WorkProjectMedia from "@/components/WorkProjectMedia";
-import type { WorkProjectContent } from "@/types/content";
+import type {
+  WorkProjectContent,
+  WorkProjectDetailContent,
+} from "@/types/content";
 
 type WorkProjectDetailProps = {
+  content: WorkProjectDetailContent;
   project: WorkProjectContent;
   countryLabel: string;
+  backHref: string;
 };
 
 export default function WorkProjectDetail({
+  content,
   project,
   countryLabel,
+  backHref,
 }: WorkProjectDetailProps) {
   return (
     <article className="bg-[#f7f1e8] pb-20 pt-32 sm:pb-24 sm:pt-40 lg:pb-28">
       <div className="mx-auto max-w-7xl px-4 sm:px-6">
         <Link
+          aria-label={content.backLinkAriaLabel}
           className="inline-flex min-h-11 items-center gap-3 text-sm font-black uppercase tracking-[0.14em] text-stone-700 outline-none transition duration-200 ease-out hover:text-red-700 focus-visible:ring-2 focus-visible:ring-red-700 focus-visible:ring-offset-4 motion-reduce:transition-none"
-          href="/vart-arbeid"
+          href={backHref}
         >
           <span aria-hidden="true">←</span>
-          Vårt arbeid
+          {content.backLinkLabel}
         </Link>
 
         <header className="mt-10 max-w-5xl sm:mt-12">
@@ -41,8 +49,8 @@ export default function WorkProjectDetail({
         <div className="mx-auto mt-14 max-w-3xl sm:mt-20">
           <div aria-hidden="true" className="mb-8 h-1 w-14 bg-red-700" />
           <div className="space-y-6 text-lg font-medium leading-8 text-stone-800 sm:text-xl sm:leading-9">
-            {project.body.map((paragraph) => (
-              <p key={paragraph}>{paragraph}</p>
+            {project.body.map((block) => (
+              <p key={`${project.slug}-${block.id}`}>{block.text}</p>
             ))}
           </div>
         </div>

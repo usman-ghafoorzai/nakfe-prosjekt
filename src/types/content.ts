@@ -1,4 +1,4 @@
-﻿export type ContentImage = {
+export type ContentImage = {
   src: string;
   alt: string;
   position?: string;
@@ -193,17 +193,22 @@ export type AboutPageContent = {
   values: ValueShowcaseSectionContent;
 };
 
-export type ProjectsPageContent = {
-  seo: SeoContent;
-  hero: PageHeroContent;
-  projects: CardGridSectionContent;
-};
+export const workCountries = ["afghanistan", "norway"] as const;
 
-export type WorkCountry = "afghanistan" | "norway";
+export type WorkCountry = (typeof workCountries)[number];
+
+export type WorkProjectBodyBlock = {
+  id: string;
+  text: string;
+};
 
 export type WorkProjectVideoContent = {
   src: string;
-  poster?: ContentImage;
+  poster: ContentImage;
+  captionsSrc?: string;
+  captionsLabel?: string;
+  captionsLanguage?: string;
+  captionsDefault?: boolean;
 };
 
 export type WorkProjectContent = {
@@ -212,8 +217,8 @@ export type WorkProjectContent = {
   title: string;
   summary: string;
   coverImage: ContentImage;
+  body: WorkProjectBodyBlock[];
   video?: WorkProjectVideoContent;
-  body: string[];
 };
 
 export type WorkCountryFilterContent = {
@@ -224,16 +229,24 @@ export type WorkCountryFilterContent = {
 
 export type WorkProjectListContent = {
   header: SectionHeaderContent;
+  countryNavigationLabel: string;
   defaultCountry: WorkCountry;
   filters: WorkCountryFilterContent[];
   items: WorkProjectContent[];
+};
+
+export type WorkProjectDetailContent = {
+  backLinkLabel: string;
+  backLinkAriaLabel: string;
 };
 
 export type WorkPageContent = {
   seo: SeoContent;
   hero: PageHeroContent;
   overview: WorkProjectListContent;
+  detail: WorkProjectDetailContent;
 };
+
 export type ActivityStatus = "upcoming" | "past" | "cancelled";
 
 export type ActivityItemContent = {

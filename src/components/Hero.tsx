@@ -17,7 +17,7 @@ export default function Hero({ content }: HeroProps) {
         src={content.backgroundImage.src}
         alt={content.backgroundImage.alt}
         fill
-        priority
+        preload
         sizes="100vw"
         className="object-cover"
         style={{ objectPosition: content.backgroundImage.position ?? "center" }}

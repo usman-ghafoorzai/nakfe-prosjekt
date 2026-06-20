@@ -9,52 +9,64 @@ type WorkProjectMediaProps = {
 };
 
 export default function WorkProjectMedia({ project }: WorkProjectMediaProps) {
-  const [shouldAutoplayVideo, setShouldAutoplayVideo] = useState(false);
-  const hasVideo = Boolean(project.video?.src);
+  const [canAutoplayVideo, setCanAutoplayVideo] = useState(false);
+  const [videoFailed, setVideoFailed] = useState(false);
+  const video = project.video;
+  const fallbackImage = video?.poster ?? project.coverImage;
+  const shouldRenderVideo = Boolean(video) && canAutoplayVideo && !videoFailed;
 
   useEffect(() => {
     const motionQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
-    const updateMotionPreference = () => {
-      setShouldAutoplayVideo(!motionQuery.matches);
+    const updateVideoPreference = () => {
+      setCanAutoplayVideo(!motionQuery.matches);
     };
 
-    updateMotionPreference();
-    motionQuery.addEventListener("change", updateMotionPreference);
+    updateVideoPreference();
+    motionQuery.addEventListener("change", updateVideoPreference);
 
     return () => {
-      motionQuery.removeEventListener("change", updateMotionPreference);
+      motionQuery.removeEventListener("change", updateVideoPreference);
     };
   }, []);
 
-  const imageSource = project.video?.poster ?? project.coverImage;
-
-  if (hasVideo && shouldAutoplayVideo) {
+  if (shouldRenderVideo && video) {
     return (
       <video
         aria-label={`Video fra ${project.title}`}
         autoPlay
         className="absolute inset-0 h-full w-full object-cover"
-        loop
+        controls
         muted
+        onError={() => setVideoFailed(true)}
         playsInline
-        poster={imageSource.src}
+        poster={fallbackImage.src}
         preload="metadata"
-        style={{ objectPosition: imageSource.position ?? "center" }}
+        style={{ objectPosition: fallbackImage.position ?? "center" }}
       >
-        <source src={project.video!.src} type="video/mp4" />
+        <source src={video.src} type="video/mp4" />
+        {video.captionsSrc ? (
+          <track
+            default={video.captionsDefault}
+            kind="captions"
+            label={video.captionsLabel}
+            src={video.captionsSrc}
+            srcLang={video.captionsLanguage ?? "no"}
+          />
+        ) : null}
+        Nettleseren din støtter ikke videoavspilling.
       </video>
     );
   }
 
   return (
     <Image
-      alt={imageSource.alt}
+      alt={fallbackImage.alt}
       className="object-cover"
       fill
-      priority
-      sizes="(min-width: 1280px) 80rem, 100vw"
-      src={imageSource.src}
-      style={{ objectPosition: imageSource.position ?? "center" }}
+      preload
+      sizes="(min-width: 1280px) 80rem, (min-width: 640px) 92vw, 100vw"
+      src={fallbackImage.src}
+      style={{ objectPosition: fallbackImage.position ?? "center" }}
     />
   );
 }

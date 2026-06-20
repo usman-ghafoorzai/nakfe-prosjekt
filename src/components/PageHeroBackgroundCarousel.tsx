@@ -55,7 +55,7 @@ export default function PageHeroBackgroundCarousel({
                     src={image.src}
                     alt=""
                     fill
-                    priority={index === 0}
+                    preload={index === 0}
                     sizes="100vw"
                     className="object-cover"
                     style={{

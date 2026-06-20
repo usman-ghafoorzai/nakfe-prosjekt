@@ -5,6 +5,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { footerContent } from "@/content/footer";
 import { footerNavigationItems } from "@/content/navigation";
+import { isNavigationPathCurrent } from "@/lib/navigation";
 
 function getFooterLinkClasses(isCurrent: boolean) {
   return [
@@ -55,7 +56,7 @@ export default function Footer() {
 
           <ul className="mt-5 grid gap-2">
             {footerNavigationItems.map((link) => {
-              const isCurrent = pathname === link.href;
+              const isCurrent = isNavigationPathCurrent(pathname, link.href);
 
               return (
                 <li key={link.href}>
