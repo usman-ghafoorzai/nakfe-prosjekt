@@ -1,12 +1,16 @@
 import type { Metadata } from "next";
 import type { SeoContent } from "@/types/content";
 
+const siteTitleSuffix = "Kvinner for Endring";
+
 export function createPageMetadata(seo: SeoContent): Metadata {
+  const title = `${seo.title} - ${siteTitleSuffix}`;
+
   return {
-    title: seo.title,
+    title,
     description: seo.description,
     openGraph: {
-      title: seo.title,
+      title,
       description: seo.description,
       type: "website",
     },

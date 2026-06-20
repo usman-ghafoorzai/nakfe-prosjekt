@@ -85,3 +85,19 @@ src/app/aktiviteter/[slug]  = detaljside
 ```
 
 Når en ny aktivitet skal publiseres, legg inn ett objekt i `activitiesContent.items` med bekreftet tittel, tidspunkt, sted, kort intro, brødtekst og eventuelt påmeldingslenke. Import-valideringen stopper byggingen ved ufullstendige eller ugyldige arrangementer.
+
+## FAQ
+
+`src/content/faq.ts` inneholder FAQ-innholdet som vises på `/faq`. Spørsmål, svar, relevante handlinger og eventuell dato for siste gjennomgang ligger i content-laget — ikke i komponenten.
+
+```txt
+src/content/faq.ts       = spørsmål, svar, CTA-er og metadata
+src/lib/faq.ts           = validering og datoformatering
+src/components/FaqSection.tsx = semantisk FAQ-visning med native details/summary
+```
+
+FAQ-en bruker native `<details>` og `<summary>`, slik at spørsmål fungerer med tastatur og uten JavaScript. Flere svar kan stå åpne samtidig.
+
+`keywords` er metadata for et senere CMS, søk og RAG. De vises ikke som tags i brukergrensesnittet. `lastReviewedAt` bruker `YYYY-MM-DD` og formatteres først når den eventuelt vises.
+
+Det er bevisst ingen eksempelspørsmål med oppdiktede svar. Legg først inn kvalitetssikrede spørsmål og svar fra NAKFE i `faqContent.faq.categories`.

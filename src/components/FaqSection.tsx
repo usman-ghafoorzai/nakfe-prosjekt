@@ -1,102 +1,211 @@
-"use client";
-
-import { useId, useState } from "react";
-import type { FaqCategoryContent, FaqItemContent } from "@/types/content";
+import Link from "next/link";
+import SectionHeader from "@/components/SectionHeader";
+import { formatFaqReviewedDate } from "@/lib/faq";
+import type {
+  ContentLink,
+  FaqContactCtaContent,
+  FaqItemContent,
+  FaqSectionContent,
+} from "@/types/content";
 
 type FaqSectionProps = {
-  categories: FaqCategoryContent[];
+  content: FaqSectionContent;
 };
 
-export default function FaqSection({ categories }: FaqSectionProps) {
+type FaqActionLinkProps = {
+  link: ContentLink;
+  className: string;
+};
+
+function FaqActionLink({ link, className }: FaqActionLinkProps) {
+  const label = (
+    <>
+      {link.label}
+      <span aria-hidden="true">{link.isExternal ? "↗" : "→"}</span>
+    </>
+  );
+
+  if (link.isExternal) {
+    return (
+      <a
+        aria-label={link.ariaLabel}
+        className={className}
+        href={link.href}
+        rel="noreferrer"
+        target="_blank"
+      >
+        {label}
+      </a>
+    );
+  }
+
   return (
-    <section className="nakfe-section bg-[#f7f1e8]">
-      <div className="mx-auto max-w-7xl px-4 py-20 sm:px-6 sm:py-24 lg:py-28">
-        <div className="space-y-20 lg:space-y-24">
-          {categories.map((category, index) => (
-            <div key={category.title} className="grid gap-12 lg:grid-cols-[minmax(18rem,0.42fr)_1fr] lg:gap-16">
-              <div className="lg:pt-3">
-                <p className="nakfe-eyebrow text-red-700">
-                  {String(index + 1).padStart(2, "0")}
-                </p>
-                <h2 className="mt-4 text-4xl font-black leading-[0.96] tracking-[-0.06em] text-stone-950 sm:text-5xl">
-                  {category.title}
-                </h2>
+    <Link aria-label={link.ariaLabel} className={className} href={link.href}>
+      {label}
+    </Link>
+  );
+}
 
-                {category.description ? (
-                  <p className="mt-6 max-w-3xl text-base font-semibold leading-7 text-stone-700">
-                    {category.description}
-                  </p>
-                ) : null}
-              </div>
+function FaqItem({
+  item,
+  reviewedAtLabel,
+}: {
+  item: FaqItemContent;
+  reviewedAtLabel?: string;
+}) {
+  return (
+    <li>
+      <details className="group border-l-4 border-transparent border-t border-stone-300 open:border-l-red-700 open:bg-white/50">
+        <summary className="flex min-h-16 cursor-pointer list-none items-center justify-between gap-6 px-4 py-5 text-left outline-none transition-colors duration-200 ease-out hover:bg-white/50 focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-red-700 motion-reduce:transition-none sm:min-h-20 sm:px-6 [&::-webkit-details-marker]:hidden">
+          <span className="text-xl font-black leading-tight tracking-[-0.035em] text-stone-950 sm:text-2xl">
+            {item.question}
+          </span>
+          <span
+            aria-hidden="true"
+            className="grid h-10 w-10 shrink-0 place-items-center border-2 border-stone-950 text-2xl font-black leading-none text-stone-950 transition duration-200 ease-out group-open:rotate-45 group-open:border-red-700 group-open:bg-red-700 group-open:text-white motion-reduce:transition-none"
+          >
+            +
+          </span>
+        </summary>
 
-              <div className="divide-y divide-stone-950/12 border-[10px] border-[#eadfcf] bg-white shadow-md shadow-stone-950/10">
-                {category.items.map((item) => (
-                  <FaqItem key={item.question} item={item} />
-                ))}
-              </div>
-            </div>
-          ))}
+        <div className="px-4 pb-6 pr-16 sm:px-6 sm:pb-8 sm:pr-20">
+          <div className="max-w-3xl space-y-4 text-base font-semibold leading-7 text-stone-700 sm:text-lg sm:leading-8">
+            {item.answer.paragraphs.map((paragraph) => (
+              <p key={`${item.id}-${paragraph.id}`}>{paragraph.text}</p>
+            ))}
+          </div>
+
+          {item.answer.action ? (
+            <FaqActionLink
+              className="group mt-6 inline-flex min-h-11 items-center gap-3 text-sm font-black uppercase tracking-[0.14em] text-stone-950 outline-none transition duration-200 ease-out hover:text-red-700 focus-visible:ring-2 focus-visible:ring-red-700 focus-visible:ring-offset-4 motion-reduce:transition-none"
+              link={item.answer.action}
+            />
+          ) : null}
+
+          {item.lastReviewedAt && reviewedAtLabel ? (
+            <p className="mt-6 text-xs font-bold uppercase tracking-[0.14em] text-stone-500">
+              {reviewedAtLabel}:{" "}
+              <time dateTime={item.lastReviewedAt}>
+                {formatFaqReviewedDate(item.lastReviewedAt)}
+              </time>
+            </p>
+          ) : null}
         </div>
+      </details>
+    </li>
+  );
+}
+
+function FaqContactCta({ content }: { content: FaqContactCtaContent }) {
+  return (
+    <section
+      aria-labelledby="faq-contact-heading"
+      className="mt-16 border-t border-stone-300 bg-stone-950 text-white sm:mt-20"
+    >
+      <div className="px-5 py-12 sm:px-8 sm:py-14 lg:px-12 lg:py-16">
+        {content.eyebrow ? (
+          <p className="nakfe-eyebrow text-white/70">{content.eyebrow}</p>
+        ) : null}
+        <h2
+          id="faq-contact-heading"
+          className="mt-4 max-w-3xl text-balance text-4xl font-black leading-[0.98] tracking-[-0.06em] sm:text-5xl"
+        >
+          {content.title}
+        </h2>
+        {content.description ? (
+          <p className="mt-5 max-w-2xl text-lg font-semibold leading-8 text-white/80">
+            {content.description}
+          </p>
+        ) : null}
+        <FaqActionLink
+          className="group mt-8 inline-flex min-h-11 items-center gap-3 text-sm font-black uppercase tracking-[0.14em] text-white underline decoration-2 underline-offset-8 outline-none transition duration-200 ease-out hover:text-red-300 focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-4 focus-visible:ring-offset-stone-950 motion-reduce:transition-none"
+          link={content.action}
+        />
       </div>
     </section>
   );
 }
 
-type FaqItemProps = {
-  item: FaqItemContent;
-};
+function EmptyFaqState({ content }: { content: FaqSectionContent }) {
+  return (
+    <section
+      aria-labelledby="faq-empty-heading"
+      className="mt-12 max-w-3xl border-y border-stone-300 py-10 sm:mt-14 sm:py-12"
+    >
+      <h2
+        id="faq-empty-heading"
+        className="text-balance text-3xl font-black leading-[0.98] tracking-[-0.055em] text-stone-950 sm:text-4xl"
+      >
+        {content.emptyState.title}
+      </h2>
+      {content.emptyState.description ? (
+        <p className="mt-4 max-w-2xl text-lg font-semibold leading-8 text-stone-700">
+          {content.emptyState.description}
+        </p>
+      ) : null}
+      {content.emptyState.action ? (
+        <FaqActionLink
+          className="group mt-7 inline-flex min-h-11 items-center gap-3 text-sm font-black uppercase tracking-[0.14em] text-stone-950 outline-none transition duration-200 ease-out hover:text-red-700 focus-visible:ring-2 focus-visible:ring-red-700 focus-visible:ring-offset-4 motion-reduce:transition-none"
+          link={content.emptyState.action}
+        />
+      ) : null}
+    </section>
+  );
+}
 
-function FaqItem({ item }: FaqItemProps) {
-  const [isOpen, setIsOpen] = useState(false);
-  const contentId = useId();
+export default function FaqSection({ content }: FaqSectionProps) {
+  const hasCategories = content.categories.length > 0;
 
   return (
-    <div className="border-l-[12px] border-transparent transition duration-200 ease-out has-[button[aria-expanded='true']]:border-red-700 motion-reduce:transition-none">
-      <h3>
-        <button
-          type="button"
-          className="flex w-full items-center justify-between gap-6 px-5 py-6 text-left outline-none transition duration-200 ease-out hover:bg-[#f7f1e8] focus-visible:bg-[#f7f1e8] focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-red-700 motion-reduce:transition-none sm:px-7"
-          aria-expanded={isOpen}
-          aria-controls={contentId}
-          onClick={() => setIsOpen((current) => !current)}
-        >
-          <span className="text-xl font-black leading-tight tracking-[-0.035em] text-stone-950">
-            {item.question}
-          </span>
+    <section
+      aria-labelledby="faq-heading"
+      className="border-b border-stone-300/70 bg-[#f7f1e8]"
+    >
+      <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 sm:py-20 lg:py-24">
+        <SectionHeader content={content.header} titleId="faq-heading" />
 
-          <span
-            aria-hidden="true"
-            className={[
-              "grid h-10 w-10 shrink-0 place-items-center border-2 border-stone-950 text-2xl font-black leading-none text-stone-950 transition duration-200 ease-out motion-reduce:transition-none",
-              isOpen ? "rotate-45 bg-stone-950 text-white" : "rotate-0 bg-white",
-            ].join(" ")}
-          >
-            +
-          </span>
-        </button>
-      </h3>
+        {hasCategories ? (
+          <div className="mt-14 space-y-16 sm:mt-16 sm:space-y-20">
+            {content.categories.map((category) => {
+              const headingId = `faq-category-${category.id}`;
 
-      <div id={contentId} hidden={!isOpen} className="px-5 pb-6 sm:px-7">
-        <p className="max-w-3xl text-base font-semibold leading-7 text-stone-700">
-          {item.answer}
-        </p>
+              return (
+                <section aria-labelledby={headingId} key={category.id}>
+                  <div className="max-w-3xl">
+                    <h2
+                      id={headingId}
+                      className="text-balance text-3xl font-black leading-[0.98] tracking-[-0.055em] text-stone-950 sm:text-4xl"
+                    >
+                      {category.title}
+                    </h2>
+                    {category.description ? (
+                      <p className="mt-4 max-w-2xl text-lg font-semibold leading-8 text-stone-700">
+                        {category.description}
+                      </p>
+                    ) : null}
+                  </div>
 
-        {item.tags && item.tags.length > 0 ? (
-          <ul className="mt-5 flex flex-wrap gap-2">
-            {item.tags.map((tag) => (
-              <li key={tag} className="bg-[#f7f1e8] px-3 py-2 text-xs font-black uppercase tracking-[0.14em] text-stone-600">
-                {tag}
-              </li>
-            ))}
-          </ul>
-        ) : null}
+                  <ul className="mt-8 border-b border-stone-300" role="list">
+                    {category.items.map((item) => (
+                      <FaqItem
+                        item={item}
+                        key={item.id}
+                        reviewedAtLabel={content.reviewedAtLabel}
+                      />
+                    ))}
+                  </ul>
+                </section>
+              );
+            })}
 
-        {item.lastReviewedAt ? (
-          <p className="mt-5 text-xs font-semibold uppercase tracking-[0.14em] text-stone-500">
-            Sist gjennomgått: <time dateTime={item.lastReviewedAt}>{item.lastReviewedAt}</time>
-          </p>
-        ) : null}
+            {content.contactCta ? (
+              <FaqContactCta content={content.contactCta} />
+            ) : null}
+          </div>
+        ) : (
+          <EmptyFaqState content={content} />
+        )}
       </div>
-    </div>
+    </section>
   );
 }

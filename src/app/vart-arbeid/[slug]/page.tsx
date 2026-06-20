@@ -34,12 +34,13 @@ export async function generateMetadata({
 }: WorkProjectPageProps): Promise<Metadata> {
   const { slug } = await params;
   const project = getProjectOrNotFound(slug);
+  const title = `${project.title} - Kvinner for Endring`;
 
   return {
-    title: `${project.title} | NAKFE`,
+    title,
     description: project.summary,
     openGraph: {
-      title: `${project.title} | NAKFE`,
+      title,
       description: project.summary,
       type: "article",
     },

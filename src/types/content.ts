@@ -328,24 +328,58 @@ export type ActivitiesPageContent = {
   items: ActivityContent[];
 };
 
+export type FaqAnswerParagraph = {
+  id: string;
+  text: string;
+};
+
+export type FaqAnswerContent = {
+  paragraphs: FaqAnswerParagraph[];
+  action?: ContentLink;
+};
+
 export type FaqItemContent = {
+  id: string;
   question: string;
-  answer: string;
-  tags?: string[];
+  answer: FaqAnswerContent;
+  /**
+   * Metadata for future CMS search and RAG retrieval.
+   * Keywords are deliberately not rendered as UI tags.
+   */
+  keywords?: string[];
+  /**
+   * Date-only value in YYYY-MM-DD format. Render through a formatter,
+   * never directly as raw metadata.
+   */
   lastReviewedAt?: string;
 };
 
 export type FaqCategoryContent = {
+  id: string;
   title: string;
   description?: string;
   items: FaqItemContent[];
 };
 
+export type FaqContactCtaContent = {
+  eyebrow?: string;
+  title: string;
+  description?: string;
+  action: ContentLink;
+};
+
+export type FaqSectionContent = {
+  header: SectionHeaderContent;
+  categories: FaqCategoryContent[];
+  emptyState: EmptyStateContent;
+  contactCta?: FaqContactCtaContent;
+  reviewedAtLabel?: string;
+};
+
 export type FaqPageContent = {
   seo: SeoContent;
   hero: PageHeroContent;
-  categories: FaqCategoryContent[];
-  contactCta?: CtaSectionContent;
+  faq: FaqSectionContent;
 };
 
 export type ContactMethodContent = {
