@@ -4,7 +4,7 @@ import type { WorkPageContent } from "@/types/content";
 
 const workContentDraft = {
   seo: {
-    title: "Vårt arbeid | NAKFE",
+    title: "Vårt arbeid",
     description:
       "Les om NAKFEs prosjekter og programmer i Afghanistan og Norge.",
   },
@@ -163,6 +163,7 @@ const workContentDraft = {
   detail: {
     backLinkLabel: "Vårt arbeid",
     backLinkAriaLabel: "Tilbake til oversikten over Vårt arbeid",
+    videoAriaLabelPrefix: "Video fra",
   },
 } satisfies WorkPageContent;
 

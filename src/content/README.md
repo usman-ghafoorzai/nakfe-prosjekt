@@ -30,7 +30,9 @@ Disse statiske objektene kan senere erstattes av fetch-funksjoner:
 homeContent.hero              -> cms_home_hero
 homeContent.impactBrief       -> cms_featured_fact_box
 homeContent.featuredAreas     -> cms_navigation_cards / cms_article_previews
-activitiesContent.activities  -> cms_events
+activitiesContent.items       -> cms_events
+activitiesContent.overview    -> cms_events_page_settings
+activitiesContent.detail      -> cms_events_detail_settings
 workContent.overview.items     -> cms_work_projects
 workContent.detail             -> cms_work_page_settings
 faqContent.categories         -> cms_faq_categories + cms_faq_items
@@ -65,3 +67,21 @@ Landvelgeren bruker URL-en, ikke lokal React-state:
 ```
 
 For å publisere et nytt prosjekt senere, legg inn ett nytt objekt i `workContent.overview.items`. Validering ved import stopper byggingen dersom en slug, et land, bilde, tekstblokk eller videoposter mangler.
+
+
+## Aktiviteter
+
+`src/content/activities.ts` inneholder bare aktiviteter som er klare for publisering. Det er bevisst ingen fiktive arrangementer i den offentlige oversikten.
+
+Aktiviteter er for ting brukeren kan delta på nå eller snart. Når noe er gjennomført og skal fortelles som en historie eller et resultat, hører det normalt hjemme under `Vårt arbeid`.
+
+Hver aktivitet trenger en unik `slug`, start- og sluttidspunkt med tidssone, format og publiseringsstatus. `upcoming` og `past` lagres ikke manuelt; oversikten beregner dette fra tidspunktet. Bare `scheduled` og `cancelled` styres redaksjonelt.
+
+```txt
+src/content/activities.ts   = publiserte aktiviteter og sidetekst
+src/lib/activities.ts       = datoer, sortering, oppslag, Event JSON-LD og validering
+src/app/aktiviteter         = oversikt
+src/app/aktiviteter/[slug]  = detaljside
+```
+
+Når en ny aktivitet skal publiseres, legg inn ett objekt i `activitiesContent.items` med bekreftet tittel, tidspunkt, sted, kort intro, brødtekst og eventuelt påmeldingslenke. Import-valideringen stopper byggingen ved ufullstendige eller ugyldige arrangementer.

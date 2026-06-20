@@ -3,7 +3,7 @@ import type { ContactPageContent } from "@/types/content";
 
 export const contactContent = {
   seo: {
-    title: "Kontakt | NAKFE",
+    title: "Kontakt",
     description:
       "Kontakt NAKFE for spørsmål, samarbeid, aktiviteter eller annen informasjon.",
   },
