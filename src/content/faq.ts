@@ -1,7 +1,8 @@
 import { pageHeroBackgroundImages } from "@/content/pageHeroImages";
+import { validateFaqPageContent } from "@/lib/faq";
 import type { FaqPageContent } from "@/types/content";
 
-export const faqContent = {
+const faqContentDraft = {
   seo: {
     title: "FAQ",
     description:
@@ -12,51 +13,42 @@ export const faqContent = {
     eyebrow: "FAQ",
     title: "Spørsmål og svar",
     description:
-      "Her kommer svar på vanlige spørsmål om organisasjonen, aktiviteter, kontakt og praktisk informasjon.",
+      "Her samler vi svar på vanlige spørsmål om NAKFE, aktiviteter og hvordan du kommer i kontakt.",
     backgroundImages: pageHeroBackgroundImages,
   },
 
-  categories: [
-    {
-      title: "Generelle spørsmål",
+  faq: {
+    header: {
+      eyebrow: "FAQ",
+      title: "Vanlige spørsmål",
       description:
-        "Denne seksjonen kan senere fylles inn med spørsmål og svar via admin, CMS eller Supabase.",
-      items: [
-        {
-          question: "Hva er NAKFE?",
-          answer:
-            "Her kommer et kort svar om organisasjonen. Dette er midlertidig innhold som ligger i content-layeret.",
-          tags: ["organisasjon"],
-        },
-        {
-          question: "Hvordan kan jeg ta kontakt?",
-          answer:
-            "Her kommer informasjon om kontaktmuligheter, e-post, sosiale medier eller kontaktskjema.",
-          tags: ["kontakt"],
-        },
-      ],
+        "Svar på spørsmål om NAKFE, aktiviteter og samarbeid publiseres her når innholdet er kvalitetssikret.",
     },
-    {
-      title: "Aktiviteter",
+    categories: [],
+    emptyState: {
+      title: "Har du spørsmål?",
       description:
-        "Spørsmål om arrangementer, møteplasser og praktisk informasjon kan samles her.",
-      items: [
-        {
-          question: "Hvordan finner jeg kommende aktiviteter?",
-          answer:
-            "Her kan NAKFE forklare hvordan aktiviteter publiseres og hvordan interesserte kan følge med.",
-          tags: ["aktiviteter"],
-        },
-      ],
+        "Ta kontakt med oss, så hjelper vi deg videre med informasjonen du trenger.",
+      action: {
+        label: "Kontakt oss",
+        href: "/kontakt",
+        ariaLabel: "Gå til kontaktsiden",
+      },
     },
-  ],
-
-  contactCta: {
-    title: "Fant du ikke svar?",
-    description: "Send oss spørsmålet ditt, så hjelper vi deg videre.",
-    primaryAction: {
-      label: "Send et spørsmål",
-      href: "/kontakt",
+    reviewedAtLabel: "Sist gjennomgått",
+    contactCta: {
+      eyebrow: "Kontakt",
+      title: "Finner du ikke det du lurer på?",
+      description: "Ta kontakt med oss, så hjelper vi deg videre.",
+      action: {
+        label: "Kontakt oss",
+        href: "/kontakt",
+        ariaLabel: "Gå til kontaktsiden",
+      },
     },
   },
 } satisfies FaqPageContent;
+
+validateFaqPageContent(faqContentDraft);
+
+export const faqContent = faqContentDraft;

@@ -38,12 +38,13 @@ export async function generateMetadata({
 }: ActivityPageProps): Promise<Metadata> {
   const { slug } = await params;
   const activity = getActivityOrNotFound(slug);
+  const title = `${activity.title} - Kvinner for Endring`;
 
   return {
-    title: `${activity.title} | NAKFE`,
+    title,
     description: activity.summary,
     openGraph: {
-      title: `${activity.title} | NAKFE`,
+      title,
       description: activity.summary,
       type: "website",
     },

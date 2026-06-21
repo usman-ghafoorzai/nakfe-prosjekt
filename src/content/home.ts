@@ -2,7 +2,7 @@ import type { HomePageContent } from "@/types/content";
 
 export const homeContent = {
   seo: {
-    title: "NAKFE | Kvinner for Endring",
+    title: "Startsiden",
     description:
       "NAKFE er en frivillig organisasjon som arbeider for integrering, inkludering, likestilling og endring.",
   },
