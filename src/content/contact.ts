@@ -1,45 +1,42 @@
 import { pageHeroBackgroundImages } from "@/content/pageHeroImages";
+import { validateContactPageContent } from "@/lib/contact";
 import type { ContactPageContent } from "@/types/content";
 
-export const contactContent = {
+/**
+ * Contact details are intentionally empty until NAKFE has approved the public
+ * channels. Add only information that the organisation wants to publish.
+ */
+const contactContentDraft = {
   seo: {
     title: "Kontakt",
     description:
-      "Kontakt NAKFE for spørsmål, samarbeid, aktiviteter eller annen informasjon.",
+      "Kontakt NAKFE for spørsmål om organisasjonen, samarbeid eller aktiviteter.",
   },
 
   hero: {
     eyebrow: "Kontakt",
-    title: "Kontakt NAKFE",
+    title: "Ta kontakt",
     description:
-      "Her kommer kontaktinformasjon, lenker til relevante kanaler og eventuelt kontaktskjema.",
+      "Har du spørsmål om NAKFE, samarbeid eller aktiviteter? Her finner du organisasjonens offentlige kontaktkanaler.",
     backgroundImages: pageHeroBackgroundImages,
   },
 
   contact: {
     header: {
-      eyebrow: "Kontaktinformasjon",
-      title: "Ta kontakt med organisasjonen",
+      eyebrow: "Kontakt",
+      title: "Vi hører gjerne fra deg",
       description:
-        "Denne seksjonen kan senere fylles med e-post, telefon, sosiale medier og annen kontaktinformasjon via admin, CMS eller Supabase.",
+        "Kontaktinformasjon publiseres her når kanalene er kvalitetssikret og klare for offentlig bruk.",
     },
-    methods: [
-      {
-        label: "E-post",
-        value: "E-post kommer",
-        href: "mailto:kontakt@nakfe.no",
-        description:
-          "Her kan organisasjonen legge inn riktig e-postadresse for generelle henvendelser.",
-      },
-      {
-        label: "Telefon",
-        value: "Telefonnummer kommer",
-        description:
-          "Her kan organisasjonen legge inn telefonnummer dersom det skal være offentlig.",
-      },
-    ],
-    socialLinks: [],
-    finalNote:
-      "Kontaktskjema kan legges til senere når vi bestemmer hvordan henvendelser skal håndteres teknisk.",
+    methods: [],
+    emptyState: {
+      title: "Kontaktinformasjon oppdateres",
+      description:
+        "Vi oppdaterer siden så snart NAKFEs offentlige kontaktkanaler er klare.",
+    },
   },
 } satisfies ContactPageContent;
+
+validateContactPageContent(contactContentDraft);
+
+export const contactContent = contactContentDraft;
