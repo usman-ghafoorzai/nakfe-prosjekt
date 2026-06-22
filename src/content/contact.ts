@@ -24,9 +24,9 @@ const contactContentDraft = {
   contact: {
     header: {
       eyebrow: "Kontakt",
-      title: "Vi hører gjerne fra deg",
+      title: "Kontaktkanaler",
       description:
-        "Her finner du midlertidig eksempelinnhold for hvordan offentlige kontaktkanaler kan presenteres.",
+        "Her finner du NAKFEs offentlige kontaktkanaler for spørsmål, samarbeid og aktiviteter.",
     },
     methods: [
       {
@@ -77,8 +77,6 @@ const contactContentDraft = {
         },
       ],
     },
-    availabilityNote:
-      "Kontaktinformasjonen her er midlertidig eksempelinnhold og kan erstattes med godkjente offentlige kanaler senere.",
     emptyState: {
       title: "Kontaktinformasjon oppdateres",
       description:
