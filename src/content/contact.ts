@@ -1,45 +1,90 @@
 import { pageHeroBackgroundImages } from "@/content/pageHeroImages";
+import { validateContactPageContent } from "@/lib/contact";
 import type { ContactPageContent } from "@/types/content";
 
-export const contactContent = {
+/**
+ * Contact details are intentionally empty until NAKFE has approved the public
+ * channels. Add only information that the organisation wants to publish.
+ */
+const contactContentDraft = {
   seo: {
     title: "Kontakt",
     description:
-      "Kontakt NAKFE for spørsmål, samarbeid, aktiviteter eller annen informasjon.",
+      "Kontakt NAKFE for spørsmål om organisasjonen, samarbeid eller aktiviteter.",
   },
 
   hero: {
     eyebrow: "Kontakt",
-    title: "Kontakt NAKFE",
+    title: "Ta kontakt",
     description:
-      "Her kommer kontaktinformasjon, lenker til relevante kanaler og eventuelt kontaktskjema.",
+      "Har du spørsmål om NAKFE, samarbeid eller aktiviteter? Her finner du organisasjonens offentlige kontaktkanaler.",
     backgroundImages: pageHeroBackgroundImages,
   },
 
   contact: {
     header: {
-      eyebrow: "Kontaktinformasjon",
-      title: "Ta kontakt med organisasjonen",
+      eyebrow: "Kontakt",
+      title: "Kontaktkanaler",
       description:
-        "Denne seksjonen kan senere fylles med e-post, telefon, sosiale medier og annen kontaktinformasjon via admin, CMS eller Supabase.",
+        "Her finner du NAKFEs offentlige kontaktkanaler for spørsmål, samarbeid og aktiviteter.",
     },
     methods: [
       {
+        id: "general-email",
+        kind: "email",
         label: "E-post",
-        value: "E-post kommer",
+        value: "kontakt@nakfe.no",
         href: "mailto:kontakt@nakfe.no",
+        ariaLabel: "Send e-post til NAKFE",
         description:
-          "Her kan organisasjonen legge inn riktig e-postadresse for generelle henvendelser.",
+          "Bruk denne adressen for generelle spørsmål om organisasjonen, aktiviteter eller samarbeid.",
       },
       {
+        id: "phone",
+        kind: "phone",
         label: "Telefon",
-        value: "Telefonnummer kommer",
+        value: "+47 40 00 00 00",
+        href: "tel:+4740000000",
+        ariaLabel: "Ring NAKFE",
         description:
-          "Her kan organisasjonen legge inn telefonnummer dersom det skal være offentlig.",
+          "Telefonen kan brukes til korte henvendelser i åpningstiden på hverdager.",
+      },
+      {
+        id: "office-address",
+        kind: "address",
+        label: "Adresse",
+        value: "Storgata 10, 0155 Oslo",
+        description:
+          "Midlertidig besøksadresse brukt som eksempelinnhold til kontaktsiden.",
       },
     ],
-    socialLinks: [],
-    finalNote:
-      "Kontaktskjema kan legges til senere når vi bestemmer hvordan henvendelser skal håndteres teknisk.",
+    social: {
+      title: "Sosiale medier",
+      description:
+        "Du kan også følge organisasjonen i sosiale kanaler for oppdateringer og arrangementer.",
+      links: [
+        {
+          label: "Instagram",
+          href: "https://instagram.com/nakfe.no",
+          ariaLabel: "Besøk NAKFE på Instagram",
+          isExternal: true,
+        },
+        {
+          label: "Facebook",
+          href: "https://facebook.com/nakfe.no",
+          ariaLabel: "Besøk NAKFE på Facebook",
+          isExternal: true,
+        },
+      ],
+    },
+    emptyState: {
+      title: "Kontaktinformasjon oppdateres",
+      description:
+        "Vi oppdaterer siden så snart NAKFEs offentlige kontaktkanaler er klare.",
+    },
   },
 } satisfies ContactPageContent;
+
+validateContactPageContent(contactContentDraft);
+
+export const contactContent = contactContentDraft;

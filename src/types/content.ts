@@ -382,24 +382,37 @@ export type FaqPageContent = {
   faq: FaqSectionContent;
 };
 
+export const contactMethodKinds = [
+  "email",
+  "phone",
+  "address",
+  "other",
+] as const;
+
+export type ContactMethodKind = (typeof contactMethodKinds)[number];
+
 export type ContactMethodContent = {
+  id: string;
+  kind: ContactMethodKind;
   label: string;
   value: string;
   href?: string;
+  ariaLabel?: string;
   description?: string;
 };
 
-export type SocialLinkContent = {
-  label: string;
-  href?: string;
-  ariaLabel?: string;
+export type ContactSocialSectionContent = {
+  title: string;
+  description?: string;
+  links: ContentLink[];
 };
 
 export type ContactSectionContent = {
   header: SectionHeaderContent;
   methods: ContactMethodContent[];
-  socialLinks: SocialLinkContent[];
-  finalNote?: string;
+  social?: ContactSocialSectionContent;
+  availabilityNote?: string;
+  emptyState: EmptyStateContent;
 };
 
 export type ContactPageContent = {

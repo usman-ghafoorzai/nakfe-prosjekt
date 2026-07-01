@@ -1,119 +1,195 @@
-import Link from "next/link";
 import SectionHeader from "@/components/SectionHeader";
+import { isExternalContactHref } from "@/lib/contact";
 import type {
-  ContactMethodContent,
-  ContactSectionContent,
-  SocialLinkContent,
+    ContactMethodContent,
+    ContactSectionContent,
+    ContentLink,
 } from "@/types/content";
 
 type ContactSectionProps = {
-  content: ContactSectionContent;
+    content: ContactSectionContent;
 };
 
 export default function ContactSection({ content }: ContactSectionProps) {
-  const publishedSocialLinks = content.socialLinks.filter((link) => link.href);
+    const hasMethods = content.methods.length > 0;
+    const hasSocialLinks = Boolean(content.social?.links.length);
+    const hasPublishedChannels = hasMethods || hasSocialLinks;
 
-  return (
-    <section className="nakfe-section bg-[#f7f1e8]">
-      <div className="absolute right-[-5rem] top-10 h-48 w-48 rotate-45 border-[1.8rem] border-red-700/10" aria-hidden="true" />
-      <div className="mx-auto grid max-w-7xl gap-14 px-4 py-20 sm:px-6 sm:py-24 lg:grid-cols-[minmax(0,1fr)_minmax(20rem,0.78fr)] lg:items-start lg:gap-16 lg:py-28">
-        <div>
-          <SectionHeader content={content.header} />
+    return (
+        <section
+            className="nakfe-section bg-[#f7f1e8]"
+            aria-label={content.header.title}
+        >
+            <div className="nakfe-container py-16 sm:py-20 lg:py-24">
+                <div className="max-w-3xl">
+                    <SectionHeader content={content.header} />
+                </div>
 
-          {content.finalNote ? (
-            <p className="mt-10 max-w-3xl border-l-[10px] border-red-700 bg-white px-5 py-4 text-base font-semibold leading-7 text-stone-700 shadow-md shadow-stone-950/8">
-              {content.finalNote}
-            </p>
-          ) : null}
-        </div>
+                <div className="mt-12 border-t-2 border-stone-950">
+                    {hasMethods ? (
+                        <address className="not-italic">
+                            <dl>
+                                {content.methods.map((method) => (
+                                    <ContactMethod key={method.id} method={method} />
+                                ))}
+                            </dl>
+                        </address>
+                    ) : null}
 
-        <div className="space-y-6">
-          {content.methods.length > 0 ? (
-            <ul className="grid gap-5 lg:gap-6">
-              {content.methods.map((method) => (
-                <li key={method.label}>
-                  <ContactMethodCard method={method} />
-                </li>
-              ))}
-            </ul>
-          ) : null}
+                    {hasSocialLinks && content.social ? (
+                        <SocialLinksSection content={content.social} />
+                    ) : null}
 
-          {publishedSocialLinks.length > 0 ? (
-            <div className="border-[10px] border-[#eadfcf] border-l-[12px] border-l-red-700 bg-white p-6 shadow-md shadow-stone-950/10">
-              <h3 className="text-3xl font-black leading-none tracking-[-0.055em] text-stone-950">
-                Sosiale medier
-              </h3>
+                    {!hasPublishedChannels ? (
+                        <ContactEmptyState content={content} />
+                    ) : null}
+                </div>
 
-              <ul className="mt-5 flex flex-wrap gap-3">
-                {publishedSocialLinks.map((link) => (
-                  <li key={`${link.label}-${link.href}`}>
-                    <SocialLink link={link} />
-                  </li>
-                ))}
-              </ul>
+                {content.availabilityNote ? (
+                    <p className="mt-8 max-w-3xl text-sm font-semibold leading-6 text-stone-600">
+                        {content.availabilityNote}
+                    </p>
+                ) : null}
             </div>
-          ) : null}
-        </div>
-      </div>
-    </section>
-  );
+        </section>
+    );
 }
 
-type ContactMethodCardProps = {
-  method: ContactMethodContent;
+type ContactMethodProps = {
+    method: ContactMethodContent;
 };
 
-function ContactMethodCard({ method }: ContactMethodCardProps) {
-  const content = (
-    <div className="group border-[10px] border-[#eadfcf] border-l-[12px] border-l-red-700 bg-white p-6 shadow-md shadow-stone-950/10 transition duration-200 ease-out hover:-translate-y-1 hover:shadow-xl hover:shadow-stone-950/12 motion-reduce:transition-none motion-reduce:hover:translate-y-0">
-      <p className="text-xs font-black uppercase tracking-[0.18em] text-red-700">
-        {method.label}
-      </p>
+function ContactMethod({ method }: ContactMethodProps) {
+    const isExternal = method.href
+        ? isExternalContactHref(method.href)
+        : false;
 
-      <p className="mt-4 text-2xl font-black leading-tight tracking-[-0.045em] text-stone-950">
-        {method.value}
-      </p>
+    return (
+        <div className="grid gap-3 border-b border-stone-300 py-7 sm:grid-cols-[minmax(10rem,0.6fr)_minmax(0,1.4fr)] sm:gap-8 sm:py-8">
+            <dt className="pt-1 text-xs font-black uppercase tracking-[0.18em] text-red-700">
+                {method.label}
+            </dt>
 
-      {method.description ? (
-        <p className="mt-3 text-sm font-semibold leading-6 text-stone-700">
-          {method.description}
-        </p>
-      ) : null}
-    </div>
-  );
+            <dd>
+                {method.href ? (
+                    <a
+                        href={method.href}
+                        aria-label={method.ariaLabel}
+                        target={isExternal ? "_blank" : undefined}
+                        rel={isExternal ? "noreferrer" : undefined}
+                        className="inline-flex min-h-11 items-center gap-2 text-xl font-black leading-tight tracking-[-0.04em] text-stone-950 underline decoration-red-700 decoration-2 underline-offset-4 outline-none transition hover:text-red-700 focus-visible:ring-2 focus-visible:ring-red-700 focus-visible:ring-offset-4 motion-reduce:transition-none sm:text-2xl"
+                    >
+                        {method.value}
+                        {isExternal ? <span aria-hidden="true">↗</span> : null}
+                    </a>
+                ) : (
+                    <p className="text-xl font-black leading-tight tracking-[-0.04em] text-stone-950 sm:text-2xl">
+                        {method.value}
+                    </p>
+                )}
 
-  if (!method.href) {
-    return content;
-  }
+                {method.description ? (
+                    <p className="mt-3 max-w-2xl text-sm font-semibold leading-6 text-stone-700">
+                        {method.description}
+                    </p>
+                ) : null}
+            </dd>
+        </div>
+    );
+}
 
-  return (
-    <Link href={method.href} className="block outline-none focus-visible:ring-2 focus-visible:ring-red-700 focus-visible:ring-offset-4">
-      {content}
-    </Link>
-  );
+type SocialLinksSectionProps = {
+    content: NonNullable<ContactSectionContent["social"]>;
+};
+
+function SocialLinksSection({ content }: SocialLinksSectionProps) {
+    return (
+        <section
+            className="grid gap-3 border-b border-stone-300 py-7 sm:grid-cols-[minmax(10rem,0.6fr)_minmax(0,1.4fr)] sm:gap-8 sm:py-8"
+            aria-labelledby="contact-social-heading"
+        >
+            <div>
+                <h3
+                    id="contact-social-heading"
+                    className="pt-1 text-xs font-black uppercase tracking-[0.18em] text-red-700"
+                >
+                    {content.title}
+                </h3>
+            </div>
+
+            <div>
+                {content.description ? (
+                    <p className="max-w-2xl text-sm font-semibold leading-6 text-stone-700">
+                        {content.description}
+                    </p>
+                ) : null}
+
+                <nav
+                    className="mt-4 flex flex-wrap gap-x-7 gap-y-2"
+                    aria-label={content.title}
+                >
+                    {content.links.map((link) => (
+                        <SocialLink key={link.href} link={link} />
+                    ))}
+                </nav>
+            </div>
+        </section>
+    );
 }
 
 type SocialLinkProps = {
-  link: SocialLinkContent;
+    link: ContentLink;
 };
 
 function SocialLink({ link }: SocialLinkProps) {
-  if (!link.href) {
-    return null;
-  }
+    const isExternal = link.isExternal ?? isExternalContactHref(link.href);
 
-  const isExternal = link.href.startsWith("http");
+    return (
+        <a
+            href={link.href}
+            aria-label={link.ariaLabel}
+            target={isExternal ? "_blank" : undefined}
+            rel={isExternal ? "noreferrer" : undefined}
+            className="inline-flex min-h-11 items-center gap-2 text-sm font-black uppercase tracking-[0.14em] text-stone-950 underline decoration-red-700 decoration-2 underline-offset-4 outline-none transition hover:text-red-700 focus-visible:ring-2 focus-visible:ring-red-700 focus-visible:ring-offset-4 motion-reduce:transition-none"
+        >
+            {link.label}
+            <span aria-hidden="true">{isExternal ? "↗" : "→"}</span>
+        </a>
+    );
+}
 
-  return (
-    <a
-      href={link.href}
-      aria-label={link.ariaLabel}
-      target={isExternal ? "_blank" : undefined}
-      rel={isExternal ? "noreferrer" : undefined}
-      className="nakfe-button-secondary"
-    >
-      {link.label}
-      <span aria-hidden="true">{isExternal ? "↗" : "→"}</span>
-    </a>
-  );
+type ContactEmptyStateProps = {
+    content: ContactSectionContent;
+};
+
+function ContactEmptyState({ content }: ContactEmptyStateProps) {
+    const action = content.emptyState.action;
+    const isExternal = action
+        ? (action.isExternal ?? isExternalContactHref(action.href))
+        : false;
+
+    return (
+        <div className="border-b border-stone-300 py-8">
+            <h3 className="text-2xl font-black leading-tight tracking-[-0.045em] text-stone-950">
+                {content.emptyState.title}
+            </h3>
+
+            <p className="mt-3 max-w-2xl text-base font-semibold leading-7 text-stone-700">
+                {content.emptyState.description}
+            </p>
+
+            {action ? (
+                <a
+                    href={action.href}
+                    aria-label={action.ariaLabel}
+                    target={isExternal ? "_blank" : undefined}
+                    rel={isExternal ? "noreferrer" : undefined}
+                    className="mt-5 inline-flex min-h-11 items-center gap-2 text-sm font-black uppercase tracking-[0.14em] text-stone-950 underline decoration-red-700 decoration-2 underline-offset-4 outline-none transition hover:text-red-700 focus-visible:ring-2 focus-visible:ring-red-700 focus-visible:ring-offset-4 motion-reduce:transition-none"
+                >
+                    {action.label}
+                    <span aria-hidden="true">{isExternal ? "↗" : "→"}</span>
+                </a>
+            ) : null}
+        </div>
+    );
 }
