@@ -6,7 +6,7 @@ import {
   getWorkCountryHref,
   getWorkProjectsByCountry,
 } from "@/lib/work-projects";
-import type { WorkCountry, WorkProjectListContent } from "@/types/content";
+import type { WorkCountry, WorkProjectListContent } from "@/types/work";
 
 type WorkProjectIndexSectionProps = {
   content: WorkProjectListContent;

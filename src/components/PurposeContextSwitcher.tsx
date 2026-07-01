@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import type { PurposeContextContent } from "@/types/content";
+import type { PurposeContextContent } from "@/types/about";
 
 type PurposeContextSwitcherProps = {
   contexts: PurposeContextContent[];

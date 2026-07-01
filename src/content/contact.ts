@@ -1,6 +1,6 @@
 import { pageHeroBackgroundImages } from "@/content/pageHeroImages";
 import { validateContactPageContent } from "@/lib/contact";
-import type { ContactPageContent } from "@/types/content";
+import type { ContactPageContent } from "@/types/contact";
 
 /**
  * Contact details are intentionally empty until NAKFE has approved the public

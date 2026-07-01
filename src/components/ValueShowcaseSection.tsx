@@ -1,6 +1,6 @@
 import SectionHeader from "@/components/SectionHeader";
 import ValueCarousel from "@/components/ValueCarousel";
-import type { ValueShowcaseSectionContent } from "@/types/content";
+import type { ValueShowcaseSectionContent } from "@/types/about";
 
 type ValueShowcaseSectionProps = {
   content: ValueShowcaseSectionContent;

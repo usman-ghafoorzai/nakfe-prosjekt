@@ -1,6 +1,6 @@
 import { pageHeroBackgroundImages } from "@/content/pageHeroImages";
 import { validateWorkPageContent } from "@/lib/work-projects";
-import type { WorkPageContent } from "@/types/content";
+import type { WorkPageContent } from "@/types/work";
 
 const workContentDraft = {
   seo: {

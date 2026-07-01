@@ -8,8 +8,9 @@ import {
   getActivityEventJsonLd,
   serializeJsonLd,
 } from "@/lib/activities";
+import { createPageMetadata } from "@/lib/metadata";
 import { getWorkProjectBySlug } from "@/lib/work-projects";
-import type { ActivityContent } from "@/types/content";
+import type { ActivityContent } from "@/types/activities";
 
 export const revalidate = 3600;
 
@@ -38,17 +39,18 @@ export async function generateMetadata({
 }: ActivityPageProps): Promise<Metadata> {
   const { slug } = await params;
   const activity = getActivityOrNotFound(slug);
-  const title = `${activity.title} - Kvinner for Endring`;
 
-  return {
-    title,
-    description: activity.summary,
-    openGraph: {
-      title,
+  return createPageMetadata(
+    {
+      title: activity.title,
       description: activity.summary,
-      type: "website",
+      image: activity.coverImage,
     },
-  };
+    {
+      path: `/aktiviteter/${activity.slug}`,
+      type: "article",
+    },
+  );
 }
 
 export default async function ActivityPage({ params }: ActivityPageProps) {

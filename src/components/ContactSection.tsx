@@ -1,10 +1,12 @@
 import SectionHeader from "@/components/SectionHeader";
 import { isExternalContactHref } from "@/lib/contact";
 import type {
+    ContentLink,
+} from "@/types/common";
+import type {
     ContactMethodContent,
     ContactSectionContent,
-    ContentLink,
-} from "@/types/content";
+} from "@/types/contact";
 
 type ContactSectionProps = {
     content: ContactSectionContent;

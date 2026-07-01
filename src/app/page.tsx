@@ -6,7 +6,9 @@ import TextSection from "@/components/TextSection";
 import { homeContent } from "@/content/home";
 import { createPageMetadata } from "@/lib/metadata";
 
-export const metadata = createPageMetadata(homeContent.seo);
+export const metadata = createPageMetadata(homeContent.seo, {
+  path: "/",
+});
 
 export default function HomePage() {
     return (

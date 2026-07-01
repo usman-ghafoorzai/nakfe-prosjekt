@@ -2,10 +2,12 @@ import Link from "next/link";
 import EditorialMedia from "@/components/EditorialMedia";
 import { formatActivityDateDetails } from "@/lib/activities";
 import type {
+  ContentLink,
+} from "@/types/common";
+import type {
   ActivityContent,
   ActivityDetailContent,
-  ContentLink,
-} from "@/types/content";
+} from "@/types/activities";
 
 type ActivityDetailProps = {
   activity: ActivityContent;

@@ -1,5 +1,5 @@
 import { pageHeroBackgroundImages } from "@/content/pageHeroImages";
-import type { AboutPageContent } from "@/types/content";
+import type { AboutPageContent } from "@/types/about";
 
 const sharedPurposeImage = {
   src: "/images/about/community.jpg",

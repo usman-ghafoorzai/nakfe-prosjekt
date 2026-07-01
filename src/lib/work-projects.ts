@@ -5,7 +5,7 @@ import {
   type WorkPageContent,
   type WorkProjectContent,
   type WorkProjectListContent,
-} from "@/types/content";
+} from "@/types/work";
 
 export type WorkSearchParams = {
   land?: string | string[] | undefined;

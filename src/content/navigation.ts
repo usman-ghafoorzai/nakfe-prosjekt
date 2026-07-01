@@ -1,4 +1,4 @@
-﻿import type { NavItem } from "@/types/content";
+import type { NavItem } from "@/types/common";
 
 export const navigationItems = [
     {

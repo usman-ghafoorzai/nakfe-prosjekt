@@ -1,7 +1,5 @@
-"use client";
-
 import PageHeroBackgroundCarousel from "@/components/PageHeroBackgroundCarousel";
-import type { PageHeroContent } from "@/types/content";
+import type { PageHeroContent } from "@/types/common";
 
 type PageHeroProps = {
   content: PageHeroContent;
@@ -19,7 +17,7 @@ export default function PageHero({ content }: PageHeroProps) {
       <div className="relative z-20 mx-auto flex h-[24rem] max-w-7xl items-end px-4 pb-16 pt-28 sm:h-[28rem] sm:px-6 sm:pb-20 lg:h-[32rem] lg:pb-24">
         <div className="max-w-4xl lg:-ml-8 xl:-ml-10">
           {content.eyebrow ? (
-            <p className="nakfe-eyebrow text-white/72">
+            <p className="nakfe-eyebrow bg-stone-950/62 px-3 py-2 text-white shadow-lg shadow-stone-950/20 backdrop-blur-sm">
               {content.eyebrow}
             </p>
           ) : null}

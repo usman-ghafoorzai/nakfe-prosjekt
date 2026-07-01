@@ -1,6 +1,6 @@
 import { pageHeroBackgroundImages } from "@/content/pageHeroImages";
 import { validateFaqPageContent } from "@/lib/faq";
-import type { FaqPageContent } from "@/types/content";
+import type { FaqPageContent } from "@/types/faq";
 
 const faqContentDraft = {
   seo: {

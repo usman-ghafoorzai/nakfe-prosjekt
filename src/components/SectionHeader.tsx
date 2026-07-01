@@ -1,4 +1,4 @@
-import type { SectionHeaderContent } from "@/types/content";
+import type { SectionHeaderContent } from "@/types/common";
 
 type SectionHeaderProps = {
   content: SectionHeaderContent;

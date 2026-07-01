@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import { useEffect, useState } from "react";
-import type { ContentImage } from "@/types/content";
+import type { ContentImage } from "@/types/common";
 
 type PageHeroBackgroundCarouselProps = {
   images?: ContentImage[];
@@ -43,28 +43,27 @@ export default function PageHeroBackgroundCarousel({
 
   return (
       <div className="absolute inset-0 overflow-hidden bg-gray-950" aria-hidden="true">
-        <div
-            className="flex h-full w-full will-change-transform transition-transform duration-[1200ms] ease-[cubic-bezier(0.76,0,0.24,1)] motion-reduce:transition-none"
-            style={{
-              transform: `translate3d(-${safeActiveIndex * 100}%, 0, 0)`,
-            }}
-        >
-          {images.map((image, index) => (
-              <div key={image.src} className="relative h-full min-w-full">
-                <Image
-                    src={image.src}
-                    alt=""
-                    fill
-                    preload={index === 0}
-                    sizes="100vw"
-                    className="object-cover"
-                    style={{
-                      objectPosition: image.position ?? "center",
-                    }}
-                />
-              </div>
-          ))}
-        </div>
+        {images.map((image, index) => (
+            <div
+                key={image.src}
+                className={[
+                  "absolute inset-0 transition-opacity duration-[1100ms] ease-out motion-reduce:transition-none",
+                  index === safeActiveIndex ? "opacity-100" : "opacity-0",
+                ].join(" ")}
+            >
+              <Image
+                  src={image.src}
+                  alt=""
+                  fill
+                  preload={index === 0}
+                  sizes="100vw"
+                  className="object-cover"
+                  style={{
+                    objectPosition: image.position ?? "center",
+                  }}
+              />
+            </div>
+        ))}
       </div>
   );
 }

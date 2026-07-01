@@ -1,8 +1,10 @@
 import type {
   ContentLink,
+} from "@/types/common";
+import type {
   FaqPageContent,
   FaqSectionContent,
-} from "@/types/content";
+} from "@/types/faq";
 
 const DATE_ONLY_PATTERN = /^\d{4}-\d{2}-\d{2}$/;
 

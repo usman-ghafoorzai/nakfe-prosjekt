@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import SectionHeader from "@/components/SectionHeader";
-import type { TextSectionContent, TextSectionVisualContent } from "@/types/content";
+import type { TextSectionContent, TextSectionVisualContent } from "@/types/common";
 
 type TextSectionProps = {
   content: TextSectionContent;

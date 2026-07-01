@@ -3,10 +3,12 @@ import SectionHeader from "@/components/SectionHeader";
 import { formatFaqReviewedDate } from "@/lib/faq";
 import type {
   ContentLink,
+} from "@/types/common";
+import type {
   FaqContactCtaContent,
   FaqItemContent,
   FaqSectionContent,
-} from "@/types/content";
+} from "@/types/faq";
 
 type FaqSectionProps = {
   content: FaqSectionContent;

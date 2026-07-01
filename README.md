@@ -54,7 +54,7 @@ Målet er å følge relevante WCAG 2.1-prinsipper gjennom hele prosjektet.
 
 ## Content- og CMS-arkitektur
 
-Prosjektet skal ikke blande redigerbart innhold inn i presentasjonskomponentene. For nå ligger innholdet i `src/content/*`, med typer i `src/types/content.ts`. Dette er en midlertidig content-kilde som senere kan erstattes av Supabase, et CMS eller et admin-panel.
+Prosjektet skal ikke blande redigerbart innhold inn i presentasjonskomponentene. For nå ligger innholdet i `src/content/*`, med domenetyper i `src/types/*`. Dette er en midlertidig content-kilde som senere kan erstattes av Supabase, et CMS eller et admin-panel.
 
 Eksempel:
 

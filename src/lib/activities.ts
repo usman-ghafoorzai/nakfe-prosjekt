@@ -6,7 +6,7 @@ import {
   type ActivityFormat,
   type ActivityPublicationState,
   type ActivitiesPageContent,
-} from "@/types/content";
+} from "@/types/activities";
 
 const locale = "nb-NO";
 
