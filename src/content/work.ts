@@ -91,9 +91,9 @@ const workContentDraft = {
           "Prosjektet hjelper kvinner med å styrke sine muligheter på arbeidsmarkedet gjennom karriereveiledning, jobbsøkerkurs og økonomisk kompetanse.",
         coverImage: {
           src: "/images/page-hero/arrangementer.png",
-          alt: "Midlertidig lokalt illustrasjonsbilde. Konkret prosjektbilde er ikke dokumentert.",
+          alt: "Illustrasjon knyttet til jobbsøking og økonomisk selvstendighet.",
           caption:
-            "Kvinner som deltar på jobbsøkerkurs eller seminar om økonomisk selvstendighet.",
+            "Illustrasjon knyttet til jobbsøking og økonomisk selvstendighet.",
           credit: "Kvinner for Endring",
           position: "center 40%",
         },
@@ -193,8 +193,8 @@ const workContentDraft = {
           "Prosjektet gir jenter over sjette trinn, som er fratatt retten til utdanning, tilgang til digital opplæring og grunnleggende digitale ferdigheter som kan styrke deres utdannings- og yrkesmuligheter.",
         coverImage: {
           src: "/images/page-hero/afghansk-kulturarv.png",
-          alt: "Midlertidig lokalt illustrasjonsbilde. Konkret prosjektbilde er ikke dokumentert.",
-          caption: "Jenter som deltar i digital undervisning i Kabul.",
+          alt: "Illustrasjon knyttet til digital undervisning i Kabul.",
+          caption: "Illustrasjon knyttet til digital undervisning i Kabul.",
           credit: "Kvinner for Endring",
           position: "center",
         },
@@ -225,9 +225,8 @@ const workContentDraft = {
           "Prosjektet gir jenter over sjette trinn som er fratatt retten til videre utdanning, tilgang til digital undervisning i engelsk og matematikk for å styrke deres kunnskap og framtidsmuligheter.",
         coverImage: {
           src: "/images/page-hero/kvinner-for-endring.png",
-          alt: "Midlertidig lokalt illustrasjonsbilde. Konkret prosjektbilde er ikke dokumentert.",
-          caption:
-            "Jenter som deltar i digital opplæring ved et undervisningssenter i Faryab.",
+          alt: "Illustrasjon knyttet til digital undervisning i Faryab.",
+          caption: "Illustrasjon knyttet til digital undervisning i Faryab.",
           credit: "Kvinner for Endring",
           position: "center",
         },
@@ -357,9 +356,9 @@ const englishWorkContent = {
           "The project supports women in strengthening their employment opportunities through career guidance, job-search training, and financial literacy.",
         coverImage: {
           src: "/images/page-hero/arrangementer.png",
-          alt: "Temporary local illustration. A specific project image has not been documented.",
+          alt: "Illustration related to job search and financial independence.",
           caption:
-            "Women participating in a job-search workshop or financial independence seminar.",
+            "Illustration related to job search and financial independence.",
           credit: "Women for Change",
           position: "center 40%",
         },
@@ -459,8 +458,8 @@ const englishWorkContent = {
           "The project provides girls above sixth grade, who have been denied access to education, with online learning opportunities in English and mathematics to support their knowledge and future opportunities.",
         coverImage: {
           src: "/images/page-hero/afghansk-kulturarv.png",
-          alt: "Temporary local illustration. A specific project image has not been documented.",
-          caption: "Girls participating in online learning classes in Kabul.",
+          alt: "Illustration related to digital education in Kabul.",
+          caption: "Illustration related to digital education in Kabul.",
           credit: "Women for Change",
           position: "center",
         },
@@ -491,9 +490,8 @@ const englishWorkContent = {
           "The project provides girls above sixth grade, who have been denied access to education, with online instruction in English and mathematics to strengthen their knowledge and future opportunities.",
         coverImage: {
           src: "/images/page-hero/kvinner-for-endring.png",
-          alt: "Temporary local illustration. A specific project image has not been documented.",
-          caption:
-            "Girls participating in online learning at an educational centre in Faryab.",
+          alt: "Illustration related to digital education in Faryab.",
+          caption: "Illustration related to digital education in Faryab.",
           credit: "Women for Change",
           position: "center",
         },

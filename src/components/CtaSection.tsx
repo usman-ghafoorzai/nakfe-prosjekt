@@ -88,7 +88,7 @@ function ActionLink({ link, variant }: ActionLinkProps) {
         href={link.href}
         aria-label={link.ariaLabel}
         target="_blank"
-        rel="noreferrer"
+        rel="noopener noreferrer"
         className={className}
       >
         {label}
