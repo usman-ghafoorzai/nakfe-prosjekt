@@ -24,9 +24,11 @@ export default function ValueShowcaseSection({
       />
 
       <div className="mx-auto max-w-6xl px-4 py-18 sm:px-6 sm:py-24">
-        <div id="values-heading">
-          <SectionHeader content={content.header} tone="dark" />
-        </div>
+        <SectionHeader
+          content={content.header}
+          titleId="values-heading"
+          tone="dark"
+        />
         <ValueCarousel content={content.carousel} items={content.items} />
       </div>
     </section>

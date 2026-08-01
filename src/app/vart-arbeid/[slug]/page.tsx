@@ -11,6 +11,8 @@ import {
 } from "@/lib/work-projects";
 import type { WorkProjectContent } from "@/types/work";
 
+export const dynamicParams = false;
+
 type WorkProjectPageProps = {
   params: Promise<{
     slug: string;

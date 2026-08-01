@@ -53,9 +53,16 @@ export function createPageMetadata(
     openGraph: {
       title,
       description: seo.description,
+      siteName: siteConfig.titleSuffix,
       url: canonicalUrl,
       type: options.type ?? "website",
       ...(images ? { images } : {}),
+    },
+    twitter: {
+      card: images ? "summary_large_image" : "summary",
+      title,
+      description: seo.description,
+      ...(images ? { images: images.map((image) => image.url) } : {}),
     },
   };
 }

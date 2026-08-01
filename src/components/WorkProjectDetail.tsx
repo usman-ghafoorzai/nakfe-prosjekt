@@ -1,4 +1,5 @@
 import Link from "next/link";
+import WorkProjectGallery from "@/components/WorkProjectGallery";
 import WorkProjectMedia from "@/components/WorkProjectMedia";
 import type {
   WorkProjectContent,
@@ -58,6 +59,13 @@ export default function WorkProjectDetail({
             ))}
           </div>
         </div>
+
+        {project.gallery && project.gallery.length > 0 ? (
+          <WorkProjectGallery
+            heading={content.galleryHeading}
+            images={project.gallery}
+          />
+        ) : null}
       </div>
     </article>
   );

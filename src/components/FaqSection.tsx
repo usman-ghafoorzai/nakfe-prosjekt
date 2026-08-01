@@ -35,7 +35,7 @@ function FaqActionLink({ link, className }: FaqActionLinkProps) {
         aria-label={link.ariaLabel}
         className={className}
         href={link.href}
-        rel="noreferrer"
+        rel="noopener noreferrer"
         target="_blank"
       >
         {label}

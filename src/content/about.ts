@@ -3,38 +3,34 @@ import type { AboutPageContent } from "@/types/about";
 import type { LocalizedContent } from "@/types/locale";
 
 const sharedPurposeImage = {
-  src: "/images/about/community.jpg",
-  alt: "Kvinner samlet i et fellesskap knyttet til NAKFE",
+  src: "/images/report-2026/norway-kabul-visit-presentation.jpeg",
+  alt: "Presentasjon i Norge om et besøk ved organisasjonens sentre i Kabul",
   position: "center",
 } as const;
 
 const valueMedia = {
   integration: {
-    type: "video",
-    src: "/videos/values/integrering.mp4",
-    poster: "/images/page-hero/kvinner-fellesskap.png",
-    alt: "Kvinner samlet i et fellesskap",
+    type: "image",
+    src: "/images/report-2026/norway-entrepreneurship-training.jpeg",
+    alt: "Deltakere på entreprenørskapstrening for kvinner med minoritetsbakgrunn i Norge",
     position: "center",
   },
   inclusion: {
-    type: "video",
-    src: "/videos/values/inkludering.mp4",
-    poster: "/images/page-hero/arrangementer.png",
-    alt: "Deltakere i en aktivitet og samtale",
+    type: "image",
+    src: "/images/report-2026/norway-cultural-food-fundraiser.jpeg",
+    alt: "Deltakere ved et kulturarrangement i Norge med matservering til støtte for prosjektene i Kabul",
     position: "center",
   },
-  equality: {
-    type: "video",
-    src: "/videos/values/likestilling.mp4",
-    poster: "/images/page-hero/afghansk-kulturarv.png",
-    alt: "Kvinner som markerer gjennomført opplæring",
+  dignity: {
+    type: "image",
+    src: "/images/report-2026/kabul-graduation-certificates-2.jpeg",
+    alt: "Deltakere ved en avslutningsseremoni i Kabul",
     position: "center",
   },
-  change: {
-    type: "video",
-    src: "/videos/values/endring.mp4",
-    poster: "/images/page-hero/kvinner-for-endring.png",
-    alt: "Kvinner samlet på et arrangement med NAKFE",
+  sustainability: {
+    type: "image",
+    src: "/images/report-2026/kabul-vocational-centre-students-group.jpeg",
+    alt: "Deltakere ved et av organisasjonens yrkesopplæringssentre i Kabul",
     position: "center",
   },
 } as const;
@@ -43,23 +39,23 @@ export const aboutContent = {
   seo: {
     title: "Om oss",
     description:
-      "Les mer om NAKFE, organisasjonens formål, arbeid og fellesskap.",
+      "Les om Kvinner for Endring, en ideell organisasjon etablert i Norge i april 2021 med arbeid i Norge og Afghanistan.",
   },
 
   hero: {
     eyebrow: "Om oss",
-    title: "Et fellesskap for kvinner, kulturarv og endring.",
+    title: "En ideell organisasjon med arbeid i Norge og Afghanistan.",
     description:
-      "NAKFE arbeider for at flere kvinner skal oppleve tilhørighet, mestring og mulighet til å delta i samfunnet rundt seg.",
+      "Kvinner for Endring ble etablert i Norge i april 2021 for å styrke kvinner gjennom utdanning, arbeid og entreprenørskap.",
     backgroundImages: pageHeroBackgroundImages,
   },
 
   purpose: {
     header: {
       eyebrow: "Formål",
-      title: "Muligheter vokser når kvinner får rom til å delta.",
+      title: "Langsiktig økonomisk selvstendighet og deltakelse.",
       description:
-        "NAKFE styrker kvinner gjennom utdanning, praktiske ferdigheter og fellesskap – i Norge og Afghanistan.",
+        "Organisasjonen styrker kvinner gjennom utdanning, arbeid, entreprenørskap og fellesskap og tilpasser arbeidet til lokale forhold.",
     },
     contextNavigationLabel: "Velg hvor du vil lese om arbeidet",
     highlightsLabel: "Sentrale områder",
@@ -68,19 +64,24 @@ export const aboutContent = {
         id: "norway",
         label: "I Norge",
         description:
-          "Vi arbeider for integrering og inkludering av kvinner med minoritetsbakgrunn i det norske samfunnet og arbeidslivet.",
+          "Kvinner for Endring arbeider med integrering og inkludering av kvinner med minoritetsbakgrunn i det norske samfunnet og arbeidslivet.",
         highlights: [
           "Arbeid og jobbførhet",
           "Utdanning og kompetanse",
           "Entreprenørskap",
+          "Psykisk helse og livskvalitet",
         ],
       },
       {
         id: "afghanistan",
         label: "I Afghanistan",
         description:
-          "Vi tilbyr utdannings- og ferdighetsprogrammer for kvinner, med mål om inntekt, trygghet og større økonomisk selvstendighet.",
-        highlights: ["Engelskkurs", "Søm og ferdigheter", "Entreprenørskap"],
+          "Organisasjonen driver utdannings- og inntektsrettede programmer for kvinner og jenter under krevende forhold.",
+        highlights: [
+          "Engelskkurs i Kabul",
+          "Entreprenørskap og inntektsrettede ferdigheter",
+          "Sømopplæring",
+        ],
       },
     ],
     image: sharedPurposeImage,
@@ -88,42 +89,42 @@ export const aboutContent = {
 
   values: {
     header: {
-      eyebrow: "Verdier",
-      title: "Fire ord som skal merkes i praksis.",
+      eyebrow: "Prinsipper i arbeidet",
+      title: "Verdighet, bærekraft og deltakelse i praksis.",
       description:
-        "Verdiene skal ikke bare stå på en side. De skal prege aktiviteter, kommunikasjon og måten organisasjonen møter mennesker på.",
+        "Arbeidet tilpasses lokale forhold med et tydelig fokus på verdighet, bærekraft og virkning.",
     },
     carousel: {
-      label: "NAKFEs verdier",
+      label: "Prinsipper i arbeidet til Kvinner for Endring",
       roleDescription: "karusell",
       showItemLabel: "Vis",
-      previousItemLabel: "Vis forrige verdi",
-      nextItemLabel: "Vis neste verdi",
+      previousItemLabel: "Vis forrige prinsipp",
+      nextItemLabel: "Vis neste prinsipp",
     },
     items: [
       {
         title: "Integrering",
         description:
-          "Vi vil gjøre det lettere å forstå samfunnet, finne informasjon og delta i fellesskap på egne premisser.",
+          "I Norge skal arbeidet gjøre det lettere for kvinner med minoritetsbakgrunn å delta i samfunnet og arbeidslivet.",
         media: valueMedia.integration,
       },
       {
         title: "Inkludering",
         description:
-          "Vi vil senke terskelen for å møte opp, bidra og høre til — uansett språk, bakgrunn eller livssituasjon.",
+          "Programmer og møteplasser skal bidra til sosial deltakelse, fellesskap og tilhørighet.",
         media: valueMedia.inclusion,
       },
       {
-        title: "Likestilling",
+        title: "Verdighet",
         description:
-          "Vi vil løfte fram kvinners rettigheter, stemmer og muligheter gjennom kunnskap, støtte og synlighet.",
-        media: valueMedia.equality,
+          "Arbeidet i Norge og Afghanistan tilpasses lokale forhold og skal møte kvinner og jenter med verdighet.",
+        media: valueMedia.dignity,
       },
       {
-        title: "Endring",
+        title: "Bærekraft",
         description:
-          "Vi tror små handlinger kan bli til varig endring når mennesker får møteplasser, informasjon og støtte.",
-        media: valueMedia.change,
+          "Utdanning, arbeid og entreprenørskap skal gi grunnlag for langsiktig økonomisk selvstendighet og varige muligheter.",
+        media: valueMedia.sustainability,
       },
     ],
   },
@@ -131,25 +132,25 @@ export const aboutContent = {
 
 const englishSharedPurposeImage = {
   ...sharedPurposeImage,
-  alt: "Women gathered in a community connected to NAKFE",
+  alt: "A presentation in Norway about a visit to the organisation's centres in Kabul",
 } as const;
 
 const englishValueMedia = {
   integration: {
     ...valueMedia.integration,
-    alt: "Women gathered in a community",
+    alt: "Participants in entrepreneurship training for women with minority backgrounds in Norway",
   },
   inclusion: {
     ...valueMedia.inclusion,
-    alt: "Participants in an activity and conversation",
+    alt: "Participants at a cultural event in Norway with food service supporting the projects in Kabul",
   },
-  equality: {
-    ...valueMedia.equality,
-    alt: "Women marking the completion of training",
+  dignity: {
+    ...valueMedia.dignity,
+    alt: "Participants at a graduation ceremony in Kabul",
   },
-  change: {
-    ...valueMedia.change,
-    alt: "Women gathered at an event with NAKFE",
+  sustainability: {
+    ...valueMedia.sustainability,
+    alt: "Participants at one of the organisation's vocational training centres in Kabul",
   },
 } as const;
 
@@ -157,23 +158,23 @@ const englishAboutContent = {
   seo: {
     title: "About us",
     description:
-      "Learn more about NAKFE, the organisation's purpose, work and community.",
+      "Learn about Women for Change, a non-profit organisation established in Norway in April 2021 and working in Norway and Afghanistan.",
   },
 
   hero: {
     eyebrow: "About us",
-    title: "A community for women, cultural heritage and change.",
+    title: "A non-profit organisation working in Norway and Afghanistan.",
     description:
-      "NAKFE works so that more women can experience belonging, achievement and the opportunity to participate in the society around them.",
+      "Women for Change was established in Norway in April 2021 to empower women through education, employment and entrepreneurship.",
     backgroundImages: pageHeroBackgroundImages,
   },
 
   purpose: {
     header: {
       eyebrow: "Purpose",
-      title: "Opportunities grow when women have room to participate.",
+      title: "Long-term financial independence and participation.",
       description:
-        "NAKFE strengthens women through education, practical skills and community — in Norway and Afghanistan.",
+        "The organisation empowers women through education, employment, entrepreneurship and community and adapts its work to local contexts.",
     },
     contextNavigationLabel: "Choose where you want to read about the work",
     highlightsLabel: "Key areas",
@@ -182,22 +183,23 @@ const englishAboutContent = {
         id: "norway",
         label: "In Norway",
         description:
-          "We work for the integration and inclusion of women from minority backgrounds in Norwegian society and working life.",
+          "Women for Change works to integrate and include women with minority backgrounds in Norwegian society and the labour market.",
         highlights: [
           "Employment and job readiness",
           "Education and skills",
           "Entrepreneurship",
+          "Mental health and well-being",
         ],
       },
       {
         id: "afghanistan",
         label: "In Afghanistan",
         description:
-          "We offer education and skills programmes for women, with the goal of income, security and greater financial independence.",
+          "The organisation runs education and livelihood-focused programmes for women and girls under challenging conditions.",
         highlights: [
-          "English courses",
-          "Sewing and practical skills",
-          "Entrepreneurship",
+          "English courses in Kabul",
+          "Entrepreneurship and livelihood skills",
+          "Tailoring training",
         ],
       },
     ],
@@ -206,42 +208,42 @@ const englishAboutContent = {
 
   values: {
     header: {
-      eyebrow: "Values",
-      title: "Four words that should be felt in practice.",
+      eyebrow: "Principles in practice",
+      title: "Dignity, sustainability and participation in practice.",
       description:
-        "The values should not merely appear on a page. They should shape activities, communication and the way the organisation meets people.",
+        "The work is adapted to local contexts with a strong focus on dignity, sustainability and impact.",
     },
     carousel: {
-      label: "NAKFE's values",
+      label: "Principles guiding the work of Women for Change",
       roleDescription: "carousel",
       showItemLabel: "Show",
-      previousItemLabel: "Show previous value",
-      nextItemLabel: "Show next value",
+      previousItemLabel: "Show previous principle",
+      nextItemLabel: "Show next principle",
     },
     items: [
       {
         title: "Integration",
         description:
-          "We want to make it easier to understand society, find information and participate in communities on your own terms.",
+          "In Norway, the work aims to make it easier for women with minority backgrounds to participate in society and the labour market.",
         media: englishValueMedia.integration,
       },
       {
         title: "Inclusion",
         description:
-          "We want to lower the threshold for showing up, contributing and belonging — regardless of language, background or life situation.",
+          "Programmes and meeting places are intended to support social participation, community and belonging.",
         media: englishValueMedia.inclusion,
       },
       {
-        title: "Equality",
+        title: "Dignity",
         description:
-          "We want to highlight women's rights, voices and opportunities through knowledge, support and visibility.",
-        media: englishValueMedia.equality,
+          "The work in Norway and Afghanistan is adapted to local contexts and should meet women and girls with dignity.",
+        media: englishValueMedia.dignity,
       },
       {
-        title: "Change",
+        title: "Sustainability",
         description:
-          "We believe small actions can lead to lasting change when people have meeting places, information and support.",
-        media: englishValueMedia.change,
+          "Education, employment and entrepreneurship should provide a basis for long-term financial independence and lasting opportunities.",
+        media: englishValueMedia.sustainability,
       },
     ],
   },

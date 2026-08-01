@@ -14,7 +14,7 @@ export const navigationItems = [
     {
         label: "Om oss",
         href: "/om-oss",
-        description: "Les mer om NAKFE",
+        description: "Les mer om Kvinner for Endring",
         showInHeader: true,
         showInFooter: true,
         order: 2,
@@ -22,7 +22,7 @@ export const navigationItems = [
     {
         label: "Vårt arbeid",
         href: "/vart-arbeid",
-        description: "Se NAKFEs prosjekter og programmer",
+        description: "Se prosjektene og programmene til Kvinner for Endring",
         showInHeader: true,
         showInFooter: true,
         order: 3,
@@ -46,7 +46,7 @@ export const navigationItems = [
     {
         label: "Kontakt",
         href: "/kontakt",
-        description: "Kontakt NAKFE",
+        description: "Kontakt Kvinner for Endring",
         showInHeader: true,
         showInFooter: false,
         order: 6,
@@ -65,7 +65,7 @@ const englishNavigationItems = [
     {
         label: "About us",
         href: "/om-oss",
-        description: "Learn more about NAKFE",
+        description: "Learn more about Women for Change",
         showInHeader: true,
         showInFooter: true,
         order: 2,
@@ -73,7 +73,7 @@ const englishNavigationItems = [
     {
         label: "Our work",
         href: "/vart-arbeid",
-        description: "View NAKFE's projects and programmes",
+        description: "View the projects and programmes run by Women for Change",
         showInHeader: true,
         showInFooter: true,
         order: 3,
@@ -97,7 +97,7 @@ const englishNavigationItems = [
     {
         label: "Contact",
         href: "/kontakt",
-        description: "Contact NAKFE",
+        description: "Contact Women for Change",
         showInHeader: true,
         showInFooter: false,
         order: 6,
@@ -107,6 +107,7 @@ const englishNavigationItems = [
 export const navigationContent = {
     no: {
         items: navigationItems,
+        brandName: "Kvinner for Endring",
         mainNavigationLabel: "Hovednavigasjon",
         mobileNavigationLabel: "Mobil hovednavigasjon",
         homeAriaLabel: "Kvinner for Endring - gå til forsiden",
@@ -114,21 +115,22 @@ export const navigationContent = {
         closeMenuLabel: "Lukk hovedmeny",
         languageSwitcherLabel: "Velg språk",
         languageOptionAriaLabels: {
-            no: "Vis siden på norsk",
-            en: "Vis siden på engelsk",
+            no: "Bytt språk til norsk",
+            en: "Bytt språk til engelsk",
         },
     },
     en: {
         items: englishNavigationItems,
+        brandName: "Women for Change",
         mainNavigationLabel: "Main navigation",
         mobileNavigationLabel: "Mobile main navigation",
-        homeAriaLabel: "Kvinner for Endring - go to the home page",
+        homeAriaLabel: "Women for Change - go to the home page",
         openMenuLabel: "Open main menu",
         closeMenuLabel: "Close main menu",
         languageSwitcherLabel: "Choose language",
         languageOptionAriaLabels: {
-            no: "Show the page in Norwegian",
-            en: "Show the page in English",
+            no: "Switch language to Norwegian",
+            en: "Switch language to English",
         },
     },
 } satisfies LocalizedContent<NavigationContent>;
