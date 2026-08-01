@@ -14,8 +14,18 @@ export type PurposeContextContent = {
 
 export type PurposeSectionContent = {
   header: SectionHeaderContent;
+  contextNavigationLabel: string;
+  highlightsLabel: string;
   contexts: PurposeContextContent[];
   image: ContentImage;
+};
+
+export type ValueCarouselContent = {
+  label: string;
+  roleDescription: string;
+  showItemLabel: string;
+  previousItemLabel: string;
+  nextItemLabel: string;
 };
 
 export type ValueMedia =
@@ -41,6 +51,7 @@ export type ValueShowcaseItemContent = {
 
 export type ValueShowcaseSectionContent = {
   header: SectionHeaderContent;
+  carousel: ValueCarouselContent;
   items: ValueShowcaseItemContent[];
 };
 

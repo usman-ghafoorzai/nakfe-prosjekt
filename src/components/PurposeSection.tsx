@@ -21,7 +21,11 @@ export default function PurposeSection({ content }: PurposeSectionProps) {
       <div className="mx-auto grid max-w-7xl gap-14 px-4 py-20 sm:px-6 lg:grid-cols-[minmax(0,1fr)_minmax(0,1fr)] lg:items-start lg:gap-24 xl:gap-28">
         <div>
           <SectionHeader content={content.header} />
-          <PurposeContextSwitcher contexts={content.contexts} />
+          <PurposeContextSwitcher
+            contextNavigationLabel={content.contextNavigationLabel}
+            contexts={content.contexts}
+            highlightsLabel={content.highlightsLabel}
+          />
         </div>
 
         <figure className="relative">

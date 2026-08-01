@@ -75,6 +75,7 @@ export type ActivityDetailContent = {
   relatedWorkAriaLabelPrefix: string;
   cancellationHeading: string;
   videoAriaLabelPrefix: string;
+  videoFallbackText: string;
   formatLabels: Record<ActivityFormat, string>;
 };
 

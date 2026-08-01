@@ -12,10 +12,12 @@ import type {
   ActivityContent,
   ActivityListContent,
 } from "@/types/activities";
+import type { Locale } from "@/types/locale";
 
 type ActivityIndexSectionProps = {
   content: ActivityListContent;
   featuredActivity?: ActivityContent;
+  locale: Locale;
   remainingActivities: ActivityContent[];
 };
 
@@ -25,8 +27,14 @@ function getLinkAttributes(link: ContentLink) {
     : undefined;
 }
 
-function ActivityDateMark({ activity }: { activity: ActivityContent }) {
-  const date = formatActivityDateDetails(activity);
+function ActivityDateMark({
+  activity,
+  locale,
+}: {
+  activity: ActivityContent;
+  locale: Locale;
+}) {
+  const date = formatActivityDateDetails(activity, locale);
 
   return (
     <time
@@ -70,11 +78,13 @@ function ActivityDetailsLink({
 function FeaturedActivity({
   activity,
   content,
+  locale,
 }: {
   activity: ActivityContent;
   content: ActivityListContent;
+  locale: Locale;
 }) {
-  const date = formatActivityDateDetails(activity);
+  const date = formatActivityDateDetails(activity, locale);
 
   return (
     <article className="mt-8 grid border-y border-stone-300 py-8 sm:mt-10 sm:py-10 lg:grid-cols-[minmax(0,1.1fr)_minmax(18rem,0.9fr)] lg:gap-14 lg:py-14">
@@ -93,7 +103,7 @@ function FeaturedActivity({
       ) : null}
 
       <div className={activity.coverImage ? "mt-8 lg:order-1 lg:mt-0" : ""}>
-        <ActivityDateMark activity={activity} />
+        <ActivityDateMark activity={activity} locale={locale} />
         <p className="mt-6 text-sm font-bold leading-6 text-stone-600">
           {date.dateAndTime}
           {activity.location ? ` · ${activity.location.name}` : ""}
@@ -113,15 +123,17 @@ function FeaturedActivity({
 function ActivityAgendaRow({
   activity,
   content,
+  locale,
 }: {
   activity: ActivityContent;
   content: ActivityListContent;
+  locale: Locale;
 }) {
-  const date = formatActivityDateDetails(activity);
+  const date = formatActivityDateDetails(activity, locale);
 
   return (
     <article className="grid gap-6 py-7 sm:grid-cols-[7rem_minmax(0,1fr)_auto] sm:items-start sm:gap-8 sm:py-9">
-      <ActivityDateMark activity={activity} />
+      <ActivityDateMark activity={activity} locale={locale} />
       <div>
         <p className="text-sm font-bold leading-6 text-stone-600">
           {date.dateAndTime}
@@ -178,6 +190,7 @@ function EmptyActivities({ content }: { content: ActivityListContent }) {
 export default function ActivityIndexSection({
   content,
   featuredActivity,
+  locale,
   remainingActivities,
 }: ActivityIndexSectionProps) {
   const hasActivities = Boolean(featuredActivity);
@@ -196,7 +209,11 @@ export default function ActivityIndexSection({
               >
                 {content.featuredHeading}
               </h2>
-              <FeaturedActivity activity={featuredActivity} content={content} />
+              <FeaturedActivity
+                activity={featuredActivity}
+                content={content}
+                locale={locale}
+              />
             </section>
 
             {remainingActivities.length > 0 ? (
@@ -210,7 +227,11 @@ export default function ActivityIndexSection({
                 <ol className="mt-8 divide-y divide-stone-300 border-y border-stone-300">
                   {remainingActivities.map((activity) => (
                     <li key={activity.slug}>
-                      <ActivityAgendaRow activity={activity} content={content} />
+                      <ActivityAgendaRow
+                        activity={activity}
+                        content={content}
+                        locale={locale}
+                      />
                     </li>
                   ))}
                 </ol>

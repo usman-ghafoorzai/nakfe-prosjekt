@@ -8,10 +8,12 @@ import type {
   ActivityContent,
   ActivityDetailContent,
 } from "@/types/activities";
+import type { Locale } from "@/types/locale";
 
 type ActivityDetailProps = {
   activity: ActivityContent;
   content: ActivityDetailContent;
+  locale: Locale;
   relatedWorkAction?: ContentLink;
 };
 
@@ -24,9 +26,10 @@ function getLinkAttributes(link: ContentLink) {
 export default function ActivityDetail({
   activity,
   content,
+  locale,
   relatedWorkAction,
 }: ActivityDetailProps) {
-  const date = formatActivityDateDetails(activity);
+  const date = formatActivityDateDetails(activity, locale);
   const isCancelled = activity.publicationState === "cancelled";
 
   return (
@@ -69,6 +72,7 @@ export default function ActivityDetail({
           <div className="mt-12 sm:mt-16">
             <div className="relative aspect-[16/9] overflow-hidden bg-stone-200">
               <EditorialMedia
+                fallbackText={content.videoFallbackText}
                 image={activity.coverImage ?? activity.video!.poster}
                 label={`${content.videoAriaLabelPrefix} ${activity.title}`}
                 preload

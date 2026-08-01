@@ -6,3 +6,5 @@ export * from "@/types/activities";
 export * from "@/types/faq";
 export * from "@/types/contact";
 export * from "@/types/footer";
+export * from "@/types/locale";
+export * from "@/types/navigation";

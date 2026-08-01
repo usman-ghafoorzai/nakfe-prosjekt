@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import WorkProjectDetail from "@/components/WorkProjectDetail";
-import { workContent } from "@/content/work";
+import { workContentByLocale } from "@/content/work";
+import { getLocale } from "@/lib/locale";
 import { createPageMetadata } from "@/lib/metadata";
 import {
   getWorkCountryHref,
@@ -16,8 +17,11 @@ type WorkProjectPageProps = {
   }>;
 };
 
-function getProjectOrNotFound(slug: string): WorkProjectContent {
-  const project = getWorkProjectBySlug(workContent.overview.items, slug);
+function getProjectOrNotFound(
+  projects: readonly WorkProjectContent[],
+  slug: string,
+): WorkProjectContent {
+  const project = getWorkProjectBySlug(projects, slug);
 
   if (!project) {
     notFound();
@@ -27,14 +31,16 @@ function getProjectOrNotFound(slug: string): WorkProjectContent {
 }
 
 export function generateStaticParams() {
-  return workContent.overview.items.map(({ slug }) => ({ slug }));
+  return workContentByLocale.no.overview.items.map(({ slug }) => ({ slug }));
 }
 
 export async function generateMetadata({
   params,
 }: WorkProjectPageProps): Promise<Metadata> {
+  const locale = await getLocale();
+  const workContent = workContentByLocale[locale];
   const { slug } = await params;
-  const project = getProjectOrNotFound(slug);
+  const project = getProjectOrNotFound(workContent.overview.items, slug);
 
   return createPageMetadata(
     {
@@ -52,8 +58,10 @@ export async function generateMetadata({
 export default async function WorkProjectPage({
   params,
 }: WorkProjectPageProps) {
+  const locale = await getLocale();
+  const workContent = workContentByLocale[locale];
   const { slug } = await params;
-  const project = getProjectOrNotFound(slug);
+  const project = getProjectOrNotFound(workContent.overview.items, slug);
   const countryLabel = getWorkCountryLabel(
     workContent.overview,
     project.country,

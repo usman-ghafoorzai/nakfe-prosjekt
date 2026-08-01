@@ -119,11 +119,11 @@ export default function WorkProjectIndexSection({
                     </p>
 
                     <Link
-                      aria-label={`Les mer om ${project.title}`}
+                      aria-label={`${content.detailsActionAriaLabelPrefix} ${project.title}`}
                       className="group mt-8 inline-flex min-h-11 items-center gap-3 text-sm font-black uppercase tracking-[0.14em] text-stone-950 outline-none transition duration-200 ease-out hover:text-red-700 focus-visible:ring-2 focus-visible:ring-red-700 focus-visible:ring-offset-4 motion-reduce:transition-none"
                       href={`/vart-arbeid/${project.slug}`}
                     >
-                      Les mer
+                      {content.detailsActionLabel}
                       <span
                         aria-hidden="true"
                         className="text-lg leading-none transition duration-200 ease-out group-hover:translate-x-1 motion-reduce:transition-none motion-reduce:group-hover:translate-x-0"

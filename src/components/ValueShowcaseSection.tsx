@@ -27,7 +27,7 @@ export default function ValueShowcaseSection({
         <div id="values-heading">
           <SectionHeader content={content.header} tone="dark" />
         </div>
-        <ValueCarousel items={content.items} />
+        <ValueCarousel content={content.carousel} items={content.items} />
       </div>
     </section>
   );

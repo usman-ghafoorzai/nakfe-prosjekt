@@ -15,7 +15,13 @@ function clampPercentage(value: number) {
   return Math.min(Math.max(value, 0), 100);
 }
 
-function StatisticCard({ stat }: { stat: DialogStatistic }) {
+function StatisticCard({
+  percentageLabel,
+  stat,
+}: {
+  percentageLabel: string;
+  stat: DialogStatistic;
+}) {
   return (
       <article className="relative overflow-hidden bg-white p-5 shadow-sm shadow-stone-950/5">
         <div className="absolute left-0 top-0 h-full w-1.5 bg-red-700" aria-hidden="true" />
@@ -35,7 +41,7 @@ function StatisticCard({ stat }: { stat: DialogStatistic }) {
         {typeof stat.barValue === "number" ? (
             <div
                 className="mt-5 pl-4"
-                aria-label={`${stat.barLabel ?? stat.label}: ${stat.barValue} prosent`}
+                aria-label={`${stat.barLabel ?? stat.label}: ${stat.barValue} ${percentageLabel}`}
             >
               <div className="flex justify-between gap-4 text-[0.68rem] font-black uppercase tracking-[0.14em] text-stone-500">
                 <span>{stat.barLabel ?? stat.label}</span>
@@ -165,7 +171,7 @@ export default function ImpactBriefSection({ content }: ImpactBriefSectionProps)
               <div className="flex items-start justify-between gap-6">
                 <div className="max-w-3xl">
                   <p className="nakfe-eyebrow text-red-800">
-                    Tallene bak arbeidet
+                    {content.statisticsDialog.eyebrow}
                   </p>
 
                   <h2
@@ -185,7 +191,9 @@ export default function ImpactBriefSection({ content }: ImpactBriefSectionProps)
                     onClick={() => setIsOpen(false)}
                     className="inline-flex h-11 w-11 shrink-0 items-center justify-center border-2 border-stone-950 bg-white text-2xl font-black leading-none text-stone-950 transition duration-200 hover:bg-stone-950 hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-stone-950 focus-visible:ring-offset-4"
                 >
-                  <span className="sr-only">Lukk statistikk</span>
+                  <span className="sr-only">
+                    {content.statisticsDialog.closeLabel}
+                  </span>
                   ×
                 </button>
               </div>
@@ -193,7 +201,7 @@ export default function ImpactBriefSection({ content }: ImpactBriefSectionProps)
               <div className="mt-8 grid gap-4 lg:grid-cols-[1.1fr_0.9fr]">
                 <div className="bg-stone-950 p-6 text-white sm:p-7">
                   <p className="text-[0.72rem] font-black uppercase tracking-[0.2em] text-white/60">
-                    Utdanning, arbeid og opplæring
+                    {content.statisticsDialog.educationHeading}
                   </p>
 
                   <div className="mt-6 grid gap-6">
@@ -214,7 +222,7 @@ export default function ImpactBriefSection({ content }: ImpactBriefSectionProps)
                           {typeof stat.barValue === "number" ? (
                               <div
                                   className="mt-4"
-                                  aria-label={`${stat.barLabel ?? stat.label}: ${stat.barValue} prosent`}
+                                  aria-label={`${stat.barLabel ?? stat.label}: ${stat.barValue} ${content.statisticsDialog.percentageLabel}`}
                               >
                                 <div className="h-4 bg-white/15">
                                   <div
@@ -231,14 +239,18 @@ export default function ImpactBriefSection({ content }: ImpactBriefSectionProps)
 
                 <div className="grid gap-4">
                   {content.statisticsDialog.statistics.slice(2).map((stat) => (
-                      <StatisticCard key={`${stat.value}-${stat.label}`} stat={stat} />
+                      <StatisticCard
+                        key={`${stat.value}-${stat.label}`}
+                        percentageLabel={content.statisticsDialog.percentageLabel}
+                        stat={stat}
+                      />
                   ))}
                 </div>
               </div>
 
               <div className="mt-8 border-t border-stone-950/15 pt-5">
                 <h3 className="text-sm font-black uppercase tracking-[0.18em] text-stone-950">
-                  Tallgrunnlag
+                  {content.statisticsDialog.citationsHeading}
                 </h3>
 
                 <ul className="mt-4 grid gap-3 text-sm font-semibold leading-6 text-stone-700 sm:grid-cols-2">

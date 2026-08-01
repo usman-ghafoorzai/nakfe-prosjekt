@@ -1,13 +1,22 @@
+import type { Metadata } from "next";
 import ContactSection from "@/components/ContactSection";
 import PageHero from "@/components/PageHero";
-import { contactContent } from "@/content/contact";
+import { contactContentByLocale } from "@/content/contact";
+import { getLocale } from "@/lib/locale";
 import { createPageMetadata } from "@/lib/metadata";
 
-export const metadata = createPageMetadata(contactContent.seo, {
-  path: "/kontakt",
-});
+export async function generateMetadata(): Promise<Metadata> {
+  const locale = await getLocale();
 
-export default function ContactPage() {
+  return createPageMetadata(contactContentByLocale[locale].seo, {
+    path: "/kontakt",
+  });
+}
+
+export default async function ContactPage() {
+  const locale = await getLocale();
+  const contactContent = contactContentByLocale[locale];
+
   return (
     <>
       <PageHero content={contactContent.hero} />

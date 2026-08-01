@@ -9,9 +9,11 @@ import type {
   FaqItemContent,
   FaqSectionContent,
 } from "@/types/faq";
+import type { Locale } from "@/types/locale";
 
 type FaqSectionProps = {
   content: FaqSectionContent;
+  locale: Locale;
 };
 
 type FaqActionLinkProps = {
@@ -50,9 +52,11 @@ function FaqActionLink({ link, className }: FaqActionLinkProps) {
 
 function FaqItem({
   item,
+  locale,
   reviewedAtLabel,
 }: {
   item: FaqItemContent;
+  locale: Locale;
   reviewedAtLabel?: string;
 }) {
   return (
@@ -88,7 +92,7 @@ function FaqItem({
             <p className="mt-6 text-xs font-bold uppercase tracking-[0.14em] text-stone-500">
               {reviewedAtLabel}:{" "}
               <time dateTime={item.lastReviewedAt}>
-                {formatFaqReviewedDate(item.lastReviewedAt)}
+                {formatFaqReviewedDate(item.lastReviewedAt, locale)}
               </time>
             </p>
           ) : null}
@@ -155,7 +159,7 @@ function EmptyFaqState({ content }: { content: FaqSectionContent }) {
   );
 }
 
-export default function FaqSection({ content }: FaqSectionProps) {
+export default function FaqSection({ content, locale }: FaqSectionProps) {
   const hasCategories = content.categories.length > 0;
 
   return (
@@ -192,6 +196,7 @@ export default function FaqSection({ content }: FaqSectionProps) {
                       <FaqItem
                         item={item}
                         key={item.id}
+                        locale={locale}
                         reviewedAtLabel={content.reviewedAtLabel}
                       />
                     ))}

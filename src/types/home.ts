@@ -11,6 +11,7 @@ export type HomeHeroContent = {
   eyebrow?: string;
   title: string;
   description?: string;
+  rotatingWordsLabel: string;
   rotatingWords?: string[];
   backgroundImage: ContentImage;
   primaryAction?: ContentLink;
@@ -42,8 +43,13 @@ export type ImpactBriefSectionContent = {
   };
   highlights: ImpactStatisticContent[];
   statisticsDialog: {
+    eyebrow: string;
     title: string;
     description: string;
+    educationHeading: string;
+    citationsHeading: string;
+    closeLabel: string;
+    percentageLabel: string;
     statistics: ImpactStatisticContent[];
     citations: CitationContent[];
   };

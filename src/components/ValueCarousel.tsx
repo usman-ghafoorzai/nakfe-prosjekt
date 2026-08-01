@@ -4,11 +4,13 @@ import Image from "next/image";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
 import type {
+  ValueCarouselContent,
   ValueMedia,
   ValueShowcaseItemContent,
 } from "@/types/about";
 
 type ValueCarouselProps = {
+  content: ValueCarouselContent;
   items: ValueShowcaseItemContent[];
 };
 
@@ -92,7 +94,7 @@ function ValueSlideMedia({
   );
 }
 
-export default function ValueCarousel({ items }: ValueCarouselProps) {
+export default function ValueCarousel({ content, items }: ValueCarouselProps) {
   const [activeIndex, setActiveIndex] = useState(0);
   const [shouldAutoplayVideo, setShouldAutoplayVideo] = useState(false);
   const pointerStartX = useRef<number | null>(null);
@@ -167,8 +169,8 @@ export default function ValueCarousel({ items }: ValueCarouselProps) {
   return (
     <div className="mt-12">
       <div
-        aria-label="NAKFEs verdier"
-        aria-roledescription="karusell"
+        aria-label={content.label}
+        aria-roledescription={content.roleDescription}
         className="relative mx-auto h-[21rem] max-w-6xl touch-pan-y overflow-hidden outline-none sm:h-[28rem] lg:h-[34rem] [perspective:1450px] focus-visible:ring-2 focus-visible:ring-red-500 focus-visible:ring-offset-4 focus-visible:ring-offset-stone-950"
         onKeyDown={handleKeyDown}
         onPointerCancel={() => {
@@ -196,7 +198,7 @@ export default function ValueCarousel({ items }: ValueCarouselProps) {
               aria-label={
                 isActive
                   ? `${item.title}. ${mediaAlt}`
-                  : `Vis ${item.title}`
+                  : `${content.showItemLabel} ${item.title}`
               }
               className={[
                 "absolute left-1/2 top-0 h-[19rem] w-[min(78vw,38rem)] origin-center overflow-hidden text-left outline-none transition-[transform,opacity,filter] duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] focus-visible:ring-2 focus-visible:ring-red-500 focus-visible:ring-offset-4 focus-visible:ring-offset-stone-950 motion-reduce:transition-none sm:h-[25rem] lg:h-[30rem]",
@@ -241,7 +243,7 @@ export default function ValueCarousel({ items }: ValueCarouselProps) {
 
         <div className="absolute inset-x-4 bottom-4 z-30 hidden items-center justify-between sm:inset-x-6 sm:bottom-6 sm:flex">
           <button
-            aria-label={`Vis forrige verdi, ${items[(activeIndex - 1 + items.length) % items.length].title}`}
+            aria-label={`${content.previousItemLabel}, ${items[(activeIndex - 1 + items.length) % items.length].title}`}
             className="inline-flex min-h-11 min-w-11 items-center justify-center border border-white/36 bg-stone-950/92 text-white transition duration-200 ease-out hover:border-white hover:bg-stone-950 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-red-500 focus-visible:ring-offset-2 focus-visible:ring-offset-stone-950 active:translate-y-0.5 motion-reduce:transition-none motion-reduce:active:translate-y-0"
             onClick={selectPrevious}
             type="button"
@@ -250,7 +252,7 @@ export default function ValueCarousel({ items }: ValueCarouselProps) {
           </button>
 
           <button
-            aria-label={`Vis neste verdi, ${items[(activeIndex + 1) % items.length].title}`}
+            aria-label={`${content.nextItemLabel}, ${items[(activeIndex + 1) % items.length].title}`}
             className="inline-flex min-h-11 min-w-11 items-center justify-center border border-white/36 bg-stone-950/92 text-white transition duration-200 ease-out hover:border-white hover:bg-stone-950 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-red-500 focus-visible:ring-offset-2 focus-visible:ring-offset-stone-950 active:translate-y-0.5 motion-reduce:transition-none motion-reduce:active:translate-y-0"
             onClick={selectNext}
             type="button"
@@ -262,7 +264,7 @@ export default function ValueCarousel({ items }: ValueCarouselProps) {
 
       <div className="mt-4 flex items-center justify-between sm:hidden">
         <button
-          aria-label={`Vis forrige verdi, ${items[(activeIndex - 1 + items.length) % items.length].title}`}
+          aria-label={`${content.previousItemLabel}, ${items[(activeIndex - 1 + items.length) % items.length].title}`}
           className="inline-flex min-h-11 min-w-11 items-center justify-center border border-white/36 bg-stone-950/92 text-white transition duration-200 ease-out hover:border-white hover:bg-stone-950 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-red-500 focus-visible:ring-offset-2 focus-visible:ring-offset-stone-950 active:translate-y-0.5 motion-reduce:transition-none motion-reduce:active:translate-y-0"
           onClick={selectPrevious}
           type="button"
@@ -271,7 +273,7 @@ export default function ValueCarousel({ items }: ValueCarouselProps) {
         </button>
 
         <button
-          aria-label={`Vis neste verdi, ${items[(activeIndex + 1) % items.length].title}`}
+          aria-label={`${content.nextItemLabel}, ${items[(activeIndex + 1) % items.length].title}`}
           className="inline-flex min-h-11 min-w-11 items-center justify-center border border-white/36 bg-stone-950/92 text-white transition duration-200 ease-out hover:border-white hover:bg-stone-950 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-red-500 focus-visible:ring-offset-2 focus-visible:ring-offset-stone-950 active:translate-y-0.5 motion-reduce:transition-none motion-reduce:active:translate-y-0"
           onClick={selectNext}
           type="button"

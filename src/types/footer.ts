@@ -6,6 +6,7 @@ export type FooterContent = {
     description: string;
     logo: ContentImage;
   };
+  homeAriaLabel: string;
   navigationTitle: string;
   contactTitle: string;
   contactLink: ContentLink;
@@ -14,6 +15,7 @@ export type FooterContent = {
     owner: string;
     rightsText: string;
   };
+  developerCreditPrefix: string;
   developerCredit?: ContentLink;
   qualityNote?: string;
 };

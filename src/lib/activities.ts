@@ -7,8 +7,11 @@ import {
   type ActivityPublicationState,
   type ActivitiesPageContent,
 } from "@/types/activities";
-
-const locale = "nb-NO";
+import {
+  defaultLocale,
+  getIntlLocale,
+  type Locale,
+} from "@/types/locale";
 
 function isNonEmptyString(value: string | undefined): value is string {
   return typeof value === "string" && value.trim().length > 0;
@@ -88,42 +91,49 @@ export function getPublicActivities(
     });
 }
 
-export function formatActivityDateDetails(activity: ActivityContent) {
+export function formatActivityDateDetails(
+  activity: ActivityContent,
+  locale: Locale = defaultLocale,
+) {
   const startsAt = getDate(activity.startsAt);
   const endsAt = getDate(activity.endsAt);
 
   if (!startsAt || !endsAt) {
+    const datePending = locale === "en" ? "Date to be announced" : "Dato kommer";
+    const timePending = locale === "en" ? "Time to be announced" : "Tid kommer";
+
     return {
       day: "–",
-      month: "Dato kommer",
-      dateAndTime: "Dato kommer",
-      timeRange: "Tid kommer",
+      month: datePending,
+      dateAndTime: datePending,
+      timeRange: timePending,
     };
   }
 
-  const timeFormatter = new Intl.DateTimeFormat(locale, {
+  const intlLocale = getIntlLocale(locale);
+  const timeFormatter = new Intl.DateTimeFormat(intlLocale, {
     hour: "2-digit",
     minute: "2-digit",
     hourCycle: "h23",
     timeZone: activity.timeZone,
   });
-  const fullDateFormatter = new Intl.DateTimeFormat(locale, {
+  const fullDateFormatter = new Intl.DateTimeFormat(intlLocale, {
     weekday: "long",
     day: "numeric",
     month: "long",
     year: "numeric",
     timeZone: activity.timeZone,
   });
-  const shortDateFormatter = new Intl.DateTimeFormat(locale, {
+  const shortDateFormatter = new Intl.DateTimeFormat(intlLocale, {
     day: "2-digit",
     month: "short",
     timeZone: activity.timeZone,
   });
-  const dayFormatter = new Intl.DateTimeFormat(locale, {
+  const dayFormatter = new Intl.DateTimeFormat(intlLocale, {
     day: "2-digit",
     timeZone: activity.timeZone,
   });
-  const monthFormatter = new Intl.DateTimeFormat(locale, {
+  const monthFormatter = new Intl.DateTimeFormat(intlLocale, {
     month: "short",
     timeZone: activity.timeZone,
   });
@@ -137,13 +147,19 @@ export function formatActivityDateDetails(activity: ActivityContent) {
 
   return {
     day: dayFormatter.format(startsAt),
-    month: monthFormatter.format(startsAt).replace(".", "").toLocaleUpperCase(locale),
+    month: monthFormatter
+      .format(startsAt)
+      .replace(".", "")
+      .toLocaleUpperCase(intlLocale),
     dateAndTime: `${fullDateFormatter.format(startsAt)} · ${timeRange}`,
     timeRange,
   };
 }
 
-export function getActivityEventJsonLd(activity: ActivityContent) {
+export function getActivityEventJsonLd(
+  activity: ActivityContent,
+  locale: Locale = defaultLocale,
+) {
   const attendanceMode: Record<ActivityFormat, string> = {
     "in-person": "https://schema.org/OfflineEventAttendanceMode",
     digital: "https://schema.org/OnlineEventAttendanceMode",
@@ -155,7 +171,7 @@ export function getActivityEventJsonLd(activity: ActivityContent) {
     "@type": "Event",
     name: activity.title,
     description: activity.summary,
-    inLanguage: "no",
+    inLanguage: locale,
     startDate: activity.startsAt,
     endDate: activity.endsAt,
     eventAttendanceMode: attendanceMode[activity.format],

@@ -3,6 +3,7 @@ import EditorialVideoPlayer from "@/components/EditorialVideoPlayer";
 import type { ContentImage, ContentVideo } from "@/types/common";
 
 type EditorialMediaProps = {
+  fallbackText: string;
   image: ContentImage;
   label: string;
   preload?: boolean;
@@ -10,6 +11,7 @@ type EditorialMediaProps = {
 };
 
 export default function EditorialMedia({
+  fallbackText,
   image,
   label,
   preload = false,
@@ -18,6 +20,7 @@ export default function EditorialMedia({
   if (video) {
     return (
       <EditorialVideoPlayer
+        fallbackText={fallbackText}
         fallbackImage={video.poster}
         label={label}
         video={video}

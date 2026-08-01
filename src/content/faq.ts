@@ -1,6 +1,7 @@
 import { pageHeroBackgroundImages } from "@/content/pageHeroImages";
 import { validateFaqPageContent } from "@/lib/faq";
 import type { FaqPageContent } from "@/types/faq";
+import type { LocalizedContent } from "@/types/locale";
 
 const faqContentDraft = {
   seo: {
@@ -52,3 +53,57 @@ const faqContentDraft = {
 validateFaqPageContent(faqContentDraft);
 
 export const faqContent = faqContentDraft;
+
+const englishFaqContent = {
+  seo: {
+    title: "FAQ",
+    description:
+      "Find answers to frequently asked questions about NAKFE, activities and ways to get in touch.",
+  },
+
+  hero: {
+    eyebrow: "FAQ",
+    title: "Questions and answers",
+    description:
+      "Here we collect answers to frequently asked questions about NAKFE, activities and how to get in touch.",
+    backgroundImages: pageHeroBackgroundImages,
+  },
+
+  faq: {
+    header: {
+      eyebrow: "FAQ",
+      title: "Frequently asked questions",
+      description:
+        "Answers to questions about NAKFE, activities and collaboration will be published here once the content has been quality assured.",
+    },
+    categories: [],
+    emptyState: {
+      title: "Do you have questions?",
+      description:
+        "Contact us and we will help you find the information you need.",
+      action: {
+        label: "Contact us",
+        href: "/kontakt",
+        ariaLabel: "Go to the contact page",
+      },
+    },
+    reviewedAtLabel: "Last reviewed",
+    contactCta: {
+      eyebrow: "Contact",
+      title: "Cannot find what you are looking for?",
+      description: "Contact us and we will help you further.",
+      action: {
+        label: "Contact us",
+        href: "/kontakt",
+        ariaLabel: "Go to the contact page",
+      },
+    },
+  },
+} satisfies FaqPageContent;
+
+validateFaqPageContent(englishFaqContent);
+
+export const faqContentByLocale = {
+  no: faqContent,
+  en: englishFaqContent,
+} satisfies LocalizedContent<FaqPageContent>;

@@ -5,10 +5,14 @@ import type { PurposeContextContent } from "@/types/about";
 
 type PurposeContextSwitcherProps = {
   contexts: PurposeContextContent[];
+  contextNavigationLabel: string;
+  highlightsLabel: string;
 };
 
 export default function PurposeContextSwitcher({
   contexts,
+  contextNavigationLabel,
+  highlightsLabel,
 }: PurposeContextSwitcherProps) {
   const firstContext = contexts[0];
   const [activeContextId, setActiveContextId] = useState(firstContext?.id ?? "");
@@ -24,7 +28,7 @@ export default function PurposeContextSwitcher({
     <div className="mt-10 max-w-2xl">
       <div
         className="flex flex-wrap border-y border-stone-950/15"
-        aria-label="Velg hvor du vil lese om arbeidet"
+        aria-label={contextNavigationLabel}
       >
         {contexts.map((context) => {
           const isActive = context.id === activeContext.id;
@@ -66,7 +70,10 @@ export default function PurposeContextSwitcher({
           {activeContext.description}
         </p>
 
-        <ul className="mt-6 flex flex-wrap gap-x-5 gap-y-3" aria-label="Sentrale områder">
+        <ul
+          className="mt-6 flex flex-wrap gap-x-5 gap-y-3"
+          aria-label={highlightsLabel}
+        >
           {activeContext.highlights.map((highlight) => (
             <li key={highlight} className="flex items-center gap-2 text-sm font-black uppercase tracking-[0.12em] text-stone-700">
               <span className="h-2 w-2 shrink-0 bg-red-700" aria-hidden="true" />

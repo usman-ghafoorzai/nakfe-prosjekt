@@ -17,7 +17,7 @@ export default function CtaSection({ content }: CtaSectionProps) {
         <div className="grid gap-14 lg:grid-cols-[minmax(0,1fr)_minmax(18rem,0.52fr)] lg:items-end lg:gap-16">
           <div className="max-w-5xl">
             <p className="nakfe-eyebrow text-white/70">
-              Neste steg
+              {content.eyebrow}
             </p>
 
             <h2 className="mt-4 text-balance text-5xl font-black leading-[0.92] tracking-[-0.07em] text-white sm:text-6xl lg:text-7xl">
@@ -57,7 +57,7 @@ export default function CtaSection({ content }: CtaSectionProps) {
           ) : (
             <div className="nakfe-card-surface-dark hidden border-l-[12px] border-l-red-700 bg-white p-7 text-stone-950 lg:block">
               <p className="text-4xl font-black leading-none tracking-[-0.06em]">
-                Kunnskap. Fellesskap. Handling.
+                {content.fallbackText}
               </p>
             </div>
           )}

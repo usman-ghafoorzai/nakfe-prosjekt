@@ -5,11 +5,16 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import type { KeyboardEvent } from "react";
 import { useEffect, useId, useState } from "react";
+import LocaleSwitcher from "@/components/LocaleSwitcher";
 import NavIcon from "@/components/NavIcon";
-import { headerNavigationItems } from "@/content/navigation";
 import { isNavigationPathCurrent } from "@/lib/navigation";
+import type { Locale } from "@/types/locale";
+import type { NavigationContent } from "@/types/navigation";
 
-const visibleNavigationItems = headerNavigationItems.filter((link) => link.href !== "/");
+type NavbarProps = {
+  content: NavigationContent;
+  locale: Locale;
+};
 
 const desktopLinkClasses =
   "relative inline-flex min-h-11 items-center gap-2 px-2 text-sm font-black uppercase tracking-[0.08em] outline-none transition duration-200 ease-out after:absolute after:bottom-1 after:left-2 after:h-[3px] after:w-[calc(100%-1rem)] after:bg-red-700 after:transition-opacity after:duration-200 after:content-[''] focus-visible:ring-2 focus-visible:ring-red-700 focus-visible:ring-offset-4 motion-reduce:transition-none motion-reduce:after:transition-none";
@@ -49,11 +54,14 @@ function getLinkClasses(
   ].join(" ");
 }
 
-export default function Navbar() {
+export default function Navbar({ content, locale }: NavbarProps) {
   const pathname = usePathname();
   const [isOpen, setIsOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const menuId = useId();
+  const visibleNavigationItems = content.items
+    .filter((link) => link.showInHeader && link.href !== "/")
+    .sort((a, b) => a.order - b.order);
 
   useEffect(() => {
     function handleScroll() {
@@ -78,7 +86,7 @@ export default function Navbar() {
       ].join(" ")}
     >
       <nav
-        aria-label="Hovednavigasjon"
+        aria-label={content.mainNavigationLabel}
         onKeyDown={handleKeyDown}
         className={[
           "mx-auto border-b border-stone-950/10 shadow-sm shadow-stone-950/5 backdrop-blur-xl transition-[background-color,border-color,box-shadow] duration-300 ease-out motion-reduce:transition-none",
@@ -95,7 +103,7 @@ export default function Navbar() {
         >
           <Link
             href="/"
-            aria-label="Kvinner for Endring - gå til forsiden"
+            aria-label={content.homeAriaLabel}
             onClick={() => setIsOpen(false)}
             className={[
               "inline-flex min-h-12 items-center gap-3 outline-none transition duration-200 ease-out focus-visible:ring-2 focus-visible:ring-red-700 focus-visible:ring-offset-4 motion-reduce:transition-none",
@@ -136,11 +144,20 @@ export default function Navbar() {
                 </li>
               );
             })}
+            <li>
+              <LocaleSwitcher
+                isScrolled={isScrolled}
+                label={content.languageSwitcherLabel}
+                locale={locale}
+                optionAriaLabels={content.languageOptionAriaLabels}
+                variant="desktop"
+              />
+            </li>
           </ul>
 
           <button
             type="button"
-            aria-label={isOpen ? "Lukk hovedmeny" : "Åpne hovedmeny"}
+            aria-label={isOpen ? content.closeMenuLabel : content.openMenuLabel}
             aria-controls={menuId}
             aria-expanded={isOpen}
             onClick={() => setIsOpen((current) => !current)}
@@ -165,7 +182,11 @@ export default function Navbar() {
           isOpen ? "max-h-96 translate-y-0 opacity-100" : "max-h-0 -translate-y-2 opacity-0",
         ].join(" ")}
       >
-        <nav aria-label="Mobil hovednavigasjon" className="p-3">
+        <nav
+          aria-label={content.mobileNavigationLabel}
+          className="p-3"
+          onKeyDown={handleKeyDown}
+        >
           <ul className="flex flex-col gap-1">
             {visibleNavigationItems.map((link) => {
               const isCurrent = isNavigationPathCurrent(pathname, link.href);
@@ -186,6 +207,15 @@ export default function Navbar() {
               );
             })}
           </ul>
+          <div className="mt-3 border-t border-stone-300 pt-3">
+            <LocaleSwitcher
+              label={content.languageSwitcherLabel}
+              locale={locale}
+              optionAriaLabels={content.languageOptionAriaLabels}
+              tabIndex={isOpen ? undefined : -1}
+              variant="mobile"
+            />
+          </div>
         </nav>
       </div>
     </header>

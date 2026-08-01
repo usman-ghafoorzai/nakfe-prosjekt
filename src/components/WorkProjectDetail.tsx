@@ -43,6 +43,7 @@ export default function WorkProjectDetail({
         <div className="mt-12 sm:mt-16">
           <div className="relative aspect-[16/9] overflow-hidden bg-stone-200">
             <WorkProjectMedia
+              fallbackText={content.videoFallbackText}
               label={`${content.videoAriaLabelPrefix} ${project.title}`}
               project={project}
             />

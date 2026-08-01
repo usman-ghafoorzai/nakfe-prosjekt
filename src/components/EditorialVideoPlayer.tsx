@@ -5,12 +5,14 @@ import { useEffect, useState } from "react";
 import type { ContentImage, ContentVideo } from "@/types/common";
 
 type EditorialVideoPlayerProps = {
+  fallbackText: string;
   fallbackImage: ContentImage;
   label: string;
   video: ContentVideo;
 };
 
 export default function EditorialVideoPlayer({
+  fallbackText,
   fallbackImage,
   label,
   video,
@@ -56,7 +58,7 @@ export default function EditorialVideoPlayer({
             srcLang={video.captionsLanguage ?? "no"}
           />
         ) : null}
-        Nettleseren din støtter ikke videoavspilling.
+        {fallbackText}
       </video>
     );
   }

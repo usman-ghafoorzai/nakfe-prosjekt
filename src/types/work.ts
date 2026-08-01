@@ -40,12 +40,15 @@ export type WorkProjectListContent = {
   defaultCountry: WorkCountry;
   filters: WorkCountryFilterContent[];
   items: WorkProjectContent[];
+  detailsActionLabel: string;
+  detailsActionAriaLabelPrefix: string;
 };
 
 export type WorkProjectDetailContent = {
   backLinkLabel: string;
   backLinkAriaLabel: string;
   videoAriaLabelPrefix: string;
+  videoFallbackText: string;
 };
 
 export type WorkPageContent = {

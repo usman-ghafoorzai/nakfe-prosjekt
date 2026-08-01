@@ -37,11 +37,13 @@ export type PageHeroContent = {
 };
 
 export type CtaSectionContent = {
+  eyebrow: string;
   title: string;
   description?: string;
   primaryAction?: ContentLink;
   secondaryAction?: ContentLink;
   image?: ContentImage;
+  fallbackText: string;
 };
 
 export type EmptyStateContent = {

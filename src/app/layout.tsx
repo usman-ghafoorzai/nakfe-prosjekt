@@ -1,28 +1,42 @@
 import type { Metadata } from "next";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import { footerContentByLocale } from "@/content/footer";
+import { navigationContent } from "@/content/navigation";
+import { siteContent } from "@/content/site";
+import { getLocale } from "@/lib/locale";
 import { metadataBase, siteTitle } from "@/lib/metadata";
 import "./globals.css";
 
-export const metadata: Metadata = {
-  metadataBase,
-  title: siteTitle,
-  description: "Nettside for NAKFE med planlagt RAG-basert chatbot.",
-};
+export async function generateMetadata(): Promise<Metadata> {
+  const locale = await getLocale();
 
-export default function RootLayout({
+  return {
+    metadataBase,
+    title: siteTitle,
+    description: siteContent[locale].description,
+  };
+}
+
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const locale = await getLocale();
+  const navigation = navigationContent[locale];
+
   return (
-    <html lang="no" className="h-full antialiased">
+    <html lang={locale} className="h-full antialiased">
       <body className="flex min-h-full flex-col bg-background text-foreground font-sans">
-        <Navbar />
+        <Navbar content={navigation} locale={locale} />
         <main className="flex-1">
           {children}
         </main>
-        <Footer />
+        <Footer
+          content={footerContentByLocale[locale]}
+          navigationItems={navigation.items}
+        />
       </body>
     </html>
   );

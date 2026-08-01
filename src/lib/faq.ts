@@ -5,6 +5,11 @@ import type {
   FaqPageContent,
   FaqSectionContent,
 } from "@/types/faq";
+import {
+  defaultLocale,
+  getIntlLocale,
+  type Locale,
+} from "@/types/locale";
 
 const DATE_ONLY_PATTERN = /^\d{4}-\d{2}-\d{2}$/;
 
@@ -46,16 +51,19 @@ function validateLink(
 }
 
 /**
- * Formats a validated date-only value for visible Norwegian copy.
+ * Formats a validated date-only value for visible locale-aware copy.
  * The source value remains portable for a later CMS, while presentation
  * stays locale-aware and avoids exposing raw ISO metadata.
  */
-export function formatFaqReviewedDate(date: string): string {
+export function formatFaqReviewedDate(
+  date: string,
+  locale: Locale = defaultLocale,
+): string {
   if (!isValidDateOnly(date)) {
     return date;
   }
 
-  return new Intl.DateTimeFormat("nb-NO", {
+  return new Intl.DateTimeFormat(getIntlLocale(locale), {
     day: "numeric",
     month: "long",
     year: "numeric",
