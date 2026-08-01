@@ -57,8 +57,8 @@ const workContentDraft = {
         summary:
           "Prosjektet gir kvinner kunnskap, verktøy og nettverk for å starte egen virksomhet og skape økonomisk selvstendighet.",
         coverImage: {
-          src: "/images/page-hero/fellesskap-kvinner.png",
-          alt: "Midlertidig lokalt illustrasjonsbilde. Konkret prosjektbilde er ikke dokumentert.",
+          src: "/images/work/entreprenorskapstrening-norge.jpeg",
+          alt: "Deltakere på entreprenørskapstrening for kvinner med minoritetsbakgrunn i Norge.",
           caption:
             "Deltakere på entreprenørskapskurs og nettverkssamlinger.",
           credit: "Kvinner for Endring",
@@ -123,8 +123,8 @@ const workContentDraft = {
         summary:
           "Gjennom feiringer av Eid, Nawruz og andre kulturarrangementer skaper vi møteplasser som styrker fellesskap, inkludering og kulturell tilhørighet.",
         coverImage: {
-          src: "/images/page-hero/kvinner-dans.png",
-          alt: "Midlertidig lokalt illustrasjonsbilde. Konkret prosjektbilde er ikke dokumentert.",
+          src: "/images/work/kulturarrangement-norge.jpeg",
+          alt: "Deltakere ved matservering på et kulturarrangement i Norge.",
           caption:
             "Deltakere på Eid-feiring, Nawruz-feiring eller andre kulturarrangementer.",
           credit: "Kvinner for Endring",
@@ -156,8 +156,8 @@ const workContentDraft = {
         summary:
           "Prosjektet gir kvinner praktiske ferdigheter innen søm og skreddersøm slik at de kan skape egne inntekter og forsørge sine familier.",
         coverImage: {
-          src: "/images/page-hero/kvinner-fellesskap.png",
-          alt: "Midlertidig lokalt illustrasjonsbilde. Konkret prosjektbilde er ikke dokumentert.",
+          src: "/images/work/somopplaering-kabul.jpeg",
+          alt: "Kvinner ved en avslutningsseremoni på et sømopplæringssenter i Kabul.",
           caption: "Kvinner som deltar i søm- og skreddersømopplæring.",
           credit: "Kvinner for Endring",
           position: "center",
@@ -323,8 +323,8 @@ const englishWorkContent = {
         summary:
           "The project provides women with the knowledge, tools, and networks needed to start their own businesses and achieve financial independence.",
         coverImage: {
-          src: "/images/page-hero/fellesskap-kvinner.png",
-          alt: "Temporary local illustration. A specific project image has not been documented.",
+          src: "/images/work/entreprenorskapstrening-norge.jpeg",
+          alt: "Participants in entrepreneurship training for women with minority backgrounds in Norway.",
           caption:
             "Participants attending entrepreneurship workshops and networking events.",
           credit: "Women for Change",
@@ -389,8 +389,8 @@ const englishWorkContent = {
         summary:
           "Through celebrations such as Eid, Nawruz, and other cultural events, we create inclusive meeting places that strengthen community, belonging, and cultural understanding.",
         coverImage: {
-          src: "/images/page-hero/kvinner-dans.png",
-          alt: "Temporary local illustration. A specific project image has not been documented.",
+          src: "/images/work/kulturarrangement-norge.jpeg",
+          alt: "Participants serving food at a cultural event in Norway.",
           caption:
             "Participants attending Eid, Nawruz, or other cultural celebrations.",
           credit: "Women for Change",
@@ -422,8 +422,8 @@ const englishWorkContent = {
         summary:
           "The project equips women with practical tailoring skills, enabling them to generate income and support themselves and their families.",
         coverImage: {
-          src: "/images/page-hero/kvinner-fellesskap.png",
-          alt: "Temporary local illustration. A specific project image has not been documented.",
+          src: "/images/work/somopplaering-kabul.jpeg",
+          alt: "Women at a graduation ceremony at a tailoring training centre in Kabul.",
           caption: "Women participating in tailoring and dressmaking training.",
           credit: "Women for Change",
           position: "center",
