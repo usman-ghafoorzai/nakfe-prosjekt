@@ -126,7 +126,7 @@ export default function Navbar({ content, locale }: NavbarProps) {
             </span>
           </Link>
 
-          <ul className="hidden items-center gap-3 md:flex">
+          <ul className="hidden items-center gap-3 lg:flex">
             {visibleNavigationItems.map((link) => {
               const isCurrent = isNavigationPathCurrent(pathname, link.href);
 
@@ -162,7 +162,7 @@ export default function Navbar({ content, locale }: NavbarProps) {
             aria-expanded={isOpen}
             onClick={() => setIsOpen((current) => !current)}
             className={[
-              "inline-flex min-h-12 min-w-12 items-center justify-center border-2 text-2xl font-black leading-none outline-none transition duration-200 ease-out active:translate-y-0.5 motion-reduce:transition-none motion-reduce:active:translate-y-0 md:hidden",
+              "inline-flex min-h-12 min-w-12 items-center justify-center border-2 text-2xl font-black leading-none outline-none transition duration-200 ease-out active:translate-y-0.5 motion-reduce:transition-none motion-reduce:active:translate-y-0 lg:hidden",
               isScrolled
                 ? "border-stone-950 bg-white text-stone-950 hover:bg-stone-950 hover:text-white focus-visible:ring-2 focus-visible:ring-stone-950 focus-visible:ring-offset-4"
                 : "border-white bg-white/10 text-white hover:bg-white hover:text-stone-950 focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-4 focus-visible:ring-offset-stone-950",
@@ -177,7 +177,7 @@ export default function Navbar({ content, locale }: NavbarProps) {
         id={menuId}
         aria-hidden={!isOpen}
         className={[
-          "mx-4 mt-3 overflow-hidden bg-white shadow-2xl shadow-stone-950/20 md:hidden",
+          "mx-4 mt-3 overflow-hidden bg-white shadow-2xl shadow-stone-950/20 lg:hidden",
           "transition-[max-height,opacity,transform] duration-200 ease-out motion-reduce:transition-none",
           isOpen ? "max-h-96 translate-y-0 opacity-100" : "max-h-0 -translate-y-2 opacity-0",
         ].join(" ")}

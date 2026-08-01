@@ -16,13 +16,7 @@ export default function PageHero({ content }: PageHeroProps) {
 
       <div className="relative z-20 mx-auto flex h-[24rem] max-w-7xl items-end px-4 pb-16 pt-28 sm:h-[28rem] sm:px-6 sm:pb-20 lg:h-[32rem] lg:pb-24">
         <div className="max-w-4xl lg:-ml-8 xl:-ml-10">
-          {content.eyebrow ? (
-            <p className="nakfe-eyebrow bg-stone-950/62 px-3 py-2 text-white shadow-lg shadow-stone-950/20 backdrop-blur-sm">
-              {content.eyebrow}
-            </p>
-          ) : null}
-
-          <h1 id="page-hero-heading" className="mt-5 max-w-5xl text-balance text-4xl font-black leading-[0.95] tracking-[-0.06em] text-white sm:text-5xl lg:text-6xl">
+          <h1 id="page-hero-heading" className="max-w-5xl text-balance text-4xl font-black leading-[0.95] tracking-[-0.06em] text-white sm:text-5xl lg:text-6xl">
             {content.title}
           </h1>
 

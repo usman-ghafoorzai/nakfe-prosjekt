@@ -6,9 +6,11 @@ type SiteContent = {
 
 export const siteContent = {
   no: {
-    description: "Nettside for NAKFE med planlagt RAG-basert chatbot.",
+    description:
+      "Kvinner for Endring styrker kvinner gjennom utdanning, arbeid, entreprenørskap og fellesskap i Norge og Afghanistan.",
   },
   en: {
-    description: "Website for NAKFE with a planned RAG-based chatbot.",
+    description:
+      "Women for Change empowers women through education, employment, entrepreneurship and community in Norway and Afghanistan.",
   },
 } satisfies LocalizedContent<SiteContent>;
