@@ -104,7 +104,6 @@ const activitiesContentDraft = {
       accessibilityNote:
         "Ta kontakt dersom du trenger språkstøtte eller annen tilrettelegging.",
       audience: "Kvinner som ønsker informasjon, fellesskap og nye møteplasser.",
-      relatedWorkProjectSlug: "arbeid-og-jobbforhet",
     },
     {
       slug: "workshop-om-jobb-og-kompetanse",
@@ -144,7 +143,6 @@ const activitiesContentDraft = {
         "Digital deltakerlenke sendes etter påmelding. Ta kontakt ved behov for tilrettelegging.",
       audience:
         "Kvinner som ønsker mer kunnskap om arbeid, kompetanse og deltakelse.",
-      relatedWorkProjectSlug: "utdanning-og-kompetanseutvikling",
     },
   ],
 } satisfies ActivitiesPageContent;
@@ -255,7 +253,6 @@ const englishActivitiesContent = {
         "Contact us if you need language support or other accessibility arrangements.",
       audience:
         "Women seeking information, community and new meeting places.",
-      relatedWorkProjectSlug: "arbeid-og-jobbforhet",
     },
     {
       slug: "workshop-om-jobb-og-kompetanse",
@@ -295,7 +292,6 @@ const englishActivitiesContent = {
         "The online participation link will be sent after registration. Contact us if you need accessibility arrangements.",
       audience:
         "Women who want to learn more about employment, skills and participation.",
-      relatedWorkProjectSlug: "utdanning-og-kompetanseutvikling",
     },
   ],
 } satisfies ActivitiesPageContent;
