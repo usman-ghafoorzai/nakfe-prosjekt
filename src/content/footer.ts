@@ -5,7 +5,7 @@ export const footerContent = {
     organization: {
         name: "NAKFE",
         description:
-            "NAKFE er en ideell organisasjon. Nettsiden utvikles for å gjøre informasjon om organisasjonen, aktiviteter og kontaktmuligheter mer tilgjengelig.",
+            "Kvinner for Endring styrker kvinner gjennom utdanning, arbeid, entreprenørskap og fellesskap i Norge og Afghanistan.",
         logo: {
             src: "/images/nakfe-logo.jpg",
             alt: "",
@@ -16,11 +16,11 @@ export const footerContent = {
     navigationTitle: "Navigasjon",
     contactTitle: "Kontakt",
     contactLink: {
-        label: "Kontakt NAKFE",
+        label: "Kontakt Kvinner for Endring",
         href: "/kontakt",
     },
     contactDescription:
-        "Mer kontaktinformasjon og sosiale medier legges til når innholdet er avklart.",
+        "Finn e-post, telefon og organisasjonens sosiale medier på kontaktsiden.",
     copyright: {
         owner: "NAKFE",
         rightsText: "Alle rettigheter reservert.",
@@ -31,15 +31,13 @@ export const footerContent = {
         href: "https://www.linkedin.com/in/usman-ghafoorzai/",
         isExternal: true,
     },
-    qualityNote:
-        "Bygget med fokus på tilgjengelighet, responsivt design og moderne webutvikling.",
 } satisfies FooterContent;
 
 const englishFooterContent = {
     organization: {
         name: "NAKFE",
         description:
-            "NAKFE is a non-profit organisation. The website is being developed to make information about the organisation, activities and ways to get in touch more accessible.",
+            "Women for Change empowers women through education, employment, entrepreneurship and community in Norway and Afghanistan.",
         logo: {
             src: "/images/nakfe-logo.jpg",
             alt: "",
@@ -50,11 +48,11 @@ const englishFooterContent = {
     navigationTitle: "Navigation",
     contactTitle: "Contact",
     contactLink: {
-        label: "Contact NAKFE",
+        label: "Contact Women for Change",
         href: "/kontakt",
     },
     contactDescription:
-        "More contact information and social media channels will be added once the content has been confirmed.",
+        "Find the organisation's email address, phone number and social media channels on the contact page.",
     copyright: {
         owner: "NAKFE",
         rightsText: "All rights reserved.",
@@ -65,8 +63,6 @@ const englishFooterContent = {
         href: "https://www.linkedin.com/in/usman-ghafoorzai/",
         isExternal: true,
     },
-    qualityNote:
-        "Built with a focus on accessibility, responsive design and modern web development.",
 } satisfies FooterContent;
 
 export const footerContentByLocale = {

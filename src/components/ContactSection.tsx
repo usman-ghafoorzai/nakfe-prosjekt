@@ -78,7 +78,7 @@ function ContactMethod({ method }: ContactMethodProps) {
                         href={method.href}
                         aria-label={method.ariaLabel}
                         target={isExternal ? "_blank" : undefined}
-                        rel={isExternal ? "noreferrer" : undefined}
+                        rel={isExternal ? "noopener noreferrer" : undefined}
                         className="inline-flex min-h-11 items-center gap-2 text-xl font-black leading-tight tracking-[-0.04em] text-stone-950 underline decoration-red-700 decoration-2 underline-offset-4 outline-none transition hover:text-red-700 focus-visible:ring-2 focus-visible:ring-red-700 focus-visible:ring-offset-4 motion-reduce:transition-none sm:text-2xl"
                     >
                         {method.value}
@@ -151,7 +151,7 @@ function SocialLink({ link }: SocialLinkProps) {
             href={link.href}
             aria-label={link.ariaLabel}
             target={isExternal ? "_blank" : undefined}
-            rel={isExternal ? "noreferrer" : undefined}
+            rel={isExternal ? "noopener noreferrer" : undefined}
             className="inline-flex min-h-11 items-center gap-2 text-sm font-black uppercase tracking-[0.14em] text-stone-950 underline decoration-red-700 decoration-2 underline-offset-4 outline-none transition hover:text-red-700 focus-visible:ring-2 focus-visible:ring-red-700 focus-visible:ring-offset-4 motion-reduce:transition-none"
         >
             {link.label}
@@ -185,7 +185,7 @@ function ContactEmptyState({ content }: ContactEmptyStateProps) {
                     href={action.href}
                     aria-label={action.ariaLabel}
                     target={isExternal ? "_blank" : undefined}
-                    rel={isExternal ? "noreferrer" : undefined}
+                    rel={isExternal ? "noopener noreferrer" : undefined}
                     className="mt-5 inline-flex min-h-11 items-center gap-2 text-sm font-black uppercase tracking-[0.14em] text-stone-950 underline decoration-red-700 decoration-2 underline-offset-4 outline-none transition hover:text-red-700 focus-visible:ring-2 focus-visible:ring-red-700 focus-visible:ring-offset-4 motion-reduce:transition-none"
                 >
                     {action.label}

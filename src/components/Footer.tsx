@@ -108,7 +108,7 @@ export default function Footer({ content, navigationItems }: FooterProps) {
                   href={content.developerCredit.href}
                   className="font-black text-stone-950 underline decoration-red-700 decoration-2 underline-offset-4 outline-none transition hover:text-red-700 focus-visible:ring-2 focus-visible:ring-red-700 focus-visible:ring-offset-2"
                   target={content.developerCredit.isExternal ? "_blank" : undefined}
-                  rel={content.developerCredit.isExternal ? "noreferrer" : undefined}
+                  rel={content.developerCredit.isExternal ? "noopener noreferrer" : undefined}
                 >
                   {content.developerCredit.label}
                 </a>

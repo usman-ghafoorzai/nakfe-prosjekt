@@ -17,7 +17,7 @@ type LocaleSwitcherProps = {
 };
 
 const baseButtonClasses =
-  "inline-flex min-h-11 min-w-11 items-center justify-center border-2 px-2 text-xs font-black uppercase tracking-[0.12em] outline-none transition duration-200 ease-out focus-visible:ring-2 focus-visible:ring-offset-4 active:translate-y-0.5 motion-reduce:transition-none motion-reduce:active:translate-y-0";
+  "relative inline-flex min-h-11 min-w-11 items-center justify-center gap-1.5 border-2 px-2 text-xs font-black uppercase tracking-[0.12em] outline-none transition duration-200 ease-out focus-visible:ring-2 focus-visible:ring-offset-4 active:translate-y-0.5 motion-reduce:transition-none motion-reduce:active:translate-y-0";
 
 function getButtonClasses(
   isCurrent: boolean,
@@ -28,7 +28,7 @@ function getButtonClasses(
     return [
       baseButtonClasses,
       isCurrent
-        ? "border-red-700 bg-red-700 text-white focus-visible:ring-red-700"
+        ? "border-red-700 bg-red-700 text-white after:absolute after:inset-x-2 after:bottom-1 after:h-0.5 after:bg-current after:content-[''] focus-visible:ring-red-700"
         : "border-stone-300 bg-white text-stone-800 hover:border-red-700 hover:text-red-700 focus-visible:ring-red-700",
     ].join(" ");
   }
@@ -37,7 +37,7 @@ function getButtonClasses(
     return [
       baseButtonClasses,
       isCurrent
-        ? "border-white bg-white text-stone-950 focus-visible:ring-white focus-visible:ring-offset-stone-950"
+        ? "border-white bg-white text-stone-950 after:absolute after:inset-x-2 after:bottom-1 after:h-0.5 after:bg-current after:content-[''] focus-visible:ring-white focus-visible:ring-offset-stone-950"
         : "border-white/55 text-white hover:border-white hover:bg-white/10 focus-visible:ring-white focus-visible:ring-offset-stone-950",
     ].join(" ");
   }
@@ -45,7 +45,7 @@ function getButtonClasses(
   return [
     baseButtonClasses,
     isCurrent
-      ? "border-red-700 bg-red-700 text-white focus-visible:ring-red-700"
+      ? "border-red-700 bg-red-700 text-white after:absolute after:inset-x-2 after:bottom-1 after:h-0.5 after:bg-current after:content-[''] focus-visible:ring-red-700"
       : "border-stone-300 bg-white text-stone-800 hover:border-red-700 hover:text-red-700 focus-visible:ring-red-700",
   ].join(" ");
 }
@@ -82,7 +82,8 @@ export default function LocaleSwitcher({
           tabIndex={tabIndex}
           type="button"
         >
-          {option.toUpperCase()}
+          <span aria-hidden="true">{option === "no" ? "🇳🇴" : "🇬🇧"}</span>
+          <span>{option.toUpperCase()}</span>
         </button>
       ))}
     </div>

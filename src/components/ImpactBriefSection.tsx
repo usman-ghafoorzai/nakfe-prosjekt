@@ -110,11 +110,13 @@ export default function ImpactBriefSection({ content }: ImpactBriefSectionProps)
                     href={content.primaryAction.href}
                     aria-label={content.primaryAction.ariaLabel}
                     target={content.primaryAction.isExternal ? "_blank" : undefined}
-                    rel={content.primaryAction.isExternal ? "noreferrer" : undefined}
+                    rel={content.primaryAction.isExternal ? "noopener noreferrer" : undefined}
                     className="inline-flex min-h-12 items-center justify-center gap-3 bg-red-700 px-6 text-sm font-black uppercase tracking-[0.14em] text-white transition duration-200 ease-out hover:bg-red-800 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-red-700 focus-visible:ring-offset-4 active:translate-y-0.5 motion-reduce:transition-none motion-reduce:active:translate-y-0"
                 >
                   {content.primaryAction.label}
-                  <span aria-hidden="true">↗</span>
+                  <span aria-hidden="true">
+                    {content.primaryAction.isExternal ? "↗" : "→"}
+                  </span>
                 </Link>
 
                 <button
@@ -248,29 +250,31 @@ export default function ImpactBriefSection({ content }: ImpactBriefSectionProps)
                 </div>
               </div>
 
-              <div className="mt-8 border-t border-stone-950/15 pt-5">
-                <h3 className="text-sm font-black uppercase tracking-[0.18em] text-stone-950">
-                  {content.statisticsDialog.citationsHeading}
-                </h3>
+              {content.statisticsDialog.citations.length > 0 ? (
+                <div className="mt-8 border-t border-stone-950/15 pt-5">
+                  <h3 className="text-sm font-black uppercase tracking-[0.18em] text-stone-950">
+                    {content.statisticsDialog.citationsHeading}
+                  </h3>
 
-                <ul className="mt-4 grid gap-3 text-sm font-semibold leading-6 text-stone-700 sm:grid-cols-2">
-                  {content.statisticsDialog.citations.map((citation) => (
-                      <li
-                          key={citation.href}
-                          className="border-l-4 border-red-700 bg-white px-4 py-3"
-                      >
-                        <a
-                            href={citation.href}
-                            target="_blank"
-                            rel="noreferrer"
-                            className="underline decoration-red-700 decoration-2 underline-offset-4 hover:text-red-800 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-red-700 focus-visible:ring-offset-2"
+                  <ul className="mt-4 grid gap-3 text-sm font-semibold leading-6 text-stone-700 sm:grid-cols-2">
+                    {content.statisticsDialog.citations.map((citation) => (
+                        <li
+                            key={citation.href}
+                            className="border-l-4 border-red-700 bg-white px-4 py-3"
                         >
-                          {citation.text}
-                        </a>
-                      </li>
-                  ))}
-                </ul>
-              </div>
+                          <a
+                              href={citation.href}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="underline decoration-red-700 decoration-2 underline-offset-4 hover:text-red-800 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-red-700 focus-visible:ring-offset-2"
+                          >
+                            {citation.text}
+                          </a>
+                        </li>
+                    ))}
+                  </ul>
+                </div>
+              ) : null}
             </div>
           </div>
         </dialog>

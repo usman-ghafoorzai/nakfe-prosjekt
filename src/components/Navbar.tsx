@@ -122,7 +122,7 @@ export default function Navbar({ content, locale }: NavbarProps) {
             </span>
 
             <span className="hidden text-lg font-black tracking-[-0.045em] sm:block">
-              Kvinner for Endring
+              {content.brandName}
             </span>
           </Link>
 
