@@ -205,8 +205,8 @@ export const homeContent = {
           "Les om de dokumenterte prosjektene i Norge, Kabul og Faryab.",
         meta: "Norge og Afghanistan",
         image: {
-          src: "/images/report-2026/kabul-training-centre-practical-work.jpeg",
-          alt: "Deltakere samlet til praktisk arbeid ved et av organisasjonens sentre i Kabul",
+          src: "/images/report-2026/kabul-graduation-ceremony-group.jpeg",
+          alt: "Deltakere samlet ved en avslutningsseremoni etter opplæring i Kabul",
           position: "center",
         },
         action: {
@@ -438,8 +438,8 @@ const englishHomeContent = {
           "Read about the documented projects in Norway, Kabul and Faryab.",
         meta: "Norway and Afghanistan",
         image: {
-          src: "/images/report-2026/kabul-training-centre-practical-work.jpeg",
-          alt: "Participants gathered for practical work at one of the organisation's centres in Kabul",
+          src: "/images/report-2026/kabul-graduation-ceremony-group.jpeg",
+          alt: "Participants gathered at a graduation ceremony after training in Kabul",
           position: "center",
         },
         action: {

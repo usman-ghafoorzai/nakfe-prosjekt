@@ -23,14 +23,14 @@ const valueMedia = {
   },
   dignity: {
     type: "image",
-    src: "/images/report-2026/kabul-tailoring-graduation-certificates-1.jpeg",
-    alt: "Deltakere samlet ved en avslutningsseremoni ved et sømopplæringssenter i Kabul",
+    src: "/images/report-2026/kabul-graduation-certificates-2.jpeg",
+    alt: "Deltakere ved en avslutningsseremoni i Kabul",
     position: "center",
   },
   sustainability: {
     type: "image",
-    src: "/images/report-2026/kabul-tailoring-class-sewing-machines.jpeg",
-    alt: "Deltakere ved symaskiner under opplæring ved et av organisasjonens sentre i Kabul",
+    src: "/images/report-2026/kabul-vocational-centre-students-group.jpeg",
+    alt: "Deltakere ved et av organisasjonens yrkesopplæringssentre i Kabul",
     position: "center",
   },
 } as const;
@@ -146,11 +146,11 @@ const englishValueMedia = {
   },
   dignity: {
     ...valueMedia.dignity,
-    alt: "Participants gathered at a graduation ceremony at a tailoring training centre in Kabul",
+    alt: "Participants at a graduation ceremony in Kabul",
   },
   sustainability: {
     ...valueMedia.sustainability,
-    alt: "Participants using sewing machines during training at one of the organisation's centres in Kabul",
+    alt: "Participants at one of the organisation's vocational training centres in Kabul",
   },
 } as const;
 

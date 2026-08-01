@@ -24,6 +24,7 @@ export type WorkProjectContent = {
   title: string;
   summary: string;
   coverImage: ContentImage;
+  gallery?: ContentImage[];
   body: WorkProjectBodyBlock[];
   video?: WorkProjectVideoContent;
 };
@@ -47,6 +48,7 @@ export type WorkProjectListContent = {
 export type WorkProjectDetailContent = {
   backLinkLabel: string;
   backLinkAriaLabel: string;
+  galleryHeading: string;
   videoAriaLabelPrefix: string;
   videoFallbackText: string;
 };

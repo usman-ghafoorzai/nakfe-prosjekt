@@ -160,6 +160,50 @@ const workContentDraft = {
           credit: "Kvinner for Endring",
           position: "center",
         },
+        gallery: [
+          {
+            src: "/images/report-2026/kabul-tailoring-graduation-certificates-1.jpeg",
+            alt: "Deltakere samlet ved en avslutningsseremoni ved et sømopplæringssenter i Kabul",
+            caption: "Avslutningsseremoni ved et av organisasjonens sømopplæringssentre i Kabul.",
+            credit: "Kvinner for Endring",
+            position: "center",
+          },
+          {
+            src: "/images/report-2026/kabul-graduation-certificates-2.jpeg",
+            alt: "Deltakere ved en avslutningsseremoni i Kabul",
+            caption: "Deltakere ved en avslutningsseremoni etter gjennomført opplæring i Kabul.",
+            credit: "Kvinner for Endring",
+            position: "center",
+          },
+          {
+            src: "/images/report-2026/kabul-vocational-centre-students-group.jpeg",
+            alt: "Deltakere samlet ved et yrkesopplæringssenter i Kabul",
+            caption: "Deltakere ved et av organisasjonens yrkesopplæringssentre i Kabul.",
+            credit: "Kvinner for Endring",
+            position: "center",
+          },
+          {
+            src: "/images/report-2026/kabul-training-centre-students.jpeg",
+            alt: "Deltakere samlet ved et av organisasjonens sentre i Kabul",
+            caption: "Deltakere ved et av organisasjonens opplæringssentre i Kabul.",
+            credit: "Kvinner for Endring",
+            position: "center",
+          },
+          {
+            src: "/images/report-2026/kabul-graduation-ceremony-group.jpeg",
+            alt: "Deltakere samlet ved en avslutningsseremoni etter opplæring i Kabul",
+            caption: "Avslutningsseremoni etter gjennomført opplæring i Kabul.",
+            credit: "Kvinner for Endring",
+            position: "center",
+          },
+          {
+            src: "/images/report-2026/kabul-training-centre-practical-work.jpeg",
+            alt: "Deltakere i praktisk arbeid ved et av organisasjonens sentre i Kabul",
+            caption: "Praktisk arbeid ved et av organisasjonens sentre i Kabul.",
+            credit: "Kvinner for Endring",
+            position: "center",
+          },
+        ],
         body: [
           {
             id: "avsnitt-1",
@@ -190,10 +234,10 @@ const workContentDraft = {
         summary:
           "Prosjektet gir jenter over sjette trinn, som er fratatt retten til utdanning, tilgang til digital opplæring og grunnleggende digitale ferdigheter som kan styrke deres utdannings- og yrkesmuligheter.",
         coverImage: {
-          src: "/images/page-hero/afghansk-kulturarv.png",
-          alt: "Illustrasjon knyttet til digital undervisning i Kabul.",
-          caption: "Illustrasjon knyttet til digital undervisning i Kabul.",
-          credit: "Kvinner for Endring",
+          src: "/images/work/digital-education-kabul.svg",
+          alt: "Illustrasjon av digital undervisning i engelsk og matematikk",
+          caption: "Illustrasjon av digital undervisning for jenter i Kabul.",
+          credit: "Illustrasjon for Kvinner for Endring",
           position: "center",
         },
         body: [
@@ -222,10 +266,10 @@ const workContentDraft = {
         summary:
           "Prosjektet gir jenter over sjette trinn som er fratatt retten til videre utdanning, tilgang til digital undervisning i engelsk og matematikk for å styrke deres kunnskap og framtidsmuligheter.",
         coverImage: {
-          src: "/images/page-hero/kvinner-for-endring.png",
-          alt: "Illustrasjon knyttet til digital undervisning i Faryab.",
-          caption: "Illustrasjon knyttet til digital undervisning i Faryab.",
-          credit: "Kvinner for Endring",
+          src: "/images/work/digital-education-faryab.svg",
+          alt: "Illustrasjon av nettbasert undervisning i engelsk og matematikk",
+          caption: "Illustrasjon av digital undervisning for jenter i Faryab.",
+          credit: "Illustrasjon for Kvinner for Endring",
           position: "center",
         },
         body: [
@@ -257,6 +301,7 @@ const workContentDraft = {
   detail: {
     backLinkLabel: "Vårt arbeid",
     backLinkAriaLabel: "Tilbake til oversikten over Vårt arbeid",
+    galleryHeading: "Bilder fra opplæringen i Kabul",
     videoAriaLabelPrefix: "Video fra",
     videoFallbackText: "Nettleseren din støtter ikke videoavspilling.",
   },
@@ -423,6 +468,50 @@ const englishWorkContent = {
           credit: "Women for Change",
           position: "center",
         },
+        gallery: [
+          {
+            src: "/images/report-2026/kabul-tailoring-graduation-certificates-1.jpeg",
+            alt: "Participants gathered at a graduation ceremony at a tailoring training centre in Kabul",
+            caption: "Graduation ceremony at one of the organisation's tailoring training centres in Kabul.",
+            credit: "Women for Change",
+            position: "center",
+          },
+          {
+            src: "/images/report-2026/kabul-graduation-certificates-2.jpeg",
+            alt: "Participants at a graduation ceremony in Kabul",
+            caption: "Participants at a graduation ceremony after completing training in Kabul.",
+            credit: "Women for Change",
+            position: "center",
+          },
+          {
+            src: "/images/report-2026/kabul-vocational-centre-students-group.jpeg",
+            alt: "Participants gathered at a vocational training centre in Kabul",
+            caption: "Participants at one of the organisation's vocational training centres in Kabul.",
+            credit: "Women for Change",
+            position: "center",
+          },
+          {
+            src: "/images/report-2026/kabul-training-centre-students.jpeg",
+            alt: "Participants gathered at one of the organisation's centres in Kabul",
+            caption: "Participants at one of the organisation's training centres in Kabul.",
+            credit: "Women for Change",
+            position: "center",
+          },
+          {
+            src: "/images/report-2026/kabul-graduation-ceremony-group.jpeg",
+            alt: "Participants gathered at a graduation ceremony after training in Kabul",
+            caption: "Graduation ceremony after completing training in Kabul.",
+            credit: "Women for Change",
+            position: "center",
+          },
+          {
+            src: "/images/report-2026/kabul-training-centre-practical-work.jpeg",
+            alt: "Participants doing practical work at one of the organisation's centres in Kabul",
+            caption: "Practical work at one of the organisation's centres in Kabul.",
+            credit: "Women for Change",
+            position: "center",
+          },
+        ],
         body: [
           {
             id: "avsnitt-1",
@@ -453,10 +542,10 @@ const englishWorkContent = {
         summary:
           "The project provides girls above sixth grade, who have been denied access to education, with online learning opportunities in English and mathematics to support their knowledge and future opportunities.",
         coverImage: {
-          src: "/images/page-hero/afghansk-kulturarv.png",
-          alt: "Illustration related to digital education in Kabul.",
-          caption: "Illustration related to digital education in Kabul.",
-          credit: "Women for Change",
+          src: "/images/work/digital-education-kabul.svg",
+          alt: "Illustration of digital education in English and mathematics",
+          caption: "Illustration of digital education for girls in Kabul.",
+          credit: "Illustration for Women for Change",
           position: "center",
         },
         body: [
@@ -485,10 +574,10 @@ const englishWorkContent = {
         summary:
           "The project provides girls above sixth grade, who have been denied access to education, with online instruction in English and mathematics to strengthen their knowledge and future opportunities.",
         coverImage: {
-          src: "/images/page-hero/kvinner-for-endring.png",
-          alt: "Illustration related to digital education in Faryab.",
-          caption: "Illustration related to digital education in Faryab.",
-          credit: "Women for Change",
+          src: "/images/work/digital-education-faryab.svg",
+          alt: "Illustration of online education in English and mathematics",
+          caption: "Illustration of digital education for girls in Faryab.",
+          credit: "Illustration for Women for Change",
           position: "center",
         },
         body: [
@@ -520,6 +609,7 @@ const englishWorkContent = {
   detail: {
     backLinkLabel: "Our work",
     backLinkAriaLabel: "Back to the overview of Our work",
+    galleryHeading: "Photos from the training in Kabul",
     videoAriaLabelPrefix: "Video from",
     videoFallbackText: "Your browser does not support video playback.",
   },
