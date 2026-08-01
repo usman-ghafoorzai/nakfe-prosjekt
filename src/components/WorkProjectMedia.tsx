@@ -1,5 +1,5 @@
 import EditorialMedia from "@/components/EditorialMedia";
-import type { WorkProjectContent } from "@/types/content";
+import type { WorkProjectContent } from "@/types/work";
 
 type WorkProjectMediaProps = {
   label: string;

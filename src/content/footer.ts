@@ -1,4 +1,4 @@
-import type { FooterContent } from "@/types/content";
+import type { FooterContent } from "@/types/footer";
 
 export const footerContent = {
     organization: {

@@ -1,11 +1,12 @@
 import type { Metadata } from "next";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import PageHeroRouteShell from "@/components/PageHeroRouteShell";
+import { metadataBase, siteTitle } from "@/lib/metadata";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "NAKFE",
+  metadataBase,
+  title: siteTitle,
   description: "Nettside for NAKFE med planlagt RAG-basert chatbot.",
 };
 
@@ -19,7 +20,6 @@ export default function RootLayout({
       <body className="flex min-h-full flex-col bg-background text-foreground font-sans">
         <Navbar />
         <main className="flex-1">
-          <PageHeroRouteShell />
           {children}
         </main>
         <Footer />

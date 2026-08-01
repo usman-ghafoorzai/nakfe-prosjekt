@@ -1,5 +1,5 @@
 import Image from "next/image";
-import type { HomeHeroContent } from "@/types/content";
+import type { HomeHeroContent } from "@/types/home";
 
 type HeroProps = {
   content: HomeHeroContent;
@@ -45,7 +45,7 @@ export default function Hero({ content }: HeroProps) {
 
           {rotatingWords.length > 0 ? (
             <div className="mt-10 max-w-4xl">
-              <p className="text-sm font-black uppercase tracking-[0.28em] text-white/72">
+              <p className="inline-flex bg-stone-950/72 px-3 py-2 text-sm font-black uppercase tracking-[0.18em] text-white shadow-lg shadow-stone-950/25 backdrop-blur-sm">
                 Arbeidet vårt handler om
               </p>
 

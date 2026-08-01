@@ -6,7 +6,7 @@ import { useEffect, useRef, useState } from "react";
 import type {
   ValueMedia,
   ValueShowcaseItemContent,
-} from "@/types/content";
+} from "@/types/about";
 
 type ValueCarouselProps = {
   items: ValueShowcaseItemContent[];

@@ -37,7 +37,7 @@ function getLinkClasses(
       baseClasses,
       isCurrent
         ? "text-white after:bg-white after:opacity-100"
-        : "text-white/88 after:bg-white after:opacity-0 hover:text-white hover:after:opacity-100",
+        : "text-white after:bg-white after:opacity-0 hover:text-white hover:after:opacity-100",
     ].join(" ");
   }
 
@@ -73,7 +73,7 @@ export default function Navbar() {
   return (
     <header
       className={[
-        "fixed inset-x-0 z-50 px-4 transition-all duration-300 ease-out motion-reduce:transition-none",
+        "fixed inset-x-0 z-50 px-4 transition-[top,padding] duration-300 ease-out motion-reduce:transition-none",
         isScrolled ? "top-0 px-0" : "top-4 sm:top-5",
       ].join(" ")}
     >
@@ -81,15 +81,15 @@ export default function Navbar() {
         aria-label="Hovednavigasjon"
         onKeyDown={handleKeyDown}
         className={[
-          "mx-auto border-b border-stone-950/10 shadow-sm shadow-stone-950/5 backdrop-blur-xl transition-all duration-300 ease-out motion-reduce:transition-none",
+          "mx-auto border-b border-stone-950/10 shadow-sm shadow-stone-950/5 backdrop-blur-xl transition-[background-color,border-color,box-shadow] duration-300 ease-out motion-reduce:transition-none",
           isScrolled
             ? "max-w-none bg-[#f7f1e8]/94"
-            : "max-w-6xl bg-stone-950/28 text-white shadow-2xl shadow-stone-950/20 supports-[backdrop-filter]:bg-stone-950/18",
+            : "max-w-6xl bg-stone-950/64 text-white shadow-2xl shadow-stone-950/20 supports-[backdrop-filter]:bg-stone-950/56",
         ].join(" ")}
       >
         <div
           className={[
-            "mx-auto flex max-w-6xl items-center justify-between gap-6 px-4 transition-all duration-300 ease-out sm:px-6 motion-reduce:transition-none",
+            "mx-auto flex max-w-6xl items-center justify-between gap-6 px-4 transition-[padding] duration-300 ease-out sm:px-6 motion-reduce:transition-none",
             isScrolled ? "py-3" : "py-3.5",
           ].join(" ")}
         >

@@ -50,7 +50,7 @@ export default function Footer() {
         </section>
 
         <nav aria-labelledby="footer-navigation-heading">
-          <h2 id="footer-navigation-heading" className="text-xs font-black uppercase tracking-[0.18em] text-stone-500">
+          <h2 id="footer-navigation-heading" className="text-xs font-black uppercase tracking-[0.18em] text-stone-600">
             {footerContent.navigationTitle}
           </h2>
 
@@ -71,7 +71,7 @@ export default function Footer() {
         </nav>
 
         <section aria-labelledby="footer-contact-heading">
-          <h2 id="footer-contact-heading" className="text-xs font-black uppercase tracking-[0.18em] text-stone-500">
+          <h2 id="footer-contact-heading" className="text-xs font-black uppercase tracking-[0.18em] text-stone-600">
             {footerContent.contactTitle}
           </h2>
 

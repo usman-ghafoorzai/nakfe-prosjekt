@@ -1,4 +1,4 @@
-import type { ContentImage } from "@/types/content";
+import type { ContentImage } from "@/types/common";
 
 export const pageHeroBackgroundImages = [
   {

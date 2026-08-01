@@ -1,6 +1,6 @@
 import Image from "next/image";
 import EditorialVideoPlayer from "@/components/EditorialVideoPlayer";
-import type { ContentImage, ContentVideo } from "@/types/content";
+import type { ContentImage, ContentVideo } from "@/types/common";
 
 type EditorialMediaProps = {
   image: ContentImage;

@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
-import type { ImpactBriefSectionContent } from "@/types/content";
+import type { ImpactBriefSectionContent } from "@/types/home";
 
 type ImpactBriefSectionProps = {
   content: ImpactBriefSectionContent;

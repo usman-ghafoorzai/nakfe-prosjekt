@@ -1,3 +1,4 @@
+import PageHero from "@/components/PageHero";
 import WorkProjectIndexSection from "@/components/WorkProjectIndexSection";
 import { workContent } from "@/content/work";
 import { createPageMetadata } from "@/lib/metadata";
@@ -6,7 +7,9 @@ import {
   type WorkSearchParams,
 } from "@/lib/work-projects";
 
-export const metadata = createPageMetadata(workContent.seo);
+export const metadata = createPageMetadata(workContent.seo, {
+  path: "/vart-arbeid",
+});
 
 type WorkPageProps = {
   searchParams: Promise<WorkSearchParams>;
@@ -19,9 +22,12 @@ export default async function WorkPage({ searchParams }: WorkPageProps) {
   );
 
   return (
-    <WorkProjectIndexSection
-      activeCountry={selectedCountry}
-      content={workContent.overview}
-    />
+    <>
+      <PageHero content={workContent.hero} />
+      <WorkProjectIndexSection
+        activeCountry={selectedCountry}
+        content={workContent.overview}
+      />
+    </>
   );
 }

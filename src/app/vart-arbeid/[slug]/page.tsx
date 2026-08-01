@@ -2,12 +2,13 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import WorkProjectDetail from "@/components/WorkProjectDetail";
 import { workContent } from "@/content/work";
+import { createPageMetadata } from "@/lib/metadata";
 import {
   getWorkCountryHref,
   getWorkCountryLabel,
   getWorkProjectBySlug,
 } from "@/lib/work-projects";
-import type { WorkProjectContent } from "@/types/content";
+import type { WorkProjectContent } from "@/types/work";
 
 type WorkProjectPageProps = {
   params: Promise<{
@@ -34,17 +35,18 @@ export async function generateMetadata({
 }: WorkProjectPageProps): Promise<Metadata> {
   const { slug } = await params;
   const project = getProjectOrNotFound(slug);
-  const title = `${project.title} - Kvinner for Endring`;
 
-  return {
-    title,
-    description: project.summary,
-    openGraph: {
-      title,
+  return createPageMetadata(
+    {
+      title: project.title,
       description: project.summary,
+      image: project.coverImage,
+    },
+    {
+      path: `/vart-arbeid/${project.slug}`,
       type: "article",
     },
-  };
+  );
 }
 
 export default async function WorkProjectPage({

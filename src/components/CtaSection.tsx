@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import type { ContentLink, CtaSectionContent } from "@/types/content";
+import type { ContentLink, CtaSectionContent } from "@/types/common";
 
 type CtaSectionProps = {
   content: CtaSectionContent;

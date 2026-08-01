@@ -1,7 +1,7 @@
 import Image from "next/image";
 import PurposeContextSwitcher from "@/components/PurposeContextSwitcher";
 import SectionHeader from "@/components/SectionHeader";
-import type { PurposeSectionContent } from "@/types/content";
+import type { PurposeSectionContent } from "@/types/about";
 
 type PurposeSectionProps = {
   content: PurposeSectionContent;

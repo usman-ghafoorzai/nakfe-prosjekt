@@ -6,10 +6,12 @@ import {
   getActivityHref,
 } from "@/lib/activities";
 import type {
+  ContentLink,
+} from "@/types/common";
+import type {
   ActivityContent,
   ActivityListContent,
-  ContentLink,
-} from "@/types/content";
+} from "@/types/activities";
 
 type ActivityIndexSectionProps = {
   content: ActivityListContent;

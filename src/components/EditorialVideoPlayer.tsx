@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import { useEffect, useState } from "react";
-import type { ContentImage, ContentVideo } from "@/types/content";
+import type { ContentImage, ContentVideo } from "@/types/common";
 
 type EditorialVideoPlayerProps = {
   fallbackImage: ContentImage;

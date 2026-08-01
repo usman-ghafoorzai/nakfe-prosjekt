@@ -2,7 +2,7 @@ import {
   contactMethodKinds,
   type ContactMethodContent,
   type ContactPageContent,
-} from "@/types/content";
+} from "@/types/contact";
 
 function isNonEmptyString(value: string | undefined): value is string {
   return typeof value === "string" && value.trim().length > 0;

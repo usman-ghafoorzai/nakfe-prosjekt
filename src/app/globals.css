@@ -72,26 +72,22 @@ body {
 }
 
 .nakfe-hero-word {
+  opacity: 0;
+  transform: translateY(0.45rem);
   animation: nakfe-hero-word 8.8s infinite;
 }
 
 @keyframes nakfe-hero-word {
   0%,
-  10% {
-    opacity: 0;
-    clip-path: inset(0 100% 0 0);
-  }
-
-  16%,
-  34% {
+  20% {
     opacity: 1;
-    clip-path: inset(0 0 0 0);
+    transform: translateY(0);
   }
 
-  42%,
+  30%,
   100% {
     opacity: 0;
-    clip-path: inset(0 0 0 100%);
+    transform: translateY(-0.45rem);
   }
 }
 
@@ -106,7 +102,7 @@ body {
 
   .nakfe-hero-word:first-child {
     opacity: 1;
-    transform: translateY(-50%);
+    transform: none;
   }
 }
 .nakfe-stat-dialog::backdrop {

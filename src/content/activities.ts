@@ -1,7 +1,7 @@
 import { pageHeroBackgroundImages } from "@/content/pageHeroImages";
 import { workContent } from "@/content/work";
 import { validateActivitiesPageContent } from "@/lib/activities";
-import type { ActivitiesPageContent } from "@/types/content";
+import type { ActivitiesPageContent } from "@/types/activities";
 
 const activitiesContentDraft = {
   seo: {

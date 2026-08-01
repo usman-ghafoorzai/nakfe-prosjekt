@@ -3,7 +3,7 @@ import WorkProjectMedia from "@/components/WorkProjectMedia";
 import type {
   WorkProjectContent,
   WorkProjectDetailContent,
-} from "@/types/content";
+} from "@/types/work";
 
 type WorkProjectDetailProps = {
   content: WorkProjectDetailContent;

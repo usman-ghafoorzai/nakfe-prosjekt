@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import SectionHeader from "@/components/SectionHeader";
-import type { CardGridSectionContent, CardItemContent } from "@/types/content";
+import type { CardGridSectionContent, CardItemContent } from "@/types/common";
 
 type CardGridSectionProps = {
   content: CardGridSectionContent;
