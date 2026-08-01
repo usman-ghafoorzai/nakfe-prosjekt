@@ -19,6 +19,38 @@ type LocaleSwitcherProps = {
 const baseButtonClasses =
   "relative inline-flex min-h-11 min-w-11 items-center justify-center gap-1.5 border-2 px-2 text-xs font-black uppercase tracking-[0.12em] outline-none transition duration-200 ease-out focus-visible:ring-2 focus-visible:ring-offset-4 active:translate-y-0.5 motion-reduce:transition-none motion-reduce:active:translate-y-0";
 
+function LocaleFlag({ locale }: { locale: Locale }) {
+  if (locale === "no") {
+    return (
+      <svg
+        aria-hidden="true"
+        className="h-3.5 w-5 shrink-0"
+        focusable="false"
+        viewBox="0 0 22 16"
+      >
+        <rect fill="#ba0c2f" height="16" width="22" />
+        <path d="M0 6h22v4H0zM6 0h4v16H6z" fill="#fff" />
+        <path d="M0 7h22v2H0zM7 0h2v16H7z" fill="#00205b" />
+      </svg>
+    );
+  }
+
+  return (
+    <svg
+      aria-hidden="true"
+      className="h-3.5 w-5 shrink-0"
+      focusable="false"
+      viewBox="0 0 22 16"
+    >
+      <rect fill="#012169" height="16" width="22" />
+      <path d="M0 0l22 16M22 0L0 16" stroke="#fff" strokeWidth="5" />
+      <path d="M0 0l22 16M22 0L0 16" stroke="#c8102e" strokeWidth="2" />
+      <path d="M11 0v16M0 8h22" stroke="#fff" strokeWidth="5" />
+      <path d="M11 0v16M0 8h22" stroke="#c8102e" strokeWidth="3" />
+    </svg>
+  );
+}
+
 function getButtonClasses(
   isCurrent: boolean,
   variant: LocaleSwitcherProps["variant"],
@@ -82,7 +114,7 @@ export default function LocaleSwitcher({
           tabIndex={tabIndex}
           type="button"
         >
-          <span aria-hidden="true">{option === "no" ? "🇳🇴" : "🇬🇧"}</span>
+          <LocaleFlag locale={option} />
           <span>{option.toUpperCase()}</span>
         </button>
       ))}

@@ -3,7 +3,7 @@ import type { AboutPageContent } from "@/types/about";
 import type { LocalizedContent } from "@/types/locale";
 
 const sharedPurposeImage = {
-  src: "/images/about/community.jpg",
+  src: "/images/page-hero/kvinner-dans.png",
   alt: "Kvinner samlet i et fellesskap knyttet til Kvinner for Endring",
   position: "center",
 } as const;
@@ -17,7 +17,7 @@ const valueMedia = {
   },
   inclusion: {
     type: "image",
-    src: "/images/page-hero/arrangementer.png",
+    src: "/images/page-hero/generasjoner.png",
     alt: "Deltakere samlet til aktivitet og samtale",
     position: "center",
   },
