@@ -54,7 +54,7 @@ function EditorialCard({ item, index }: EditorialCardProps) {
         href={item.action.href}
         aria-label={item.action.ariaLabel}
         target="_blank"
-        rel="noreferrer"
+        rel="noopener noreferrer"
         className="nakfe-card-link nakfe-card-surface group block h-full bg-white"
       >
         {body}

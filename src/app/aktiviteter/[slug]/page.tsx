@@ -14,6 +14,7 @@ import { getWorkProjectBySlug } from "@/lib/work-projects";
 import type { ActivityContent } from "@/types/activities";
 
 export const revalidate = 3600;
+export const dynamicParams = false;
 
 type ActivityPageProps = {
   params: Promise<{

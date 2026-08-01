@@ -3,85 +3,79 @@ import { validateContactPageContent } from "@/lib/contact";
 import type { ContactPageContent } from "@/types/contact";
 import type { LocalizedContent } from "@/types/locale";
 
-/**
- * Contact details are intentionally empty until NAKFE has approved the public
- * channels. Add only information that the organisation wants to publish.
- */
 const contactContentDraft = {
   seo: {
     title: "Kontakt",
     description:
-      "Kontakt NAKFE for spørsmål om organisasjonen, samarbeid eller aktiviteter.",
+      "Kontakt Kvinner for Endring på e-post, telefon eller gjennom organisasjonens sosiale medier.",
   },
 
   hero: {
     eyebrow: "Kontakt",
-    title: "Ta kontakt",
+    title: "Ta kontakt med Kvinner for Endring.",
     description:
-      "Har du spørsmål om NAKFE, samarbeid eller aktiviteter? Her finner du organisasjonens offentlige kontaktkanaler.",
+      "Her finner du organisasjonens offentlige kontaktkanaler for spørsmål, støtte og samarbeid.",
     backgroundImages: pageHeroBackgroundImages,
   },
 
   contact: {
     header: {
       eyebrow: "Kontakt",
-      title: "Kontaktkanaler",
+      title: "Kontaktinformasjon",
       description:
-        "Her finner du NAKFEs offentlige kontaktkanaler for spørsmål, samarbeid og aktiviteter.",
+        "Du kan kontakte Kvinner for Endring på e-post eller telefon og følge arbeidet i sosiale medier.",
     },
     methods: [
       {
         id: "general-email",
         kind: "email",
         label: "E-post",
-        value: "kontakt@nakfe.no",
-        href: "mailto:kontakt@nakfe.no",
-        ariaLabel: "Send e-post til NAKFE",
+        value: "post@nakfe.no",
+        href: "mailto:post@nakfe.no",
+        ariaLabel: "Send e-post til Kvinner for Endring",
         description:
-          "Bruk denne adressen for generelle spørsmål om organisasjonen, aktiviteter eller samarbeid.",
+          "Bruk denne adressen for spørsmål, støtte eller samarbeid.",
       },
       {
         id: "phone",
         kind: "phone",
         label: "Telefon",
-        value: "+47 40 00 00 00",
-        href: "tel:+4740000000",
-        ariaLabel: "Ring NAKFE",
+        value: "+47 954 69 859",
+        href: "tel:+4795469859",
+        ariaLabel: "Ring Kvinner for Endring",
         description:
-          "Telefonen kan brukes til korte henvendelser i åpningstiden på hverdager.",
-      },
-      {
-        id: "office-address",
-        kind: "address",
-        label: "Adresse",
-        value: "Storgata 10, 0155 Oslo",
-        description:
-          "Midlertidig besøksadresse brukt som eksempelinnhold til kontaktsiden.",
+          "Ring oss dersom du ønsker å komme i direkte kontakt med organisasjonen.",
       },
     ],
     social: {
       title: "Sosiale medier",
       description:
-        "Du kan også følge organisasjonen i sosiale kanaler for oppdateringer og arrangementer.",
+        "Følg Kvinner for Endring for oppdateringer fra arbeidet i Norge og Afghanistan.",
       links: [
         {
-          label: "Instagram",
-          href: "https://instagram.com/nakfe.no",
-          ariaLabel: "Besøk NAKFE på Instagram",
+          label: "Facebook",
+          href: "https://www.facebook.com/Kvinnerforendring/",
+          ariaLabel: "Besøk Kvinner for Endring på Facebook",
           isExternal: true,
         },
         {
-          label: "Facebook",
-          href: "https://facebook.com/nakfe.no",
-          ariaLabel: "Besøk NAKFE på Facebook",
+          label: "Instagram",
+          href: "https://www.instagram.com/nakfe.no/",
+          ariaLabel: "Besøk Kvinner for Endring på Instagram",
+          isExternal: true,
+        },
+        {
+          label: "LinkedIn",
+          href: "https://www.linkedin.com/company/afghan-norwegian-women-for-change/posts/?feedView=all",
+          ariaLabel: "Besøk Kvinner for Endring på LinkedIn",
           isExternal: true,
         },
       ],
     },
     emptyState: {
-      title: "Kontaktinformasjon oppdateres",
+      title: "Ingen kontaktkanaler er publisert.",
       description:
-        "Vi oppdaterer siden så snart NAKFEs offentlige kontaktkanaler er klare.",
+        "Kontaktinformasjon er ikke tilgjengelig akkurat nå.",
     },
   },
 } satisfies ContactPageContent;
@@ -94,77 +88,75 @@ const englishContactContent = {
   seo: {
     title: "Contact",
     description:
-      "Contact NAKFE with questions about the organisation, collaboration or activities.",
+      "Contact Women for Change by email, phone or through the organisation's social media channels.",
   },
 
   hero: {
     eyebrow: "Contact",
-    title: "Get in touch",
+    title: "Contact Women for Change.",
     description:
-      "Do you have questions about NAKFE, collaboration or activities? Here you will find the organisation's public contact channels.",
+      "Here you will find the organisation's public contact channels for questions, support and collaboration.",
     backgroundImages: pageHeroBackgroundImages,
   },
 
   contact: {
     header: {
       eyebrow: "Contact",
-      title: "Contact channels",
+      title: "Contact information",
       description:
-        "Here you will find NAKFE's public contact channels for questions, collaboration and activities.",
+        "You can contact Women for Change by email or phone and follow the work on social media.",
     },
     methods: [
       {
         id: "general-email",
         kind: "email",
         label: "Email",
-        value: "kontakt@nakfe.no",
-        href: "mailto:kontakt@nakfe.no",
-        ariaLabel: "Send an email to NAKFE",
+        value: "post@nakfe.no",
+        href: "mailto:post@nakfe.no",
+        ariaLabel: "Send an email to Women for Change",
         description:
-          "Use this address for general questions about the organisation, activities or collaboration.",
+          "Use this address for questions, support or collaboration.",
       },
       {
         id: "phone",
         kind: "phone",
         label: "Phone",
-        value: "+47 40 00 00 00",
-        href: "tel:+4740000000",
-        ariaLabel: "Call NAKFE",
+        value: "+47 954 69 859",
+        href: "tel:+4795469859",
+        ariaLabel: "Call Women for Change",
         description:
-          "The phone can be used for brief enquiries during weekday opening hours.",
-      },
-      {
-        id: "office-address",
-        kind: "address",
-        label: "Address",
-        value: "Storgata 10, 0155 Oslo",
-        description:
-          "Temporary visitor address used as placeholder content for the contact page.",
+          "Call us if you would like to speak directly with the organisation.",
       },
     ],
     social: {
       title: "Social media",
       description:
-        "You can also follow the organisation on social media for updates and events.",
+        "Follow Women for Change for updates from the work in Norway and Afghanistan.",
       links: [
         {
-          label: "Instagram",
-          href: "https://instagram.com/nakfe.no",
-          ariaLabel: "Visit NAKFE on Instagram",
+          label: "Facebook",
+          href: "https://www.facebook.com/Kvinnerforendring/",
+          ariaLabel: "Visit Women for Change on Facebook",
           isExternal: true,
         },
         {
-          label: "Facebook",
-          href: "https://facebook.com/nakfe.no",
-          ariaLabel: "Visit NAKFE on Facebook",
+          label: "Instagram",
+          href: "https://www.instagram.com/nakfe.no/",
+          ariaLabel: "Visit Women for Change on Instagram",
+          isExternal: true,
+        },
+        {
+          label: "LinkedIn",
+          href: "https://www.linkedin.com/company/afghan-norwegian-women-for-change/posts/?feedView=all",
+          ariaLabel: "Visit Women for Change on LinkedIn",
           isExternal: true,
         },
       ],
     },
     emptyState: {
-      title: "Contact information is being updated",
+      title: "No contact channels are published.",
       description:
-        "We will update the page as soon as NAKFE's public contact channels are ready.",
+        "Contact information is not available at the moment.",
     },
   },
 } satisfies ContactPageContent;

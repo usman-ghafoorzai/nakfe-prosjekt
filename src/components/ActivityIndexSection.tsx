@@ -23,7 +23,7 @@ type ActivityIndexSectionProps = {
 
 function getLinkAttributes(link: ContentLink) {
   return link.isExternal
-    ? { target: "_blank", rel: "noreferrer" }
+    ? { target: "_blank", rel: "noopener noreferrer" }
     : undefined;
 }
 

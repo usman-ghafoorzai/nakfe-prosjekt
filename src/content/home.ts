@@ -3,18 +3,18 @@ import type { LocalizedContent } from "@/types/locale";
 
 export const homeContent = {
   seo: {
-    title: "Startsiden",
+    title: "Forside",
     description:
-      "NAKFE er en frivillig organisasjon som arbeider for integrering, inkludering, likestilling og endring.",
+      "Kvinner for Endring er en ideell organisasjon som styrker kvinner gjennom utdanning, arbeid, entreprenørskap og fellesskap i Norge og Afghanistan.",
   },
 
   hero: {
-    eyebrow: "NAKFE · Kvinner for Endring",
-    title: "Sammen skaper vi muligheter for kvinner som er fratatt sine.",
+    eyebrow: "Kvinner for Endring",
+    title: "Styrker kvinner gjennom kunnskap, arbeid og fellesskap.",
     description:
-      "Et fellesskap for kunnskap, deltakelse og verdighet — bygget av kvinner, for kvinner og lokalsamfunnet rundt dem.",
+      "En ideell organisasjon etablert i Norge i april 2021, med arbeid i Norge og Afghanistan.",
     rotatingWordsLabel: "Arbeidet vårt handler om",
-    rotatingWords: ["Integrering", "Inkludering", "Likestilling", "Endring"],
+    rotatingWords: ["Utdanning", "Arbeid", "Entreprenørskap", "Fellesskap"],
     backgroundImage: {
       src: "/images/hero/hero-background.jpg",
       alt: "",
@@ -131,23 +131,24 @@ export const homeContent = {
 
   intro: {
     header: {
-      eyebrow: "Hva vi bygger",
-      title: "Et fellesskap med plass til både kulturarv og nye muligheter.",
+      eyebrow: "Om organisasjonen",
+      title: "Muligheter for langsiktig økonomisk selvstendighet og deltakelse.",
       description:
-        "NAKFE skal være et tydelig og varmt sted for kvinner, familier og frivillige som vil bidra til deltakelse, mestring og fellesskap.",
+        "Kvinner for Endring arbeider gjennom utdanning, arbeid, entreprenørskap og fellesskap.",
     },
     body: [
-      "Arbeidet handler ikke bare om arrangementer. Det handler om å skape rom hvor mennesker kan møtes, dele erfaringer, lære av hverandre og finne veier videre.",
-      "Nettsiden er bygget med et redigerbart content-lag. Det betyr at artikler, nyheter, aktiviteter, bilder og tekster senere kan flyttes til Supabase, CMS eller et admin-panel uten at komponentene må skrives om.",
+      "I Norge arbeider organisasjonen med integrering og inkludering av kvinner med minoritetsbakgrunn i samfunnet og arbeidslivet.",
+      "I Afghanistan driver organisasjonen utdannings- og inntektsrettede programmer for kvinner og jenter under krevende forhold.",
     ],
     image: {
-      src: "/images/about/community.jpg",
-      alt: "Kvinner samlet i et varmt fellesskap",
+      src: "/images/report-2026/norway-fundraising-presentation.jpeg",
+      alt: "Presentasjon under et innsamlingsarrangement i Norge for prosjektene i Kabul",
       position: "center",
-      caption: "Fellesskap, kunnskap og deltakelse skal være lett å finne — både digitalt og fysisk.",
+      caption:
+        "Et innsamlingsarrangement i Norge bidrar til å finansiere organisasjonens prosjekter i Kabul.",
     },
     action: {
-      label: "Les mer om NAKFE",
+      label: "Les mer om Kvinner for Endring",
       href: "/om-oss",
     },
     visual: {
@@ -158,54 +159,54 @@ export const homeContent = {
 
   featuredAreas: {
     header: {
-      eyebrow: "Innhold som kan vokse",
-      title: "Et nettsted organisasjonen kan eie selv.",
+      eyebrow: "Arbeidet vårt",
+      title: "Utdanning, arbeid, entreprenørskap og fellesskap.",
       description:
-        "Seksjonene under er strukturert som redigerbart innhold. Senere kan søstera di publisere nyheter, prosjekter og aktiviteter uten å kode.",
+        "Arbeidet er tilpasset ulike behov i Norge og Afghanistan.",
     },
     variant: "editorial",
     items: [
       {
-        eyebrow: "Organisasjonen",
-        title: "Om NAKFE",
+        eyebrow: "Norge",
+        title: "Integrering og inkludering",
         description:
-          "Kort inngang til organisasjonens bakgrunn, verdier og arbeid for kvinner og fellesskap.",
-        meta: "Fast side",
+          "Programmer for jobbførhet, utdanning og kompetanse, entreprenørskap samt psykisk helse og livskvalitet.",
+        meta: "Arbeid i Norge",
         image: {
-          src: "/images/page-hero/fellesskap-kvinner.png",
-          alt: "Illustrasjon av kvinner i fellesskap",
+          src: "/images/social-2026/norway-roundtable-event.png",
+          alt: "Deltakere samlet rundt et bord under et møte eller arrangement i Norge",
           position: "center",
         },
         action: {
-          label: "Les mer",
+          label: "Les om organisasjonen",
           href: "/om-oss",
         },
       },
       {
-        eyebrow: "Møteplasser",
-        title: "Aktiviteter",
+        eyebrow: "Afghanistan",
+        title: "Utdanning og ferdigheter",
         description:
-          "Et sted for arrangementer, kurs, møteplasser og frivillig arbeid som kan publiseres fortløpende.",
-        meta: "Publiserbart",
+          "Utdannings- og inntektsrettede programmer med blant annet engelskkurs, entreprenørskap og sømopplæring.",
+        meta: "Arbeid i Afghanistan",
         image: {
-          src: "/images/page-hero/arrangementer.png",
-          alt: "Illustrasjon av kvinner samlet til arrangement",
+          src: "/images/social-2026/digital-classes-projection.png",
+          alt: "Undervisningssituasjon brukt i forbindelse med organisasjonens digitale undervisningsinitiativ for jenter i Kabul og Faryab",
           position: "center",
         },
         action: {
-          label: "Se aktiviteter",
-          href: "/aktiviteter",
+          label: "Se prosjektene",
+          href: "/vart-arbeid",
         },
       },
       {
-        eyebrow: "Historier",
+        eyebrow: "Prosjekter og programmer",
         title: "Vårt arbeid",
         description:
-          "Prosjekter og programmer fra NAKFEs arbeid i Afghanistan og Norge.",
-        meta: "Prosjekter",
+          "Les om de dokumenterte prosjektene i Norge, Kabul og Faryab.",
+        meta: "Norge og Afghanistan",
         image: {
-          src: "/images/page-hero/kvinner-for-endring.png",
-          alt: "Illustrasjon knyttet til kvinner for endring",
+          src: "/images/report-2026/kabul-training-centre-practical-work.jpeg",
+          alt: "Deltakere samlet til praktisk arbeid ved et av organisasjonens sentre i Kabul",
           position: "center",
         },
         action: {
@@ -218,18 +219,18 @@ export const homeContent = {
 
   finalCta: {
     eyebrow: "Neste steg",
-    title: "Vil du vite mer eller bidra?",
+    title: "Vil du vite mer, støtte arbeidet eller utforske samarbeid?",
     description:
-      "Ta kontakt med NAKFE dersom du har spørsmål, ønsker samarbeid eller vil bidra som frivillig.",
+      "Ta kontakt med Kvinner for Endring for spørsmål om organisasjonen, støtte eller samarbeid.",
     primaryAction: {
-      label: "Kontakt NAKFE",
+      label: "Kontakt Kvinner for Endring",
       href: "/kontakt",
     },
     secondaryAction: {
       label: "Spørsmål og svar",
       href: "/faq",
     },
-    fallbackText: "Kunnskap. Fellesskap. Handling.",
+    fallbackText: "Kunnskap. Arbeid. Fellesskap.",
   },
 } satisfies HomePageContent;
 
@@ -237,16 +238,16 @@ const englishHomeContent = {
   seo: {
     title: "Home",
     description:
-      "NAKFE is a voluntary organisation working for integration, inclusion, equality and change.",
+      "Women for Change is a non-profit organisation that empowers women through education, employment, entrepreneurship and community in Norway and Afghanistan.",
   },
 
   hero: {
-    eyebrow: "NAKFE · Kvinner for Endring",
-    title: "Together, we create opportunities for women who have been denied theirs.",
+    eyebrow: "Women for Change",
+    title: "Empowering women through knowledge, employment and community.",
     description:
-      "A community for knowledge, participation and dignity — built by women, for women and the communities around them.",
+      "A non-profit organisation established in Norway in April 2021, working in Norway and Afghanistan.",
     rotatingWordsLabel: "Our work is about",
-    rotatingWords: ["Integration", "Inclusion", "Equality", "Change"],
+    rotatingWords: ["Education", "Employment", "Entrepreneurship", "Community"],
     backgroundImage: {
       src: "/images/hero/hero-background.jpg",
       alt: "",
@@ -363,23 +364,24 @@ const englishHomeContent = {
 
   intro: {
     header: {
-      eyebrow: "What we are building",
-      title: "A community with room for both cultural heritage and new opportunities.",
+      eyebrow: "About the organisation",
+      title: "Opportunities for long-term financial independence and participation.",
       description:
-        "NAKFE aims to be a clear and welcoming place for women, families and volunteers who want to contribute to participation, achievement and community.",
+        "Women for Change works through education, employment, entrepreneurship and community.",
     },
     body: [
-      "The work is not only about events. It is about creating spaces where people can meet, share experiences, learn from one another and find ways forward.",
-      "The website is built with an editable content layer. This means that articles, news, activities, images and text can later be moved to Supabase, a CMS or an admin panel without rewriting the components.",
+      "In Norway, the organisation works to integrate and include women with minority backgrounds in society and the labour market.",
+      "In Afghanistan, the organisation runs education and livelihood-focused programmes for women and girls under challenging conditions.",
     ],
     image: {
-      src: "/images/about/community.jpg",
-      alt: "Women gathered in a welcoming community",
+      src: "/images/report-2026/norway-fundraising-presentation.jpeg",
+      alt: "Presentation at a fundraising event in Norway for the projects in Kabul",
       position: "center",
-      caption: "Community, knowledge and participation should be easy to find — both digitally and in person.",
+      caption:
+        "A fundraising event in Norway helps finance the organisation's projects in Kabul.",
     },
     action: {
-      label: "Learn more about NAKFE",
+      label: "Learn more about Women for Change",
       href: "/om-oss",
     },
     visual: {
@@ -390,54 +392,54 @@ const englishHomeContent = {
 
   featuredAreas: {
     header: {
-      eyebrow: "Content that can grow",
-      title: "A website the organisation can manage itself.",
+      eyebrow: "Our work",
+      title: "Education, employment, entrepreneurship and community.",
       description:
-        "The sections below are structured as editable content. Later, your sister can publish news, projects and activities without writing code.",
+        "The work is adapted to different needs in Norway and Afghanistan.",
     },
     variant: "editorial",
     items: [
       {
-        eyebrow: "The organisation",
-        title: "About NAKFE",
+        eyebrow: "Norway",
+        title: "Integration and inclusion",
         description:
-          "A brief introduction to the organisation's background, values and work for women and communities.",
-        meta: "Permanent page",
+          "Programmes for job readiness, education and skills, entrepreneurship, and mental health and well-being.",
+        meta: "Work in Norway",
         image: {
-          src: "/images/page-hero/fellesskap-kvinner.png",
-          alt: "Illustration of women in a community",
+          src: "/images/social-2026/norway-roundtable-event.png",
+          alt: "Participants gathered around a table during a meeting or event in Norway",
           position: "center",
         },
         action: {
-          label: "Learn more",
+          label: "About the organisation",
           href: "/om-oss",
         },
       },
       {
-        eyebrow: "Meeting places",
-        title: "Activities",
+        eyebrow: "Afghanistan",
+        title: "Education and skills",
         description:
-          "A place for events, courses, meeting places and volunteer work that can be published continuously.",
-        meta: "Publishable",
+          "Education and livelihood-focused programmes including English courses, entrepreneurship and tailoring training.",
+        meta: "Work in Afghanistan",
         image: {
-          src: "/images/page-hero/arrangementer.png",
-          alt: "Illustration of women gathered at an event",
+          src: "/images/social-2026/digital-classes-projection.png",
+          alt: "A teaching scene shared in connection with the organisation's digital education initiative for girls in Kabul and Faryab",
           position: "center",
         },
         action: {
-          label: "View activities",
-          href: "/aktiviteter",
+          label: "View the projects",
+          href: "/vart-arbeid",
         },
       },
       {
-        eyebrow: "Stories",
+        eyebrow: "Projects and programmes",
         title: "Our work",
         description:
-          "Projects and programmes from NAKFE's work in Afghanistan and Norway.",
-        meta: "Projects",
+          "Read about the documented projects in Norway, Kabul and Faryab.",
+        meta: "Norway and Afghanistan",
         image: {
-          src: "/images/page-hero/kvinner-for-endring.png",
-          alt: "Illustration related to Kvinner for Endring",
+          src: "/images/report-2026/kabul-training-centre-practical-work.jpeg",
+          alt: "Participants gathered for practical work at one of the organisation's centres in Kabul",
           position: "center",
         },
         action: {
@@ -450,18 +452,18 @@ const englishHomeContent = {
 
   finalCta: {
     eyebrow: "Next step",
-    title: "Would you like to learn more or contribute?",
+    title: "Would you like to learn more, support the work or explore collaboration?",
     description:
-      "Contact NAKFE if you have questions, would like to collaborate or want to volunteer.",
+      "Contact Women for Change with questions about the organisation, support or collaboration.",
     primaryAction: {
-      label: "Contact NAKFE",
+      label: "Contact Women for Change",
       href: "/kontakt",
     },
     secondaryAction: {
       label: "Questions and answers",
       href: "/faq",
     },
-    fallbackText: "Knowledge. Community. Action.",
+    fallbackText: "Knowledge. Employment. Community.",
   },
 } satisfies HomePageContent;
 
