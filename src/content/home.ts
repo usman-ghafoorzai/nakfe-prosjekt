@@ -24,69 +24,108 @@ export const homeContent = {
   },
 
   impactBrief: {
-    eyebrow: "Etablert i Norge i april 2021",
-    title: "Lokalt forankret arbeid i Norge og Afghanistan.",
+    eyebrow: "Hvorfor arbeidet haster",
+    title: "Når jenter mister skolegangen, mister samfunnet framtiden sin.",
     description:
-      "Kvinner for Endring tilpasser arbeidet til lokale forhold og har et tydelig fokus på verdighet, bærekraft og deltakelse.",
+      "Situasjonen i Afghanistan viser hvorfor møteplasser, kunnskap og solidaritet betyr noe. NAKFE skal være et sted hvor engasjement kan bli til handling — også her i Norge.",
     primaryAction: {
-      label: "Les om organisasjonen",
-      href: "/om-oss",
-      ariaLabel: "Les om Kvinner for Endring",
+      label: "Les FN-saken",
+      href: "https://fn.no/nyheter/afghanistan-1-4-millioner-jenter-nektet-skolegang",
+      ariaLabel: "Les FN-sambandets sak om jenter nektet skolegang i Afghanistan",
+      isExternal: true,
     },
     secondaryAction: {
-      label: "Se nøkkelpunkter",
-      ariaLabel: "Åpne dokumenterte nøkkelpunkter om organisasjonen",
+      label: "Se statistikken",
+      ariaLabel: "Åpne statistikk om utdanning og arbeid for afghanske kvinner",
     },
     highlights: [
       {
-        value: "Norge",
-        label: "Integrering og inkludering",
+        value: "1,4 mill.",
+        label: "jenter nektet videregående opplæring",
         description:
-          "Arbeidet støtter kvinner med minoritetsbakgrunn i møtet med samfunnet og arbeidslivet.",
+          "FN-sambandet viser til UNESCO-tall om jenter som er fratatt skolegang etter Talibans maktovertakelse.",
       },
       {
-        value: "Afghanistan",
-        label: "Utdanning og inntektsrettede ferdigheter",
+        value: "78 %",
+        label: "unge kvinner utenfor utdanning, arbeid og opplæring",
         description:
-          "Programmene gir kvinner og jenter tilgang til læring og ferdigheter under krevende forhold.",
+          "UN Women beskriver dette som nesten fire ganger høyere enn for unge afghanske menn.",
       },
     ],
     statisticsDialog: {
-      eyebrow: "Dokumentert arbeid",
-      title: "Fra etablering til konkrete programmer.",
+      eyebrow: "Tallene bak arbeidet",
+      title: "Når tilgang til skole og arbeid forsvinner, forsvinner også valgmuligheter.",
       description:
-        "Nøkkelpunktene viser organisasjonens etablering, geografiske arbeid og den dokumenterte sømopplæringen i Kabul.",
-      educationHeading: "Organisasjonen",
-      citationsHeading: "Les mer",
-      closeLabel: "Lukk nøkkelpunkter",
+          "Dette er ikke bare store tall. Det handler om jenter og unge kvinner som mister skolegang, arbeidserfaring, inntekt, nettverk og muligheten til å påvirke sin egen framtid.",
+      educationHeading: "Utdanning, arbeid og opplæring",
+      citationsHeading: "Tallgrunnlag",
+      closeLabel: "Lukk statistikk",
       percentageLabel: "prosent",
       statistics: [
         {
-          value: "April 2021",
-          label: "Etablert i Norge",
+          value: "78 %",
+          label: "unge kvinner",
           description:
-            "Kvinner for Endring ble etablert som en ideell organisasjon i Norge.",
+              "Andel unge afghanske kvinner som står utenfor utdanning, arbeid og opplæring.",
+          barLabel: "Utenfor utdanning, arbeid og opplæring",
+          barValue: 78,
         },
         {
-          value: "To land",
-          label: "Norge og Afghanistan",
+          value: "≈20 %",
+          label: "unge menn",
           description:
-            "Organisasjonen driver prosjekter i begge land og tilpasser arbeidet til lokale forhold.",
+              "Nivået for unge menn er langt lavere. UN Women beskriver kvinners andel som nesten fire ganger høyere.",
+          barLabel: "Sammenlignbart nivå for unge menn",
+          barValue: 20,
         },
         {
-          value: "4–6 mnd.",
-          label: "Sømopplæring",
+          value: "1,4 mill.",
+          label: "jenter nektet videregående skole",
           description:
-            "Deltakerne i sømprogrammene gjennomfører et opplæringsløp på mellom fire og seks måneder.",
+              "Minst 1,4 millioner jenter er nektet tilgang til videregående opplæring siden Talibans maktovertakelse.",
         },
         {
-          value: "To sentre",
-          label: "Opplæring i Kabul",
+          value: "2,5 mill.",
+          label: "jenter fratatt utdanning",
           description:
-            "Sømopplæringen gjennomføres ved organisasjonens to opplæringssentre i Kabul.",
+              "Nesten 2,5 millioner jenter er fratatt retten til utdanning. FN-sambandet beskriver dette som 80 prosent av afghanske jenter i skolealder.",
+          barLabel: "Jenter i skolealder uten rett til utdanning",
+          barValue: 80,
+        },
+        {
+          value: "24 %",
+          label: "kvinner i arbeidsstyrken",
+          description:
+              "UN Women peker på et av verdens største kjønnsgap i arbeidsdeltakelse.",
+          barLabel: "Kvinner i arbeidsstyrken",
+          barValue: 24,
+        },
+        {
+          value: "89 %",
+          label: "menn i arbeidsstyrken",
+          description:
+              "Tilsvarende andel for menn i arbeidsstyrken i UN Womens gjennomgang.",
+          barLabel: "Menn i arbeidsstyrken",
+          barValue: 89,
         },
       ],
-      citations: [],
+      citations: [
+        {
+          label: "FN-sambandet",
+          text: "FN-sambandet: Afghanistan: 1,4 millioner jenter nektet skolegang",
+          href: "https://fn.no/nyheter/afghanistan-1-4-millioner-jenter-nektet-skolegang",
+        },
+        {
+          label: "UN Women",
+          text: "UN Women: Afghanistan Gender Index 2024",
+          href: "https://www.unwomen.org/en/digital-library/publications/2025/06/afghanistan-gender-index-2024",
+        },
+        {
+          label: "UN Women Australia",
+          text: "UN Women: Nearly eight out of 10 young Afghan women are excluded from education, jobs and training",
+          href: "https://unwomen.org.au/nearly-eight-out-of-10-young-afghan-women-are-excluded-from-education-jobs-and-training/",
+        },
+      ],
     },
   },
 
@@ -218,69 +257,108 @@ const englishHomeContent = {
   },
 
   impactBrief: {
-    eyebrow: "Established in Norway in April 2021",
-    title: "Locally grounded work in Norway and Afghanistan.",
+    eyebrow: "Why this work is urgent",
+    title: "When girls lose access to education, society loses its future.",
     description:
-      "Women for Change adapts its work to local contexts with a strong focus on dignity, sustainability and participation.",
+      "The situation in Afghanistan shows why meeting places, knowledge and solidarity matter. NAKFE aims to be a place where commitment can turn into action — here in Norway as well.",
     primaryAction: {
-      label: "About the organisation",
-      href: "/om-oss",
-      ariaLabel: "Learn about Women for Change",
+      label: "Read the UN article",
+      href: "https://fn.no/nyheter/afghanistan-1-4-millioner-jenter-nektet-skolegang",
+      ariaLabel: "Read the UN Association of Norway article about girls denied schooling in Afghanistan",
+      isExternal: true,
     },
     secondaryAction: {
-      label: "View key facts",
-      ariaLabel: "Open documented key facts about the organisation",
+      label: "View the statistics",
+      ariaLabel: "Open statistics about education and employment for Afghan women",
     },
     highlights: [
       {
-        value: "Norway",
-        label: "Integration and inclusion",
+        value: "1.4 million",
+        label: "girls denied secondary education",
         description:
-          "The work supports women with minority backgrounds in society and the labour market.",
+          "The UN Association of Norway cites UNESCO figures on girls deprived of schooling since the Taliban takeover.",
       },
       {
-        value: "Afghanistan",
-        label: "Education and livelihood skills",
+        value: "78%",
+        label: "young women outside education, employment and training",
         description:
-          "The programmes give women and girls access to learning and skills under challenging conditions.",
+          "UN Women describes this as almost four times the rate for young Afghan men.",
       },
     ],
     statisticsDialog: {
-      eyebrow: "Documented work",
-      title: "From establishment to practical programmes.",
+      eyebrow: "The figures behind the work",
+      title: "When access to education and employment disappears, choices disappear too.",
       description:
-        "These key facts cover the organisation's establishment, geographic work and documented tailoring programmes in Kabul.",
-      educationHeading: "The organisation",
-      citationsHeading: "Read more",
-      closeLabel: "Close key facts",
+        "These are not just large figures. They represent girls and young women losing education, work experience, income, networks and the opportunity to shape their own future.",
+      educationHeading: "Education, employment and training",
+      citationsHeading: "Sources",
+      closeLabel: "Close statistics",
       percentageLabel: "percent",
       statistics: [
         {
-          value: "April 2021",
-          label: "Established in Norway",
+          value: "78%",
+          label: "young women",
           description:
-            "Women for Change was established as a non-profit organisation in Norway.",
+            "The share of young Afghan women outside education, employment and training.",
+          barLabel: "Outside education, employment and training",
+          barValue: 78,
         },
         {
-          value: "Two countries",
-          label: "Norway and Afghanistan",
+          value: "≈20%",
+          label: "young men",
           description:
-            "The organisation runs projects in both countries and adapts its work to local contexts.",
+            "The rate for young men is far lower. UN Women describes the share for women as almost four times higher.",
+          barLabel: "Comparable rate for young men",
+          barValue: 20,
         },
         {
-          value: "4–6 months",
-          label: "Tailoring training",
+          value: "1.4 million",
+          label: "girls denied secondary school",
           description:
-            "Participants in the tailoring programmes complete a training period of between four and six months.",
+            "At least 1.4 million girls have been denied access to secondary education since the Taliban takeover.",
         },
         {
-          value: "Two centres",
-          label: "Training in Kabul",
+          value: "2.5 million",
+          label: "girls deprived of education",
           description:
-            "The tailoring training is delivered at the organisation's two training centres in Kabul.",
+            "Nearly 2.5 million girls have been deprived of the right to education. The UN Association of Norway describes this as 80 percent of school-age Afghan girls.",
+          barLabel: "School-age girls without the right to education",
+          barValue: 80,
+        },
+        {
+          value: "24%",
+          label: "women in the workforce",
+          description:
+            "UN Women points to one of the world's largest gender gaps in workforce participation.",
+          barLabel: "Women in the workforce",
+          barValue: 24,
+        },
+        {
+          value: "89%",
+          label: "men in the workforce",
+          description:
+            "The corresponding share for men in the workforce in UN Women's review.",
+          barLabel: "Men in the workforce",
+          barValue: 89,
         },
       ],
-      citations: [],
+      citations: [
+        {
+          label: "UN Association of Norway",
+          text: "UN Association of Norway: Afghanistan: 1.4 million girls denied schooling",
+          href: "https://fn.no/nyheter/afghanistan-1-4-millioner-jenter-nektet-skolegang",
+        },
+        {
+          label: "UN Women",
+          text: "UN Women: Afghanistan Gender Index 2024",
+          href: "https://www.unwomen.org/en/digital-library/publications/2025/06/afghanistan-gender-index-2024",
+        },
+        {
+          label: "UN Women Australia",
+          text: "UN Women: Nearly eight out of 10 young Afghan women are excluded from education, jobs and training",
+          href: "https://unwomen.org.au/nearly-eight-out-of-10-young-afghan-women-are-excluded-from-education-jobs-and-training/",
+        },
+      ],
     },
   },
 
