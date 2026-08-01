@@ -173,8 +173,8 @@ export const homeContent = {
           "Programmer for jobbførhet, utdanning og kompetanse, entreprenørskap samt psykisk helse og livskvalitet.",
         meta: "Arbeid i Norge",
         image: {
-          src: "/images/report-2026/norway-entrepreneurship-training.jpeg",
-          alt: "Deltakere på entreprenørskapstrening for kvinner med minoritetsbakgrunn i Norge",
+          src: "/images/social-2026/norway-roundtable-event.png",
+          alt: "Deltakere samlet rundt et bord under et møte eller arrangement i Norge",
           position: "center",
         },
         action: {
@@ -189,8 +189,8 @@ export const homeContent = {
           "Utdannings- og inntektsrettede programmer med blant annet engelskkurs, entreprenørskap og sømopplæring.",
         meta: "Arbeid i Afghanistan",
         image: {
-          src: "/images/report-2026/kabul-training-centre-students.jpeg",
-          alt: "Deltakere ved et av organisasjonens opplæringssentre i Kabul",
+          src: "/images/social-2026/digital-classes-projection.png",
+          alt: "Undervisningssituasjon brukt i forbindelse med organisasjonens digitale undervisningsinitiativ for jenter i Kabul og Faryab",
           position: "center",
         },
         action: {
@@ -205,8 +205,8 @@ export const homeContent = {
           "Les om de dokumenterte prosjektene i Norge, Kabul og Faryab.",
         meta: "Norge og Afghanistan",
         image: {
-          src: "/images/report-2026/kabul-graduation-ceremony-group.jpeg",
-          alt: "Deltakere samlet ved en avslutningsseremoni etter opplæring i Kabul",
+          src: "/images/report-2026/kabul-training-centre-practical-work.jpeg",
+          alt: "Deltakere samlet til praktisk arbeid ved et av organisasjonens sentre i Kabul",
           position: "center",
         },
         action: {
@@ -406,8 +406,8 @@ const englishHomeContent = {
           "Programmes for job readiness, education and skills, entrepreneurship, and mental health and well-being.",
         meta: "Work in Norway",
         image: {
-          src: "/images/report-2026/norway-entrepreneurship-training.jpeg",
-          alt: "Participants in entrepreneurship training for women with minority backgrounds in Norway",
+          src: "/images/social-2026/norway-roundtable-event.png",
+          alt: "Participants gathered around a table during a meeting or event in Norway",
           position: "center",
         },
         action: {
@@ -422,8 +422,8 @@ const englishHomeContent = {
           "Education and livelihood-focused programmes including English courses, entrepreneurship and tailoring training.",
         meta: "Work in Afghanistan",
         image: {
-          src: "/images/report-2026/kabul-training-centre-students.jpeg",
-          alt: "Participants at one of the organisation's training centres in Kabul",
+          src: "/images/social-2026/digital-classes-projection.png",
+          alt: "A teaching scene shared in connection with the organisation's digital education initiative for girls in Kabul and Faryab",
           position: "center",
         },
         action: {
@@ -438,8 +438,8 @@ const englishHomeContent = {
           "Read about the documented projects in Norway, Kabul and Faryab.",
         meta: "Norway and Afghanistan",
         image: {
-          src: "/images/report-2026/kabul-graduation-ceremony-group.jpeg",
-          alt: "Participants gathered at a graduation ceremony after training in Kabul",
+          src: "/images/report-2026/kabul-training-centre-practical-work.jpeg",
+          alt: "Participants gathered for practical work at one of the organisation's centres in Kabul",
           position: "center",
         },
         action: {

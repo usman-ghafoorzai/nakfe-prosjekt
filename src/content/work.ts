@@ -234,10 +234,10 @@ const workContentDraft = {
         summary:
           "Prosjektet gir jenter over sjette trinn, som er fratatt retten til utdanning, tilgang til digital opplæring og grunnleggende digitale ferdigheter som kan styrke deres utdannings- og yrkesmuligheter.",
         coverImage: {
-          src: "/images/work/digital-education-kabul.svg",
-          alt: "Illustrasjon av digital undervisning i engelsk og matematikk",
-          caption: "Illustrasjon av digital undervisning for jenter i Kabul.",
-          credit: "Illustrasjon for Kvinner for Endring",
+          src: "/images/social-2026/digital-classes-projection.png",
+          alt: "Undervisningssituasjon brukt i forbindelse med organisasjonens digitale undervisningsinitiativ for jenter i Kabul og Faryab",
+          caption: "Bilde brukt i forbindelse med organisasjonens digitale undervisningsinitiativ for jenter i Kabul og Faryab.",
+          credit: "Kvinner for Endring",
           position: "center",
         },
         body: [
@@ -266,10 +266,10 @@ const workContentDraft = {
         summary:
           "Prosjektet gir jenter over sjette trinn som er fratatt retten til videre utdanning, tilgang til digital undervisning i engelsk og matematikk for å styrke deres kunnskap og framtidsmuligheter.",
         coverImage: {
-          src: "/images/work/digital-education-faryab.svg",
-          alt: "Illustrasjon av nettbasert undervisning i engelsk og matematikk",
-          caption: "Illustrasjon av digital undervisning for jenter i Faryab.",
-          credit: "Illustrasjon for Kvinner for Endring",
+          src: "/images/social-2026/digital-classes-collage.png",
+          alt: "Bildekollasj brukt i forbindelse med organisasjonens digitale undervisningsinitiativ for jenter i Kabul og Faryab",
+          caption: "Bildekollasj brukt i forbindelse med organisasjonens digitale undervisningsinitiativ for jenter i Kabul og Faryab.",
+          credit: "Kvinner for Endring",
           position: "center",
         },
         body: [
@@ -542,10 +542,10 @@ const englishWorkContent = {
         summary:
           "The project provides girls above sixth grade, who have been denied access to education, with online learning opportunities in English and mathematics to support their knowledge and future opportunities.",
         coverImage: {
-          src: "/images/work/digital-education-kabul.svg",
-          alt: "Illustration of digital education in English and mathematics",
-          caption: "Illustration of digital education for girls in Kabul.",
-          credit: "Illustration for Women for Change",
+          src: "/images/social-2026/digital-classes-projection.png",
+          alt: "A teaching scene shared in connection with the organisation's digital education initiative for girls in Kabul and Faryab",
+          caption: "Image shared in connection with the organisation's digital education initiative for girls in Kabul and Faryab.",
+          credit: "Women for Change",
           position: "center",
         },
         body: [
@@ -574,10 +574,10 @@ const englishWorkContent = {
         summary:
           "The project provides girls above sixth grade, who have been denied access to education, with online instruction in English and mathematics to strengthen their knowledge and future opportunities.",
         coverImage: {
-          src: "/images/work/digital-education-faryab.svg",
-          alt: "Illustration of online education in English and mathematics",
-          caption: "Illustration of digital education for girls in Faryab.",
-          credit: "Illustration for Women for Change",
+          src: "/images/social-2026/digital-classes-collage.png",
+          alt: "Image collage shared in connection with the organisation's digital education initiative for girls in Kabul and Faryab",
+          caption: "Image collage shared in connection with the organisation's digital education initiative for girls in Kabul and Faryab.",
+          credit: "Women for Change",
           position: "center",
         },
         body: [
