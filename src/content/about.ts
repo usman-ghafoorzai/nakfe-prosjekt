@@ -10,31 +10,27 @@ const sharedPurposeImage = {
 
 const valueMedia = {
   integration: {
-    type: "video",
-    src: "/videos/values/integrering.mp4",
-    poster: "/images/page-hero/kvinner-fellesskap.png",
+    type: "image",
+    src: "/images/page-hero/kvinner-fellesskap.png",
     alt: "Kvinner samlet i et fellesskap",
     position: "center",
   },
   inclusion: {
-    type: "video",
-    src: "/videos/values/inkludering.mp4",
-    poster: "/images/page-hero/arrangementer.png",
-    alt: "Deltakere i en aktivitet og samtale",
+    type: "image",
+    src: "/images/page-hero/arrangementer.png",
+    alt: "Deltakere samlet til aktivitet og samtale",
     position: "center",
   },
   dignity: {
-    type: "video",
-    src: "/videos/values/likestilling.mp4",
-    poster: "/images/page-hero/afghansk-kulturarv.png",
-    alt: "Kvinner som markerer gjennomført opplæring",
+    type: "image",
+    src: "/images/page-hero/afghansk-kulturarv.png",
+    alt: "Kvinner samlet etter gjennomført opplæring",
     position: "center",
   },
   sustainability: {
-    type: "video",
-    src: "/videos/values/endring.mp4",
-    poster: "/images/page-hero/kvinner-for-endring.png",
-    alt: "Kvinner samlet på et arrangement med Kvinner for Endring",
+    type: "image",
+    src: "/images/page-hero/kvinner-for-endring.png",
+    alt: "Kvinner samlet i arbeid og fellesskap",
     position: "center",
   },
 } as const;
@@ -146,15 +142,15 @@ const englishValueMedia = {
   },
   inclusion: {
     ...valueMedia.inclusion,
-    alt: "Participants in an activity and conversation",
+    alt: "Participants gathered for an activity and conversation",
   },
   dignity: {
     ...valueMedia.dignity,
-    alt: "Women marking the completion of training",
+    alt: "Women gathered after completing training",
   },
   sustainability: {
     ...valueMedia.sustainability,
-    alt: "Women gathered at an event with Women for Change",
+    alt: "Women gathered through work and community",
   },
 } as const;
 
