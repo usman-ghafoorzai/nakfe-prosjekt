@@ -141,11 +141,11 @@ export const homeContent = {
       "I Afghanistan driver organisasjonen utdannings- og inntektsrettede programmer for kvinner og jenter under krevende forhold.",
     ],
     image: {
-      src: "/images/about/community.jpg",
-      alt: "Kvinner samlet i et fellesskap",
+      src: "/images/report-2026/norway-fundraising-presentation.jpeg",
+      alt: "Presentasjon under et innsamlingsarrangement i Norge for prosjektene i Kabul",
       position: "center",
       caption:
-        "Fellesskap og praktiske muligheter står sentralt i arbeidet.",
+        "Et innsamlingsarrangement i Norge bidrar til å finansiere organisasjonens prosjekter i Kabul.",
     },
     action: {
       label: "Les mer om Kvinner for Endring",
@@ -173,8 +173,8 @@ export const homeContent = {
           "Programmer for jobbførhet, utdanning og kompetanse, entreprenørskap samt psykisk helse og livskvalitet.",
         meta: "Arbeid i Norge",
         image: {
-          src: "/images/page-hero/fellesskap-kvinner.png",
-          alt: "Illustrasjon av kvinner i fellesskap",
+          src: "/images/report-2026/norway-entrepreneurship-training.jpeg",
+          alt: "Deltakere på entreprenørskapstrening for kvinner med minoritetsbakgrunn i Norge",
           position: "center",
         },
         action: {
@@ -189,8 +189,8 @@ export const homeContent = {
           "Utdannings- og inntektsrettede programmer med blant annet engelskkurs, entreprenørskap og sømopplæring.",
         meta: "Arbeid i Afghanistan",
         image: {
-          src: "/images/page-hero/arrangementer.png",
-          alt: "Illustrasjon av kvinner samlet til opplæring",
+          src: "/images/report-2026/kabul-training-centre-students.jpeg",
+          alt: "Deltakere ved et av organisasjonens opplæringssentre i Kabul",
           position: "center",
         },
         action: {
@@ -205,8 +205,8 @@ export const homeContent = {
           "Les om de dokumenterte prosjektene i Norge, Kabul og Faryab.",
         meta: "Norge og Afghanistan",
         image: {
-          src: "/images/page-hero/kvinner-for-endring.png",
-          alt: "Illustrasjon knyttet til Kvinner for Endring",
+          src: "/images/report-2026/kabul-training-centre-practical-work.jpeg",
+          alt: "Deltakere samlet til praktisk arbeid ved et av organisasjonens sentre i Kabul",
           position: "center",
         },
         action: {
@@ -374,11 +374,11 @@ const englishHomeContent = {
       "In Afghanistan, the organisation runs education and livelihood-focused programmes for women and girls under challenging conditions.",
     ],
     image: {
-      src: "/images/about/community.jpg",
-      alt: "Women gathered in a community",
+      src: "/images/report-2026/norway-fundraising-presentation.jpeg",
+      alt: "Presentation at a fundraising event in Norway for the projects in Kabul",
       position: "center",
       caption:
-        "Community and practical opportunities are central to the work.",
+        "A fundraising event in Norway helps finance the organisation's projects in Kabul.",
     },
     action: {
       label: "Learn more about Women for Change",
@@ -406,8 +406,8 @@ const englishHomeContent = {
           "Programmes for job readiness, education and skills, entrepreneurship, and mental health and well-being.",
         meta: "Work in Norway",
         image: {
-          src: "/images/page-hero/fellesskap-kvinner.png",
-          alt: "Illustration of women in a community",
+          src: "/images/report-2026/norway-entrepreneurship-training.jpeg",
+          alt: "Participants in entrepreneurship training for women with minority backgrounds in Norway",
           position: "center",
         },
         action: {
@@ -422,8 +422,8 @@ const englishHomeContent = {
           "Education and livelihood-focused programmes including English courses, entrepreneurship and tailoring training.",
         meta: "Work in Afghanistan",
         image: {
-          src: "/images/page-hero/arrangementer.png",
-          alt: "Illustration of women gathered for training",
+          src: "/images/report-2026/kabul-training-centre-students.jpeg",
+          alt: "Participants at one of the organisation's training centres in Kabul",
           position: "center",
         },
         action: {
@@ -438,8 +438,8 @@ const englishHomeContent = {
           "Read about the documented projects in Norway, Kabul and Faryab.",
         meta: "Norway and Afghanistan",
         image: {
-          src: "/images/page-hero/kvinner-for-endring.png",
-          alt: "Illustration related to Women for Change",
+          src: "/images/report-2026/kabul-training-centre-practical-work.jpeg",
+          alt: "Participants gathered for practical work at one of the organisation's centres in Kabul",
           position: "center",
         },
         action: {

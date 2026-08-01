@@ -3,34 +3,34 @@ import type { AboutPageContent } from "@/types/about";
 import type { LocalizedContent } from "@/types/locale";
 
 const sharedPurposeImage = {
-  src: "/images/page-hero/kvinner-dans.png",
-  alt: "Kvinner samlet i et fellesskap knyttet til Kvinner for Endring",
+  src: "/images/report-2026/norway-kabul-visit-presentation.jpeg",
+  alt: "Presentasjon i Norge om et besøk ved organisasjonens sentre i Kabul",
   position: "center",
 } as const;
 
 const valueMedia = {
   integration: {
     type: "image",
-    src: "/images/page-hero/kvinner-fellesskap.png",
-    alt: "Kvinner samlet i et fellesskap",
+    src: "/images/report-2026/norway-entrepreneurship-training.jpeg",
+    alt: "Deltakere på entreprenørskapstrening for kvinner med minoritetsbakgrunn i Norge",
     position: "center",
   },
   inclusion: {
     type: "image",
-    src: "/images/page-hero/generasjoner.png",
-    alt: "Deltakere samlet til aktivitet og samtale",
+    src: "/images/report-2026/norway-cultural-food-fundraiser.jpeg",
+    alt: "Deltakere ved et kulturarrangement i Norge med matservering til støtte for prosjektene i Kabul",
     position: "center",
   },
   dignity: {
     type: "image",
-    src: "/images/page-hero/afghansk-kulturarv.png",
-    alt: "Kvinner samlet etter gjennomført opplæring",
+    src: "/images/report-2026/kabul-tailoring-graduation-certificates-1.jpeg",
+    alt: "Deltakere samlet ved en avslutningsseremoni ved et sømopplæringssenter i Kabul",
     position: "center",
   },
   sustainability: {
     type: "image",
-    src: "/images/page-hero/kvinner-for-endring.png",
-    alt: "Kvinner samlet i arbeid og fellesskap",
+    src: "/images/report-2026/kabul-tailoring-class-sewing-machines.jpeg",
+    alt: "Deltakere ved symaskiner under opplæring ved et av organisasjonens sentre i Kabul",
     position: "center",
   },
 } as const;
@@ -132,25 +132,25 @@ export const aboutContent = {
 
 const englishSharedPurposeImage = {
   ...sharedPurposeImage,
-  alt: "Women gathered in a community connected to Women for Change",
+  alt: "A presentation in Norway about a visit to the organisation's centres in Kabul",
 } as const;
 
 const englishValueMedia = {
   integration: {
     ...valueMedia.integration,
-    alt: "Women gathered in a community",
+    alt: "Participants in entrepreneurship training for women with minority backgrounds in Norway",
   },
   inclusion: {
     ...valueMedia.inclusion,
-    alt: "Participants gathered for an activity and conversation",
+    alt: "Participants at a cultural event in Norway with food service supporting the projects in Kabul",
   },
   dignity: {
     ...valueMedia.dignity,
-    alt: "Women gathered after completing training",
+    alt: "Participants gathered at a graduation ceremony at a tailoring training centre in Kabul",
   },
   sustainability: {
     ...valueMedia.sustainability,
-    alt: "Women gathered through work and community",
+    alt: "Participants using sewing machines during training at one of the organisation's centres in Kabul",
   },
 } as const;
 

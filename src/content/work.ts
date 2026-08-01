@@ -57,10 +57,9 @@ const workContentDraft = {
         summary:
           "Prosjektet gir kvinner kunnskap, verktøy og nettverk for å starte egen virksomhet og skape økonomisk selvstendighet.",
         coverImage: {
-          src: "/images/work/entreprenorskapstrening-norge.jpeg",
-          alt: "Deltakere på entreprenørskapstrening for kvinner med minoritetsbakgrunn i Norge.",
-          caption:
-            "Deltakere på entreprenørskapskurs og nettverkssamlinger.",
+          src: "/images/report-2026/norway-entrepreneurship-training.jpeg",
+          alt: "Deltakere på entreprenørskapstrening for kvinner med minoritetsbakgrunn i Norge",
+          caption: "Entreprenørskapstrening for kvinner med minoritetsbakgrunn i Norge.",
           credit: "Kvinner for Endring",
           position: "center",
         },
@@ -123,10 +122,9 @@ const workContentDraft = {
         summary:
           "Gjennom feiringer av Eid, Nawruz og andre kulturarrangementer skaper vi møteplasser som styrker fellesskap, inkludering og kulturell tilhørighet.",
         coverImage: {
-          src: "/images/work/kulturarrangement-norge.jpeg",
-          alt: "Deltakere ved matservering på et kulturarrangement i Norge.",
-          caption:
-            "Deltakere på Eid-feiring, Nawruz-feiring eller andre kulturarrangementer.",
+          src: "/images/report-2026/norway-cultural-food-fundraiser.jpeg",
+          alt: "Deltakere ved et kulturarrangement med matservering i Norge",
+          caption: "Kulturarrangement i Norge der salg av mat bidrar til å finansiere prosjektene i Kabul.",
           credit: "Kvinner for Endring",
           position: "center",
         },
@@ -156,9 +154,9 @@ const workContentDraft = {
         summary:
           "Prosjektet gir kvinner praktiske ferdigheter innen søm og skreddersøm slik at de kan skape egne inntekter og forsørge sine familier.",
         coverImage: {
-          src: "/images/work/somopplaering-kabul.jpeg",
-          alt: "Kvinner ved en avslutningsseremoni på et sømopplæringssenter i Kabul.",
-          caption: "Kvinner som deltar i søm- og skreddersømopplæring.",
+          src: "/images/report-2026/kabul-tailoring-class-sewing-machines.jpeg",
+          alt: "Deltakere ved symaskiner under sømopplæring ved et senter i Kabul",
+          caption: "Deltakere ved sømopplæring i et av organisasjonens sentre i Kabul.",
           credit: "Kvinner for Endring",
           position: "center",
         },
@@ -322,10 +320,9 @@ const englishWorkContent = {
         summary:
           "The project provides women with the knowledge, tools, and networks needed to start their own businesses and achieve financial independence.",
         coverImage: {
-          src: "/images/work/entreprenorskapstrening-norge.jpeg",
-          alt: "Participants in entrepreneurship training for women with minority backgrounds in Norway.",
-          caption:
-            "Participants attending entrepreneurship workshops and networking events.",
+          src: "/images/report-2026/norway-entrepreneurship-training.jpeg",
+          alt: "Participants in entrepreneurship training for women with minority backgrounds in Norway",
+          caption: "Entrepreneurship training for women with minority backgrounds in Norway.",
           credit: "Women for Change",
           position: "center",
         },
@@ -388,10 +385,9 @@ const englishWorkContent = {
         summary:
           "Through celebrations such as Eid, Nawruz, and other cultural events, we create inclusive meeting places that strengthen community, belonging, and cultural understanding.",
         coverImage: {
-          src: "/images/work/kulturarrangement-norge.jpeg",
-          alt: "Participants serving food at a cultural event in Norway.",
-          caption:
-            "Participants attending Eid, Nawruz, or other cultural celebrations.",
+          src: "/images/report-2026/norway-cultural-food-fundraiser.jpeg",
+          alt: "Participants at a cultural event with food service in Norway",
+          caption: "A cultural event in Norway where food sales help finance the projects in Kabul.",
           credit: "Women for Change",
           position: "center",
         },
@@ -421,9 +417,9 @@ const englishWorkContent = {
         summary:
           "The project equips women with practical tailoring skills, enabling them to generate income and support themselves and their families.",
         coverImage: {
-          src: "/images/work/somopplaering-kabul.jpeg",
-          alt: "Women at a graduation ceremony at a tailoring training centre in Kabul.",
-          caption: "Women participating in tailoring and dressmaking training.",
+          src: "/images/report-2026/kabul-tailoring-class-sewing-machines.jpeg",
+          alt: "Participants using sewing machines during tailoring training at a centre in Kabul",
+          caption: "Participants in tailoring training at one of the organisation's centres in Kabul.",
           credit: "Women for Change",
           position: "center",
         },
