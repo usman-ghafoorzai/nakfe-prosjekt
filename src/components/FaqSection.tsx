@@ -61,7 +61,10 @@ function FaqItem({
 }) {
   return (
     <li>
-      <details className="group border-l-4 border-transparent border-t border-stone-300 open:border-l-red-700 open:bg-white/50">
+      <details
+        id={item.id}
+        className="group scroll-mt-32 border-l-4 border-transparent border-t border-stone-300 target:border-l-red-700 target:bg-white/50 open:border-l-red-700 open:bg-white/50"
+      >
         <summary className="flex min-h-16 cursor-pointer list-none items-center justify-between gap-6 px-4 py-5 text-left outline-none transition-colors duration-200 ease-out hover:bg-white/50 focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-red-700 motion-reduce:transition-none sm:min-h-20 sm:px-6 [&::-webkit-details-marker]:hidden">
           <span className="text-xl font-black leading-tight tracking-[-0.035em] text-stone-950 sm:text-2xl">
             {item.question}

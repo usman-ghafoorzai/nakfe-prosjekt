@@ -10,11 +10,11 @@ export const homeContent = {
 
   hero: {
     eyebrow: "Kvinner for Endring",
-    title: "Styrker kvinner gjennom kunnskap, arbeid og fellesskap.",
+    title: "Styrker kvinner gjennom utdanning, inkludering og likestilling.",
     description:
       "En ideell organisasjon etablert i Norge i april 2021, med arbeid i Norge og Afghanistan.",
     rotatingWordsLabel: "Arbeidet vårt handler om",
-    rotatingWords: ["Utdanning", "Arbeid", "Entreprenørskap", "Fellesskap"],
+    rotatingWords: ["Integrering", "Inkludering", "Likestilling", "Endring"],
     backgroundImage: {
       src: "/images/hero/hero-background.jpg",
       alt: "",
@@ -243,11 +243,11 @@ const englishHomeContent = {
 
   hero: {
     eyebrow: "Women for Change",
-    title: "Empowering women through knowledge, employment and community.",
+    title: "Empowering women through education, inclusion and equality.",
     description:
       "A non-profit organisation established in Norway in April 2021, working in Norway and Afghanistan.",
     rotatingWordsLabel: "Our work is about",
-    rotatingWords: ["Education", "Employment", "Entrepreneurship", "Community"],
+    rotatingWords: ["Integration", "Inclusion", "Equality", "Change"],
     backgroundImage: {
       src: "/images/hero/hero-background.jpg",
       alt: "",
@@ -262,9 +262,9 @@ const englishHomeContent = {
     description:
       "The situation in Afghanistan shows why meeting places, knowledge and solidarity matter. NAKFE aims to be a place where commitment can turn into action — here in Norway as well.",
     primaryAction: {
-      label: "Read the UN article",
-      href: "https://fn.no/nyheter/afghanistan-1-4-millioner-jenter-nektet-skolegang",
-      ariaLabel: "Read the UN Association of Norway article about girls denied schooling in Afghanistan",
+      label: "Read the UNESCO article",
+      href: "https://www.unesco.org/en/articles/afghanistan-14-million-girls-still-banned-school-de-facto-authorities",
+      ariaLabel: "Read UNESCO's article about 1.4 million girls still banned from school in Afghanistan",
       isExternal: true,
     },
     secondaryAction: {
@@ -344,9 +344,9 @@ const englishHomeContent = {
       ],
       citations: [
         {
-          label: "UN Association of Norway",
-          text: "UN Association of Norway: Afghanistan: 1.4 million girls denied schooling",
-          href: "https://fn.no/nyheter/afghanistan-1-4-millioner-jenter-nektet-skolegang",
+          label: "UNESCO",
+          text: "UNESCO: Afghanistan: 1.4 million girls still banned from school by de facto authorities",
+          href: "https://www.unesco.org/en/articles/afghanistan-14-million-girls-still-banned-school-de-facto-authorities",
         },
         {
           label: "UN Women",

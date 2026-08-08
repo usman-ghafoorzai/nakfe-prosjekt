@@ -4,7 +4,7 @@ export type Locale = (typeof locales)[number];
 
 export type LocalizedContent<T> = Record<Locale, T>;
 
-export const defaultLocale: Locale = "no";
+export const defaultLocale: Locale = "en";
 export const localeCookieName = "nakfe-locale";
 
 export function isLocale(value: unknown): value is Locale {

@@ -21,12 +21,6 @@ const valueMedia = {
     alt: "Deltakere ved et kulturarrangement i Norge med matservering til støtte for prosjektene i Kabul",
     position: "center",
   },
-  dignity: {
-    type: "image",
-    src: "/images/report-2026/kabul-graduation-certificates-2.jpeg",
-    alt: "Deltakere ved en avslutningsseremoni i Kabul",
-    position: "center",
-  },
   sustainability: {
     type: "image",
     src: "/images/report-2026/kabul-vocational-centre-students-group.jpeg",
@@ -90,9 +84,9 @@ export const aboutContent = {
   values: {
     header: {
       eyebrow: "Prinsipper i arbeidet",
-      title: "Verdighet, bærekraft og deltakelse i praksis.",
+      title: "Inkludering, bærekraft og deltakelse i praksis.",
       description:
-        "Arbeidet tilpasses lokale forhold med et tydelig fokus på verdighet, bærekraft og virkning.",
+        "Arbeidet tilpasses lokale forhold med et tydelig fokus på inkludering, bærekraft og virkning.",
     },
     carousel: {
       label: "Prinsipper i arbeidet til Kvinner for Endring",
@@ -113,12 +107,6 @@ export const aboutContent = {
         description:
           "Programmer og møteplasser skal bidra til sosial deltakelse, fellesskap og tilhørighet.",
         media: valueMedia.inclusion,
-      },
-      {
-        title: "Verdighet",
-        description:
-          "Arbeidet i Norge og Afghanistan tilpasses lokale forhold og skal møte kvinner og jenter med verdighet.",
-        media: valueMedia.dignity,
       },
       {
         title: "Bærekraft",
@@ -143,10 +131,6 @@ const englishValueMedia = {
   inclusion: {
     ...valueMedia.inclusion,
     alt: "Participants at a cultural event in Norway with food service supporting the projects in Kabul",
-  },
-  dignity: {
-    ...valueMedia.dignity,
-    alt: "Participants at a graduation ceremony in Kabul",
   },
   sustainability: {
     ...valueMedia.sustainability,
@@ -209,9 +193,9 @@ const englishAboutContent = {
   values: {
     header: {
       eyebrow: "Principles in practice",
-      title: "Dignity, sustainability and participation in practice.",
+      title: "Inclusion, sustainability and participation in practice.",
       description:
-        "The work is adapted to local contexts with a strong focus on dignity, sustainability and impact.",
+        "The work is adapted to local contexts with a strong focus on inclusion, sustainability and impact.",
     },
     carousel: {
       label: "Principles guiding the work of Women for Change",
@@ -232,12 +216,6 @@ const englishAboutContent = {
         description:
           "Programmes and meeting places are intended to support social participation, community and belonging.",
         media: englishValueMedia.inclusion,
-      },
-      {
-        title: "Dignity",
-        description:
-          "The work in Norway and Afghanistan is adapted to local contexts and should meet women and girls with dignity.",
-        media: englishValueMedia.dignity,
       },
       {
         title: "Sustainability",

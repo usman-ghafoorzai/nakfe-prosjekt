@@ -1,4 +1,4 @@
-import type { NavItem } from "@/types/common";
+import type { ContentLink, NavItem } from "@/types/common";
 import type { Locale } from "@/types/locale";
 
 export type NavigationContent = {
@@ -11,4 +11,5 @@ export type NavigationContent = {
   closeMenuLabel: string;
   languageSwitcherLabel: string;
   languageOptionAriaLabels: Record<Locale, string>;
+  donationAction: ContentLink;
 };

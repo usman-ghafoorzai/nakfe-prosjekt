@@ -128,6 +128,26 @@ const faqContentDraft = {
             },
           },
           {
+            id: "donate",
+            question: "Hvordan kan jeg bidra eller støtte Kvinner for Endring?",
+            answer: {
+              paragraphs: [
+                {
+                  id: "intro",
+                  text: "Du kan støtte Kvinner for Endring med disse betalingsopplysningene:",
+                },
+                {
+                  id: "vipps",
+                  text: "Vipps: 705538",
+                },
+                {
+                  id: "kontonummer",
+                  text: "Kontonummer: 1506.66.01835",
+                },
+              ],
+            },
+          },
+          {
             id: "kontakt",
             question: "Hvordan kan jeg kontakte Kvinner for Endring?",
             answer: {
@@ -310,6 +330,34 @@ const englishFaqContent = {
                 {
                   id: "afghanistan",
                   text: "The work in Afghanistan is funded through cultural festivals in Norway, including sales of Afghan food, as well as crowdfunding campaigns, fundraisers and private donations.",
+                },
+              ],
+            },
+          },
+          {
+            id: "donate",
+            question: "How can I contribute or donate to Women for Change?",
+            answer: {
+              paragraphs: [
+                {
+                  id: "intro",
+                  text: "You can support Women for Change using these payment details:",
+                },
+                {
+                  id: "vipps",
+                  text: "Vipps: 705538",
+                },
+                {
+                  id: "bank",
+                  text: "Bank: DNB",
+                },
+                {
+                  id: "iban",
+                  text: "IBAN: NO07 1506 6601 835",
+                },
+                {
+                  id: "bic-swift",
+                  text: "BIC/SWIFT: DNBANOKKXXX",
                 },
               ],
             },

@@ -32,7 +32,7 @@ export default function Hero({ content }: HeroProps) {
         <div className="max-w-4xl">
           <h1
             id="hero-heading"
-            className="mt-8 max-w-5xl text-balance text-5xl font-black leading-[0.93] tracking-[-0.07em] text-white sm:text-6xl lg:text-8xl"
+            className="mt-8 max-w-5xl text-balance text-[2.65rem] font-black leading-[0.93] tracking-[-0.07em] text-white sm:text-5xl lg:text-7xl"
           >
             {content.title}
           </h1>
@@ -58,7 +58,7 @@ export default function Hero({ content }: HeroProps) {
                 {rotatingWords.map((word, index) => (
                   <span
                     key={word}
-                    className="nakfe-hero-word absolute inset-0 flex items-center pl-7 text-5xl font-black leading-none tracking-[-0.06em] text-white drop-shadow-[0_8px_24px_rgba(0,0,0,0.45)] sm:pl-9 sm:text-7xl"
+                    className="nakfe-hero-word absolute inset-0 flex max-w-full items-center whitespace-nowrap pl-7 pr-4 text-5xl font-black leading-none tracking-[-0.06em] text-white drop-shadow-[0_8px_24px_rgba(0,0,0,0.45)] sm:pl-9 sm:text-7xl"
                     style={{ animationDelay: `${index * 2.2}s` }}
                     aria-hidden={index !== 0}
                   >
