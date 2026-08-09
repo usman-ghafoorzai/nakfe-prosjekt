@@ -1,86 +1,32 @@
 "use client";
 
 import Image from "next/image";
-import { useEffect, useRef, useState } from "react";
+import { useEffect } from "react";
+import { usePageHeroCarousel } from "@/components/PageHeroCarouselProvider";
 import type { ContentImage } from "@/types/common";
 
 type PageHeroBackgroundCarouselProps = {
   images?: ContentImage[];
-  intervalMs?: number;
 };
 
 export default function PageHeroBackgroundCarousel({
   images = [],
-  intervalMs = 4500,
 }: PageHeroBackgroundCarouselProps) {
-  const [activeIndex, setActiveIndex] = useState(0);
-  const activeIndexRef = useRef(0);
+  const { activeIndex } = usePageHeroCarousel();
   const safeActiveIndex = images.length > 0 ? activeIndex % images.length : 0;
   const imageSourcesKey = images.map((image) => image.src).join("|");
 
   useEffect(() => {
     const imageSources = imageSourcesKey ? imageSourcesKey.split("|") : [];
 
-    activeIndexRef.current = imageSources.length > 0
-      ? activeIndexRef.current % imageSources.length
-      : 0;
-
     if (imageSources.length <= 1) {
       return;
     }
 
-    const reducedMotionQuery = window.matchMedia(
-      "(prefers-reduced-motion: reduce)",
-    );
-    let timeoutId: number | undefined;
-    let isCancelled = false;
-
-    function preloadImage(index: number) {
-      const image = new window.Image();
-      image.decoding = "async";
-      image.src = imageSources[index];
-    }
-
-    function scheduleNextImage() {
-      if (isCancelled || reducedMotionQuery.matches) {
-        return;
-      }
-
-      if (timeoutId !== undefined) {
-        window.clearTimeout(timeoutId);
-      }
-
-      timeoutId = window.setTimeout(() => {
-        timeoutId = undefined;
-        const nextIndex = (activeIndexRef.current + 1) % imageSources.length;
-        activeIndexRef.current = nextIndex;
-        setActiveIndex(nextIndex);
-        preloadImage((nextIndex + 1) % imageSources.length);
-        scheduleNextImage();
-      }, intervalMs);
-    }
-
-    function handleReducedMotionChange() {
-      if (timeoutId !== undefined) {
-        window.clearTimeout(timeoutId);
-        timeoutId = undefined;
-      }
-
-      scheduleNextImage();
-    }
-
-    preloadImage(1);
-    scheduleNextImage();
-    reducedMotionQuery.addEventListener("change", handleReducedMotionChange);
-
-    return () => {
-      isCancelled = true;
-      if (timeoutId !== undefined) {
-        window.clearTimeout(timeoutId);
-      }
-      reducedMotionQuery.removeEventListener("change", handleReducedMotionChange);
-    };
-  }, [imageSourcesKey, intervalMs]);
+    const nextImage = new window.Image();
+    nextImage.decoding = "async";
+    nextImage.src = imageSources[(safeActiveIndex + 1) % imageSources.length];
+  }, [imageSourcesKey, safeActiveIndex]);
 
   if (images.length === 0) {
     return (
@@ -105,7 +51,7 @@ export default function PageHeroBackgroundCarousel({
             src={image.src}
             alt=""
             fill
-            preload={index === 0}
+            preload={index === safeActiveIndex}
             sizes="100vw"
             className="object-cover"
             style={{
