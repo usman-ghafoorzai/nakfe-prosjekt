@@ -1,7 +1,24 @@
+import { donationContentByLocale } from "@/content/donation";
 import { pageHeroBackgroundImages } from "@/content/pageHeroImages";
 import { validateFaqPageContent } from "@/lib/faq";
-import type { FaqPageContent } from "@/types/faq";
+import type { DonationContent } from "@/types/donation";
+import type { FaqAnswerParagraph, FaqPageContent } from "@/types/faq";
 import type { LocalizedContent } from "@/types/locale";
+
+function createDonationParagraphs(
+  content: DonationContent,
+): FaqAnswerParagraph[] {
+  return [
+    {
+      id: "intro",
+      text: content.introduction,
+    },
+    ...content.fields.map((field) => ({
+      id: field.id,
+      text: `${field.label}: ${field.value}`,
+    })),
+  ];
+}
 
 const faqContentDraft = {
   seo: {
@@ -12,7 +29,7 @@ const faqContentDraft = {
 
   hero: {
     eyebrow: "FAQ",
-    title: "Spørsmål og svar.",
+    title: "Spørsmål og svar",
     description:
       "Her finner du dokumentert informasjon om Kvinner for Endring og arbeidet i Norge og Afghanistan.",
     backgroundImages: pageHeroBackgroundImages,
@@ -128,6 +145,13 @@ const faqContentDraft = {
             },
           },
           {
+            id: "donate",
+            question: "Hvordan kan jeg bidra eller støtte Kvinner for Endring?",
+            answer: {
+              paragraphs: createDonationParagraphs(donationContentByLocale.no),
+            },
+          },
+          {
             id: "kontakt",
             question: "Hvordan kan jeg kontakte Kvinner for Endring?",
             answer: {
@@ -165,7 +189,7 @@ const faqContentDraft = {
       },
     ],
     emptyState: {
-      title: "Ingen spørsmål er publisert.",
+      title: "Ingen spørsmål er publisert",
       description: "Kontakt oss dersom du trenger mer informasjon.",
       action: {
         label: "Kontakt oss",
@@ -199,7 +223,7 @@ const englishFaqContent = {
 
   hero: {
     eyebrow: "FAQ",
-    title: "Questions and answers.",
+    title: "Questions and answers",
     description:
       "Here you will find documented information about Women for Change and its work in Norway and Afghanistan.",
     backgroundImages: pageHeroBackgroundImages,
@@ -315,6 +339,13 @@ const englishFaqContent = {
             },
           },
           {
+            id: "donate",
+            question: "How can I contribute or donate to Women for Change?",
+            answer: {
+              paragraphs: createDonationParagraphs(donationContentByLocale.en),
+            },
+          },
+          {
             id: "kontakt",
             question: "How can I contact Women for Change?",
             answer: {
@@ -352,7 +383,7 @@ const englishFaqContent = {
       },
     ],
     emptyState: {
-      title: "No questions are published.",
+      title: "No questions are published",
       description: "Contact us if you need more information.",
       action: {
         label: "Contact us",

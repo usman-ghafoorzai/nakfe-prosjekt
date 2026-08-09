@@ -1,36 +1,32 @@
 "use client";
 
 import Image from "next/image";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
+import { usePageHeroCarousel } from "@/components/PageHeroCarouselProvider";
 import type { ContentImage } from "@/types/common";
 
 type PageHeroBackgroundCarouselProps = {
   images?: ContentImage[];
-  intervalMs?: number;
 };
 
 export default function PageHeroBackgroundCarousel({
-                                                     images = [],
-                                                     intervalMs = 5500,
-                                                   }: PageHeroBackgroundCarouselProps) {
-  const [activeIndex, setActiveIndex] = useState(0);
+  images = [],
+}: PageHeroBackgroundCarouselProps) {
+  const { activeIndex } = usePageHeroCarousel();
   const safeActiveIndex = images.length > 0 ? activeIndex % images.length : 0;
+  const imageSourcesKey = images.map((image) => image.src).join("|");
 
   useEffect(() => {
-    if (images.length <= 1) return;
+    const imageSources = imageSourcesKey ? imageSourcesKey.split("|") : [];
 
-    const prefersReducedMotion = window.matchMedia(
-        "(prefers-reduced-motion: reduce)",
-    ).matches;
+    if (imageSources.length <= 1) {
+      return;
+    }
 
-    if (prefersReducedMotion) return;
-
-    const interval = window.setInterval(() => {
-      setActiveIndex((currentIndex) => (currentIndex + 1) % images.length);
-    }, intervalMs);
-
-    return () => window.clearInterval(interval);
-  }, [images.length, intervalMs]);
+    const nextImage = new window.Image();
+    nextImage.decoding = "async";
+    nextImage.src = imageSources[(safeActiveIndex + 1) % imageSources.length];
+  }, [imageSourcesKey, safeActiveIndex]);
 
   if (images.length === 0) {
     return (
@@ -42,28 +38,28 @@ export default function PageHeroBackgroundCarousel({
   }
 
   return (
-      <div className="absolute inset-0 overflow-hidden bg-gray-950" aria-hidden="true">
-        {images.map((image, index) => (
-            <div
-                key={image.src}
-                className={[
-                  "absolute inset-0 transition-opacity duration-[1100ms] ease-out motion-reduce:transition-none",
-                  index === safeActiveIndex ? "opacity-100" : "opacity-0",
-                ].join(" ")}
-            >
-              <Image
-                  src={image.src}
-                  alt=""
-                  fill
-                  preload={index === 0}
-                  sizes="100vw"
-                  className="object-cover"
-                  style={{
-                    objectPosition: image.position ?? "center",
-                  }}
-              />
-            </div>
-        ))}
-      </div>
+    <div className="absolute inset-0 overflow-hidden bg-gray-950" aria-hidden="true">
+      {images.map((image, index) => (
+        <div
+          key={image.src}
+          className={[
+            "absolute inset-0 transition-opacity duration-[900ms] ease-out motion-reduce:transition-none",
+            index === safeActiveIndex ? "opacity-100" : "opacity-0",
+          ].join(" ")}
+        >
+          <Image
+            src={image.src}
+            alt=""
+            fill
+            preload={index === safeActiveIndex}
+            sizes="100vw"
+            className="object-cover"
+            style={{
+              objectPosition: image.position ?? "center",
+            }}
+          />
+        </div>
+      ))}
+    </div>
   );
 }

@@ -118,6 +118,10 @@ export const navigationContent = {
             no: "Bytt språk til norsk",
             en: "Bytt språk til engelsk",
         },
+        donationAction: {
+            label: "STØTT OSS",
+            ariaLabel: "Støtt Kvinner for Endring",
+        },
     },
     en: {
         items: englishNavigationItems,
@@ -131,6 +135,10 @@ export const navigationContent = {
         languageOptionAriaLabels: {
             no: "Switch language to Norwegian",
             en: "Switch language to English",
+        },
+        donationAction: {
+            label: "DONATE",
+            ariaLabel: "Donate to Women for Change",
         },
     },
 } satisfies LocalizedContent<NavigationContent>;

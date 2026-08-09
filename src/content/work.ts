@@ -12,7 +12,7 @@ const workContentDraft = {
 
   hero: {
     eyebrow: "Vårt arbeid",
-    title: "Prosjekter og programmer som skaper muligheter.",
+    title: "Prosjekter og programmer som skaper muligheter",
     description:
       "Her samler vi arbeidet vårt i Afghanistan og Norge – fra opplæring og ferdigheter til deltakelse, kompetanse og entreprenørskap.",
     backgroundImages: pageHeroBackgroundImages,
@@ -21,7 +21,7 @@ const workContentDraft = {
   overview: {
     header: {
       eyebrow: "Prosjekter og programmer",
-      title: "Arbeid som får vokse over tid.",
+      title: "Arbeid som får vokse over tid",
       description:
         "Velg et land for å se prosjekter og programmer NAKFE arbeider med.",
     },
@@ -32,7 +32,7 @@ const workContentDraft = {
         id: "afghanistan",
         label: "Afghanistan",
         emptyState: {
-          title: "Ingen prosjekter er publisert ennå.",
+          title: "Ingen prosjekter er publisert ennå",
           description:
             "Nye prosjekter og historier fra Afghanistan vil bli lagt til her.",
         },
@@ -41,7 +41,7 @@ const workContentDraft = {
         id: "norway",
         label: "Norge",
         emptyState: {
-          title: "Ingen prosjekter er publisert ennå.",
+          title: "Ingen prosjekter er publisert ennå",
           description:
             "Nye prosjekter og historier fra Norge vil bli lagt til her.",
         },
@@ -320,16 +320,16 @@ const englishWorkContent = {
 
   hero: {
     eyebrow: "Our work",
-    title: "Projects and programmes that create opportunities.",
+    title: "Projects and programmes that create opportunities",
     description:
-      "Here we bring together our work in Afghanistan and Norway — from training and practical skills to participation, expertise and entrepreneurship.",
+      "Here we bring together our work in Afghanistan and Norway, from training and practical skills to participation, expertise and entrepreneurship.",
     backgroundImages: pageHeroBackgroundImages,
   },
 
   overview: {
     header: {
       eyebrow: "Projects and programmes",
-      title: "Work that can grow over time.",
+      title: "Work that can grow over time",
       description:
         "Choose a country to view projects and programmes NAKFE works with.",
     },
@@ -340,7 +340,7 @@ const englishWorkContent = {
         id: "afghanistan",
         label: "Afghanistan",
         emptyState: {
-          title: "No projects have been published yet.",
+          title: "No projects have been published yet",
           description:
             "New projects and stories from Afghanistan will be added here.",
         },
@@ -349,7 +349,7 @@ const englishWorkContent = {
         id: "norway",
         label: "Norway",
         emptyState: {
-          title: "No projects have been published yet.",
+          title: "No projects have been published yet",
           description:
             "New projects and stories from Norway will be added here.",
         },

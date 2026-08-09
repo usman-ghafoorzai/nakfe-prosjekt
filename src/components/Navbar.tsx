@@ -4,20 +4,23 @@ import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import type { KeyboardEvent } from "react";
-import { useEffect, useId, useState } from "react";
+import { useEffect, useId, useRef, useState } from "react";
+import DonationDialog, { donationDialogId } from "@/components/DonationDialog";
 import LocaleSwitcher from "@/components/LocaleSwitcher";
 import NavIcon from "@/components/NavIcon";
 import { isNavigationPathCurrent } from "@/lib/navigation";
+import type { DonationContent } from "@/types/donation";
 import type { Locale } from "@/types/locale";
 import type { NavigationContent } from "@/types/navigation";
 
 type NavbarProps = {
   content: NavigationContent;
+  donationContent: DonationContent;
   locale: Locale;
 };
 
 const desktopLinkClasses =
-  "relative inline-flex min-h-11 items-center gap-2 px-2 text-sm font-black uppercase tracking-[0.08em] outline-none transition duration-200 ease-out after:absolute after:bottom-1 after:left-2 after:h-[3px] after:w-[calc(100%-1rem)] after:bg-red-700 after:transition-opacity after:duration-200 after:content-[''] focus-visible:ring-2 focus-visible:ring-red-700 focus-visible:ring-offset-4 motion-reduce:transition-none motion-reduce:after:transition-none";
+  "relative inline-flex min-h-11 shrink-0 items-center gap-1.5 whitespace-nowrap px-1.5 text-[0.78rem] font-black uppercase tracking-[0.07em] outline-none transition duration-200 ease-out after:absolute after:bottom-1 after:left-1.5 after:h-[3px] after:w-[calc(100%-0.75rem)] after:bg-red-700 after:transition-opacity after:duration-200 after:content-[''] focus-visible:ring-2 focus-visible:ring-red-700 focus-visible:ring-offset-4 motion-reduce:transition-none motion-reduce:after:transition-none";
 
 const mobileLinkClasses =
   "flex min-h-12 items-center gap-3 border-l-[10px] px-4 py-3 text-base font-black uppercase tracking-[0.08em] outline-none transition duration-200 ease-out focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-red-700 motion-reduce:transition-none";
@@ -54,10 +57,15 @@ function getLinkClasses(
   ].join(" ");
 }
 
-export default function Navbar({ content, locale }: NavbarProps) {
+export default function Navbar({ content, donationContent, locale }: NavbarProps) {
   const pathname = usePathname();
   const [isOpen, setIsOpen] = useState(false);
+  const [isDonationOpen, setIsDonationOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
+  const desktopDonationButtonRef = useRef<HTMLButtonElement>(null);
+  const headerRef = useRef<HTMLElement>(null);
+  const menuButtonRef = useRef<HTMLButtonElement>(null);
+  const donationTriggerRef = useRef<"desktop" | "mobile">("desktop");
   const menuId = useId();
   const visibleNavigationItems = content.items
     .filter((link) => link.showInHeader && link.href !== "/")
@@ -87,17 +95,57 @@ export default function Navbar({ content, locale }: NavbarProps) {
     };
   }, [isOpen]);
 
+  useEffect(() => {
+    if (!isOpen) {
+      return;
+    }
+
+    function handleOutsidePointerDown(event: PointerEvent) {
+      const target = event.target;
+
+      if (target instanceof Node && !headerRef.current?.contains(target)) {
+        setIsOpen(false);
+      }
+    }
+
+    document.addEventListener("pointerdown", handleOutsidePointerDown, true);
+
+    return () => {
+      document.removeEventListener("pointerdown", handleOutsidePointerDown, true);
+    };
+  }, [isOpen]);
+
   function handleKeyDown(event: KeyboardEvent<HTMLElement>) {
     if (event.key === "Escape") setIsOpen(false);
   }
 
+  function handleDonationOpen(trigger: "desktop" | "mobile") {
+    donationTriggerRef.current = trigger;
+    setIsOpen(false);
+    window.requestAnimationFrame(() => setIsDonationOpen(true));
+  }
+
+  function handleDonationClose() {
+    setIsDonationOpen(false);
+    window.requestAnimationFrame(() => {
+      if (donationTriggerRef.current === "mobile") {
+        menuButtonRef.current?.focus();
+        return;
+      }
+
+      desktopDonationButtonRef.current?.focus();
+    });
+  }
+
   return (
-    <header
-      className={[
-        "fixed inset-x-0 z-50 px-4 transition-[top,padding] duration-300 ease-out motion-reduce:transition-none",
-        isScrolled ? "top-0 px-0" : "top-4 sm:top-5",
-      ].join(" ")}
-    >
+    <>
+      <header
+        ref={headerRef}
+        className={[
+          "fixed inset-x-0 z-50 px-4 transition-[top,padding] duration-300 ease-out motion-reduce:transition-none",
+          isScrolled ? "top-0 px-0" : "top-4 sm:top-5",
+        ].join(" ")}
+      >
       <nav
         aria-label={content.mainNavigationLabel}
         onKeyDown={handleKeyDown}
@@ -105,12 +153,12 @@ export default function Navbar({ content, locale }: NavbarProps) {
           "mx-auto border-b border-stone-950/10 shadow-sm shadow-stone-950/5 backdrop-blur-xl transition-[background-color,border-color,box-shadow] duration-300 ease-out motion-reduce:transition-none",
           isScrolled
             ? "max-w-none bg-[#f7f1e8]/94"
-            : "max-w-6xl bg-stone-950/64 text-white shadow-2xl shadow-stone-950/20 supports-[backdrop-filter]:bg-stone-950/56",
+            : "max-w-7xl bg-stone-950/64 text-white shadow-2xl shadow-stone-950/20 supports-[backdrop-filter]:bg-stone-950/56",
         ].join(" ")}
       >
         <div
           className={[
-            "mx-auto flex max-w-6xl items-center justify-between gap-6 px-4 transition-[padding] duration-300 ease-out sm:px-6 motion-reduce:transition-none",
+            "mx-auto flex max-w-7xl items-center justify-between gap-4 px-4 transition-[padding] duration-300 ease-out sm:px-6 motion-reduce:transition-none",
             isScrolled ? "py-3" : "py-3.5",
           ].join(" ")}
         >
@@ -119,7 +167,7 @@ export default function Navbar({ content, locale }: NavbarProps) {
             aria-label={content.homeAriaLabel}
             onClick={() => setIsOpen(false)}
             className={[
-              "inline-flex min-h-12 items-center gap-3 outline-none transition duration-200 ease-out focus-visible:ring-2 focus-visible:ring-red-700 focus-visible:ring-offset-4 motion-reduce:transition-none",
+              "inline-flex min-h-12 shrink-0 items-center gap-3 whitespace-nowrap outline-none transition duration-200 ease-out focus-visible:ring-2 focus-visible:ring-red-700 focus-visible:ring-offset-4 motion-reduce:transition-none",
               isScrolled ? "text-stone-950 hover:text-red-700" : "text-white hover:text-white/82",
             ].join(" ")}
           >
@@ -134,17 +182,17 @@ export default function Navbar({ content, locale }: NavbarProps) {
               />
             </span>
 
-            <span className="hidden text-lg font-black tracking-[-0.045em] sm:block">
+            <span className="hidden whitespace-nowrap text-lg font-black tracking-[-0.045em] sm:block">
               {content.brandName}
             </span>
           </Link>
 
-          <ul className="hidden items-center gap-3 lg:flex">
+          <ul className="hidden shrink-0 items-center gap-1.5 xl:flex">
             {visibleNavigationItems.map((link) => {
               const isCurrent = isNavigationPathCurrent(pathname, link.href);
 
               return (
-                <li key={link.href}>
+                <li key={link.href} className="shrink-0">
                   <Link
                     href={link.href}
                     aria-current={isCurrent ? "page" : undefined}
@@ -157,7 +205,21 @@ export default function Navbar({ content, locale }: NavbarProps) {
                 </li>
               );
             })}
-            <li>
+            <li className="shrink-0">
+              <button
+                ref={desktopDonationButtonRef}
+                type="button"
+                aria-label={content.donationAction.ariaLabel}
+                aria-controls={donationDialogId}
+                aria-expanded={isDonationOpen}
+                aria-haspopup="dialog"
+                onClick={() => handleDonationOpen("desktop")}
+                className="inline-flex min-h-11 shrink-0 items-center justify-center whitespace-nowrap bg-red-700 px-3.5 text-xs font-black uppercase tracking-[0.09em] text-white outline-none transition duration-200 ease-out hover:bg-red-800 focus-visible:ring-2 focus-visible:ring-red-700 focus-visible:ring-offset-4 active:translate-y-0.5 motion-reduce:transition-none motion-reduce:active:translate-y-0"
+              >
+                {content.donationAction.label}
+              </button>
+            </li>
+            <li className="shrink-0">
               <LocaleSwitcher
                 isScrolled={isScrolled}
                 label={content.languageSwitcherLabel}
@@ -169,13 +231,14 @@ export default function Navbar({ content, locale }: NavbarProps) {
           </ul>
 
           <button
+            ref={menuButtonRef}
             type="button"
             aria-label={isOpen ? content.closeMenuLabel : content.openMenuLabel}
             aria-controls={menuId}
             aria-expanded={isOpen}
             onClick={() => setIsOpen((current) => !current)}
             className={[
-              "inline-flex min-h-12 min-w-12 items-center justify-center border-2 text-2xl font-black leading-none outline-none transition duration-200 ease-out active:translate-y-0.5 motion-reduce:transition-none motion-reduce:active:translate-y-0 lg:hidden",
+              "inline-flex min-h-12 min-w-12 items-center justify-center border-2 text-2xl font-black leading-none outline-none transition duration-200 ease-out active:translate-y-0.5 motion-reduce:transition-none motion-reduce:active:translate-y-0 xl:hidden",
               isScrolled
                 ? "border-stone-950 bg-white text-stone-950 hover:bg-stone-950 hover:text-white focus-visible:ring-2 focus-visible:ring-stone-950 focus-visible:ring-offset-4"
                 : "border-white bg-white/10 text-white hover:bg-white hover:text-stone-950 focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-4 focus-visible:ring-offset-stone-950",
@@ -190,9 +253,11 @@ export default function Navbar({ content, locale }: NavbarProps) {
         id={menuId}
         aria-hidden={!isOpen}
         className={[
-          "mx-4 mt-3 overflow-hidden bg-white shadow-2xl shadow-stone-950/20 lg:hidden",
+          "mx-4 mt-3 overflow-x-hidden overflow-y-auto bg-white shadow-2xl shadow-stone-950/20 xl:hidden",
           "transition-[max-height,opacity,transform] duration-200 ease-out motion-reduce:transition-none",
-          isOpen ? "max-h-96 translate-y-0 opacity-100" : "max-h-0 -translate-y-2 opacity-0",
+          isOpen
+            ? "max-h-[calc(100dvh-7rem)] translate-y-0 opacity-100"
+            : "max-h-0 -translate-y-2 opacity-0",
         ].join(" ")}
       >
         <nav
@@ -220,6 +285,18 @@ export default function Navbar({ content, locale }: NavbarProps) {
               );
             })}
           </ul>
+          <button
+            type="button"
+            aria-label={content.donationAction.ariaLabel}
+            aria-controls={donationDialogId}
+            aria-expanded={isDonationOpen}
+            aria-haspopup="dialog"
+            tabIndex={isOpen ? undefined : -1}
+            onClick={() => handleDonationOpen("mobile")}
+            className="mt-3 inline-flex min-h-12 w-full items-center justify-center bg-red-700 px-5 text-sm font-black uppercase tracking-[0.12em] text-white outline-none transition duration-200 ease-out hover:bg-red-800 focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-white active:translate-y-0.5 motion-reduce:transition-none motion-reduce:active:translate-y-0"
+          >
+            {content.donationAction.label}
+          </button>
           <div className="mt-3 border-t border-stone-300 pt-3">
             <LocaleSwitcher
               label={content.languageSwitcherLabel}
@@ -231,6 +308,12 @@ export default function Navbar({ content, locale }: NavbarProps) {
           </div>
         </nav>
       </div>
-    </header>
+      </header>
+      <DonationDialog
+        content={donationContent}
+        isOpen={isDonationOpen}
+        onClose={handleDonationClose}
+      />
+    </>
   );
 }

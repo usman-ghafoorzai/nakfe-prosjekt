@@ -48,7 +48,6 @@ export default function TextSection({ content }: TextSectionProps) {
 
   return (
     <section className={`relative isolate overflow-hidden border-b border-stone-300/70 ${styles.section}`}>
-      <div className="pointer-events-none absolute right-[-7rem] top-16 h-72 w-72 rotate-45 border-[2.4rem] border-white/50" aria-hidden="true" />
       <div className="pointer-events-none absolute bottom-[-6rem] left-[12%] h-44 w-44 rounded-full bg-white/45 blur-3xl" aria-hidden="true" />
 
       <div className="mx-auto grid max-w-7xl gap-16 px-4 py-24 sm:px-6 sm:py-28 lg:grid-cols-[minmax(0,1fr)_minmax(0,1fr)] lg:items-start lg:gap-28 xl:gap-32">

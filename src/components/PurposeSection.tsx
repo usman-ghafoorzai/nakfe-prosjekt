@@ -13,11 +13,6 @@ export default function PurposeSection({ content }: PurposeSectionProps) {
       className="relative isolate overflow-hidden border-b border-stone-300/70 bg-[#f7f1e8]"
       aria-label={content.header.eyebrow ?? content.header.title}
     >
-      <div
-        className="pointer-events-none absolute right-[-7rem] top-16 h-72 w-72 rotate-45 border-[2.4rem] border-white/50"
-        aria-hidden="true"
-      />
-
       <div className="mx-auto grid max-w-7xl gap-14 px-4 py-20 sm:px-6 lg:grid-cols-[minmax(0,1fr)_minmax(0,1fr)] lg:items-start lg:gap-24 xl:gap-28">
         <div>
           <SectionHeader content={content.header} />

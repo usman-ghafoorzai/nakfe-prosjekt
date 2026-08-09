@@ -12,7 +12,6 @@ export default function CardGridSection({ content }: CardGridSectionProps) {
 
   return (
     <section className="nakfe-section bg-[#f7f1e8]">
-      <div className="pointer-events-none absolute right-[-5rem] top-10 h-48 w-48 rotate-45 border-[1.8rem] border-red-700/10" aria-hidden="true" />
       <div className="mx-auto max-w-7xl px-4 py-20 sm:px-6 sm:py-24 lg:py-28">
         <SectionHeader content={content.header} />
 

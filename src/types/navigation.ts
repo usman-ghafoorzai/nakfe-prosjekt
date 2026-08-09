@@ -1,6 +1,11 @@
 import type { NavItem } from "@/types/common";
 import type { Locale } from "@/types/locale";
 
+export type NavigationActionContent = {
+  label: string;
+  ariaLabel: string;
+};
+
 export type NavigationContent = {
   items: NavItem[];
   brandName: string;
@@ -11,4 +16,5 @@ export type NavigationContent = {
   closeMenuLabel: string;
   languageSwitcherLabel: string;
   languageOptionAriaLabels: Record<Locale, string>;
+  donationAction: NavigationActionContent;
 };

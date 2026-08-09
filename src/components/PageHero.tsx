@@ -12,7 +12,6 @@ export default function PageHero({ content }: PageHeroProps) {
 
       <div className="absolute inset-0 bg-gradient-to-r from-stone-950/72 via-stone-950/42 to-stone-950/14" aria-hidden="true" />
       <div className="absolute inset-x-0 bottom-0 h-44 bg-gradient-to-t from-stone-950/42 to-transparent" aria-hidden="true" />
-      <div className="absolute right-[9%] top-[24%] hidden h-40 w-40 rotate-45 border-[1.8rem] border-white/16 lg:block" aria-hidden="true" />
 
       <div className="relative z-20 mx-auto flex h-[24rem] max-w-7xl items-end px-4 pb-16 pt-28 sm:h-[28rem] sm:px-6 sm:pb-20 lg:h-[32rem] lg:pb-24">
         <div className="max-w-4xl lg:-ml-8 xl:-ml-10">

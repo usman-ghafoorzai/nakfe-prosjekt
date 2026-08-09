@@ -12,7 +12,7 @@ const activitiesContentDraft = {
 
   hero: {
     eyebrow: "Aktiviteter",
-    title: "Aktiviteter og arrangementer.",
+    title: "Aktiviteter og arrangementer",
     description:
       "Her publiserer Kvinner for Endring informasjon om aktiviteter når den er klar.",
     backgroundImages: pageHeroBackgroundImages,
@@ -21,7 +21,7 @@ const activitiesContentDraft = {
   overview: {
     header: {
       eyebrow: "Aktiviteter",
-      title: "Møteplasser og arrangementer.",
+      title: "Møteplasser og arrangementer",
       description:
         "Publiserte aktiviteter vises her med praktisk informasjon om deltakelse.",
     },
@@ -30,7 +30,7 @@ const activitiesContentDraft = {
     detailsActionLabel: "Se informasjon",
     detailsActionAriaLabelPrefix: "Se informasjon om",
     emptyState: {
-      title: "Ingen kommende aktiviteter er publisert akkurat nå.",
+      title: "Ingen kommende aktiviteter er publisert akkurat nå",
       description:
         "Nye aktiviteter og arrangementer publiseres når informasjonen er klar. Ta kontakt med oss for mer informasjon.",
       action: {
@@ -79,7 +79,7 @@ const englishActivitiesContent = {
 
   hero: {
     eyebrow: "Activities",
-    title: "Activities and events.",
+    title: "Activities and events",
     description:
       "Women for Change publishes information about activities here when it is ready.",
     backgroundImages: pageHeroBackgroundImages,
@@ -88,7 +88,7 @@ const englishActivitiesContent = {
   overview: {
     header: {
       eyebrow: "Activities",
-      title: "Meeting places and events.",
+      title: "Meeting places and events",
       description:
         "Published activities appear here with practical information about participation.",
     },
@@ -97,7 +97,7 @@ const englishActivitiesContent = {
     detailsActionLabel: "View information",
     detailsActionAriaLabelPrefix: "View information about",
     emptyState: {
-      title: "No upcoming activities are currently published.",
+      title: "No upcoming activities are currently published",
       description:
         "New activities and events will be published when the information is ready. Contact us for more information.",
       action: {

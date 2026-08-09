@@ -1,8 +1,11 @@
 import type { Metadata } from "next";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import { PageHeroCarouselProvider } from "@/components/PageHeroCarouselProvider";
+import { donationContentByLocale } from "@/content/donation";
 import { footerContentByLocale } from "@/content/footer";
 import { navigationContent } from "@/content/navigation";
+import { pageHeroBackgroundImages } from "@/content/pageHeroImages";
 import { siteContent } from "@/content/site";
 import { getLocale } from "@/lib/locale";
 import { metadataBase, siteTitle } from "@/lib/metadata";
@@ -29,14 +32,20 @@ export default async function RootLayout({
   return (
     <html lang={locale} className="h-full antialiased">
       <body className="flex min-h-full flex-col bg-background text-foreground font-sans">
-        <Navbar content={navigation} locale={locale} />
-        <main className="flex-1">
-          {children}
-        </main>
-        <Footer
-          content={footerContentByLocale[locale]}
-          navigationItems={navigation.items}
-        />
+        <PageHeroCarouselProvider imageCount={pageHeroBackgroundImages.length}>
+          <Navbar
+            content={navigation}
+            donationContent={donationContentByLocale[locale]}
+            locale={locale}
+          />
+          <main className="flex-1">
+            {children}
+          </main>
+          <Footer
+            content={footerContentByLocale[locale]}
+            navigationItems={navigation.items}
+          />
+        </PageHeroCarouselProvider>
       </body>
     </html>
   );

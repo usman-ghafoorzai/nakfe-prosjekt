@@ -11,8 +11,6 @@ export default function CtaSection({ content }: CtaSectionProps) {
 
   return (
     <section className="nakfe-section bg-stone-950 text-white">
-      <div className="absolute bottom-[-5rem] right-[12%] h-44 w-44 rotate-45 border-[2rem] border-white/10" aria-hidden="true" />
-
       <div className="mx-auto max-w-7xl px-4 py-20 sm:px-6 sm:py-24 lg:py-28">
         <div className="grid gap-14 lg:grid-cols-[minmax(0,1fr)_minmax(18rem,0.52fr)] lg:items-end lg:gap-16">
           <div className="max-w-5xl">

@@ -12,7 +12,7 @@ const contactContentDraft = {
 
   hero: {
     eyebrow: "Kontakt",
-    title: "Ta kontakt med Kvinner for Endring.",
+    title: "Ta kontakt med Kvinner for Endring",
     description:
       "Her finner du organisasjonens offentlige kontaktkanaler for spørsmål, støtte og samarbeid.",
     backgroundImages: pageHeroBackgroundImages,
@@ -73,7 +73,7 @@ const contactContentDraft = {
       ],
     },
     emptyState: {
-      title: "Ingen kontaktkanaler er publisert.",
+      title: "Ingen kontaktkanaler er publisert",
       description:
         "Kontaktinformasjon er ikke tilgjengelig akkurat nå.",
     },
@@ -93,7 +93,7 @@ const englishContactContent = {
 
   hero: {
     eyebrow: "Contact",
-    title: "Contact Women for Change.",
+    title: "Contact Women for Change",
     description:
       "Here you will find the organisation's public contact channels for questions, support and collaboration.",
     backgroundImages: pageHeroBackgroundImages,
@@ -154,7 +154,7 @@ const englishContactContent = {
       ],
     },
     emptyState: {
-      title: "No contact channels are published.",
+      title: "No contact channels are published",
       description:
         "Contact information is not available at the moment.",
     },

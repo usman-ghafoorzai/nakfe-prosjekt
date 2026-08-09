@@ -19,13 +19,20 @@ type FaqSectionProps = {
 type FaqActionLinkProps = {
   link: ContentLink;
   className: string;
+  showArrow?: boolean;
 };
 
-function FaqActionLink({ link, className }: FaqActionLinkProps) {
+function FaqActionLink({
+  link,
+  className,
+  showArrow = true,
+}: FaqActionLinkProps) {
   const label = (
     <>
       {link.label}
-      <span aria-hidden="true">{link.isExternal ? "↗" : "→"}</span>
+      {showArrow ? (
+        <span aria-hidden="true">{link.isExternal ? "↗" : "→"}</span>
+      ) : null}
     </>
   );
 
@@ -61,7 +68,10 @@ function FaqItem({
 }) {
   return (
     <li>
-      <details className="group border-l-4 border-transparent border-t border-stone-300 open:border-l-red-700 open:bg-white/50">
+      <details
+        id={item.id}
+        className="group scroll-mt-32 border-l-4 border-transparent border-t border-stone-300 target:border-l-red-700 target:bg-white/50 open:border-l-red-700 open:bg-white/50"
+      >
         <summary className="flex min-h-16 cursor-pointer list-none items-center justify-between gap-6 px-4 py-5 text-left outline-none transition-colors duration-200 ease-out hover:bg-white/50 focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-red-700 motion-reduce:transition-none sm:min-h-20 sm:px-6 [&::-webkit-details-marker]:hidden">
           <span className="text-xl font-black leading-tight tracking-[-0.035em] text-stone-950 sm:text-2xl">
             {item.question}
@@ -126,6 +136,7 @@ function FaqContactCta({ content }: { content: FaqContactCtaContent }) {
         <FaqActionLink
           className="group mt-8 inline-flex min-h-11 items-center gap-3 text-sm font-black uppercase tracking-[0.14em] text-white underline decoration-2 underline-offset-8 outline-none transition duration-200 ease-out hover:text-red-300 focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-4 focus-visible:ring-offset-stone-950 motion-reduce:transition-none"
           link={content.action}
+          showArrow={false}
         />
       </div>
     </section>
