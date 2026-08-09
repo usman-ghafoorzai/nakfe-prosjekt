@@ -164,11 +164,6 @@ export default function ImpactBriefSection({ content }: ImpactBriefSectionProps)
             }}
         >
           <div className="nakfe-stat-panel relative overflow-hidden bg-[#f7f1e8] shadow-2xl shadow-stone-950/30">
-            <div
-                className="absolute right-[-5rem] top-10 h-44 w-44 rotate-45 border-[1.7rem] border-red-700/15"
-                aria-hidden="true"
-            />
-
             <div className="relative px-6 py-7 sm:px-9 sm:py-9">
               <div className="flex items-start justify-between gap-6">
                 <div className="max-w-3xl">

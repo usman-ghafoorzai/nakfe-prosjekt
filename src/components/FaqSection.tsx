@@ -19,13 +19,20 @@ type FaqSectionProps = {
 type FaqActionLinkProps = {
   link: ContentLink;
   className: string;
+  showArrow?: boolean;
 };
 
-function FaqActionLink({ link, className }: FaqActionLinkProps) {
+function FaqActionLink({
+  link,
+  className,
+  showArrow = true,
+}: FaqActionLinkProps) {
   const label = (
     <>
       {link.label}
-      <span aria-hidden="true">{link.isExternal ? "↗" : "→"}</span>
+      {showArrow ? (
+        <span aria-hidden="true">{link.isExternal ? "↗" : "→"}</span>
+      ) : null}
     </>
   );
 
@@ -129,6 +136,7 @@ function FaqContactCta({ content }: { content: FaqContactCtaContent }) {
         <FaqActionLink
           className="group mt-8 inline-flex min-h-11 items-center gap-3 text-sm font-black uppercase tracking-[0.14em] text-white underline decoration-2 underline-offset-8 outline-none transition duration-200 ease-out hover:text-red-300 focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-4 focus-visible:ring-offset-stone-950 motion-reduce:transition-none"
           link={content.action}
+          showArrow={false}
         />
       </div>
     </section>

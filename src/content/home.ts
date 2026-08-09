@@ -10,7 +10,7 @@ export const homeContent = {
 
   hero: {
     eyebrow: "Kvinner for Endring",
-    title: "Styrker kvinner gjennom utdanning, inkludering og likestilling.",
+    title: "Styrker kvinner gjennom utdanning, inkludering og likestilling",
     description:
       "En ideell organisasjon etablert i Norge i april 2021, med arbeid i Norge og Afghanistan.",
     rotatingWordsLabel: "Arbeidet vårt handler om",
@@ -25,9 +25,9 @@ export const homeContent = {
 
   impactBrief: {
     eyebrow: "Hvorfor arbeidet haster",
-    title: "Når jenter mister skolegangen, mister samfunnet framtiden sin.",
+    title: "Når jenter mister skolegangen, mister samfunnet framtiden sin",
     description:
-      "Situasjonen i Afghanistan viser hvorfor møteplasser, kunnskap og solidaritet betyr noe. NAKFE skal være et sted hvor engasjement kan bli til handling — også her i Norge.",
+      "Situasjonen i Afghanistan viser hvorfor møteplasser, kunnskap og solidaritet betyr noe. NAKFE skal være et sted hvor engasjement kan bli til handling, også her i Norge.",
     primaryAction: {
       label: "Les FN-saken",
       href: "https://fn.no/nyheter/afghanistan-1-4-millioner-jenter-nektet-skolegang",
@@ -54,7 +54,7 @@ export const homeContent = {
     ],
     statisticsDialog: {
       eyebrow: "Tallene bak arbeidet",
-      title: "Når tilgang til skole og arbeid forsvinner, forsvinner også valgmuligheter.",
+      title: "Når tilgang til skole og arbeid forsvinner, forsvinner også valgmuligheter",
       description:
           "Dette er ikke bare store tall. Det handler om jenter og unge kvinner som mister skolegang, arbeidserfaring, inntekt, nettverk og muligheten til å påvirke sin egen framtid.",
       educationHeading: "Utdanning, arbeid og opplæring",
@@ -132,7 +132,7 @@ export const homeContent = {
   intro: {
     header: {
       eyebrow: "Om organisasjonen",
-      title: "Muligheter for langsiktig økonomisk selvstendighet og deltakelse.",
+      title: "Muligheter for langsiktig økonomisk selvstendighet og deltakelse",
       description:
         "Kvinner for Endring arbeider gjennom utdanning, arbeid, entreprenørskap og fellesskap.",
     },
@@ -160,7 +160,7 @@ export const homeContent = {
   featuredAreas: {
     header: {
       eyebrow: "Arbeidet vårt",
-      title: "Utdanning, arbeid, entreprenørskap og fellesskap.",
+      title: "Utdanning, arbeid, entreprenørskap og fellesskap",
       description:
         "Arbeidet er tilpasset ulike behov i Norge og Afghanistan.",
     },
@@ -178,8 +178,8 @@ export const homeContent = {
           position: "center",
         },
         action: {
-          label: "Les om organisasjonen",
-          href: "/om-oss",
+          label: "Se prosjektene i Norge",
+          href: "/vart-arbeid?land=norway#work-projects-heading",
         },
       },
       {
@@ -194,8 +194,8 @@ export const homeContent = {
           position: "center",
         },
         action: {
-          label: "Se prosjektene",
-          href: "/vart-arbeid",
+          label: "Se prosjektene i Afghanistan",
+          href: "/vart-arbeid?land=afghanistan#work-projects-heading",
         },
       },
       {
@@ -243,7 +243,7 @@ const englishHomeContent = {
 
   hero: {
     eyebrow: "Women for Change",
-    title: "Empowering women through education, inclusion and equality.",
+    title: "Empowering women through education, inclusion and equality",
     description:
       "A non-profit organisation established in Norway in April 2021, working in Norway and Afghanistan.",
     rotatingWordsLabel: "Our work is about",
@@ -258,9 +258,9 @@ const englishHomeContent = {
 
   impactBrief: {
     eyebrow: "Why this work is urgent",
-    title: "When girls lose access to education, society loses its future.",
+    title: "When girls lose access to education, society loses its future",
     description:
-      "The situation in Afghanistan shows why meeting places, knowledge and solidarity matter. NAKFE aims to be a place where commitment can turn into action — here in Norway as well.",
+      "The situation in Afghanistan shows why meeting places, knowledge and solidarity matter. NAKFE aims to be a place where commitment can turn into action here in Norway as well.",
     primaryAction: {
       label: "Read the UNESCO article",
       href: "https://www.unesco.org/en/articles/afghanistan-14-million-girls-still-banned-school-de-facto-authorities",
@@ -276,7 +276,7 @@ const englishHomeContent = {
         value: "1.4 million",
         label: "girls denied secondary education",
         description:
-          "The UN Association of Norway cites UNESCO figures on girls deprived of schooling since the Taliban takeover.",
+          "UNESCO reports that at least 1.4 million girls have been denied access to secondary education since the Taliban takeover.",
       },
       {
         value: "78%",
@@ -287,7 +287,7 @@ const englishHomeContent = {
     ],
     statisticsDialog: {
       eyebrow: "The figures behind the work",
-      title: "When access to education and employment disappears, choices disappear too.",
+      title: "When access to education and employment disappears, choices disappear too",
       description:
         "These are not just large figures. They represent girls and young women losing education, work experience, income, networks and the opportunity to shape their own future.",
       educationHeading: "Education, employment and training",
@@ -321,7 +321,7 @@ const englishHomeContent = {
           value: "2.5 million",
           label: "girls deprived of education",
           description:
-            "Nearly 2.5 million girls have been deprived of the right to education. The UN Association of Norway describes this as 80 percent of school-age Afghan girls.",
+            "Nearly 2.5 million girls have been deprived of the right to education, equivalent to 80 percent of school-age Afghan girls.",
           barLabel: "School-age girls without the right to education",
           barValue: 80,
         },
@@ -365,7 +365,7 @@ const englishHomeContent = {
   intro: {
     header: {
       eyebrow: "About the organisation",
-      title: "Opportunities for long-term financial independence and participation.",
+      title: "Opportunities for long-term financial independence and participation",
       description:
         "Women for Change works through education, employment, entrepreneurship and community.",
     },
@@ -393,7 +393,7 @@ const englishHomeContent = {
   featuredAreas: {
     header: {
       eyebrow: "Our work",
-      title: "Education, employment, entrepreneurship and community.",
+      title: "Education, employment, entrepreneurship and community",
       description:
         "The work is adapted to different needs in Norway and Afghanistan.",
     },
@@ -411,8 +411,8 @@ const englishHomeContent = {
           position: "center",
         },
         action: {
-          label: "About the organisation",
-          href: "/om-oss",
+          label: "View projects in Norway",
+          href: "/vart-arbeid?land=norway#work-projects-heading",
         },
       },
       {
@@ -427,8 +427,8 @@ const englishHomeContent = {
           position: "center",
         },
         action: {
-          label: "View the projects",
-          href: "/vart-arbeid",
+          label: "View projects in Afghanistan",
+          href: "/vart-arbeid?land=afghanistan#work-projects-heading",
         },
       },
       {

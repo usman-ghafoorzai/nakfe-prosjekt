@@ -102,7 +102,7 @@ export default function LocaleSwitcher({
   }
 
   return (
-    <div aria-label={label} className="inline-flex gap-1" role="group">
+    <div aria-label={label} className="inline-flex shrink-0 gap-1 whitespace-nowrap" role="group">
       {locales.map((option) => (
         <button
           aria-label={optionAriaLabels[option]}

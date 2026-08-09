@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import { donationContentByLocale } from "@/content/donation";
 import { footerContentByLocale } from "@/content/footer";
 import { navigationContent } from "@/content/navigation";
 import { siteContent } from "@/content/site";
@@ -29,7 +30,11 @@ export default async function RootLayout({
   return (
     <html lang={locale} className="h-full antialiased">
       <body className="flex min-h-full flex-col bg-background text-foreground font-sans">
-        <Navbar content={navigation} locale={locale} />
+        <Navbar
+          content={navigation}
+          donationContent={donationContentByLocale[locale]}
+          locale={locale}
+        />
         <main className="flex-1">
           {children}
         </main>

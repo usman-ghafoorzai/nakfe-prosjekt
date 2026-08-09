@@ -26,7 +26,6 @@ export default function Hero({ content }: HeroProps) {
       <div className="absolute inset-0 bg-gradient-to-r from-stone-950/85 via-stone-950/58 to-stone-950/20" aria-hidden="true" />
       <div className="absolute inset-x-0 bottom-0 h-56 bg-gradient-to-t from-stone-950/65 to-transparent" aria-hidden="true" />
       <div className="absolute left-0 top-24 hidden h-28 w-28 bg-red-700 md:block" aria-hidden="true" />
-      <div className="absolute right-[8%] top-[22%] hidden h-44 w-44 rotate-45 border-[2rem] border-white/18 lg:block" aria-hidden="true" />
 
       <div className="relative z-10 mx-auto flex min-h-[calc(100vh-4rem)] max-w-6xl items-start px-4 pb-36 pt-28 sm:px-6 sm:pt-32 lg:pt-36">
         <div className="max-w-4xl">

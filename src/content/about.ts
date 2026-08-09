@@ -38,7 +38,7 @@ export const aboutContent = {
 
   hero: {
     eyebrow: "Om oss",
-    title: "En ideell organisasjon med arbeid i Norge og Afghanistan.",
+    title: "En ideell organisasjon med arbeid i Norge og Afghanistan",
     description:
       "Kvinner for Endring ble etablert i Norge i april 2021 for å styrke kvinner gjennom utdanning, arbeid og entreprenørskap.",
     backgroundImages: pageHeroBackgroundImages,
@@ -47,7 +47,7 @@ export const aboutContent = {
   purpose: {
     header: {
       eyebrow: "Formål",
-      title: "Langsiktig økonomisk selvstendighet og deltakelse.",
+      title: "Langsiktig økonomisk selvstendighet og deltakelse",
       description:
         "Organisasjonen styrker kvinner gjennom utdanning, arbeid, entreprenørskap og fellesskap og tilpasser arbeidet til lokale forhold.",
     },
@@ -84,7 +84,7 @@ export const aboutContent = {
   values: {
     header: {
       eyebrow: "Prinsipper i arbeidet",
-      title: "Inkludering, bærekraft og deltakelse i praksis.",
+      title: "Inkludering, bærekraft og deltakelse i praksis",
       description:
         "Arbeidet tilpasses lokale forhold med et tydelig fokus på inkludering, bærekraft og virkning.",
     },
@@ -147,7 +147,7 @@ const englishAboutContent = {
 
   hero: {
     eyebrow: "About us",
-    title: "A non-profit organisation working in Norway and Afghanistan.",
+    title: "A non-profit organisation working in Norway and Afghanistan",
     description:
       "Women for Change was established in Norway in April 2021 to empower women through education, employment and entrepreneurship.",
     backgroundImages: pageHeroBackgroundImages,
@@ -156,7 +156,7 @@ const englishAboutContent = {
   purpose: {
     header: {
       eyebrow: "Purpose",
-      title: "Long-term financial independence and participation.",
+      title: "Long-term financial independence and participation",
       description:
         "The organisation empowers women through education, employment, entrepreneurship and community and adapts its work to local contexts.",
     },
@@ -193,7 +193,7 @@ const englishAboutContent = {
   values: {
     header: {
       eyebrow: "Principles in practice",
-      title: "Inclusion, sustainability and participation in practice.",
+      title: "Inclusion, sustainability and participation in practice",
       description:
         "The work is adapted to local contexts with a strong focus on inclusion, sustainability and impact.",
     },

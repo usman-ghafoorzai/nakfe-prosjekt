@@ -120,7 +120,6 @@ export const navigationContent = {
         },
         donationAction: {
             label: "STØTT OSS",
-            href: "/faq#donate",
             ariaLabel: "Støtt Kvinner for Endring",
         },
     },
@@ -139,7 +138,6 @@ export const navigationContent = {
         },
         donationAction: {
             label: "DONATE",
-            href: "/faq#donate",
             ariaLabel: "Donate to Women for Change",
         },
     },

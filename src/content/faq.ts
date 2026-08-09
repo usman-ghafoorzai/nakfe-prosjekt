@@ -1,7 +1,24 @@
+import { donationContentByLocale } from "@/content/donation";
 import { pageHeroBackgroundImages } from "@/content/pageHeroImages";
 import { validateFaqPageContent } from "@/lib/faq";
-import type { FaqPageContent } from "@/types/faq";
+import type { DonationContent } from "@/types/donation";
+import type { FaqAnswerParagraph, FaqPageContent } from "@/types/faq";
 import type { LocalizedContent } from "@/types/locale";
+
+function createDonationParagraphs(
+  content: DonationContent,
+): FaqAnswerParagraph[] {
+  return [
+    {
+      id: "intro",
+      text: content.introduction,
+    },
+    ...content.fields.map((field) => ({
+      id: field.id,
+      text: `${field.label}: ${field.value}`,
+    })),
+  ];
+}
 
 const faqContentDraft = {
   seo: {
@@ -12,7 +29,7 @@ const faqContentDraft = {
 
   hero: {
     eyebrow: "FAQ",
-    title: "Spørsmål og svar.",
+    title: "Spørsmål og svar",
     description:
       "Her finner du dokumentert informasjon om Kvinner for Endring og arbeidet i Norge og Afghanistan.",
     backgroundImages: pageHeroBackgroundImages,
@@ -131,20 +148,7 @@ const faqContentDraft = {
             id: "donate",
             question: "Hvordan kan jeg bidra eller støtte Kvinner for Endring?",
             answer: {
-              paragraphs: [
-                {
-                  id: "intro",
-                  text: "Du kan støtte Kvinner for Endring med disse betalingsopplysningene:",
-                },
-                {
-                  id: "vipps",
-                  text: "Vipps: 705538",
-                },
-                {
-                  id: "kontonummer",
-                  text: "Kontonummer: 1506.66.01835",
-                },
-              ],
+              paragraphs: createDonationParagraphs(donationContentByLocale.no),
             },
           },
           {
@@ -185,7 +189,7 @@ const faqContentDraft = {
       },
     ],
     emptyState: {
-      title: "Ingen spørsmål er publisert.",
+      title: "Ingen spørsmål er publisert",
       description: "Kontakt oss dersom du trenger mer informasjon.",
       action: {
         label: "Kontakt oss",
@@ -219,7 +223,7 @@ const englishFaqContent = {
 
   hero: {
     eyebrow: "FAQ",
-    title: "Questions and answers.",
+    title: "Questions and answers",
     description:
       "Here you will find documented information about Women for Change and its work in Norway and Afghanistan.",
     backgroundImages: pageHeroBackgroundImages,
@@ -338,28 +342,7 @@ const englishFaqContent = {
             id: "donate",
             question: "How can I contribute or donate to Women for Change?",
             answer: {
-              paragraphs: [
-                {
-                  id: "intro",
-                  text: "You can support Women for Change using these payment details:",
-                },
-                {
-                  id: "vipps",
-                  text: "Vipps: 705538",
-                },
-                {
-                  id: "bank",
-                  text: "Bank: DNB",
-                },
-                {
-                  id: "iban",
-                  text: "IBAN: NO07 1506 6601 835",
-                },
-                {
-                  id: "bic-swift",
-                  text: "BIC/SWIFT: DNBANOKKXXX",
-                },
-              ],
+              paragraphs: createDonationParagraphs(donationContentByLocale.en),
             },
           },
           {
@@ -400,7 +383,7 @@ const englishFaqContent = {
       },
     ],
     emptyState: {
-      title: "No questions are published.",
+      title: "No questions are published",
       description: "Contact us if you need more information.",
       action: {
         label: "Contact us",
