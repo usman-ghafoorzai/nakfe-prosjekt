@@ -171,7 +171,7 @@ export default function Navbar({ content, donationContent, locale }: NavbarProps
               isScrolled ? "text-stone-950 hover:text-red-700" : "text-white hover:text-white/82",
             ].join(" ")}
           >
-            <span className="grid h-12 w-12 place-items-center bg-white shadow-sm shadow-stone-950/10">
+            <span className="grid h-12 w-12 place-items-center rounded-full bg-white shadow-sm shadow-stone-950/10">
               <Image
                 src="/images/nakfe-logo.jpg"
                 alt=""
