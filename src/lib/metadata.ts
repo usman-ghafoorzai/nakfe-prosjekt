@@ -1,11 +1,17 @@
 import type { Metadata } from "next";
+import { siteContent } from "@/content/site";
 import { siteConfig } from "@/lib/site";
 import type { ContentImage, SeoContent } from "@/types/common";
+import type { Locale } from "@/types/locale";
 
 export const metadataBase = new URL(siteConfig.url);
-export const siteTitle = `${siteConfig.name} - ${siteConfig.titleSuffix}`;
+
+export function getSiteTitle(locale: Locale) {
+  return `${siteConfig.name} - ${siteContent[locale].titleSuffix}`;
+}
 
 type PageMetadataOptions = {
+  locale: Locale;
   path?: string;
   type?: "article" | "website";
 };
@@ -37,9 +43,10 @@ function getOpenGraphImage(image: ContentImage | undefined) {
 
 export function createPageMetadata(
   seo: SeoContent,
-  options: PageMetadataOptions = {},
+  options: PageMetadataOptions,
 ): Metadata {
-  const title = `${seo.title} - ${siteConfig.titleSuffix}`;
+  const titleSuffix = siteContent[options.locale].titleSuffix;
+  const title = `${seo.title} - ${titleSuffix}`;
   const canonicalUrl = getCanonicalUrl(options.path);
   const images = getOpenGraphImage(seo.image);
 
@@ -53,7 +60,7 @@ export function createPageMetadata(
     openGraph: {
       title,
       description: seo.description,
-      siteName: siteConfig.titleSuffix,
+      siteName: titleSuffix,
       url: canonicalUrl,
       type: options.type ?? "website",
       ...(images ? { images } : {}),

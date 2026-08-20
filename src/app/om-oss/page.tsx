@@ -10,6 +10,7 @@ export async function generateMetadata(): Promise<Metadata> {
   const locale = await getLocale();
 
   return createPageMetadata(aboutContentByLocale[locale].seo, {
+    locale,
     path: "/om-oss",
   });
 }

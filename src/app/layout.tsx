@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { Analytics } from "@vercel/analytics/next";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { PageHeroCarouselProvider } from "@/components/PageHeroCarouselProvider";
@@ -8,7 +9,7 @@ import { navigationContent } from "@/content/navigation";
 import { pageHeroBackgroundImages } from "@/content/pageHeroImages";
 import { siteContent } from "@/content/site";
 import { getLocale } from "@/lib/locale";
-import { metadataBase, siteTitle } from "@/lib/metadata";
+import { getSiteTitle, metadataBase } from "@/lib/metadata";
 import "./globals.css";
 
 export async function generateMetadata(): Promise<Metadata> {
@@ -16,7 +17,7 @@ export async function generateMetadata(): Promise<Metadata> {
 
   return {
     metadataBase,
-    title: siteTitle,
+    title: getSiteTitle(locale),
     description: siteContent[locale].description,
   };
 }
@@ -46,6 +47,7 @@ export default async function RootLayout({
             navigationItems={navigation.items}
           />
         </PageHeroCarouselProvider>
+        <Analytics />
       </body>
     </html>
   );

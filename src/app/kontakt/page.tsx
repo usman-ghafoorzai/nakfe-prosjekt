@@ -9,6 +9,7 @@ export async function generateMetadata(): Promise<Metadata> {
   const locale = await getLocale();
 
   return createPageMetadata(contactContentByLocale[locale].seo, {
+    locale,
     path: "/kontakt",
   });
 }

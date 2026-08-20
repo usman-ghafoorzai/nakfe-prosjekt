@@ -37,7 +37,7 @@ export default function Footer({ content, navigationItems }: FooterProps) {
             className="inline-flex min-h-12 items-center gap-3 text-stone-950 outline-none transition duration-200 ease-out hover:text-red-700 focus-visible:ring-2 focus-visible:ring-red-700 focus-visible:ring-offset-4 motion-reduce:transition-none"
             aria-label={content.homeAriaLabel}
           >
-            <span className="grid h-12 w-12 place-items-center bg-white shadow-sm shadow-stone-950/10">
+            <span className="grid h-12 w-12 place-items-center rounded-full bg-white shadow-sm shadow-stone-950/10">
               <Image
                 src={content.organization.logo.src}
                 alt={content.organization.logo.alt}
