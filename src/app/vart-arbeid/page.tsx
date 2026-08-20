@@ -13,6 +13,7 @@ export async function generateMetadata(): Promise<Metadata> {
   const locale = await getLocale();
 
   return createPageMetadata(workContentByLocale[locale].seo, {
+    locale,
     path: "/vart-arbeid",
   });
 }

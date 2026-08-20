@@ -51,6 +51,7 @@ export async function generateMetadata({
       image: project.coverImage,
     },
     {
+      locale,
       path: `/vart-arbeid/${project.slug}`,
       type: "article",
     },

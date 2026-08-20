@@ -9,7 +9,7 @@ import { navigationContent } from "@/content/navigation";
 import { pageHeroBackgroundImages } from "@/content/pageHeroImages";
 import { siteContent } from "@/content/site";
 import { getLocale } from "@/lib/locale";
-import { metadataBase, siteTitle } from "@/lib/metadata";
+import { getSiteTitle, metadataBase } from "@/lib/metadata";
 import "./globals.css";
 
 export async function generateMetadata(): Promise<Metadata> {
@@ -17,7 +17,7 @@ export async function generateMetadata(): Promise<Metadata> {
 
   return {
     metadataBase,
-    title: siteTitle,
+    title: getSiteTitle(locale),
     description: siteContent[locale].description,
   };
 }

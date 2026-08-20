@@ -54,6 +54,7 @@ export async function generateMetadata({
       image: activity.coverImage,
     },
     {
+      locale,
       path: `/aktiviteter/${activity.slug}`,
       type: "article",
     },
